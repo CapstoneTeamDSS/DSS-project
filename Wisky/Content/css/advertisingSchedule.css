@@ -1,0 +1,110 @@
+﻿#adSchedule-header{
+      padding-bottom: 50px;
+}
+#calendar {
+    float: right;
+}
+
+#ads-container {
+    float: left;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: rgb(241, 241, 241);
+    text-align: left;
+    padding-bottom: 2%;
+    height: 100%;
+}
+
+.btn-my-info {
+    background-color: #3A87AD;
+    /*border-color: #030303;*/
+    color: #fff;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+/*#create-ad {
+    width: 20%;
+    display: inline-flex;
+    float: right;
+}*/
+#location-choosen{
+    float:left;
+}
+#create-advertising{
+    float:right;
+}
+
+.ad-data {
+    border-color: #030303;
+    background-color: #fff;
+    color: #000;
+    margin-bottom: 2%;
+}
+
+.ad-info {
+    margin-left: 8px;
+}
+
+.ad-info-lable {
+    font-size: 15px;
+    color: #999;
+    float: left;
+    width: 25%;
+}
+
+.ad-info-value {
+    font-size: 18px;
+    font-weight: normal;
+    margin-right: 2px;
+    margin-left: 1px;
+    color: #444;
+    padding-left: 10px;
+    float: left;
+    width: 73%;
+}
+
+.ad-data-footer {
+    text-align: center;
+    /*padding-bottom: 5px;*/
+}
+
+.ad-type {
+    height: 40px;
+    display: inline-block;
+    width: 30%;
+    vertical-align: bottom;
+    background-color: #dae6ef;
+}
+
+.ad-type-icon {
+    max-width: 100%;
+    max-height: 90%;
+    padding-top: 10%;
+}
+
+.ad-priority {
+    height: 40px;
+    width: 30%;
+    display: inline-block;
+    background-color: #dae6ef;
+}
+
+.ad-priority-text {
+    color: #3e6d8e;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ad-link {
+    height: 40px;
+    width: 30%;
+    display: inline-block;
+    background-color: #dae6ef;
+}
+
+/*.fc-scroller {
+    height: auto !important;
+    overflow-y: visible;
+}*/

@@ -1,0 +1,30 @@
+﻿.fixedHeader {
+    position: fixed;
+}
+
+.modal-dialog {
+    transform: none !important;
+}
+
+.modal-content {
+    margin-top: 70px;
+}
+
+.modal-header {
+    position: fixed;
+    height: 70px;
+    background-color: white;
+    top: 0;
+    left: auto;
+    z-index: 1000000;
+    margin: 0 auto;
+    text-align: left;
+    font-weight: bolder;
+}
+
+.button-header {
+    position: relative;
+    float: right;
+    bottom: 35px;
+    right: 30px;
+}

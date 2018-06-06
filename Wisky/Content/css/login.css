@@ -1,0 +1,42 @@
+﻿body.login-content {
+    background: #3CD778;
+}
+
+    body.login-content:before {
+        background: #00AA41;
+        /*content: none;*/
+    }
+
+.login-content .lc-block {
+    /*background-color: rgba(255,255,255,0.5);*/
+    margin-top: -20px;
+}
+
+.logo {
+    height: auto;
+    width: 200px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+    .logo img {
+        width: 100%;
+    }
+
+    .logo .slogan {
+        width: 100%;
+        font-weight: 500;
+        font-size: 13px;
+        font-family: Arial;
+        margin-top: 5px;
+        color: #fff;
+        text-align: center;
+        /*padding-right: 12px;*/
+        text-transform: uppercase;
+    }

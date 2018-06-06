@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdvanceSetting" xml:space="preserve">
+    <value>Cài đặt nâng cao</value>
+  </data>
+  <data name="AdvertisingMode" xml:space="preserve">
+    <value>Chế độ quảng cáo</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Ảnh nền laptop</value>
+  </data>
+  <data name="BackgroundMobile" xml:space="preserve">
+    <value>Ảnh nền điện thoại</value>
+  </data>
+  <data name="BrandLogo" xml:space="preserve">
+    <value>Nhãn hiệu</value>
+  </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>Tiếng Trung</value>
+  </data>
+  <data name="ClickThrough" xml:space="preserve">
+    <value>Nhấp chuột</value>
+  </data>
+  <data name="CreateLandingPage" xml:space="preserve">
+    <value>Tạo trang quảng cáo</value>
+  </data>
+  <data name="DataMatching" xml:space="preserve">
+    <value>Kết hợp dữ liệu</value>
+  </data>
+  <data name="DayParting" xml:space="preserve">
+    <value>Phân chia ngày</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Miêu tả</value>
+  </data>
+  <data name="DeviceFilter" xml:space="preserve">
+    <value>Lọc thiết bị</value>
+  </data>
+  <data name="DisplayInfomation" xml:space="preserve">
+    <value>Thông tin hiển thị</value>
+  </data>
+  <data name="EnterPageUrl" xml:space="preserve">
+    <value>Nhập địa chỉ trang</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Lĩnh vực</value>
+  </data>
+  <data name="GeneralInfomation" xml:space="preserve">
+    <value>Thông tin chung</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="GenerateRandomPassword" xml:space="preserve">
+    <value>Tạo mật khẩu ngẫu nhiên</value>
+  </data>
+  <data name="Google" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="HourParting" xml:space="preserve">
+    <value>Phân chia giờ</value>
+  </data>
+  <data name="InteractionPage" xml:space="preserve">
+    <value>Trang tương tác</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>Đang hoạt động</value>
+  </data>
+  <data name="Japanese" xml:space="preserve">
+    <value>Tiếng Nhật</value>
+  </data>
+  <data name="LoginMode" xml:space="preserve">
+    <value>Chế độ đăng nhập</value>
+  </data>
+  <data name="LoginPageName" xml:space="preserve">
+    <value>Tên trang đăng nhập</value>
+  </data>
+  <data name="LoginPages" xml:space="preserve">
+    <value>Các trang đăng nhập</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Tiêu đề đăng nhập</value>
+  </data>
+  <data name="LWUseLP" xml:space="preserve">
+    <value>Địa điểm sử dụng trang đăng nhập này</value>
+  </data>
+  <data name="MultiLanguage" xml:space="preserve">
+    <value>Đa ngôn ngữ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="NewLoginPage" xml:space="preserve">
+    <value>Tạo mới</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Tiêu đề trang</value>
+  </data>
+  <data name="RandomPassword" xml:space="preserve">
+    <value>Mật khẩu ngẫu nhiên</value>
+  </data>
+  <data name="ReturnWelcomeText" xml:space="preserve">
+    <value>Tiêu đề chào mừng khi quay lại</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Tiếng Nga</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Lịch trình</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Chọn tệp</value>
+  </data>
+  <data name="SelectTemplate" xml:space="preserve">
+    <value>Chọn mẫu</value>
+  </data>
+  <data name="SessionDuration" xml:space="preserve">
+    <value>Thời gian đăng nhập</value>
+  </data>
+  <data name="SuccessPageUrl" xml:space="preserve">
+    <value>Địa chỉ trang thành công</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Biểu mẫu</value>
+  </data>
+  <data name="TextLanguage" xml:space="preserve">
+    <value>Ngôn ngữ </value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="Vietnamese" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Tiêu đề chào mừng</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Tiếng Anh</value>
+  </data>
+  <data name="UseDefaultBrandLogo" xml:space="preserve">
+    <value>Sử dụng nhãn hiệu mặc định</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Hoạt động</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Tạo</value>
+  </data>
+  <data name="DisplayedInfomation" xml:space="preserve">
+    <value>Thông tin được hiển thị</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="LoginWithRandomPassword" xml:space="preserve">
+    <value>Đăng nhập với mật khẩu ngẫu nhiên</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Trung bình</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Độ ưu tiên</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Lưu thay đổi</value>
+  </data>
+  <data name="SupportMultiLanguage" xml:space="preserve">
+    <value>Hỗ trợ đa ngôn ngữ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="DeleteLoginPageTip" xml:space="preserve">
+    <value>Xóa trang đăng nhập này</value>
+  </data>
+  <data name="EditLoginPageTip" xml:space="preserve">
+    <value>Chỉnh sửa trang đăng nhập</value>
+  </data>
+  <data name="AdvertisingReportChart" xml:space="preserve">
+    <value>Biểu đồ quảng c\u00E1o</value>
+  </data>
+  <data name="AllLocation" xml:space="preserve">
+    <value>Tất cả địa điểm</value>
+  </data>
+  <data name="BrowserReportChart" xml:space="preserve">
+    <value>Biểu đồ trình duyệt</value>
+  </data>
+  <data name="DeviceReportChart" xml:space="preserve">
+    <value>Biểu đồ thiết bị</value>
+  </data>
+  <data name="LoginReportChart" xml:space="preserve">
+    <value>Biểu đồ đăng nhập</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="OSReportChart" xml:space="preserve">
+    <value>Biểu đồ hệ điều h\u00E0nh</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Thay đổi</value>
+  </data>
+  <data name="EmptyTable" xml:space="preserve">
+    <value>Không có dữ liệu</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Hiển thị từ _START_ đến _END_ trong tổng số _TOTAL_</value>
+  </data>
+  <data name="InteractionPageFail" xml:space="preserve">
+    <value>Trang tương tác không tồn tại</value>
+  </data>
+  <data name="LengthMenu" xml:space="preserve">
+    <value>Hiển thị _MENU_ dòng</value>
+  </data>
+  <data name="LocationSetting" xml:space="preserve">
+    <value>Cấu hình địa điểm</value>
+  </data>
+  <data name="LocationUsage" xml:space="preserve">
+    <value>Địa điểm sử dụng trang đăng nhập này</value>
+  </data>
+  <data name="LoginFlow" xml:space="preserve">
+    <value>Luồng đăng nhập</value>
+  </data>
+  <data name="OpenLogin" xml:space="preserve">
+    <value>Đăng nhập qua mạng xã hội</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Đang xử lý...</value>
+  </data>
+  <data name="RequiredClickAdvertisement" xml:space="preserve">
+    <value>Yêu cầu nhấn quảng cáo</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="ShowAdvertising" xml:space="preserve">
+    <value>Hiện quảng cáo</value>
+  </data>
+  <data name="ShowLoginPage" xml:space="preserve">
+    <value>Hiện trang đăng nhập</value>
+  </data>
+  <data name="ZeroRecord" xml:space="preserve">
+    <value>Không có dữ liệu phù hợp</value>
+  </data>
+  <data name="AddSuccessful" xml:space="preserve">
+    <value>Tạo trang đăng nhập thành công!</value>
+  </data>
+  <data name="EditSuccessful" xml:space="preserve">
+    <value>Chỉnh sửa trang đăng nhập thành công!</value>
+  </data>
+  <data name="DemoError" xml:space="preserve">
+    <value>Vị trí hoặc thiết bị chưa được gắn</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>Mật khẩu cố định</value>
+  </data>
+  <data name="OneTime" xml:space="preserve">
+    <value>Mật khẩu một lần</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="SendPassBy" xml:space="preserve">
+    <value>Gửi mật khẩu bằng</value>
+  </data>
+  <data name="SMS" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>Thành viên</value>
+  </data>
+  <data name="FacebookCheckin" xml:space="preserve">
+    <value>Facebook Checkin</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Thủ công</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>Điền mật khẩu vào ô</value>
+  </data>
+  <data name="SelectFromDirectory" xml:space="preserve">
+    <value>Chọn từ danh mục</value>
+  </data>
+  <data name="FixedAdvertising" xml:space="preserve">
+    <value>Quảng cáo cố định</value>
+  </data>
+  <data name="ByPassLoginPage" xml:space="preserve">
+    <value>Bỏ qua trang đăng nhập</value>
+  </data>
+  <data name="IfUserHasLogin" xml:space="preserve">
+    <value>Nếu người dùng đã đăng nhập trong vòng</value>
+  </data>
+  <data name="LoginPage2" xml:space="preserve">
+    <value>Trang đăng nhập 2</value>
+  </data>
+  <data name="ShowOtherLoginPage" xml:space="preserve">
+    <value>Hiện trang đăng nhập khác</value>
+  </data>
+  <data name="SystemWill" xml:space="preserve">
+    <value>tiếng, hệ thống sẽ</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Nhập e-mail</value>
+  </data>
+  <data name="EnterPhoneNumber" xml:space="preserve">
+    <value>Nhập số điện thoại</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="SMSPassword" xml:space="preserve">
+    <value>Mật khẩu gửi qua tin nhắn (SMS)</value>
+  </data>
+  <data name="ContactMode" xml:space="preserve">
+    <value>Đăng nhập qua thông tin liên hệ</value>
+  </data>
+  <data name="MAccount" xml:space="preserve">
+    <value>Đăng nhập qua tài khoản</value>
+  </data>
+  <data name="ModeClick" xml:space="preserve">
+    <value>Đăng nhập qua click</value>
+  </data>
+  <data name="AccountWithoutPass" xml:space="preserve">
+    <value>Đăng ký thông tin</value>
+  </data>
+  <data name="RegisterEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterJob" xml:space="preserve">
+    <value>Công việc</value>
+  </data>
+  <data name="RegisterName" xml:space="preserve">
+    <value>Họ và Tên</value>
+  </data>
+  <data name="RegisterOrganization" xml:space="preserve">
+    <value>Tổ chức</value>
+  </data>
+  <data name="RegisterPhone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="RegisterPosition" xml:space="preserve">
+    <value>Chức vụ</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Nhập lại mật khẩu</value>
+  </data>
+  <data name="RegisterBirthDay" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="RegisterAddress" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="LoginModeOfCustom" xml:space="preserve">
+    <value>Tạo nút đăng nhập</value>
+  </data>
+  <data name="DesktopFormOrdinate" xml:space="preserve">
+    <value>Tọa độ form Desktop</value>
+  </data>
+  <data name="MobileFormOrdinate" xml:space="preserve">
+    <value>Tọa độ form Mobile</value>
+  </data>
+  <data name="SeismicIntensity" xml:space="preserve">
+    <value>Độ rung của màn hình</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="RegisterAttr1" xml:space="preserve">
+    <value>Thông tin bổ sung 1</value>
+  </data>
+  <data name="RegisterAttr2" xml:space="preserve">
+    <value>Thông tin bổ sung 2</value>
+  </data>
+  <data name="RegisterAttr3" xml:space="preserve">
+    <value>Thông tin bổ sung 3</value>
+  </data>
+  <data name="RegisterAttr4" xml:space="preserve">
+    <value>Thông tin bổ sung 4</value>
+  </data>
+  <data name="RegisterAttr5" xml:space="preserve">
+    <value>Thông tin bổ sung 5</value>
+  </data>
+  <data name="RegisterAttrPlaceholder" xml:space="preserve">
+    <value>2_Tiêu đề_Giá trị 1|Giá trị 2|Giá trị 3</value>
+  </data>
+  <data name="AdditionalInfo" xml:space="preserve">
+    <value>Thông tin bổ sung</value>
+  </data>
+  <data name="ClickThroughTooltip" xml:space="preserve">
+    <value>Người dùng mới sẽ đăng ký thông tin, người dùng quay lại chỉ cần nhấn Tiếp tục để vào Internet.</value>
+  </data>
+  <data name="MAccountTooltip" xml:space="preserve">
+    <value>Người dùng có thể đăng ký tài khoản để đăng nhập.</value>
+  </data>
+  <data name="SeismicValue" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="SetCustomerInfo" xml:space="preserve">
+    <value>Cấu hình thông tin người dùng</value>
+  </data>
+  <data name="ShowRegisterInfo" xml:space="preserve">
+    <value>Hiển thị thông tin đăng kí</value>
+  </data>
+  <data name="RegisterAttrIsRequired" xml:space="preserve">
+    <value>Bắt buộc nhập</value>
+  </data>
+  <data name="ButtonBackgroundColor" xml:space="preserve">
+    <value>Màu nền</value>
+  </data>
+  <data name="ButtonTextColor" xml:space="preserve">
+    <value>Màu chữ</value>
+  </data>
+  <data name="DesktopFormAttributes" xml:space="preserve">
+    <value>Một số thuộc tính của form trên Desktop</value>
+  </data>
+  <data name="WidthFormDesktop" xml:space="preserve">
+    <value>Độ rộng</value>
+  </data>
+  <data name="AddInformation" xml:space="preserve">
+    <value>Thêm thông tin</value>
+  </data>
+  <data name="RegisterAttr" xml:space="preserve">
+    <value>Thông tin bổ sung</value>
+  </data>
+  <data name="RemoveInformation" xml:space="preserve">
+    <value>Xóa thông tin</value>
+  </data>
+  <data name="TypeInformation" xml:space="preserve">
+    <value>Phân loại</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="ValuePlaceHolder" xml:space="preserve">
+    <value>Giá trị 1|Giá trị 2</value>
+  </data>
+</root>

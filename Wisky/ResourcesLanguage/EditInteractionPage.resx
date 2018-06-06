@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdsName" xml:space="preserve">
+    <value>Ads Name</value>
+  </data>
+  <data name="AdvanceSetting" xml:space="preserve">
+    <value>Advance Setting</value>
+  </data>
+  <data name="AppInstall" xml:space="preserve">
+    <value>App Install</value>
+  </data>
+  <data name="ApplicationContent" xml:space="preserve">
+    <value>Application Content</value>
+  </data>
+  <data name="ApplicationUrl" xml:space="preserve">
+    <value>Application Url</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="BackgroundForMobile" xml:space="preserve">
+    <value>Background for mobile</value>
+  </data>
+  <data name="BackgroundForPC" xml:space="preserve">
+    <value>Background for PC</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Background Image</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ChooseLocation" xml:space="preserve">
+    <value>Choose Location</value>
+  </data>
+  <data name="CIP" xml:space="preserve">
+    <value>Create Interaction Page</value>
+  </data>
+  <data name="ClickWebsite" xml:space="preserve">
+    <value>Click Website</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="DayParting" xml:space="preserve">
+    <value>Day Parting</value>
+  </data>
+  <data name="DetailInformation" xml:space="preserve">
+    <value>Detail Information</value>
+  </data>
+  <data name="DeviceFilter" xml:space="preserve">
+    <value>Device Filter</value>
+  </data>
+  <data name="DoSurvey" xml:space="preserve">
+    <value>Do Survey</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration (s)</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="EnableCheckin" xml:space="preserve">
+    <value>Enable checkin</value>
+  </data>
+  <data name="FacebookID" xml:space="preserve">
+    <value>Facebook ID:</value>
+  </data>
+  <data name="FacebookLikeInvitation" xml:space="preserve">
+    <value>Facebook like Invitation:</value>
+  </data>
+  <data name="FromTo" xml:space="preserve">
+    <value>From - To</value>
+  </data>
+  <data name="GeneralInformation" xml:space="preserve">
+    <value>General Infomation</value>
+  </data>
+  <data name="GetOffer" xml:space="preserve">
+    <value>Get Offer</value>
+  </data>
+  <data name="GoogleFormUrl" xml:space="preserve">
+    <value>Google form url:</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High (Monthly)</value>
+  </data>
+  <data name="HourParting" xml:space="preserve">
+    <value>Hour Parting</value>
+  </data>
+  <data name="LikeFacebook" xml:space="preserve">
+    <value>Like Facebook</value>
+  </data>
+  <data name="LocationsUseThis" xml:space="preserve">
+    <value>Locations which use this login page:</value>
+  </data>
+  <data name="LongSurvey" xml:space="preserve">
+    <value>Long Survey</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low (Daily)</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium (Weekly)</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message:</value>
+  </data>
+  <data name="NoLocation" xml:space="preserve">
+    <value>There is no location</value>
+  </data>
+  <data name="OfferDetail" xml:space="preserve">
+    <value>Offer detail:</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="ShortSurvey" xml:space="preserve">
+    <value>Short Survey</value>
+  </data>
+  <data name="SuccessButtonText" xml:space="preserve">
+    <value>Success button text</value>
+  </data>
+  <data name="SurveyQuestion" xml:space="preserve">
+    <value>Survey question:</value>
+  </data>
+  <data name="SurveyType" xml:space="preserve">
+    <value>Survey type:</value>
+  </data>
+  <data name="VideoDescription" xml:space="preserve">
+    <value>Video description:</value>
+  </data>
+  <data name="VideoLink" xml:space="preserve">
+    <value>Video link:</value>
+  </data>
+  <data name="WatchVideo" xml:space="preserve">
+    <value>Watch Video</value>
+  </data>
+  <data name="WebsiteAddress" xml:space="preserve">
+    <value>Website Address:</value>
+  </data>
+  <data name="WebsiteIntrodution" xml:space="preserve">
+    <value>Website Introdution:</value>
+  </data>
+  <data name="EditInteraction" xml:space="preserve">
+    <value>Edit Interaction Page</value>
+  </data>
+  <data name="EditSuccess" xml:space="preserve">
+    <value>Edit Interaction Page successfully!</value>
+  </data>
+  <data name="AndroidDevice" xml:space="preserve">
+    <value>Android device</value>
+  </data>
+  <data name="IosDevice" xml:space="preserve">
+    <value>iOS device</value>
+  </data>
+  <data name="AndroidUrl" xml:space="preserve">
+    <value>Android application URL</value>
+  </data>
+  <data name="IosUrl" xml:space="preserve">
+    <value>iOS application URL</value>
+  </data>
+  <data name="ConnectButton" xml:space="preserve">
+    <value>Enable Connect Button:</value>
+  </data>
+  <data name="PageInject" xml:space="preserve">
+    <value>Page Inject</value>
+  </data>
+  <data name="PageInjectUrl" xml:space="preserve">
+    <value>Page Inject URL</value>
+  </data>
+</root>

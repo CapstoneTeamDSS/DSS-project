@@ -1,0 +1,390 @@
+﻿
+/* Custom Margin */
+.no-margin {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+    .no-margin > [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+.xsmall-margin {
+    margin-left: -2.5px !important;
+    margin-right: -2.5px !important;
+}
+
+    .xsmall-margin > [class*="col-"] {
+        padding-left: 2.5px !important;
+        padding-right: 2.5px !important;
+    }
+
+.small-margin {
+    margin-left: -5px !important;
+    margin-right: -5px !important;
+}
+
+    .small-margin > [class*="col-"] {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#header {
+    background: #11b5e3;
+}
+
+@media screen and (min-width: 1200px) {
+.header-inner {
+    padding: 8px 0;
+}
+}
+
+.logo img {
+    height: 28px;
+}
+
+.logo .slogan {
+    font-size: 9px;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.left-icon {
+    margin-right: 7px;
+}
+
+.required {
+    content: '*';
+    color: red;
+}
+
+[class*="bg-img-"] {
+    height: 120px;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btn-datetime {
+    background: #fff;
+    cursor: pointer;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    position: relative;
+}
+
+.btn-datetime .caret {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+.btn-datetime .fa {
+    margin-right: 5px;
+}
+
+.stats-flex {
+    display: flex;
+    width: 100%;
+    color: #fff;
+}
+
+    .stats-flex .stats-item {
+        -ms-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        text-align: center;
+    }
+
+        .stats-flex .stats-item .item-count {
+            font-weight: 600;
+        }
+
+.google-map {
+    width: 100%;
+    height: 400px;
+}
+
+.chart-container {
+    min-width: 310px;
+    height: 400px;
+}
+
+.breadcrumb .left-icon {
+    position: relative;
+    top: 2px;
+}
+
+.img-preview {
+    width: 100px;
+    height: 100px;
+}
+
+    .img-preview img {
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+    }
+
+.img-background {
+    width: 100%;
+    height: auto;
+}
+
+.toggle-group .toggle-handle.btn {
+    padding-left: 5px;
+}
+
+.flex-group {
+    display: flex;
+}
+
+.flex-group .flex-item {
+        -ms-flex: 1;
+        -webkit-flex: 1;
+    flex: 1;
+}
+
+.ad-type-item {
+    text-align: center;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+    .ad-type-item > a {
+        color: #474747;
+    }
+
+.ad-type-item.active,
+.ad-type-item:hover {
+    background-color: #3F51B5;
+}
+
+        .ad-type-item.active > a,
+        .ad-type-item:hover > a {
+            color: #fff;
+}
+
+.ad-type-item .ad-type-icon {
+    font-size: 30px;
+} 
+
+.percent-value:after {
+    content: '%';
+}
+
+/* Override Material Template */
+.dash-widget-item {
+    min-height: 200px;
+}
+
+    .dash-widget-item.widget-item-sm {
+        min-height: 100px;
+    }
+
+    .dash-widget-item .dash-widget-header {
+        padding-bottom: 46px;
+        background-color: rgba(0, 0, 0, 0.13);
+    }
+
+    .dash-widget-item .dash-widget-title {
+        top: 0;
+        background: rgba(0, 0, 0, 0.15);
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+.lv-item .lv-icon {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.lv-item .lv-title {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.mini-charts-item:before {
+    width: 78px;
+}
+
+.input-slider {
+    top: 7px;
+}
+
+.toggle-switch .ts-label {
+    min-width: 130px;
+}
+
+.input-slider[disabled] .noUi-base,
+.input-slider[disabled] .noUi-base .noUi-handle {
+    background: #aaa !important;
+    cursor: not-allowed;
+}
+
+.actions > li > a, .actions > a {
+    width: auto;
+    min-width: 30px;
+    color: #fff;
+    line-height: 1;
+}
+
+.actions > li > a:before, .actions > a:before {
+    border-radius: 2px;
+}
+
+.actions > li > a > i, .actions > a > i,
+.actions > li > a:hover > i, .actions > a:hover > i {
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .modal-md {
+        width: 720px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .breadcrum {
+        margin-bottom: 0;
+    }
+
+    body.sw-toggled #content {
+        padding: 15px 0 30px 268px;
+    }
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.show {
+    display: block;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+.control-label-edit {
+    margin-top: 6px;
+}
+
+/*add landing templates*/
+.group-info {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+.button-header {
+        float: right;
+    position: relative;
+    bottom: 25px;
+}
+
+.img-container {
+    /*height: 243px;*/
+    overflow: hidden;
+}
+
+.media .actions {
+    position: absolute;
+    right: 10px;
+    z-index: 2;
+    top: 15px;
+}
+
+.media {
+    position: relative;
+}
+
+.custom-menu-right {
+    right: 30px !important;
+    top: 5px !important;
+    left: auto;
+}
+
+.block-header > h2 {
+    font-size: 19px !important;
+    font-weight: bold !important;
+}
+.title-format{
+    float:left;
+    bottom:-9px;
+}
+.image-select .option {
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.image-select .option:hover {
+    border-color: green;
+}
+
+input.form-control {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*DanhDC: them giao dien card*/
+/*Start*/
+.modified-card-header {
+    background-color: #00aa41;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+    /*padding-left: 40%!important;*/
+    text-align: center;
+}
+
+.modified-card-body {
+    padding-bottom: 7px !important;
+    padding-top: 7px !important;
+}
+
+.modified-card {
+    border-radius: 5px;
+}
+.menu-filter{
+    float:right;
+   margin-top:7px;
+   margin-left:5px;
+}
+.menu-filter-customer{
+    float:right;
+    margin-left:5px;
+}
+.calendar-format{
+    float:right;
+    width:21%;
+    margin-left:5px;
+}
+/*End*/

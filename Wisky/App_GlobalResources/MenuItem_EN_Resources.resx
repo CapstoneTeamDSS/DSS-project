@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPoint" xml:space="preserve">
+    <value>Access point</value>
+  </data>
+  <data name="AccessPointGroup" xml:space="preserve">
+    <value>Access point group</value>
+  </data>
+  <data name="AdministratorRole" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="AdvertiserRole" xml:space="preserve">
+    <value>Advertiser</value>
+  </data>
+  <data name="LandingApp" xml:space="preserve">
+    <value>Landing app</value>
+  </data>
+  <data name="LandingPage" xml:space="preserve">
+    <value>Landing page</value>
+  </data>
+  <data name="LandingTemplate" xml:space="preserve">
+    <value>Landing template</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="ManAdvertising" xml:space="preserve">
+    <value>Manage advertising</value>
+  </data>
+  <data name="ManAPG" xml:space="preserve">
+    <value>Manage access point group</value>
+  </data>
+  <data name="ManApp" xml:space="preserve">
+    <value>Manage app</value>
+  </data>
+  <data name="ManLP" xml:space="preserve">
+    <value>Manage landing page</value>
+  </data>
+  <data name="ManPublisher" xml:space="preserve">
+    <value>Manage publisher</value>
+  </data>
+  <data name="ManTemplate" xml:space="preserve">
+    <value>Manage landing template</value>
+  </data>
+  <data name="ManCategoryImage" xml:space="preserve">
+    <value>Manage category image</value>
+  </data>
+  <data name="ManVendor" xml:space="preserve">
+    <value>Manage vendor</value>
+  </data>
+  <data name="PublisherRole" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="RepAds" xml:space="preserve">
+    <value>Report advertisments</value>
+  </data>
+  <data name="RepAdverstising" xml:space="preserve">
+    <value>Report advertising</value>
+  </data>
+  <data name="RepLogin" xml:space="preserve">
+    <value>Report login</value>
+  </data>
+  <data name="Advertising" xml:space="preserve">
+    <value>Advertising</value>
+  </data>
+  <data name="CreateLandingTemplate" xml:space="preserve">
+    <value>Create landing template</value>
+  </data>
+  <data name="CreateAccessPoint" xml:space="preserve">
+    <value>Create access point</value>
+  </data>
+  <data name="CreateAPG" xml:space="preserve">
+    <value>Create access point group</value>
+  </data>
+  <data name="CreateLandingApp" xml:space="preserve">
+    <value>Create landing app</value>
+  </data>
+  <data name="EditAccessPoint" xml:space="preserve">
+    <value>Edit access point</value>
+  </data>
+  <data name="EditAPG" xml:space="preserve">
+    <value>Edit access point group</value>
+  </data>
+  <data name="EditLandingPage" xml:space="preserve">
+    <value>Edit landing page</value>
+  </data>
+  <data name="EditLandingTemplate" xml:space="preserve">
+    <value>Edit landing template</value>
+  </data>
+  <data name="CreateLandingPage" xml:space="preserve">
+    <value>Create landing page</value>
+  </data>
+  <data name="CreateAdvertising" xml:space="preserve">
+    <value>Create advertising</value>
+  </data>
+  <data name="EditAdvertising" xml:space="preserve">
+    <value>Edit advertising</value>
+  </data>
+  <data name="CreateLocation" xml:space="preserve">
+    <value>Create location</value>
+  </data>
+  <data name="EditLocation" xml:space="preserve">
+    <value>Edit location</value>
+  </data>
+  <data name="AddPublisher" xml:space="preserve">
+    <value>Add publisher</value>
+  </data>
+  <data name="EditPublisher" xml:space="preserve">
+    <value>Edit publisher</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Publisher</value>
+  </data>
+  <data name="CreatePublisher" xml:space="preserve">
+    <value>Create publisher</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>User Accounts</value>
+  </data>
+  <data name="ManAccount" xml:space="preserve">
+    <value>Manage user accounts</value>
+  </data>
+  <data name="Impression" xml:space="preserve">
+    <value>Impression</value>
+  </data>
+  <data name="Presense" xml:space="preserve">
+    <value>Presense</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Campaign" xml:space="preserve">
+    <value>Campaign</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ThumbnailList" xml:space="preserve">
+    <value>Location &amp; AccessPointGroup</value>
+  </data>
+  <data name="LocationManager" xml:space="preserve">
+    <value>Location Manager</value>
+  </data>
+  <data name="ManAP" xml:space="preserve">
+    <value>Manage Access points</value>
+  </data>
+  <data name="BrandAnalysis" xml:space="preserve">
+    <value>Brand Analysis</value>
+  </data>
+  <data name="Coupon" xml:space="preserve">
+    <value>Coupon</value>
+  </data>
+  <data name="EmailMarketing" xml:space="preserve">
+    <value>Email Marketing</value>
+  </data>
+  <data name="ManBrand" xml:space="preserve">
+    <value>Manage Brand</value>
+  </data>
+  <data name="ManBrandManager" xml:space="preserve">
+    <value>Manage Brand Manager</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="BrandManager" xml:space="preserve">
+    <value>BrandManager</value>
+  </data>
+  <data name="Subscribers" xml:space="preserve">
+    <value>Subscribers</value>
+  </data>
+  <data name="CreateBrand" xml:space="preserve">
+    <value>Create Brand</value>
+  </data>
+  <data name="CreateBrandManager" xml:space="preserve">
+    <value>Create Brand Manager</value>
+  </data>
+  <data name="EditBrandManager" xml:space="preserve">
+    <value>Edit Brand Manager</value>
+  </data>
+  <data name="CreateCustomerList" xml:space="preserve">
+    <value>Create Customer List</value>
+  </data>
+  <data name="EditCustomerList" xml:space="preserve">
+    <value>Edit Customer List</value>
+  </data>
+  <data name="CustomerListDetail" xml:space="preserve">
+    <value>Customer List Detail</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="CategoryImage" xml:space="preserve">
+    <value>Category Image</value>
+  </data>
+</root>

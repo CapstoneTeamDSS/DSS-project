@@ -1,0 +1,63 @@
+﻿@model Wisky.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login | </title>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Content/template-material/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Content/template-material/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="~/Content/template-material/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "frm_login", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <h1>Login Form</h1>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Username" name="Username" id="Username" />
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Password" name="Password" id="Password" />
+                        </div>
+                        <div>
+                            <input type="submit" value="Log in" class="btn btn-success btn-cons" />
+                            <a class="reset_pass" href="#">Lost your password?</a>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div style="text-align: left; margin-bottom: 5px">
+                            <input type="checkbox" name="RememberMe" id="RememberMe" value="true" />
+                            Remember me?
+                        </div>
+                    }
+                </section>
+            </div>
+           </div>
+</body>
+</html>

@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdvanceSetting" xml:space="preserve">
+    <value>Advance Setting</value>
+  </data>
+  <data name="AdvertisingMode" xml:space="preserve">
+    <value>Advertising mode</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Background Laptop</value>
+  </data>
+  <data name="BackgroundMobile" xml:space="preserve">
+    <value>Background Mobile</value>
+  </data>
+  <data name="BrandLogo" xml:space="preserve">
+    <value>Brand Logo</value>
+  </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="ClickThrough" xml:space="preserve">
+    <value>Click Through</value>
+  </data>
+  <data name="CreateLandingPage" xml:space="preserve">
+    <value>Create Login page</value>
+  </data>
+  <data name="DataMatching" xml:space="preserve">
+    <value>Data Matching</value>
+  </data>
+  <data name="DayParting" xml:space="preserve">
+    <value>Day Parting</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DeviceFilter" xml:space="preserve">
+    <value>Device Filter</value>
+  </data>
+  <data name="DisplayInfomation" xml:space="preserve">
+    <value>Display Infomation</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnterPageUrl" xml:space="preserve">
+    <value>Enter Page Url</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="GeneralInfomation" xml:space="preserve">
+    <value>General Infomation</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="GenerateRandomPassword" xml:space="preserve">
+    <value>Generate Random Password</value>
+  </data>
+  <data name="Google" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="HourParting" xml:space="preserve">
+    <value>Hour Parting</value>
+  </data>
+  <data name="InteractionPage" xml:space="preserve">
+    <value>Login page</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>IsActive</value>
+  </data>
+  <data name="Japanese" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="LoginMode" xml:space="preserve">
+    <value>Login Mode</value>
+  </data>
+  <data name="LoginPageName" xml:space="preserve">
+    <value>Login page name</value>
+  </data>
+  <data name="LoginPages" xml:space="preserve">
+    <value>Login Page</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Login Text</value>
+  </data>
+  <data name="LWUseLP" xml:space="preserve">
+    <value>Locations which use this login page</value>
+  </data>
+  <data name="MultiLanguage" xml:space="preserve">
+    <value>Multi Language</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewLoginPage" xml:space="preserve">
+    <value>New login page</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Page Title</value>
+  </data>
+  <data name="RandomPassword" xml:space="preserve">
+    <value>Random Password</value>
+  </data>
+  <data name="ReturnWelcomeText" xml:space="preserve">
+    <value>Return Welcome Text</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="SelectTemplate" xml:space="preserve">
+    <value>Select Template</value>
+  </data>
+  <data name="SessionDuration" xml:space="preserve">
+    <value>Session duration</value>
+  </data>
+  <data name="SuccessPageUrl" xml:space="preserve">
+    <value>Success page url</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="TextLanguage" xml:space="preserve">
+    <value>Text Language</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="UseDefaultBrandLogo" xml:space="preserve">
+    <value>Use default Brand Logo</value>
+  </data>
+  <data name="Vietnamese" xml:space="preserve">
+    <value>Vietnamese</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Welcome Text</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="DisplayedInfomation" xml:space="preserve">
+    <value>Displayed Infomation</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LoginWithRandomPassword" xml:space="preserve">
+    <value>Login with random password</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="SupportMultiLanguage" xml:space="preserve">
+    <value>Support Multi Language</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="DeleteLoginPageTip" xml:space="preserve">
+    <value>Delete this login page</value>
+  </data>
+  <data name="EditLoginPageTip" xml:space="preserve">
+    <value>Edit login page</value>
+  </data>
+  <data name="AdvertisingReportChart" xml:space="preserve">
+    <value>Advertising Report Chart</value>
+  </data>
+  <data name="AllLocation" xml:space="preserve">
+    <value>All Location</value>
+  </data>
+  <data name="BrowserReportChart" xml:space="preserve">
+    <value>Browser Report Chart</value>
+  </data>
+  <data name="DeviceReportChart" xml:space="preserve">
+    <value>Device Report Chart</value>
+  </data>
+  <data name="LoginReportChart" xml:space="preserve">
+    <value>Login Report Chart</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="OSReportChart" xml:space="preserve">
+    <value>OS Report Chart</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="EmptyTable" xml:space="preserve">
+    <value>No data record</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Showing _START_ to _END_ of _TOTAL_ entries</value>
+  </data>
+  <data name="InteractionPageFail" xml:space="preserve">
+    <value>Login Page not existed</value>
+  </data>
+  <data name="LengthMenu" xml:space="preserve">
+    <value>Show _MENU_ entries</value>
+  </data>
+  <data name="LocationSetting" xml:space="preserve">
+    <value>Location Settings</value>
+  </data>
+  <data name="LocationUsage" xml:space="preserve">
+    <value>Location which use this login page</value>
+  </data>
+  <data name="LoginFlow" xml:space="preserve">
+    <value>Login Flow</value>
+  </data>
+  <data name="OpenLogin" xml:space="preserve">
+    <value>Login by Social Network</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="RequiredClickAdvertisement" xml:space="preserve">
+    <value>Required Click Advertisement</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ShowAdvertising" xml:space="preserve">
+    <value>Show Advertising</value>
+  </data>
+  <data name="ShowLoginPage" xml:space="preserve">
+    <value>Show Login Page</value>
+  </data>
+  <data name="ZeroRecord" xml:space="preserve">
+    <value>No suitable record found</value>
+  </data>
+  <data name="AddSuccessful" xml:space="preserve">
+    <value>AddSuccessful</value>
+  </data>
+  <data name="EditSuccessful" xml:space="preserve">
+    <value>EditSuccessful</value>
+  </data>
+  <data name="DemoError" xml:space="preserve">
+    <value>Location or Device was not applied</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Fixed" xml:space="preserve">
+    <value>Fixed password</value>
+  </data>
+  <data name="OneTime" xml:space="preserve">
+    <value>One time password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SendPassBy" xml:space="preserve">
+    <value>Send pass by</value>
+  </data>
+  <data name="SMS" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>Membership</value>
+  </data>
+  <data name="FacebookCheckin" xml:space="preserve">
+    <value>Facebook Checkin</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="InputPassword" xml:space="preserve">
+    <value>Input Password</value>
+  </data>
+  <data name="SelectFromDirectory" xml:space="preserve">
+    <value>Select From Directory</value>
+  </data>
+  <data name="FixedAdvertising" xml:space="preserve">
+    <value>Fixed Advertising</value>
+  </data>
+  <data name="ByPassLoginPage" xml:space="preserve">
+    <value>Bypass Login Page</value>
+  </data>
+  <data name="IfUserHasLogin" xml:space="preserve">
+    <value>If user has already logged in</value>
+  </data>
+  <data name="LoginPage2" xml:space="preserve">
+    <value>Login Page 2</value>
+  </data>
+  <data name="ShowOtherLoginPage" xml:space="preserve">
+    <value>Show other Login Page</value>
+  </data>
+  <data name="SystemWill" xml:space="preserve">
+    <value>hour(s), system will</value>
+  </data>
+  <data name="EnterEmail" xml:space="preserve">
+    <value>Enter e-mail</value>
+  </data>
+  <data name="EnterPhoneNumber" xml:space="preserve">
+    <value>Enter phone number</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="SMSPassword" xml:space="preserve">
+    <value>SMS Password</value>
+  </data>
+  <data name="ContactMode" xml:space="preserve">
+    <value>Login by Contact Information</value>
+  </data>
+  <data name="MAccount" xml:space="preserve">
+    <value>Login by Account</value>
+  </data>
+  <data name="ModeClick" xml:space="preserve">
+    <value>Login by Click Through</value>
+  </data>
+  <data name="AccountWithoutPass" xml:space="preserve">
+    <value>Account Without Pass</value>
+  </data>
+  <data name="RegisterEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterJob" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="RegisterName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="RegisterOrganization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="RegisterPhone" xml:space="preserve">
+    <value>Number phone</value>
+  </data>
+  <data name="RegisterPosition" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="RegisterBirthDay" xml:space="preserve">
+    <value>Birth Day</value>
+  </data>
+  <data name="RegisterAddress" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="LoginModeOfCustom" xml:space="preserve">
+    <value>Custom Control</value>
+  </data>
+  <data name="DesktopFormOrdinate" xml:space="preserve">
+    <value>Desktop Form Ordinate</value>
+  </data>
+  <data name="MobileFormOrdinate" xml:space="preserve">
+    <value>Mobile Form Ordinate</value>
+  </data>
+  <data name="SeismicIntensity" xml:space="preserve">
+    <value>Seismic Intensity</value>
+  </data>
+  <data name="RegisterAttr1" xml:space="preserve">
+    <value>Ancillary 1</value>
+  </data>
+  <data name="RegisterAttr2" xml:space="preserve">
+    <value>Ancillary 2</value>
+  </data>
+  <data name="RegisterAttr3" xml:space="preserve">
+    <value>Ancillary 3</value>
+  </data>
+  <data name="RegisterAttr4" xml:space="preserve">
+    <value>Ancillary 4</value>
+  </data>
+  <data name="RegisterAttr5" xml:space="preserve">
+    <value>Ancillary 5</value>
+  </data>
+  <data name="RegisterAttrPlaceholder" xml:space="preserve">
+    <value>2_Title_Value1|Value2|Value3|Value4</value>
+  </data>
+  <data name="AdditionalInfo" xml:space="preserve">
+    <value>Additional info</value>
+  </data>
+  <data name="ClickThroughTooltip" xml:space="preserve">
+    <value>Customer could give their info and click Next to gain access to the Internet.</value>
+  </data>
+  <data name="MAccountTooltip" xml:space="preserve">
+    <value>Customer could login with a given account.</value>
+  </data>
+  <data name="SeismicValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="SetCustomerInfo" xml:space="preserve">
+    <value>Set customer's intake info</value>
+  </data>
+  <data name="ShowRegisterInfo" xml:space="preserve">
+    <value>Show register info</value>
+  </data>
+  <data name="RegisterAttrIsRequired" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="ButtonBackgroundColor" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="ButtonTextColor" xml:space="preserve">
+    <value>Text Color</value>
+  </data>
+  <data name="DesktopFormAttributes" xml:space="preserve">
+    <value>Attributes On Desktop</value>
+  </data>
+  <data name="WidthFormDesktop" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="AddInformation" xml:space="preserve">
+    <value>Add Information</value>
+  </data>
+  <data name="RegisterAttr" xml:space="preserve">
+    <value>Ancillary</value>
+  </data>
+  <data name="RemoveInformation" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="TypeInformation" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ValuePlaceHolder" xml:space="preserve">
+    <value>Value 1| Value 2</value>
+  </data>
+</root>

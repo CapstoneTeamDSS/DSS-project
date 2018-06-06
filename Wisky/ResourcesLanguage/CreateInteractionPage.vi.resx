@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdsName" xml:space="preserve">
+    <value>Tên quảng cáo</value>
+  </data>
+  <data name="AdvanceSetting" xml:space="preserve">
+    <value>Thiết lập nâng cao</value>
+  </data>
+  <data name="AppInstall" xml:space="preserve">
+    <value>Cài ứng dụng</value>
+  </data>
+  <data name="ApplicationContent" xml:space="preserve">
+    <value>Nội dung ứng dụng</value>
+  </data>
+  <data name="ApplicationUrl" xml:space="preserve">
+    <value>Đường dẫn đến với ứng dụng</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="BackgroundForMobile" xml:space="preserve">
+    <value>Hình nền cho điện thoại</value>
+  </data>
+  <data name="BackgroundForPC" xml:space="preserve">
+    <value>Hình nền cho máy tính</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Hình nền</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Thay đổi</value>
+  </data>
+  <data name="CIP" xml:space="preserve">
+    <value>Tạo trang tương tác mới</value>
+  </data>
+  <data name="ClickWebsite" xml:space="preserve">
+    <value>Bấm trang web</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Hoàn Tất</value>
+  </data>
+  <data name="DayParting" xml:space="preserve">
+    <value>Phân chia theo ngày</value>
+  </data>
+  <data name="DetailInformation" xml:space="preserve">
+    <value>Thông tin cụ thể</value>
+  </data>
+  <data name="DeviceFilter" xml:space="preserve">
+    <value>Phân loại thiết bị</value>
+  </data>
+  <data name="DoSurvey" xml:space="preserve">
+    <value>Làm khảo sát</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Thời gian (s)</value>
+  </data>
+  <data name="EnableCheckin" xml:space="preserve">
+    <value>Được phép đăng kí</value>
+  </data>
+  <data name="FacebookID" xml:space="preserve">
+    <value>ID Facebook</value>
+  </data>
+  <data name="FacebookLikeInvitation" xml:space="preserve">
+    <value>Lời mời thích Facebook</value>
+  </data>
+  <data name="FromTo" xml:space="preserve">
+    <value>Từ - Đến</value>
+  </data>
+  <data name="GeneralInformation" xml:space="preserve">
+    <value>Thông tin chung</value>
+  </data>
+  <data name="GetOffer" xml:space="preserve">
+    <value>Nhận ưu đãi</value>
+  </data>
+  <data name="GoogleFormUrl" xml:space="preserve">
+    <value>Đường dẫn Google Form</value>
+  </data>
+  <data name="HourParting" xml:space="preserve">
+    <value>Phân chia theo giờ</value>
+  </data>
+  <data name="LikeFacebook" xml:space="preserve">
+    <value>Thích Facebook</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Thông điệp</value>
+  </data>
+  <data name="OfferDetail" xml:space="preserve">
+    <value>Chi tiết ưu đãi</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Độ ưu tiên</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Chọn tệp</value>
+  </data>
+  <data name="SuccessButtonText" xml:space="preserve">
+    <value>Nút văn bản thành công</value>
+  </data>
+  <data name="SurveyQuestion" xml:space="preserve">
+    <value>Câu hỏi khảo sát</value>
+  </data>
+  <data name="SurveyType" xml:space="preserve">
+    <value>Dạng khảo sát</value>
+  </data>
+  <data name="VideoDescription" xml:space="preserve">
+    <value>Mô tả Video</value>
+  </data>
+  <data name="VideoLink" xml:space="preserve">
+    <value>Đường dẫn Video</value>
+  </data>
+  <data name="WatchVideo" xml:space="preserve">
+    <value>Xem video</value>
+  </data>
+  <data name="WebsiteAddress" xml:space="preserve">
+    <value>Địa chỉ Website</value>
+  </data>
+  <data name="WebsiteIntrodution" xml:space="preserve">
+    <value>Giới thiệu Website</value>
+  </data>
+  <data name="LongSurvey" xml:space="preserve">
+    <value>Khảo sát dài</value>
+  </data>
+  <data name="ShortSurvey" xml:space="preserve">
+    <value>Khảo sát ngắn</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>Cao (Mỗi tháng)</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Thấp (Mỗi ngày)</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Trung bình (Mỗi tuần)</value>
+  </data>
+  <data name="CreateInteraction" xml:space="preserve">
+    <value>Tạo trang tương tác</value>
+  </data>
+  <data name="ChooseLocation" xml:space="preserve">
+    <value>Chọn địa điểm</value>
+  </data>
+  <data name="LocationsUseThis" xml:space="preserve">
+    <value>Vị trí sử dụng trang này</value>
+  </data>
+  <data name="NoLocation" xml:space="preserve">
+    <value>Không có vị trí</value>
+  </data>
+  <data name="CreateInteractionPageSuccess" xml:space="preserve">
+    <value>Tạo trang thành công</value>
+  </data>
+  <data name="AndroidDevice" xml:space="preserve">
+    <value>Thiết bị Android</value>
+  </data>
+  <data name="IosDevice" xml:space="preserve">
+    <value>Thiết bị iOS</value>
+  </data>
+  <data name="AndroidUrl" xml:space="preserve">
+    <value>URL ứng dụng Android</value>
+  </data>
+  <data name="IosUrl" xml:space="preserve">
+    <value>URL ứng dụng iOS</value>
+  </data>
+  <data name="InteractionPageName" xml:space="preserve">
+    <value>Tên trang quảng cáo</value>
+  </data>
+  <data name="SelectFromDirectory" xml:space="preserve">
+    <value>Chọn từ danh mục</value>
+  </data>
+  <data name="ConnectButton" xml:space="preserve">
+    <value>Có nút kết nối</value>
+  </data>
+  <data name="PageInject" xml:space="preserve">
+    <value>Nhúng trang</value>
+  </data>
+  <data name="PageInjectUrl" xml:space="preserve">
+    <value>URL trang nhúng:</value>
+  </data>
+</root>

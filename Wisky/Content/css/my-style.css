@@ -1,0 +1,43 @@
+﻿.process {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+    text-align: center;
+}
+
+    .process img {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+@media (min-width: 768px) {
+    .modal-lg {
+        width: 850px;
+    }
+
+    .modal-xlg {
+        width: 80%;
+    }
+}
+
+fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+

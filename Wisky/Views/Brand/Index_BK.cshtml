@@ -1,0 +1,50 @@
+﻿@model int
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+
+@if (true)
+{
+
+}
+
+@{
+    var intValues = ViewBag.intValues as List<int>;
+    foreach (var item in ViewBag.intValues)
+    {
+        <a>@(item)</a>
+    }
+}
+<br />
+Ajax load
+<ul id="this-ul"></ul>
+
+@(Model)+sajbdjasbd
+
+@(ViewBag.intValues.Count)
+@(intValues.Count)
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Brand/GetBrands',
+                method: 'POST',
+                data: null,
+                success: function (data) {
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<li>' + data[i].Name + '</li>';
+                    }
+                    $('#this-ul').html(html);
+                },
+                fail: function () {
+                    alert('Loi roi');
+                }
+            });
+        });
+    </script>
+}

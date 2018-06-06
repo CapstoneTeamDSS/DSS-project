@@ -1,0 +1,41 @@
+﻿@model int
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product @(Model)</h2>
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Brand/GetInt',
+                method: 'POST',
+                data: {
+                    groupItem: {
+                        CssClass: 'abc',
+                        Css: 'xyz',
+                        X: 1,
+                        Y: 1,
+                        DeviceType: 1,
+                        LoginModeCode: 1,
+                    },
+                    value: 1
+                },
+                success: function (data) {
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<li>' + data[i] + '</li>';
+                    }
+                    $('#this-ul').html(html);
+                },
+                fail: function () {
+                    alert('Loi roi');
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DSSEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DSSEntities.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DSSEntities.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Accounts" EntityType="DSSEntities.Account" />
+    <EntitySet Name="Areas" EntityType="DSSEntities.Area" />
+    <EntitySet Name="Boxes" EntityType="DSSEntities.Box" />
+    <EntitySet Name="Brands" EntityType="DSSEntities.Brand" />
+    <EntitySet Name="Devices" EntityType="DSSEntities.Device" />
+    <EntitySet Name="DeviceScenarios" EntityType="DSSEntities.DeviceScenario" />
+    <EntitySet Name="Layouts" EntityType="DSSEntities.Layout" />
+    <EntitySet Name="Locations" EntityType="DSSEntities.Location" />
+    <EntitySet Name="MediaSrcs" EntityType="DSSEntities.MediaSrc" />
+    <EntitySet Name="MediaTypes" EntityType="DSSEntities.MediaType" />
+    <EntitySet Name="Playlists" EntityType="DSSEntities.Playlist" />
+    <EntitySet Name="PlaylistItems" EntityType="DSSEntities.PlaylistItem" />
+    <EntitySet Name="Resolutions" EntityType="DSSEntities.Resolution" />
+    <EntitySet Name="Roles" EntityType="DSSEntities.Role" />
+    <EntitySet Name="Scenarios" EntityType="DSSEntities.Scenario" />
+    <EntitySet Name="ScenarioItems" EntityType="DSSEntities.ScenarioItem" />
+    <EntitySet Name="Screens" EntityType="DSSEntities.Screen" />
+    <AssociationSet Name="FK_Account_Brand" Association="DSSEntities.FK_Account_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Account_Role" Association="DSSEntities.FK_Account_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Area_Layout" Association="DSSEntities.FK_Area_Layout">
+      <End Role="Layout" EntitySet="Layouts" />
+      <End Role="Area" EntitySet="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScenarioItem_Area" Association="DSSEntities.FK_ScenarioItem_Area">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="ScenarioItem" EntitySet="ScenarioItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Box_Location" Association="DSSEntities.FK_Box_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Box" EntitySet="Boxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceMatching_Box" Association="DSSEntities.FK_DeviceMatching_Box">
+      <End Role="Box" EntitySet="Boxes" />
+      <End Role="Device" EntitySet="Devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Brand" Association="DSSEntities.FK_Location_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaSrc_Brand" Association="DSSEntities.FK_MediaSrc_Brand">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="MediaSrc" EntitySet="MediaSrcs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceMatching_Screen" Association="DSSEntities.FK_DeviceMatching_Screen">
+      <End Role="Screen" EntitySet="Screens" />
+      <End Role="Device" EntitySet="Devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceScenario_Device" Association="DSSEntities.FK_DeviceScenario_Device">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="DeviceScenario" EntitySet="DeviceScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceScenario_Scenario" Association="DSSEntities.FK_DeviceScenario_Scenario">
+      <End Role="Scenario" EntitySet="Scenarios" />
+      <End Role="DeviceScenario" EntitySet="DeviceScenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scenario_Layout" Association="DSSEntities.FK_Scenario_Layout">
+      <End Role="Layout" EntitySet="Layouts" />
+      <End Role="Scenario" EntitySet="Scenarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Screen_Location" Association="DSSEntities.FK_Screen_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Screen" EntitySet="Screens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaSrc_MediaType" Association="DSSEntities.FK_MediaSrc_MediaType">
+      <End Role="MediaType" EntitySet="MediaTypes" />
+      <End Role="MediaSrc" EntitySet="MediaSrcs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistItem_MediaSrc" Association="DSSEntities.FK_PlaylistItem_MediaSrc">
+      <End Role="MediaSrc" EntitySet="MediaSrcs" />
+      <End Role="PlaylistItem" EntitySet="PlaylistItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistItem_Playlist" Association="DSSEntities.FK_PlaylistItem_Playlist">
+      <End Role="Playlist" EntitySet="Playlists" />
+      <End Role="PlaylistItem" EntitySet="PlaylistItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistScenarioArea_Playlist" Association="DSSEntities.FK_PlaylistScenarioArea_Playlist">
+      <End Role="Playlist" EntitySet="Playlists" />
+      <End Role="ScenarioItem" EntitySet="ScenarioItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Screen_Resolution" Association="DSSEntities.FK_Screen_Resolution">
+      <End Role="Resolution" EntitySet="Resolutions" />
+      <End Role="Screen" EntitySet="Screens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistScenarioArea_Scenario" Association="DSSEntities.FK_PlaylistScenarioArea_Scenario">
+      <End Role="Scenario" EntitySet="Scenarios" />
+      <End Role="ScenarioItem" EntitySet="ScenarioItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountID" />
+    </Key>
+    <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="Int32" Nullable="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CreateDatetime" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Brand" Relationship="DSSEntities.FK_Account_Brand" FromRole="Account" ToRole="Brand" />
+    <NavigationProperty Name="Role" Relationship="DSSEntities.FK_Account_Role" FromRole="Account" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LayoutID" Type="Int32" Nullable="false" />
+    <Property Name="AreaCode" Type="Int32" Nullable="false" />
+    <Property Name="X1Position" Type="Double" Nullable="false" />
+    <Property Name="X2Position" Type="Double" Nullable="false" />
+    <Property Name="Y1Position" Type="Double" Nullable="false" />
+    <Property Name="Y2Postition" Type="Double" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Layout" Relationship="DSSEntities.FK_Area_Layout" FromRole="Area" ToRole="Layout" />
+    <NavigationProperty Name="ScenarioItems" Relationship="DSSEntities.FK_ScenarioItem_Area" FromRole="Area" ToRole="ScenarioItem" />
+  </EntityType>
+  <EntityType Name="Box">
+    <Key>
+      <PropertyRef Name="BoxID" />
+    </Key>
+    <Property Name="BoxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="BoxName" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Location" Relationship="DSSEntities.FK_Box_Location" FromRole="Box" ToRole="Location" />
+    <NavigationProperty Name="Devices" Relationship="DSSEntities.FK_DeviceMatching_Box" FromRole="Box" ToRole="Device" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="BrandID" />
+    </Key>
+    <Property Name="BrandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Accounts" Relationship="DSSEntities.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
+    <NavigationProperty Name="Locations" Relationship="DSSEntities.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
+    <NavigationProperty Name="MediaSrcs" Relationship="DSSEntities.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceID" />
+    </Key>
+    <Property Name="DeviceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScreenID" Type="Int32" Nullable="false" />
+    <Property Name="BoxID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Box" Relationship="DSSEntities.FK_DeviceMatching_Box" FromRole="Device" ToRole="Box" />
+    <NavigationProperty Name="Screen" Relationship="DSSEntities.FK_DeviceMatching_Screen" FromRole="Device" ToRole="Screen" />
+    <NavigationProperty Name="DeviceScenarios" Relationship="DSSEntities.FK_DeviceScenario_Device" FromRole="Device" ToRole="DeviceScenario" />
+  </EntityType>
+  <EntityType Name="DeviceScenario">
+    <Key>
+      <PropertyRef Name="DeviceScenationID" />
+    </Key>
+    <Property Name="DeviceScenationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceID" Type="Int32" Nullable="false" />
+    <Property Name="ScenarioID" Type="Int32" Nullable="false" />
+    <Property Name="TimesToPlay" Type="Int32" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Device" Relationship="DSSEntities.FK_DeviceScenario_Device" FromRole="DeviceScenario" ToRole="Device" />
+    <NavigationProperty Name="Scenario" Relationship="DSSEntities.FK_DeviceScenario_Scenario" FromRole="DeviceScenario" ToRole="Scenario" />
+  </EntityType>
+  <EntityType Name="Layout">
+    <Key>
+      <PropertyRef Name="LayoutID" />
+    </Key>
+    <Property Name="LayoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AreasNum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Areas" Relationship="DSSEntities.FK_Area_Layout" FromRole="Layout" ToRole="Area" />
+    <NavigationProperty Name="Scenarios" Relationship="DSSEntities.FK_Scenario_Layout" FromRole="Layout" ToRole="Scenario" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="Int32" Nullable="false" />
+    <Property Name="Province" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Boxes" Relationship="DSSEntities.FK_Box_Location" FromRole="Location" ToRole="Box" />
+    <NavigationProperty Name="Brand" Relationship="DSSEntities.FK_Location_Brand" FromRole="Location" ToRole="Brand" />
+    <NavigationProperty Name="Screens" Relationship="DSSEntities.FK_Screen_Location" FromRole="Location" ToRole="Screen" />
+  </EntityType>
+  <EntityType Name="MediaSrc">
+    <Key>
+      <PropertyRef Name="MediaSrcID" />
+    </Key>
+    <Property Name="MediaSrcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="URL" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CreateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Brand" Relationship="DSSEntities.FK_MediaSrc_Brand" FromRole="MediaSrc" ToRole="Brand" />
+    <NavigationProperty Name="MediaType" Relationship="DSSEntities.FK_MediaSrc_MediaType" FromRole="MediaSrc" ToRole="MediaType" />
+    <NavigationProperty Name="PlaylistItems" Relationship="DSSEntities.FK_PlaylistItem_MediaSrc" FromRole="MediaSrc" ToRole="PlaylistItem" />
+  </EntityType>
+  <EntityType Name="MediaType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MediaSrcs" Relationship="DSSEntities.FK_MediaSrc_MediaType" FromRole="MediaType" ToRole="MediaSrc" />
+  </EntityType>
+  <EntityType Name="Playlist">
+    <Key>
+      <PropertyRef Name="PlaylistID" />
+    </Key>
+    <Property Name="PlaylistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PlaylistItems" Relationship="DSSEntities.FK_PlaylistItem_Playlist" FromRole="Playlist" ToRole="PlaylistItem" />
+    <NavigationProperty Name="ScenarioItems" Relationship="DSSEntities.FK_PlaylistScenarioArea_Playlist" FromRole="Playlist" ToRole="ScenarioItem" />
+  </EntityType>
+  <EntityType Name="PlaylistItem">
+    <Key>
+      <PropertyRef Name="PlaylistItemID" />
+    </Key>
+    <Property Name="PlaylistItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MediaSrcID" Type="Int32" Nullable="false" />
+    <Property Name="PlaylistID" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MediaSrc" Relationship="DSSEntities.FK_PlaylistItem_MediaSrc" FromRole="PlaylistItem" ToRole="MediaSrc" />
+    <NavigationProperty Name="Playlist" Relationship="DSSEntities.FK_PlaylistItem_Playlist" FromRole="PlaylistItem" ToRole="Playlist" />
+  </EntityType>
+  <EntityType Name="Resolution">
+    <Key>
+      <PropertyRef Name="ResolutionID" />
+    </Key>
+    <Property Name="ResolutionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Width" Type="Double" Nullable="false" />
+    <Property Name="Height" Type="Double" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Screens" Relationship="DSSEntities.FK_Screen_Resolution" FromRole="Resolution" ToRole="Screen" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Accounts" Relationship="DSSEntities.FK_Account_Role" FromRole="Role" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Scenario">
+    <Key>
+      <PropertyRef Name="ScenarioID" />
+    </Key>
+    <Property Name="ScenarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LayoutID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DeviceScenarios" Relationship="DSSEntities.FK_DeviceScenario_Scenario" FromRole="Scenario" ToRole="DeviceScenario" />
+    <NavigationProperty Name="Layout" Relationship="DSSEntities.FK_Scenario_Layout" FromRole="Scenario" ToRole="Layout" />
+    <NavigationProperty Name="ScenarioItems" Relationship="DSSEntities.FK_PlaylistScenarioArea_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
+  </EntityType>
+  <EntityType Name="ScenarioItem">
+    <Key>
+      <PropertyRef Name="ScenarioItemID" />
+    </Key>
+    <Property Name="ScenarioItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlaylistID" Type="Int32" Nullable="false" />
+    <Property Name="ScenarioID" Type="Int32" Nullable="false" />
+    <Property Name="AreaID" Type="Int32" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Area" Relationship="DSSEntities.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
+    <NavigationProperty Name="Playlist" Relationship="DSSEntities.FK_PlaylistScenarioArea_Playlist" FromRole="ScenarioItem" ToRole="Playlist" />
+    <NavigationProperty Name="Scenario" Relationship="DSSEntities.FK_PlaylistScenarioArea_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
+  </EntityType>
+  <EntityType Name="Screen">
+    <Key>
+      <PropertyRef Name="ScreenID" />
+    </Key>
+    <Property Name="ScreenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="ResolutionID" Type="Int32" Nullable="false" />
+    <Property Name="ScreenName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Devices" Relationship="DSSEntities.FK_DeviceMatching_Screen" FromRole="Screen" ToRole="Device" />
+    <NavigationProperty Name="Location" Relationship="DSSEntities.FK_Screen_Location" FromRole="Screen" ToRole="Location" />
+    <NavigationProperty Name="Resolution" Relationship="DSSEntities.FK_Screen_Resolution" FromRole="Screen" ToRole="Resolution" />
+  </EntityType>
+  <Association Name="FK_Account_Brand">
+    <End Type="DSSEntities.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="DSSEntities.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Account_Role">
+    <End Type="DSSEntities.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="DSSEntities.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Area_Layout">
+    <End Type="DSSEntities.Layout" Role="Layout" Multiplicity="1" />
+    <End Type="DSSEntities.Area" Role="Area" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Layout">
+        <PropertyRef Name="LayoutID" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="LayoutID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScenarioItem_Area">
+    <End Type="DSSEntities.Area" Role="Area" Multiplicity="1" />
+    <End Type="DSSEntities.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaID" />
+      </Principal>
+      <Dependent Role="ScenarioItem">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Box_Location">
+    <End Type="DSSEntities.Location" Role="Location" Multiplicity="1" />
+    <End Type="DSSEntities.Box" Role="Box" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Box">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceMatching_Box">
+    <End Type="DSSEntities.Box" Role="Box" Multiplicity="1" />
+    <End Type="DSSEntities.Device" Role="Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Box">
+        <PropertyRef Name="BoxID" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="BoxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Brand">
+    <End Type="DSSEntities.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="DSSEntities.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaSrc_Brand">
+    <End Type="DSSEntities.Brand" Role="Brand" Multiplicity="1" />
+    <End Type="DSSEntities.MediaSrc" Role="MediaSrc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="BrandID" />
+      </Principal>
+      <Dependent Role="MediaSrc">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceMatching_Screen">
+    <End Type="DSSEntities.Screen" Role="Screen" Multiplicity="1" />
+    <End Type="DSSEntities.Device" Role="Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="ScreenID" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="BoxID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceScenario_Device">
+    <End Type="DSSEntities.Device" Role="Device" Multiplicity="1" />
+    <End Type="DSSEntities.DeviceScenario" Role="DeviceScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="DeviceID" />
+      </Principal>
+      <Dependent Role="DeviceScenario">
+        <PropertyRef Name="DeviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceScenario_Scenario">
+    <End Type="DSSEntities.Scenario" Role="Scenario" Multiplicity="1" />
+    <End Type="DSSEntities.DeviceScenario" Role="DeviceScenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scenario">
+        <PropertyRef Name="ScenarioID" />
+      </Principal>
+      <Dependent Role="DeviceScenario">
+        <PropertyRef Name="ScenarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scenario_Layout">
+    <End Type="DSSEntities.Layout" Role="Layout" Multiplicity="1" />
+    <End Type="DSSEntities.Scenario" Role="Scenario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Layout">
+        <PropertyRef Name="LayoutID" />
+      </Principal>
+      <Dependent Role="Scenario">
+        <PropertyRef Name="LayoutID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Screen_Location">
+    <End Type="DSSEntities.Location" Role="Location" Multiplicity="1" />
+    <End Type="DSSEntities.Screen" Role="Screen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Screen">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaSrc_MediaType">
+    <End Type="DSSEntities.MediaType" Role="MediaType" Multiplicity="1" />
+    <End Type="DSSEntities.MediaSrc" Role="MediaSrc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="MediaSrc">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistItem_MediaSrc">
+    <End Type="DSSEntities.MediaSrc" Role="MediaSrc" Multiplicity="1" />
+    <End Type="DSSEntities.PlaylistItem" Role="PlaylistItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaSrc">
+        <PropertyRef Name="MediaSrcID" />
+      </Principal>
+      <Dependent Role="PlaylistItem">
+        <PropertyRef Name="MediaSrcID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistItem_Playlist">
+    <End Type="DSSEntities.Playlist" Role="Playlist" Multiplicity="1" />
+    <End Type="DSSEntities.PlaylistItem" Role="PlaylistItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlist">
+        <PropertyRef Name="PlaylistID" />
+      </Principal>
+      <Dependent Role="PlaylistItem">
+        <PropertyRef Name="PlaylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistScenarioArea_Playlist">
+    <End Type="DSSEntities.Playlist" Role="Playlist" Multiplicity="1" />
+    <End Type="DSSEntities.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlist">
+        <PropertyRef Name="PlaylistID" />
+      </Principal>
+      <Dependent Role="ScenarioItem">
+        <PropertyRef Name="PlaylistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Screen_Resolution">
+    <End Type="DSSEntities.Resolution" Role="Resolution" Multiplicity="1" />
+    <End Type="DSSEntities.Screen" Role="Screen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resolution">
+        <PropertyRef Name="ResolutionID" />
+      </Principal>
+      <Dependent Role="Screen">
+        <PropertyRef Name="ResolutionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistScenarioArea_Scenario">
+    <End Type="DSSEntities.Scenario" Role="Scenario" Multiplicity="1" />
+    <End Type="DSSEntities.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scenario">
+        <PropertyRef Name="ScenarioID" />
+      </Principal>
+      <Dependent Role="ScenarioItem">
+        <PropertyRef Name="ScenarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

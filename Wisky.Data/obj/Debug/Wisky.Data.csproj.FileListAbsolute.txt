@@ -1,0 +1,132 @@
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll.config
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Wisky.Data.pdb
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Autofac.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\AutoMapper.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\EntityFramework.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\SkyWeb.DatVM.Data.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\SkyWeb.DatVM.Mvc.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.dll
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Autofac.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\AutoMapper.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\EntityFramework.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\New folder\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.xml
+E:\New folder\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csprojResolveAssemblyReference.cache
+E:\New folder\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CoreCompileInputs.cache
+E:\New folder\Wisky\Wisky.Data\obj\Debug\Wisky.Data.dll
+E:\New folder\Wisky\Wisky.Data\obj\Debug\Wisky.Data.pdb
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll.config
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Wisky.Data.pdb
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Autofac.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\AutoMapper.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\EntityFramework.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\SkyWeb.DatVM.Data.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\SkyWeb.DatVM.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Autofac.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\AutoMapper.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\EntityFramework.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Wifi_Marketing\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CoreCompileInputs.cache
+E:\Wifi_Marketing\Wisky\Wisky.Data\obj\Debug\Wisky.Data.dll
+E:\Wifi_Marketing\Wisky\Wisky.Data\obj\Debug\Wisky.Data.pdb
+E:\Wifi_Marketing\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csprojResolveAssemblyReference.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csprojAssemblyReference.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CoreCompileInputs.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\AutoMapper.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CopyComplete
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Wisky.Data.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\AutoMapper.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Autofac.Integration.Mvc.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\AutoMapper.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Helpers.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Mvc.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.Razor.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csprojAssemblyReference.cache
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CoreCompileInputs.cache
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CopyComplete
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky.Data\obj\Debug\Wisky.Data.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csprojAssemblyReference.cache
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky.Data\obj\Debug\Wisky.Data.csproj.CoreCompileInputs.cache
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky.Data\obj\Debug\Wisky.Data.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky.Data\obj\Debug\Wisky.Data.pdb

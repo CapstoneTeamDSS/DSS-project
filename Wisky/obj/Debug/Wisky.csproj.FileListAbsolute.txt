@@ -1,0 +1,1437 @@
+E:\New folder\Wisky\Wisky\bin\roslyn\csc.exe
+E:\New folder\Wisky\Wisky\bin\roslyn\csc.exe.config
+E:\New folder\Wisky\Wisky\bin\roslyn\csc.rsp
+E:\New folder\Wisky\Wisky\bin\roslyn\csi.exe
+E:\New folder\Wisky\Wisky\bin\roslyn\csi.rsp
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\New folder\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+E:\New folder\Wisky\Wisky\bin\roslyn\vbc.exe
+E:\New folder\Wisky\Wisky\bin\roslyn\vbc.exe.config
+E:\New folder\Wisky\Wisky\bin\roslyn\vbc.rsp
+E:\New folder\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+E:\New folder\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+E:\New folder\Wisky\Wisky\bin\Wisky.dll.config
+E:\New folder\Wisky\Wisky\bin\Wisky.dll
+E:\New folder\Wisky\Wisky\bin\Wisky.pdb
+E:\New folder\Wisky\Wisky\bin\vi\Wisky.resources.dll
+E:\New folder\Wisky\Wisky\bin\Antlr3.Runtime.dll
+E:\New folder\Wisky\Wisky\bin\Autofac.dll
+E:\New folder\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+E:\New folder\Wisky\Wisky\bin\AutoMapper.dll
+E:\New folder\Wisky\Wisky\bin\EntityFramework.dll
+E:\New folder\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+E:\New folder\Wisky\Wisky\bin\EPPlus.dll
+E:\New folder\Wisky\Wisky\bin\HtmlAgilityPack.dll
+E:\New folder\Wisky\Wisky\bin\itextsharp.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+E:\New folder\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+E:\New folder\Wisky\Wisky\bin\Newtonsoft.Json.dll
+E:\New folder\Wisky\Wisky\bin\Owin.dll
+E:\New folder\Wisky\Wisky\bin\PdfSharp.Charting.dll
+E:\New folder\Wisky\Wisky\bin\PdfSharp.dll
+E:\New folder\Wisky\Wisky\bin\SkyWeb.DatVM.Data.dll
+E:\New folder\Wisky\Wisky\bin\SkyWeb.DatVM.Mvc.dll
+E:\New folder\Wisky\Wisky\bin\StackExchange.Redis.dll
+E:\New folder\Wisky\Wisky\bin\System.Spatial.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.Helpers.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.Mvc.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.Optimization.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.Razor.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.dll
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+E:\New folder\Wisky\Wisky\bin\WebGrease.dll
+E:\New folder\Wisky\Wisky\bin\Wisky.Data.dll
+E:\New folder\Wisky\Wisky\bin\Wisky.Data.pdb
+E:\New folder\Wisky\Wisky\bin\Wisky.Data.dll.config
+E:\New folder\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+E:\New folder\Wisky\Wisky\bin\Autofac.xml
+E:\New folder\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+E:\New folder\Wisky\Wisky\bin\AutoMapper.xml
+E:\New folder\Wisky\Wisky\bin\EPPlus.xml
+E:\New folder\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+E:\New folder\Wisky\Wisky\bin\HtmlAgilityPack.xml
+E:\New folder\Wisky\Wisky\bin\itextsharp.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+E:\New folder\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+E:\New folder\Wisky\Wisky\bin\Newtonsoft.Json.xml
+E:\New folder\Wisky\Wisky\bin\PdfSharp.xml
+E:\New folder\Wisky\Wisky\bin\PdfSharp.Charting.xml
+E:\New folder\Wisky\Wisky\bin\StackExchange.Redis.xml
+E:\New folder\Wisky\Wisky\bin\System.Spatial.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.Helpers.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.Mvc.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.Optimization.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.Razor.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+E:\New folder\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+E:\New folder\Wisky\Wisky\bin\EntityFramework.xml
+E:\New folder\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+E:\New folder\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\New folder\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\New folder\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\New folder\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\New folder\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+E:\New folder\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+E:\New folder\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.csprojResolveAssemblyReference.cache
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.TemplateMail.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.TemplateMail.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.Cache
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+E:\New folder\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.dll
+E:\New folder\Wisky\Wisky\obj\Debug\Wisky.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\csc.exe
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\csc.exe.config
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\csc.rsp
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\csi.exe
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\csi.rsp
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\vbc.exe
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\vbc.exe.config
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\vbc.rsp
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+E:\Wifi_Marketing\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.dll.config
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\vi\Wisky.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Antlr3.Runtime.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Autofac.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\AutoMapper.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\EntityFramework.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\EPPlus.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\HtmlAgilityPack.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\itextsharp.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Newtonsoft.Json.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Owin.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\PdfSharp.Charting.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\PdfSharp.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\SkyWeb.DatVM.Data.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\SkyWeb.DatVM.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\StackExchange.Redis.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Spatial.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Helpers.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Mvc.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Optimization.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Razor.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\WebGrease.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.Data.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.Data.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\Wisky.Data.dll.config
+E:\Wifi_Marketing\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\Autofac.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\AutoMapper.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\EPPlus.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\HtmlAgilityPack.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\itextsharp.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Newtonsoft.Json.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\PdfSharp.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\PdfSharp.Charting.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\StackExchange.Redis.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Spatial.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Helpers.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Mvc.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Optimization.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.Razor.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\EntityFramework.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.csprojResolveAssemblyReference.cache
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.Cache
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.dll
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.pdb
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.resources
+E:\Wifi_Marketing\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\csc.exe
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\csc.exe.config
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\csc.rsp
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\csi.exe
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\csi.rsp
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\vbc.exe
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\vbc.exe.config
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\vbc.rsp
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+F:\Wisky_Customize\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.dll.config
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.pdb
+F:\Wisky_Customize\Wisky\Wisky\bin\vi\Wisky.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Antlr3.Runtime.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Autofac.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\AutoMapper.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\EntityFramework.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\EPPlus.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\HtmlAgilityPack.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\itextsharp.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Newtonsoft.Json.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Owin.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\PdfSharp.Charting.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\PdfSharp.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\SkyWeb.DatVM.Data.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\SkyWeb.DatVM.Mvc.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\StackExchange.Redis.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Spatial.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Helpers.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Mvc.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Optimization.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Razor.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\WebGrease.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.Data.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.Data.pdb
+F:\Wisky_Customize\Wisky\Wisky\bin\Wisky.Data.dll.config
+F:\Wisky_Customize\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+F:\Wisky_Customize\Wisky\Wisky\bin\Autofac.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\AutoMapper.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\EPPlus.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+F:\Wisky_Customize\Wisky\Wisky\bin\HtmlAgilityPack.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\itextsharp.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Newtonsoft.Json.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\PdfSharp.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\PdfSharp.Charting.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\StackExchange.Redis.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Spatial.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Helpers.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Mvc.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Optimization.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.Razor.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\EntityFramework.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Wisky_Customize\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.csprojResolveAssemblyReference.cache
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.Cache
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.dll
+F:\Wisky_Customize\Wisky\Wisky\obj\Debug\Wisky.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csprojAssemblyReference.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.exe
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.exe.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.rsp
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\csi.exe
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\csi.rsp
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.exe
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.exe.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.rsp
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.dll.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\vi\Wisky.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Antlr3.Runtime.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Autofac.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\AutoMapper.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EPPlus.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\itextsharp.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Newtonsoft.Json.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Owin.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.Charting.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\StackExchange.Redis.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Spatial.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Helpers.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Mvc.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Optimization.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Razor.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\WebGrease.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.dll.config
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Autofac.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\AutoMapper.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EPPlus.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\itextsharp.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Newtonsoft.Json.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.Charting.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\StackExchange.Redis.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Spatial.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Helpers.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Mvc.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Optimization.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.Razor.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.CopyComplete
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.dll
+D:\chuyennganh\Capstone\SrcCodeHere\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.exe
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.exe.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\csc.rsp
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\csi.exe
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\csi.rsp
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.exe
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.exe.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\vbc.rsp
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.dll.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\vi\Wisky.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Antlr3.Runtime.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Autofac.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\AutoMapper.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EPPlus.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\itextsharp.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Newtonsoft.Json.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Owin.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.Charting.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\StackExchange.Redis.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Spatial.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Helpers.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Mvc.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Optimization.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Razor.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\WebGrease.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Wisky.Data.dll.config
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Autofac.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\AutoMapper.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EPPlus.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\HtmlAgilityPack.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\itextsharp.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Newtonsoft.Json.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\PdfSharp.Charting.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\StackExchange.Redis.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Spatial.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Helpers.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Mvc.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Optimization.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.Razor.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csprojAssemblyReference.cache
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.cache
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.csproj.CopyComplete
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.dll
+C:\Users\TrinhNNP\Desktop\SourceCode\Digtal_Poject\Wisky\Wisky\obj\Debug\Wisky.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\csc.exe
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\csc.exe.config
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\csc.rsp
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\csi.exe
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\csi.rsp
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.AppContext.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.Collections.Immutable.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\System.Reflection.Metadata.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\vbc.exe
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\vbc.exe.config
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\vbc.rsp
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\roslyn\VBCSCompiler.exe.config
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.dll.config
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\vi\Wisky.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Antlr3.Runtime.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Autofac.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Autofac.Integration.Mvc.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\AutoMapper.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EntityFramework.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EntityFramework.SqlServer.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EPPlus.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\HtmlAgilityPack.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\itextsharp.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.Edm.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.OData.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.Services.Client.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Web.Infrastructure.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Newtonsoft.Json.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Owin.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\PdfSharp.Charting.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\PdfSharp.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\StackExchange.Redis.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Spatial.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Helpers.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Mvc.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Optimization.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Razor.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.Deployment.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.Razor.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\WebGrease.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.Data.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.Data.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Wisky.Data.dll.config
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Antlr3.Runtime.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Autofac.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Autofac.Integration.Mvc.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\AutoMapper.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EPPlus.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\HtmlAgilityPack.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\HtmlAgilityPack.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\itextsharp.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Azure.KeyVault.Core.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.Edm.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.OData.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Data.Services.Client.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.WindowsAzure.Configuration.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.pdb
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.WindowsAzure.Storage.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Newtonsoft.Json.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\PdfSharp.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\PdfSharp.Charting.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\StackExchange.Redis.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Spatial.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Helpers.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Mvc.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Optimization.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.Razor.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.Deployment.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\System.Web.WebPages.Razor.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EntityFramework.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\EntityFramework.SqlServer.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Core.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Facebook.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Cookies.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.OAuth.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Google.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.Twitter.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\es\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\it\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\es\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\fr\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\it\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ja\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ko\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ru\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\es\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\fr\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\it\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ja\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ko\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ru\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\PdfSharp.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\PdfSharp.Charting.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\de\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\es\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\fr\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\it\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ja\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ko\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\ru\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hans\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\bin\zh-Hant\System.Spatial.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.csprojAssemblyReference.cache
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DisplayAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Campaign.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LayoutManage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkingHistory.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EmailMarketing.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.WorkCategory.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RadiusServerAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AccessPointAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.AddAccessPointWithLocationForm.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.BrandManagerPublisher.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ChooseLocationInteractionPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateAccountAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateCustomerList.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CreateInteractionPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.CustomerList.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DateTimePicker.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.DetailCustomerList.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccessPointForm.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditAccountAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditCustomerList.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditInteractionPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.EditPublisherAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.Image.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexAccountAdmin.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.IndexNormalCustomer.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.InteractionPageSchedule.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LocationManagement.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.LoginPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ManagerPubliser.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.MenuText.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.PresenseAnalysis.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.RecentCustomer.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ReportInteractionPage.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserBehaviour.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserDetails.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.UserStatistic.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.ResourcesLanguage.ViewAllAccessPoints.vi.resources
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.csproj.GenerateResource.cache
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.csproj.CoreCompileInputs.cache
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\vi\Wisky.resources.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.csproj.CopyComplete
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.dll
+E:\CAPSTONE PROJECT\DSS-capstone-project\Wisky\Wisky\obj\Debug\Wisky.pdb
