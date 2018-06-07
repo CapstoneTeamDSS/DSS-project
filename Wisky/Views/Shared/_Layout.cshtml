@@ -54,7 +54,11 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                    <a><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="@Url.Action("Form", "Location")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
+                                        <li><a href="@Url.Action("Index", "Location")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-cogs"></i>@DSS.ResourcesLanguage.MenuText.DeviceMng <span class="fa fa-chevron-down"></span></a>
