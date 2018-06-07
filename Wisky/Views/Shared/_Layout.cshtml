@@ -119,8 +119,11 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
-
+                                    <a><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="@Url.Action("Form", "Resolution")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
+                                        <li><a href="@Url.Action("Index", "Resolution")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
