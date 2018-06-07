@@ -59,6 +59,7 @@ namespace DSS.Controllers
                     model = new Models.ScreenVM
                     {
                         Name = screen.ScreenName,
+                        ScreenId = screen.ScreenID, //truyen screen Id qua view de phan biet update hay delete
                         Description = screen.Description,
                         ResolutionId = screen.ResolutionID,
                         LocationId = screen.LocationID,

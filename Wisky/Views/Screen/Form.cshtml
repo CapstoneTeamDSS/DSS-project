@@ -20,7 +20,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.ScreenId != null) ? "Update" : "Add", "Screen", new { Id = (Model?.ScreenId) }, FormMethod.Post, new { @id = "frm_screen", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.ScreenId != null) ? "Update" : "Add", "Screen", new { ScreenId = (Model?.ScreenId) }, FormMethod.Post, new { @id = "frm_screen", @class = "form-horizontal form-label-left", role = "form" }))
     {
                 @Html.ValidationSummary()
                 <div class="form-group">
