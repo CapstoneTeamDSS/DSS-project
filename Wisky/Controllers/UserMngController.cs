@@ -17,6 +17,7 @@ namespace DSS.Controllers
     public class UserMngController : Controller
     {
         IAccountService accountService = DependencyUtils.Resolve<IAccountService>();
+        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
         //
@@ -26,6 +27,7 @@ namespace DSS.Controllers
             Wisky.ApplicationUserManager _userManager = HttpContext.GetOwinContext().GetUserManager<Wisky.ApplicationUserManager>();
             var users = _userManager.Users.ToList();
             var userVMs = new List<Models.UserMngVM>();
+
             foreach (var item in users)
             {
                 var u = new Models.UserMngVM
@@ -33,6 +35,7 @@ namespace DSS.Controllers
                     UserName = item.UserName,
                     Id = item.Id,
                     Email = item.Email,
+                    BrandName = brandService.GetBrandNameByID(item.BrandId),
                 };
                 userVMs.Add(u);
             }

@@ -28,7 +28,8 @@ namespace DSS.Data.Models.ViewModels
     			public virtual bool LockoutEnabled { get; set; }
     			public virtual int AccessFailedCount { get; set; }
     			public virtual string UserName { get; set; }
-    			public virtual Nullable<int> BrandID { get; set; }
+    			public virtual int BrandID { get; set; }
+    			public virtual bool isActive { get; set; }
     	
     	public AspNetUserViewModel() : base() { }
     	public AspNetUserViewModel(DSS.Data.Models.Entities.AspNetUser entity) : base(entity) { }
