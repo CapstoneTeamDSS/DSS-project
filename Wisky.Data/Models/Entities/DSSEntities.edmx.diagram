@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="60dd0cc3d4c5407098ce42826cda126c" Name="Diagram1">
-        <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="6" PointY="6.875" />
         <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="7.5" PointY="20.125" />
         <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="8.75" PointY="2.5" />
         <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="1" />
@@ -17,12 +17,12 @@
         <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="9.75" PointY="16.375" />
         <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="5.25" PointY="11.625" />
         <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="3" PointY="14.625" />
-        <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="6" PointY="6.625" />
-        <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="3.75" PointY="3.375" />
+        <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="0.75" PointY="4.375" />
         <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="6" PointY="3.375" />
         <EntityTypeShape EntityType="DSSModel.PlaylistItem" Width="1.5" PointX="8.25" PointY="7.125" />
         <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="3" PointY="11.125" />
-        <EntityTypeShape EntityType="DSSModel.Role" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="DSSModel.Role" Width="1.5" PointX="3.75" PointY="3.375" />
         <EntityTypeShape EntityType="DSSModel.Scenario" Width="1.5" PointX="7.5" PointY="11.5" />
         <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="9.75" PointY="11.875" />
         <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="14.875" />
