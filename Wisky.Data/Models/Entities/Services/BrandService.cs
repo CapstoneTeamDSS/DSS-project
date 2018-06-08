@@ -27,9 +27,9 @@ namespace DSS.Data.Models.Entities.Services
         {
             string result = "";
             result = this.repository
-                .Get(a => a.BrandID.Equals(brandId))
-                .Select(a => a.BrandName)
-                .ToString();
+                .Get(a => a.BrandID == brandId)
+                .FirstOrDefault()
+                ?.BrandName;//có thể trả ra giá trị null nếu brandId ko tồn tại
             return result;
         }
 
