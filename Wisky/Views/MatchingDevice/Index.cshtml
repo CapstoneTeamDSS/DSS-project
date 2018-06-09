@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Matching Device";
+}
+
+
+<<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Matching Your Device</small></h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div>
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Matching Panel</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                        Please select screen and android box you wish to match.
+                    </p>
+                    <div style="float:left; width:100%">
+                        <label>Screen</label>
+
+                        <select style="width:200px">
+                            <option>Choose screen</option>
+                          //  @{
+                            //    var screenList = ViewBag.screensList as List<DSS.Models.ScreenVM>;
+                            //    var i = 0;
+                            //    foreach (var item in screenList)
+                              //  {
+                   // <option>@(item.ScreenId)</option>
+}
+
+                           // }
+
+
+                        </select>
+
+
+
+                        <div style="float:left; width:50%;">
+                            <label>Android Box</label>
+
+                            <select style="width:200px">
+                                <option>Choose box</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                            </select>
+                        </div>
+
+                        <div style="float:right"><button type="submit" class="btn btn-success" style="margin-bottom:20px">Match</button></div>
+                    </div>
+
+                    <table id="datatable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    No
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
+                                    Device ID
+                                </th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var deviceList = ViewBag.devicesList as List<DSS.Models.MatchingDeviceVM>;
+                                var j = 0;
+                                foreach (var item in deviceList)
+                                {
+                    <tr>
+                        <td>@(++j)</td>
+                        <td>@(item.DeviceId)</td>
+                        <td>@(item.Description)</td>
+                        
+                        <td style="width:180px; text-align:center">
+                            <a href="/AndroidBox/Form/@(item.BoxId) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                            <a href="/AndroidBox/Delete/@(item.BoxId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                        </td>
+                    </tr>
+}
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @section scripts{
+        <!-- Datatables -->
+        <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
+        <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
+        <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    }
+
+    @section styles{
+        <!-- Datatables -->
+        <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+        <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    }
