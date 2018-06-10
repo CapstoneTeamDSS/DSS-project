@@ -35,7 +35,7 @@ namespace DSS.Models
         [Required]
         public string FullName { get; set; }
         [Required]
-        public int BrandID { get; set; }
+        public int BrandId { get; set; }
         public string PhoneNumber { get; set; }
         [Required]
         public bool isActive { get; set; }

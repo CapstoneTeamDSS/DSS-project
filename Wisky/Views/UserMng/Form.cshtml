@@ -18,35 +18,37 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left">
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "UserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_box", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Full Name">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="abc@email.com">
+                                <input type="text" class="form-control" name="FullName" placeholder="abc@email.com">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="PhoneNumber">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Username">
+                                <input type="text" class="form-control" name="Username" placeholder="Username">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
                             <div class="col-md-6 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="Password">
                             </div>
                             <div class="col-md-2 col-sm-9 col-xs-12">
                                 <input type="button" class="form-control btn btn-success" value="Auto Generate">
@@ -55,7 +57,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="select2_multiple form-control" multiple="multiple">
+                                <select class="select2_multiple form-control" name="Role" multiple="multiple">
                                     <option>Active User</option>
                                     <option>Brand Admin</option>
                                     <option>System Admin</option>
@@ -65,7 +67,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="select2_group form-control">
+                                <select class="select2_group form-control" name="BrandId">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                         <option value="AK">Alaska</option>
                                         <option value="HI">Hawaii</option>
@@ -89,12 +91,12 @@
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Enable
+                                        <input type="radio" checked="" value="1" id="optionsRadios1" name="isActive"> Enable
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Disable
+                                        <input type="radio" value="0" id="optionsRadios2" name="isActive"> Disable
                                     </label>
                                 </div>
                             </div>
@@ -106,8 +108,7 @@
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
-
-                    </form>
+                    }
                 </div>
             </div>
         </div>
