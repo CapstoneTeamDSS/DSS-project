@@ -267,6 +267,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlaylistController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
@@ -1765,6 +1766,8 @@
     <Content Include="Views\Resolution\Form.cshtml" />
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Location\Form.cshtml" />
+    <Content Include="Views\Playlist\Index.cshtml" />
+    <Content Include="Views\Playlist\Form.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Media\Form.cshtml" />
     <Content Include="Views\MatchingDevice\Index.cshtml" />
@@ -1778,7 +1781,6 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\css\" />
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
-    <Folder Include="Views\Resolutrion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
