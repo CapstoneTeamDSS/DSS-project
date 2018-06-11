@@ -28,6 +28,8 @@
 
     <!-- Custom Theme Style -->
     <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
+
+    
     @RenderSection("styles", false)
 </head>
 
@@ -77,7 +79,11 @@
                                                 <li><a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="fixed_footer.html">@DSS.ResourcesLanguage.MenuText.Matching <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
+                                        <li>
+                                            <a>@DSS.ResourcesLanguage.MenuText.Matching <span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -88,6 +94,8 @@
                                 <li>
                                     <a><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                        <li><a href="@Url.Action("Form", "Media")">@DSS.ResourcesLanguage.MenuText.AddNew </a></li>
+                                        <li><a href="@Url.Action("Index", "Media")">@DSS.ResourcesLanguage.MenuText.GeneralMng </a></li>
                                         <li><a href="general_elements.html">@DSS.ResourcesLanguage.MenuText.TypeImg <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
                                         <li><a href="media_gallery.html">@DSS.ResourcesLanguage.MenuText.TypeVideo <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
                                         <li><a href="typography.html">@DSS.ResourcesLanguage.MenuText.TypeAudio <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
@@ -95,8 +103,11 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
-
+                                    <a><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="@Url.Action("Form", "Playlist")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
+                                        <li><a href="@Url.Action("Index", "Playlist")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
@@ -243,7 +254,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="~/Content/template-material/build/js/custom.min.js"></script>
-
     @RenderSection("scripts", false)
 </footer>
 </html>

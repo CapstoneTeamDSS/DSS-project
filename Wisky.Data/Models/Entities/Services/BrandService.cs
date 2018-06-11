@@ -20,8 +20,17 @@ namespace DSS.Data.Models.Entities.Services
             rs = this.repository
                 .Get(a => a.BrandName.Contains(name))
                 .ToList();
+           return rs;
+        }
 
-            return rs;
+        public string GetBrandNameByID(int brandId)
+        {
+            string result = "";
+            result = this.repository
+                .Get(a => a.BrandID == brandId)
+                .FirstOrDefault()
+                ?.BrandName;//có thể trả ra giá trị null nếu brandId ko tồn tại
+            return result;
         }
 
         public List<Device> GetDeviceByBrandName(string name)
@@ -37,5 +46,6 @@ namespace DSS.Data.Models.Entities.Services
     public partial interface IBrandService
     {
         List<Brand> GetBrandByName(string name);
+        string GetBrandNameByID(int brandId);
     }
 }
