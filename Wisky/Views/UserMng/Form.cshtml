@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    bool status = false;
+    if (Model != null)
+    {
+        status = Model.isActive;
+    }
 }
 <div class="">
     <div class="page-title">
@@ -89,17 +94,9 @@
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" checked="@(Model?.isActive)" value="1" id="optionsRadios1" name="isActive"> Enable
-                          </label>
-
-                      </div>
-                      <div class="radio">
-                                    <label>
-                                        <input type="radio" checked="!@(Model?.isActive)" value="0" id="optionsRadios2" name="isActive"> Disable
-                                    </label>
-                                </div>
+                                <td style="width: 120px">
+                                    <input type="checkbox" class="js-switch" @(status ? "checked" : "") /> Enable/ Disable
+                                </td>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -115,3 +112,11 @@
         </div>
     </div>
 </div>
+@section styles {
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+}
+@section scripts {
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+}
