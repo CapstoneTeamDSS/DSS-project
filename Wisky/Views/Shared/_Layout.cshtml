@@ -77,7 +77,11 @@
                                                 <li><a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="fixed_footer.html">@DSS.ResourcesLanguage.MenuText.Matching <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
+                                        <li>
+                                            <a>@DSS.ResourcesLanguage.MenuText.Matching <span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
