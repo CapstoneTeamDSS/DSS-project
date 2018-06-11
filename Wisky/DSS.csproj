@@ -268,6 +268,7 @@
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
+    <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
     <Compile Include="Controllers\ScreenController.cs" />
     <Compile Include="Controllers\UserMngController.cs" />
@@ -279,6 +280,7 @@
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
+    <Compile Include="Models\MatchingDeviceVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
@@ -1765,6 +1767,7 @@
     <Content Include="Views\Location\Form.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Media\Form.cshtml" />
+    <Content Include="Views\MatchingDevice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

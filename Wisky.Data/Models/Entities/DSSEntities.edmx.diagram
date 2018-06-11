@@ -5,28 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="60dd0cc3d4c5407098ce42826cda126c" Name="Diagram1">
-        <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="7.710809333115261" PointY="27.960583521034842" />
-        <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="7.080894546155303" PointY="10.907973532987747" />
-        <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="9.0109210987626209" PointY="3.9202635902540122" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="9.71874143449531" PointY="20.093756625472455" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="4.4566874897371456" PointY="25.854676512002328" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUser" Width="1.5" PointX="2.4714020669792789" PointY="25.053382006033036" />
-        <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="5.3437544113694475" PointY="20.293452704461966" />
-        <EntityTypeShape EntityType="DSSModel.Brand" Width="1.5" PointX="4.023583393554941" PointY="18.543768071822715" />
-        <EntityTypeShape EntityType="DSSModel.Device" Width="1.5" PointX="0.7535296141884894" PointY="10.593304460213195" />
-        <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="2.9656727048408578" PointY="28.235584912931355" />
-        <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="0.47596048772146948" PointY="23.602125566267468" />
-        <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="8.8604865003658855" PointY="5.1002350473311893" />
-        <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="11.882244966869358" PointY="30.941345631583289" />
-        <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="1.0452322890261339" PointY="16.646059029105146" />
-        <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="3.7935593611530769" PointY="28.534753395493492" />
-        <EntityTypeShape EntityType="DSSModel.PlaylistItem" Width="1.5" PointX="4.8034223712996686" PointY="16.563503258192679" />
-        <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="9.5001476469916035" PointY="23.791008945457175" />
-        <EntityTypeShape EntityType="DSSModel.Role" Width="1.5" PointX="3.5431120170015431" PointY="14.438571340608677" />
-        <EntityTypeShape EntityType="DSSModel.Scenario" Width="1.5" PointX="4.4805221243205118" PointY="28.926469399093868" />
-        <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="8.4808062857393214" PointY="3.8286996203608346" />
-        <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="0.86083835962267519" PointY="9.6367142245344422" />
-        <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="8.1355496254449484" PointY="2.1491145948642467" />
+        <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="6" PointY="6.875" />
+        <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="7.5" PointY="21.5" />
+        <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="8.75" PointY="2.5" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="3.625" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="1" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUser" Width="1.5" PointX="11" PointY="1.125" />
+        <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="5.25" PointY="14.625" />
+        <EntityTypeShape EntityType="DSSModel.Brand" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="DSSModel.Device" Width="1.5" PointX="7.5" PointY="12.625" />
+        <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="9.75" PointY="12.625" />
+        <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="5.25" PointY="18" />
+        <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="DSSModel.PlaylistItem" Width="1.5" PointX="8.25" PointY="7.125" />
+        <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="3" PointY="15.375" />
+        <EntityTypeShape EntityType="DSSModel.Role" Width="1.5" PointX="3.75" PointY="3.375" />
+        <EntityTypeShape EntityType="DSSModel.Scenario" Width="1.5" PointX="7.5" PointY="17.75" />
+        <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="12.75" PointY="13.5" />
+        <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="DSSModel.FK_Account_Brand" />
         <AssociationConnector Association="DSSModel.FK_Account_Role" />
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
