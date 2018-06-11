@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DSS.Models.UserDetailVM
+@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -24,25 +25,25 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" name="FullName" placeholder="abc@email.com">
+                                <input type="text" class="form-control" name="FullName" placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" name="PhoneNumber">
+                                <input type="text" class="form-control" name="PhoneNumber" value="@(Model?.PhoneNumber)">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" name="Username" placeholder="Username">
+                                <input type="text" class="form-control" name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
                         </div>
                         <div class="form-group">
@@ -87,16 +88,16 @@
                                 <br>
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
-
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" checked="" value="1" id="optionsRadios1" name="isActive"> Enable
-                                    </label>
-                                </div>
-                                <div class="radio">
+                                        <input type="radio" checked="@(Model?.isActive)" value="1" id="optionsRadios1" name="isActive"> Enable
+                          </label>
+
+                      </div>
+                      <div class="radio">
                                     <label>
-                                        <input type="radio" value="0" id="optionsRadios2" name="isActive"> Disable
+                                        <input type="radio" checked="!@(Model?.isActive)" value="0" id="optionsRadios2" name="isActive"> Disable
                                     </label>
                                 </div>
                             </div>
