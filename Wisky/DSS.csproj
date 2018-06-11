@@ -267,6 +267,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
     <Compile Include="Controllers\ScreenController.cs" />
@@ -1764,6 +1765,8 @@
     <Content Include="Views\Resolution\Form.cshtml" />
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Location\Form.cshtml" />
+    <Content Include="Views\Media\Index.cshtml" />
+    <Content Include="Views\Media\Form.cshtml" />
     <Content Include="Views\MatchingDevice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
