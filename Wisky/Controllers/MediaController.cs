@@ -8,10 +8,16 @@ namespace DSS.Controllers
 {
     public class MediaController : Controller
     {
-        // GET: Media
+        // GET: Media/Index
         public ActionResult Index()
         {
             return View();
         }
+        // Media/Form
+        public ActionResult Form()
+        {
+            return View();
+        }
     }
+    
 }

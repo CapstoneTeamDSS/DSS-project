@@ -1764,6 +1764,7 @@
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Location\Form.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
+    <Content Include="Views\Media\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
