@@ -18,14 +18,15 @@ namespace DSS.Controllers
     {
         Wisky.ApplicationUserManager _userManager;
         IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+        IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
+        IAspNetRoleService aspNetRoleService = DependencyUtils.Resolve<IAspNetRoleService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
         //
         // GET: UserMng/Index
         public ActionResult Index()
         {
-            _userManager = HttpContext.GetOwinContext().GetUserManager<Wisky.ApplicationUserManager>();
-            var users = _userManager.Users.ToList();
+            var users = aspNetUserService.Get().ToList();
             var userVMs = new List<Models.UserMngVM>();
 
             foreach (var item in users)
@@ -35,7 +36,7 @@ namespace DSS.Controllers
                     UserName = item.UserName,
                     Id = item.Id,
                     Email = item.Email,
-                    BrandName = brandService.GetBrandNameByID(item.BrandId),
+                    BrandName = brandService.GetBrandNameByID(item.BrandID),
                 };
                 userVMs.Add(u);
             }
@@ -44,31 +45,80 @@ namespace DSS.Controllers
             return View();
         }
 
-
         // GET: UserMng/Form/:id
-        public ActionResult Form(String id)
+        public ActionResult Form(string id)
         {
             Models.UserDetailVM model = null;
             if (id != null)
             {
-                _userManager = HttpContext.GetOwinContext().GetUserManager<Wisky.ApplicationUserManager>();
-                var user = _userManager.FindById(id);
+                var user = this.aspNetUserService.Get(id);
                 if (user != null)
                 {
                     model = new Models.UserDetailVM
                     {
                         UserName = user.UserName,
                         FullName = user.FullName,
-                        Id = user.Id,
-                        BrandId = user.BrandId,
-                        PhoneNumber = user.PhoneNumber,
                         isActive = user.isActive,
+                        PhoneNumber = user.PhoneNumber,
                         Email = user.Email,
+                        BrandId = user.BrandID
                     };
                 }
             }
+            ViewBag.brandList = BrandController.GetBrandList();
+            var roles = aspNetRoleService.Get().ToList();
+            var roleList = new List<Models.RoleVM>();
+            foreach (var item in roles)
+            {
+                var r = new Models.RoleVM
+                {
+                    RoleId = item.Id,
+                    RoleName = item.Name,
+                };
+                roleList.Add(r);
+            }
+            ViewBag.roleList = roleList;
             return View(model);
         }
 
+
+        // POST: UserMng/Form/:id
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.UserDetailVM model)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    var user = new Data.Models.Entities.AspNetUser
+            //    {
+            //        FullName = model.FullName,
+            //        PhoneNumber = model.PhoneNumber,
+            //        Email = model.Email,
+            //        BrandID = model.BrandId,
+            //        UserName = model.UserName,
+            //        //PasswordHash = 
+            //    };
+            //    await this.aspNetUserService.CreateAsync(user);
+            //    return this.RedirectToAction("Index");
+            //}
+
+            //if (ModelState.IsValid)
+            {
+                var user = new Wisky.Models.ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FullName = model.FullName,
+                    PhoneNumber = model.PhoneNumber,
+                    BrandId = model.BrandId,
+                };
+                //var result = await UserManager.CreateAsync(user, model.Password);
+                //if (result.Succeeded)
+                //{
+                //    return RedirectToAction("Index", "UserMng");
+                //}
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View("Form", model);
+        }
     }
 }

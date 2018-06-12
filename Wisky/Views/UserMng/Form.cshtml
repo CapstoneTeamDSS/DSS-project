@@ -63,10 +63,15 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="select2_multiple form-control" name="Role" multiple="multiple">
-                                    <option>Active User</option>
-                                    <option>Brand Admin</option>
-                                    <option>System Admin</option>
+                                <select class="select2_multiple form-control" name="RoleID" multiple="multiple">
+                                    <option value="0">--- Select Brand name ---</option>
+                                    @{
+                                        var roleList = ViewBag.roleList as List<DSS.Models.RoleVM>;
+                                        foreach (var item in roleList)
+                                        {
+                                            <option value="@(item.RoleId)">@(item.RoleName)</option>
+                                        }
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -74,16 +79,14 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_group form-control" name="BrandId">
-                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                        <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
-                                    </optgroup>
-                                    <optgroup label="Pacific Time Zone">
-                                        <option value="CA">California</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="WA">Washington</option>
-                                    </optgroup>
+                                    <option value="0">--- Select Brand name ---</option>
+                                    @{
+                                        var brandsList = ViewBag.brandList as List<DSS.Models.BrandDetailVM>;
+                                        foreach (var item in brandsList)
+                                        {
+                                            <option value="@(item.Id)">@(item.Name)</option>
+                                        }
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -95,7 +98,7 @@
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <td style="width: 120px">
-                                    <input type="checkbox" class="js-switch" @(status ? "checked" : "") /> Enable/ Disable
+                                    <input type="checkbox" id="cbStatus" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                                 </td>
                             </div>
                         </div>
@@ -117,6 +120,16 @@
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
 }
 @section scripts {
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
 }

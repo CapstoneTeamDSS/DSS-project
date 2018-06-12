@@ -19,16 +19,16 @@ namespace Wisky.Controllers
 {
     //[Authorize]
     //[Authorize(Roles = "ActiveUser")]  
-    
+
 
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-   
 
-        
+
+
 
         public AccountController()
         {

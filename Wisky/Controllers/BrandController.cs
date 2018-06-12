@@ -11,13 +11,35 @@ namespace DSS.Controllers
     [Authorize]
     public class BrandController : Controller
     {
-        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
+        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
 
         //GET: Brand/Index
         public ActionResult Index()
         {
-            var brands = this.brandService.Get().ToList();
+            //var brands = this.brandService.Get().ToList();
+            //var brandVMs = new List<Models.BrandDetailVM>();
+
+            //foreach (var item in brands)
+            //{
+            //    var b = new Models.BrandDetailVM
+            //    {
+            //        Name = item.BrandName,
+            //        Description = item.Description,
+            //        Id = item.BrandID,
+            //    };
+            //    brandVMs.Add(b);
+            //}
+            var brandVMs = new List<Models.BrandDetailVM>();
+            brandVMs = BrandController.GetBrandList();
+            ViewBag.brandList = brandVMs;
+            return View();
+        }
+
+        public static List<Models.BrandDetailVM> GetBrandList()
+        {
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var brands = brandService.Get().ToList();
             var brandVMs = new List<Models.BrandDetailVM>();
 
             foreach (var item in brands)
@@ -30,8 +52,7 @@ namespace DSS.Controllers
                 };
                 brandVMs.Add(b);
             }
-            ViewBag.brandList = brandVMs;
-            return View();
+            return brandVMs;
         }
 
         // GET: Brand/Form/:id
