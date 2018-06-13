@@ -31,10 +31,8 @@
                                     No
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Scenario ID
-                                </th>
-                                <th>Layout ID</th>
-                                <th>Title</th>
+                                    Title
+                                </th>                   
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -46,9 +44,7 @@
                                 foreach (var item in scenarioList)
                                 {
                                     <tr>
-                                        <td>@(++i)</td>
-                                        <td>@(item.ScenarioId)</td>
-                                        <td>@(item.LayoutId)</td>
+                                        <td>@(++i)</td>                                     
                                         <td>@(item.Title)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
