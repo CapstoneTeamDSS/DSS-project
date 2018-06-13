@@ -59,6 +59,7 @@ namespace DSS.Controllers
                     model = new Models.ScenarioVM
                     {
                        ScenarioId = scenario.ScenarioID,
+                       Description = scenario.Description,
                        LayoutId = scenario.LayoutID,
                        Title = scenario.Title,
 
@@ -66,6 +67,42 @@ namespace DSS.Controllers
                 }
             }
             return View(model);
+        }
+        // POST: Scenario/Add
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var scenario = new Data.Models.Entities.Scenario
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    LayoutID = model.LayoutId
+                };
+                await this.scenarioService.CreateAsync(scenario);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+        // POST: Scenario/Update
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var scenario = this.scenarioService.Get(model.ScenarioId);
+                if (scenario != null)
+                {
+                    scenario.Title = model.Title;
+                    scenario.Description = model.Description;
+                    scenario.LayoutID = model.LayoutId;
+
+                }
+                await this.scenarioService.UpdateAsync(scenario);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
         }
     }
 }

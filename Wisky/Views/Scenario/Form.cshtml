@@ -36,7 +36,7 @@
                 //Run this code whenever an item is dragged and dropped out of this list
                 var order = $(this).sortable('serialize');
             },
-           
+
         });
     </script>
     <script>
@@ -64,9 +64,6 @@
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
-        //for (var i = 0; i < videoPlayButtons.length; i++) {
-        //    videoPlayButtons[i].addEventListener('click', swapVideo);
-        //}
     </script>
 
 
@@ -135,6 +132,7 @@
             padding-left: 10px;
             padding-right: 10px;
         }
+
         #namelist2 li {
             width: 500px;
             height: 40px;
@@ -169,7 +167,7 @@
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>Create Scenario</h3>
+                <h3>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")</h3>
             </div>
 
             <div class="title_right">
@@ -190,7 +188,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Create Senario<small>Step by step</small></h2>
+                        <h2>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")<small>Step by step</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -216,18 +214,22 @@
 
 
                         <!-- Smart Wizard -->
-                        <p>You can create a new scenario just following these simple steps</p>
+                        <p>@((Model?.ScenarioId != null) ? "" : "You can create a new scenario just following these simple steps")</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps anchor">
                                 <li>
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-1" class="selected" isdone="1" rel="1">
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
-                                            Step 1<br>
+                                            @((Model?.ScenarioId != null) ? "Enter Info" : "Step 1")<br>
                                             <small>Enter scenario info</small>
                                         </span>
                                     </a>
                                 </li>
+                                @if (Model?.ScenarioId == null)
+                                {
+
+
                                 <li>
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
                                         <span class="step_no">2</span>
@@ -256,6 +258,7 @@
                                         </span>
                                     </a>
                                 </li>
+                                }
                             </ul>
 
 
@@ -265,25 +268,38 @@
                             <div class="stepContainer" style="height:auto">
                                 <div id="step-1" class="content" style="display: block;">
 
-                                    <form class="form-horizontal form-label-left">
+                                    @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
+                                    {
 
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                                 Title <span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" value="@(Model?.Title)" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="Title">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Description
+                                            </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                <input id="middle-name" value="@(Model?.Description)" class="form-control col-md-7 col-xs-12" type="text" name="Description">
                                             </div>
                                         </div>
-                                    </form>
+                                        <input type="hidden" value="@(Model?.LayoutId)" name="LayoutId" />
+                                        if (Model?.ScenarioId != null)
+                                        {
+                                            <button style="margin-left:580px" type="submit" class="btn btn-success">Submit</button>
+                                        }
+
+
+                                    }
                                 </div>
+
+
+
                                 <div id="step-2" class="content" style="display: none;">
 
                                     <form class="form-horizontal form-label-left">
@@ -309,7 +325,8 @@
                                     </div>
 
 
-                                </div><div id="step-4" class="content" style="display:none;">
+                                </div>
+                                <div id="step-4" class="content" style="display:none;">
 
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel" style="height:441px">
@@ -413,7 +430,7 @@
 
 
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel"style="height:441px">
+                                        <div class="x_panel" style="height:441px">
                                             <div class="x_title">
                                                 <h2>Area's list playlist</h2>
                                                 <div class="clearfix"></div>
@@ -530,6 +547,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
