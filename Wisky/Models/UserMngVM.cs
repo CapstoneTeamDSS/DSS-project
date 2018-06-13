@@ -20,6 +20,7 @@ namespace DSS.Models
         public string FullName { get; set; }
         [Required]
         public int BrandID { get; set; }
+        public bool isActive { get; set; }
         public string BrandName { get; set; }
     }
 

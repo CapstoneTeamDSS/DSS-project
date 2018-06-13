@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using AutoMapper;
 using DSS.Data.Models.Entities.Services;
@@ -9,8 +10,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using SkyWeb.DatVM.Mvc.Autofac;
-
-
+using Wisky;
+using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
@@ -36,15 +37,17 @@ namespace DSS.Controllers
                     UserName = item.UserName,
                     Id = item.Id,
                     Email = item.Email,
+                    FullName = item.FullName,
+                    isActive = item.isActive,
                     BrandName = brandService.GetBrandNameByID(item.BrandID),
                 };
                 userVMs.Add(u);
             }
-
             ViewBag.userList = userVMs;
             return View();
         }
 
+        //
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -54,6 +57,8 @@ namespace DSS.Controllers
                 var user = this.aspNetUserService.Get(id);
                 if (user != null)
                 {
+                    var userRoles = UserManager.GetRoles(user.Id).ToArray();
+                    ViewBag.userRoles = userRoles;
                     model = new Models.UserDetailVM
                     {
                         UserName = user.UserName,
@@ -61,7 +66,8 @@ namespace DSS.Controllers
                         isActive = user.isActive,
                         PhoneNumber = user.PhoneNumber,
                         Email = user.Email,
-                        BrandId = user.BrandID
+                        BrandId = user.BrandID,
+                        Role = userRoles[0],
                     };
                 }
             }
@@ -82,24 +88,9 @@ namespace DSS.Controllers
         }
 
 
-        // POST: UserMng/Form/:id
+        // POST: UserMng/Add
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.UserDetailVM model)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    var user = new Data.Models.Entities.AspNetUser
-            //    {
-            //        FullName = model.FullName,
-            //        PhoneNumber = model.PhoneNumber,
-            //        Email = model.Email,
-            //        BrandID = model.BrandId,
-            //        UserName = model.UserName,
-            //        //PasswordHash = 
-            //    };
-            //    await this.aspNetUserService.CreateAsync(user);
-            //    return this.RedirectToAction("Index");
-            //}
-
             //if (ModelState.IsValid)
             {
                 var user = new Wisky.Models.ApplicationUser
@@ -109,16 +100,37 @@ namespace DSS.Controllers
                     FullName = model.FullName,
                     PhoneNumber = model.PhoneNumber,
                     BrandId = model.BrandId,
+                    isActive = model.isActive,
+                    //Roles = model.Role,
                 };
-                //var result = await UserManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    return RedirectToAction("Index", "UserMng");
-                //}
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    //List<string> roles = new List<string>();
+                    //roles.Add(model.Role);
+                    UserManager.AddToRoles(user.Id, new string[] { model.Role });
+                    return RedirectToAction("Index", "UserMng");
+                }
             }
-
             // If we got this far, something failed, redisplay form
             return View("Form", model);
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                if (_userManager == null)
+                {
+                    _userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                    _userManager.PasswordHasher = new MP5Hasher(FormsAuthPasswordFormat.MD5);
+                }
+                return _userManager;
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
     }
 }

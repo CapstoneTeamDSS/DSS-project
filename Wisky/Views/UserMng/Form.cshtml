@@ -30,13 +30,13 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" value="@(Model?.FullName)">
+                                <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" name="FullName" placeholder="abc@email.com" value="@(Model?.Email)">
+                                <input type="text" class="form-control" name="Email" placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,13 +63,13 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="select2_multiple form-control" name="RoleID" multiple="multiple">
-                                    <option value="0">--- Select Brand name ---</option>
+                                <select class="select2_multiple form-control" name="Role" multiple="multiple">
+                                    <option value="0">--- Select Role ---</option>
                                     @{
                                         var roleList = ViewBag.roleList as List<DSS.Models.RoleVM>;
                                         foreach (var item in roleList)
                                         {
-                                            <option value="@(item.RoleId)">@(item.RoleName)</option>
+                                            <option value="@(item.RoleName)" @((Model?.Role).CompareTo(item.RoleName)==0 ? "selected" : "")>@(item.RoleName)</option>
                                         }
                                     }
                                 </select>
@@ -84,7 +84,7 @@
                                         var brandsList = ViewBag.brandList as List<DSS.Models.BrandDetailVM>;
                                         foreach (var item in brandsList)
                                         {
-                                            <option value="@(item.Id)">@(item.Name)</option>
+                                            <option value="@(item.Id)" @(Model?.BrandId == item.Id ? "selected" : "")>@(item.Name)</option>
                                         }
                                     }
                                 </select>
@@ -98,7 +98,7 @@
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <td style="width: 120px">
-                                    <input type="checkbox" id="cbStatus" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                    <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                                 </td>
                             </div>
                         </div>
