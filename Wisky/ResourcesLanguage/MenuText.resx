@@ -135,9 +135,6 @@
   <data name="DeviceMng" xml:space="preserve">
     <value>Device</value>
   </data>
-  <data name="GeneralMng" xml:space="preserve">
-    <value>General</value>
-  </data>
   <data name="GeneralSection" xml:space="preserve">
     <value>General</value>
   </data>
@@ -196,6 +193,9 @@
     <value>Video</value>
   </data>
   <data name="ViewList" xml:space="preserve">
+    <value>View list</value>
+  </data>
+  <data name="ViewListMng" xml:space="preserve">
     <value>View list</value>
   </data>
 </root>

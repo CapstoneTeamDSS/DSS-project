@@ -117,15 +117,6 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
-        public static string GeneralMng {
-            get {
-                return ResourceManager.GetString("GeneralMng", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to General.
-        /// </summary>
         public static string GeneralSection {
             get {
                 return ResourceManager.GetString("GeneralSection", resourceCulture);
@@ -300,6 +291,15 @@ namespace DSS.ResourcesLanguage {
         public static string ViewList {
             get {
                 return ResourceManager.GetString("ViewList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View list.
+        /// </summary>
+        public static string ViewListMng {
+            get {
+                return ResourceManager.GetString("ViewListMng", resourceCulture);
             }
         }
     }

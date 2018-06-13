@@ -90,11 +90,12 @@
                                     <a><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="@Url.Action("Form", "Media")">@DSS.ResourcesLanguage.MenuText.AddNew </a></li>
-                                        <li><a href="@Url.Action("Index", "Media")">@DSS.ResourcesLanguage.MenuText.GeneralMng </a></li>
-                                        <li><a href="general_elements.html">@DSS.ResourcesLanguage.MenuText.TypeImg <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
-                                        <li><a href="media_gallery.html">@DSS.ResourcesLanguage.MenuText.TypeVideo <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
-                                        <li><a href="typography.html">@DSS.ResourcesLanguage.MenuText.TypeAudio <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
-                                        <li><a href="icons.html">@DSS.ResourcesLanguage.MenuText.TypeOther <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a></li>
+                                        <li><a href="@Url.Action("Index", "Media")">@DSS.ResourcesLanguage.MenuText.ViewListMng </a></li>
+                                        <li><a href="@Url.Action("Index#tab_image", "Media")">@DSS.ResourcesLanguage.MenuText.TypeImg </a></li>
+                                        <li><a href="@Url.Action("Index#tab_video", "Media")">@DSS.ResourcesLanguage.MenuText.TypeVideo </a></li>
+                                        <li><a href="@Url.Action("Index#tab_audio", "Media")">@DSS.ResourcesLanguage.MenuText.TypeAudio </a></li>
+                                        <li><a href="@Url.Action("Index#tab_ortherfile", "Media")">@DSS.ResourcesLanguage.MenuText.TypeOther </a></li>
+
                                     </ul>
                                 </li>
                                 <li>
