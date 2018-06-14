@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="60dd0cc3d4c5407098ce42826cda126c" Name="Diagram1">
-<<<<<<< HEAD
         <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="6" PointY="6.875" />
         <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="7.5" PointY="20.125" />
         <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="8.75" PointY="2.5" />
@@ -28,58 +27,6 @@
         <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="9.75" PointY="11.875" />
         <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="14.875" />
         <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
-=======
-<<<<<<< HEAD
-        
-=======
-        
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; develop
-        
-        
-        
-        
-        
-        
-<<<<<<< HEAD
-        
-        
-        
-        
-=======
-        
-        
-        
-        
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; develop
-        
-        
-        
-        
-<<<<<<< HEAD
-        
-        <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="10.58249689200078" PointY="14.348945028311082" />
-        <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="0.24925581191166107" PointY="0.17000940450001945" />
-        <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="3.1778939772294343" PointY="24.4729656095025" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="4.2428009790567689" PointY="15.623273722652007" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="7.2343659024845648" PointY="19.828723112041466" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUser" Width="1.5" PointX="8.2006610427986182" PointY="20.383832166150135" />
-        <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="9.3566505319237017" PointY="19.967485645770786" />
-        <EntityTypeShape EntityType="DSSModel.Brand" Width="1.5" PointX="4.6942663158729054" PointY="3.8478124010599277" />
-        <EntityTypeShape EntityType="DSSModel.Device" Width="1.5" PointX="0.014529593295664337" PointY="22.287749613769236" />
-        <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="1.9845930272641559" PointY="7.8584778047439077" />
-        <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="4.0765608437715848" PointY="0.050406172895061864" />
-        <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="9.5" PointY="2.625" />
-        <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="6.7388567993132664" PointY="6.2674413501599062" />
-        <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="2.4303440407059824" PointY="9.9405162827766116" />
-        <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="5.2181169862011991" PointY="23.60997263696509" />
-        <EntityTypeShape EntityType="DSSModel.PlaylistItem" Width="1.5" PointX="3.428844190868011" PointY="22.705577965223036" />
-        <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="9.8379027833407289" PointY="23.081695463080749" />
-        <EntityTypeShape EntityType="DSSModel.Role" Width="1.5" PointX="3.2358949199486031" PointY="29.643555714582817" />
-        <EntityTypeShape EntityType="DSSModel.Scenario" Width="1.5" PointX="6.25" PointY="1.375" />
-        <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="9.25" PointY="8.625" />
-        <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="11.625" PointY="8.375" />
-        <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="3.875" PointY="6.875" />
->>>>>>> f76afe205520fbc6abd3014465285720ef33ba40
         <AssociationConnector Association="DSSModel.FK_Account_Brand" />
         <AssociationConnector Association="DSSModel.FK_Account_Role" />
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
@@ -102,40 +49,6 @@
         <AssociationConnector Association="DSSModel.FK_Screen_Resolution" />
         <AssociationConnector Association="DSSModel.FK_PlaylistScenarioArea_Scenario" />
         <AssociationConnector Association="DSSModel.AspNetUserRoles" />
-        
-        
-        
-        
-=======
-        
-        
-        
-        
-        
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; develop
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
