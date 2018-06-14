@@ -7,7 +7,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Location Management</h3>
+            <h3>Playlist Management</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -16,7 +16,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Location list</h2>
+                    <h2>Playlist list</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -31,36 +31,31 @@
                                     No
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Brand Id
+                                    Title
                                 </th>
-                                <th>Province</th>
-                                <th>District</th>
-                                <th>Address</th>
+                                <th>Duration</th>
                                 <th>Description</th>
                                 <th>Action</th>
 
-
                             </tr>
-                        </thead>
+                        </thead>    
                         <tbody>
                             @{
-                                var locationsList = ViewBag.locationList as List<DSS.Models.LocationDetailVM>;
+                                @*var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
                                 var i = 0;
-                                foreach (var item in locationsList)
+                                foreach (var item in playlistsList)
                                 {
                                     <tr>
                                         <td>@(++i)</td>
-                                        <td>@(item.BrandId)</td>
-                                        <td>@(item.Province)</td>
-                                        <td>@(item.District)</td>
-                                        <td>@(item.Address )</td>
+                                        <td>@(item.Title)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Location/Form/@(item.LocationId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Location/Delete/@(item.LocationId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Brand/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/Brand/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Brand/Detail/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Detail</i></a>
                                         </td>
                                     </tr>
-                                }
+                                }*@
                             }
                         </tbody>
                     </table>
@@ -69,7 +64,6 @@
         </div>
     </div>
 </div>
-    }
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -98,5 +92,3 @@
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 }
-
-
