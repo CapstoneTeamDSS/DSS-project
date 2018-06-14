@@ -117,6 +117,15 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
+        public static string GeneralMng {
+            get {
+                return ResourceManager.GetString("GeneralMng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
         public static string GeneralSection {
             get {
                 return ResourceManager.GetString("GeneralSection", resourceCulture);

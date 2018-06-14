@@ -64,11 +64,11 @@
     </Reference>
     <Reference Include="SkyWeb.DatVM.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\SkyWeb.DatVM.Data.dll</HintPath>
+      <HintPath>..\Wisky\bin\SkyWeb.DatVM.Data.dll</HintPath>
     </Reference>
     <Reference Include="SkyWeb.DatVM.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libs\SkyWeb.DatVM.Mvc.dll</HintPath>
+      <HintPath>..\Wisky\bin\SkyWeb.DatVM.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

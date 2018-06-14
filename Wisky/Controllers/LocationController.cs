@@ -1,0 +1,124 @@
+﻿using AutoMapper;
+using DSS.Data.Models.Entities.Services;
+using SkyWeb.DatVM.Mvc.Autofac;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace DSS.Controllers
+{
+    public class LocationController : Controller
+    {
+        ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
+        IMapper mapper = DependencyUtils.Resolve<IMapper>();
+
+        //GET: Location/Index
+        public ActionResult Index()
+        {
+            DateTime aDateTime = DateTime.Now;
+            var locations = this.locationService.Get().ToList();
+            var locationVMs = new List<Models.LocationDetailVM>();
+
+            foreach (var item in locations)
+            {
+                var b = new Models.LocationDetailVM
+                {
+                    LocationId = item.LocationID,
+                    BrandId = item.BrandID,
+                    Province = item.Province,
+                    District = item.District,
+                    Address = item.Address,
+                    Description = item.Description,
+                    Time = aDateTime
+                };
+                locationVMs.Add(b);
+            }
+            ViewBag.locationList = locationVMs;
+            return View();
+        }
+
+        // GET: Location/Form/:id
+        public ActionResult Form(int? id)
+        {
+            DateTime aDateTime = DateTime.Now;
+            Models.LocationDetailVM model = null;
+
+            if (id != null)
+            {
+                var location = this.locationService.Get(id);
+                if (location != null)
+                {
+                    model = new Models.LocationDetailVM
+                    {
+                        LocationId = location.LocationID,
+                        BrandId = location.BrandID,
+                        Province = location.Province,
+                        District = location.District,
+                        Address = location.Address,
+                        Description = location.Description,
+                        Time = aDateTime
+                    };
+                }
+            }
+            return View(model);
+        }
+
+        // POST: Location/Add
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.LocationDetailVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var location = new Data.Models.Entities.Location
+                {
+                    LocationID = model.LocationId,
+                    BrandID = model.BrandId,
+                    Province = model.Province,
+                    District = model.District,
+                    Address = model.Address,
+                    Description = model.Description
+                };
+                await this.locationService.CreateAsync(location);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+
+        // POST: Location/Update
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.LocationDetailVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var location = this.locationService.Get(model.LocationId);
+                if (location != null)
+                {
+                    location.LocationID = model.LocationId;
+                    location.BrandID = model.BrandId;
+                    location.Province = model.Province;
+                    location.District = model.District;
+                    location.Address = model.Address;
+                    location.Description = model.Description;
+
+                }
+                await this.locationService.UpdateAsync(location);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+
+        // GET: Location/Delete/:id
+        public ActionResult Delete(int id)
+        {
+            var location = this.locationService.Get(id);
+            if (location != null)
+            {
+                this.locationService.Delete(location);
+            }
+            return this.RedirectToAction("Index");
+        }
+
+    }
+}

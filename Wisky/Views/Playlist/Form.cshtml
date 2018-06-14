@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Playlist Management</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Add New Playlist</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    @using (Html.BeginForm((Model?.PlaylistId != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.PlaylistId) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+
+                        <div style="position:relative; top: 0; left: -170px;" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Playlist Title <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="first-name"
+                                       name="Title"
+                                       class="form-control col-md-7 col-xs-12"
+                                       data-parsley-id="5" type="text"
+                                       value="@(Model?.Title)">
+                            </div>
+                        </div>
+                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Description
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
+                            </div>
+                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
+                        </div>
+
+
+
+                        @*<div style="margin-left: 30px">
+                                <h4  style="margin-left:120px; display: inline-block">Resource Items</h4><h4 style="display: inline-block; position: relative; left: 50%">New Playlist</h4>
+                            </div>*@
+
+
+                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Resource Items <span class="required">*</span>
+
+
+                            </label>
+                            <div class="file-type text-navy">
+                                <small style="font-size:15px" class="text-navy">File type:</small>
+                                <br />
+                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4">Video
+                                &nbsp;&nbsp;<br />
+                                <input style="display:inline-block" type="checkbox" name="img" value="png">Image
+                                &nbsp;&nbsp;<br />
+                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss">Other
+                            </div>
+                            <div style="margin-left: 0px" class="col-sm-3">
+                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                                    <option value="1" data-position="1">Atem 1</option>
+                                    <option value="2" data-position="2">Item 5</option>
+                                    <option value="2" data-position="3">Stem 2</option>
+                                    <option value="2" data-position="4">Item 4</option>
+                                    <option value="3" data-position="5">Ktem 3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                            </div>
+                            <div style=" display: inline-block"></div>
+
+
+                            <div class="col-sm-3" id="selectedFiles">
+                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                            </div>
+                        </div>
+                        @*<div  style=" display: inline-block" ><h4 style=" display: inline-block">Resource Items</h4></div>
+                            <div style="margin-left: 130px" class="col-sm-3">
+                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                                    <option value="1" data-position="1">Atem 1</option>
+                                    <option value="2" data-position="2">Item 5</option>
+                                    <option value="2" data-position="3">Stem 2</option>
+                                    <option value="2" data-position="4">Item 4</option>
+                                    <option value="3" data-position="5">Ktem 3</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                            </div>
+                            <div  style=" display: inline-block"></div>
+
+
+                            <div class="col-sm-3" id="selectedFiles">
+                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                            </div>*@
+
+
+
+
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
+                            <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
+                            <button style="margin-left: 0"type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+    <script type="text/javascript" src="~/Content/multiselect/js/multiselect.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-39934286-1', 'github.com');
+        ga('send', 'pageview');
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // make code pretty
+            window.prettyPrint && prettyPrint();
+
+            // hack for iPhone 7.0.3 multiselects bug
+            if (navigator.userAgent.match(/iPhone/i)) {
+                $('select[multiple]').each(function () {
+                    var select = $(this).on({
+                        "focusout": function () {
+                            var values = select.val() || [];
+                            setTimeout(function () {
+                                select.val(values.length ? values : ['']).change();
+                            }, 1000);
+                        }
+                    });
+                    var firstOption = '<option value="" disabled="disabled"';
+                    firstOption += (select.val() || []).length > 0 ? '' : ' selected="selected"';
+                    firstOption += '>Select ' + (select.attr('title') || 'Options') + '';
+                    firstOption += '</option>';
+                    select.prepend(firstOption);
+                });
+            }
+
+            $('#multiselect1').multiselect();
+            $('#multiselect2').multiselect();
+
+        });
+    </script>
+
+    <script>
+        var selDiv = "";
+
+        document.addEventListener("DOMContentLoaded", init, false);
+
+        function init() {
+            document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+            selDiv = document.querySelector("#selectedFiles");
+        }
+
+        function handleFileSelect(e) {
+
+            if (!e.target.files) return;
+
+            selDiv.innerHTML = "";
+
+            var files = e.target.files;
+            for (var i = 0; i < files.length; i++) {
+                var f = files[i];
+
+                selDiv.innerHTML += f.name + "<br/>";
+
+            }
+
+        }
+
+
+    </script>
+}
+@section styles{
+    <style>
+        .file-type {
+            position: absolute;
+            top: 40px;
+            left: 200px;
+        }
+    </style>
+}

@@ -135,6 +135,9 @@
   <data name="DeviceMng" xml:space="preserve">
     <value>Device</value>
   </data>
+  <data name="GeneralMng" xml:space="preserve">
+    <value>General</value>
+  </data>
   <data name="GeneralSection" xml:space="preserve">
     <value>General</value>
   </data>

@@ -83,5 +83,24 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
+        // POST: AndroidBox/Update
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.AndroidBoxVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var box = this.boxService.Get(model.BoxId);
+                if (box != null)
+                {
+                    box.BoxName = model.Name;
+                    box.Description = model.Description;
+                    box.LocationID = model.LocationId;
+                    
+                }
+                await this.boxService.UpdateAsync(box);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
     }
 }
