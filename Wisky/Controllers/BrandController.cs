@@ -59,7 +59,6 @@ namespace DSS.Controllers
         public ActionResult Form(int? id)
         {
             Models.BrandDetailVM model = null;
-            
             if (id!=null)
             {
                 var brand = this.brandService.Get(id);

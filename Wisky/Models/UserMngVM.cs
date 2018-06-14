@@ -29,7 +29,7 @@ namespace DSS.Models
         public String Id { get; set; }
         [Required(ErrorMessage = "Day la loi Name bi rong")]
         public string UserName { get; set; }
-        [Required]
+        //[Required]
         public string Password { get; set; }
         [Required]
         public string Email { get; set; }
