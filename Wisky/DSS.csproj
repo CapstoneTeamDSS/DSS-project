@@ -261,6 +261,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountController_bk.cs" />
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Models\LocationDetailVM.cs" />
     <Compile Include="Models\MatchingDeviceVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
+    <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />

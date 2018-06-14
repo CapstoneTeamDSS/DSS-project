@@ -19,16 +19,16 @@ namespace Wisky.Controllers
 {
     //[Authorize]
     //[Authorize(Roles = "ActiveUser")]  
-    
+
 
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-   
 
-        
+
+
 
         public AccountController()
         {
@@ -110,19 +110,23 @@ namespace Wisky.Controllers
             var user = UserManager.Users.FirstOrDefault(a => a.UserName.Equals(model.Username));
             if (user != null)
             {
-                var result = this.SignInManager.PasswordSignIn(model.Username, model.Password, model.RememberMe, false);
-                if (result == SignInStatus.Success)
+                //Check if account is active
+                if (user.isActive)
                 {
-                    if (string.IsNullOrEmpty(returnUrl))
+                    var result = this.SignInManager.PasswordSignIn(model.Username, model.Password, model.RememberMe, false);
+                    if (result == SignInStatus.Success)
                     {
-                        returnUrl = this.Url.Action("Index", "Home");
+                        if (string.IsNullOrEmpty(returnUrl))
+                        {
+                            returnUrl = this.Url.Action("Index", "Home");
+                        }
                     }
+                    else
+                    {
+                        returnUrl = this.Url.Action("Login", "Account");
+                    }
+                    return this.Redirect(returnUrl);
                 }
-                else
-                {
-                    returnUrl = this.Url.Action("Login", "Account");
-                }
-                return this.Redirect(returnUrl);
             }
             return this.View(model);
         }
