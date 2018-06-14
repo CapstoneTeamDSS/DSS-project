@@ -1782,7 +1782,10 @@
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Media\Form.cshtml" />
     <Content Include="Views\MatchingDevice\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Playlist\Detail.cshtml" />
+=======
+>>>>>>> f76afe205520fbc6abd3014465285720ef33ba40
     <Content Include="Views\Scenario\Index.cshtml" />
     <Content Include="Views\Scenario\Form.cshtml" />
   </ItemGroup>
