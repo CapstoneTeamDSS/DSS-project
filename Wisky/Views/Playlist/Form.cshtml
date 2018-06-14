@@ -1,4 +1,4 @@
-﻿
+﻿@model DSS.Models.PlaylistDetailVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,7 +22,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.PlaylistId != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.PlaylistId) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
 
@@ -125,7 +125,7 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
                             <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
-                            <button style="margin-left: 0"type="submit" class="btn btn-success">Submit</button>
+                            <button style="margin-left: 0" type="submit" class="btn btn-success">Submit</button>
                         </div>
                     }
                 </div>
