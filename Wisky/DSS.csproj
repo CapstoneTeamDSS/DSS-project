@@ -279,7 +279,7 @@
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
-    <Compile Include="Models\MediaVM.cs" />
+    <Compile Include="Models\MediaSrcVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
@@ -1757,6 +1757,8 @@
       <LastGenOutput>WorkCategory.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Resource\Image\test1.jpg" />
+    <Content Include="Resource\Image\test2.jpg" />
     <Content Include="Scripts\delaySearch.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

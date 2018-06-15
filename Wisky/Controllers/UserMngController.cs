@@ -17,7 +17,7 @@ namespace DSS.Controllers
     public class UserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
-        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+        IMediaService brandService = DependencyUtils.Resolve<IMediaService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
         //

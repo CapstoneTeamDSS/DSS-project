@@ -1,4 +1,4 @@
-﻿@model DSS.Models.MediaVM
+﻿@model DSS.Models.MediaSrcVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -48,7 +48,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <td style="width: 120px">
+                                <td style="width: 120px; visibility:hidden" >
                                     <input type="checkbox" id="cbStatus" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                                 </td>
                             </div>
@@ -114,6 +114,7 @@
     @*bỏ nút upload trng input*@
     <script>
         $("#file-0d").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
+        $("#file-0d")
     </script>
 
     <!-- Switchery Change Status Text-->

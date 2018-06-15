@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * bootstrap-fileinput v4.4.9
  * http://plugins.krajee.com/file-input
  *
@@ -36,9 +36,12 @@
 .btn-file input[type=file], .file-caption-icon, .file-preview .fileinput-remove, .krajee-default .file-thumb-progress, .file-zoom-dialog .btn-navigate, .file-zoom-dialog .floating-buttons {
     position: absolute;
 }
-
+/*thử vô đây*/
 .file-input, .file-loading:before, .btn-file, .file-caption, .file-preview, .krajee-default.file-preview-frame, .krajee-default .file-thumbnail-footer, .file-zoom-dialog .modal-dialog {
     position: relative;
+    width: 73%;
+    padding-left: 0%;
+    margin-left: 15%
 }
 
 .file-error-message pre, .file-error-message ul, .krajee-default .file-actions, .krajee-default .file-other-error {
@@ -552,3 +555,4 @@
 .file-preview-initial.sortable-chosen {
     background-color: #d9edf7;
 }
+

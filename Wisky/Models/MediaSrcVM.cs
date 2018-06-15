@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DSS.Models
 {
-    public class MediaVM
+    public class MediaSrcVM
     {
         public int? MediaSrcId { get; set; }
         public int BrandId { get; set; }
