@@ -55,25 +55,6 @@ namespace DSS.Controllers
             return brandVMs;
         }
 
-        public static List<Models.BrandDetailVM> GetBrandList()
-        {
-            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var brands = brandService.Get().ToList();
-            var brandVMs = new List<Models.BrandDetailVM>();
-
-            foreach (var item in brands)
-            {
-                var b = new Models.BrandDetailVM
-                {
-                    Name = item.BrandName,
-                    Description = item.Description,
-                    Id = item.BrandID,
-                };
-                brandVMs.Add(b);
-            }
-            return brandVMs;
-        }
-
         // GET: Brand/Form/:id
         public ActionResult Form(int? id)
         {

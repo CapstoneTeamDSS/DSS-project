@@ -59,7 +59,7 @@ namespace DSS.Data.Models.Entities.Services
         }
     }
 
-    public partial interface IMediaService
+    public partial interface IBrandService
     {
         List<Brand> GetBrandByName(string name);
         string GetBrandNameByID(int brandId);
