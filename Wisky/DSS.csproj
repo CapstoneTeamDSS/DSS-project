@@ -261,15 +261,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountController_bk.cs" />
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlaylistController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
+    <Compile Include="Controllers\ScenarioController.cs" />
     <Compile Include="Controllers\ScreenController.cs" />
     <Compile Include="Controllers\UserMngController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,10 +282,12 @@
     <Compile Include="Models\BrandDetailVM.cs" />
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
+    <Compile Include="Models\ScenarioVM.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
     <Compile Include="Models\MediaSrcVM.cs" />
     <Compile Include="Models\MatchingDeviceVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
+    <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />
@@ -926,6 +931,12 @@
     <Content Include="Content\images\logo-wisky.png" />
     <Content Include="Content\images\no-photo.jpg" />
     <Content Include="Content\images\pizza.jpg" />
+    <Content Include="Content\images\Scenario\4col.jpg" />
+    <Content Include="Content\images\Scenario\4col_2.jpg" />
+    <Content Include="Content\images\Scenario\4col_3.jpg" />
+    <Content Include="Content\images\Scenario\5col.jpg" />
+    <Content Include="Content\images\Scenario\Landscape.png" />
+    <Content Include="Content\images\Scenario\Portraintpng.png" />
     <Content Include="Content\images\shortvideo.mp4" />
     <Content Include="Content\images\The Scarecrow.mp4" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -1572,6 +1583,7 @@
     <Content Include="Content\template-material\vendors\socicon\fonts\socicon-webfont.svg" />
     <Content Include="Content\template-material\vendors\socicon\socicon.min.css" />
     <Content Include="Content\template-material\vendors\sparklines\jquery.sparkline.min.js" />
+    <Content Include="Content\videos\Relax.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1838,9 +1850,13 @@
     <Content Include="Views\Resolution\Form.cshtml" />
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Location\Form.cshtml" />
+    <Content Include="Views\Playlist\Index.cshtml" />
+    <Content Include="Views\Playlist\Form.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Media\Form.cshtml" />
     <Content Include="Views\MatchingDevice\Index.cshtml" />
+    <Content Include="Views\Scenario\Index.cshtml" />
+    <Content Include="Views\Scenario\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1851,7 +1867,6 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\css\" />
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
-    <Folder Include="Views\Resolutrion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
