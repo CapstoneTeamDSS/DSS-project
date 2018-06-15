@@ -33,7 +33,7 @@ namespace DSS.Controllers
                 };
                 scenariosVMs.Add(b);
             }
-            ViewBag.scenariosList =scenariosVMs ;
+            ViewBag.scenariosList = scenariosVMs;
             return View();
         }
         // GET: Scenario/Delete/:id
@@ -47,26 +47,9 @@ namespace DSS.Controllers
             return this.RedirectToAction("Index");
         }
         // GET: AndroidBox/Form/:id
-        public ActionResult Form(int? id)
+        public ActionResult Form()
         {
-            Models.ScenarioVM model = null;
-
-            if (id != null)
-            {
-                var scenario = this.scenarioService.Get(id);
-                if (scenario != null)
-                {
-                    model = new Models.ScenarioVM
-                    {
-                       ScenarioId = scenario.ScenarioID,
-                       Description = scenario.Description,
-                       LayoutId = scenario.LayoutID,
-                       Title = scenario.Title,
-
-                    };
-                }
-            }
-            return View(model);
+            return View();
         }
         // POST: Scenario/Add
         [HttpPost]
@@ -85,6 +68,29 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
+      
+        public ActionResult UpdateForm(int? id)
+        {
+            Models.ScenarioVM model = null;
+
+            if (id != null)
+            {
+                var scenario = this.scenarioService.Get(id);
+                if (scenario != null)
+                {
+                    model = new Models.ScenarioVM
+                    {
+                        ScenarioId = scenario.ScenarioID,
+                        Description = scenario.Description,
+                        LayoutId = scenario.LayoutID,
+                        Title = scenario.Title,
+
+                    };
+                }
+            }
+
+            return View("UpdateForm", model);
+        }
         // POST: Scenario/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioVM model)
@@ -94,15 +100,14 @@ namespace DSS.Controllers
                 var scenario = this.scenarioService.Get(model.ScenarioId);
                 if (scenario != null)
                 {
-                    scenario.Title = model.Title;
-                    scenario.Description = model.Description;
                     scenario.LayoutID = model.LayoutId;
-
+                    scenario.Description = model.Description;
+                    scenario.Title = model.Title;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
                 return this.RedirectToAction("Index");
             }
-            return View("Form", model);
+            return View();
         }
     }
 }
