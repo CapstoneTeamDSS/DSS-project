@@ -1,8 +1,17 @@
-﻿@model DSS.Models.LocationDetailVM
+﻿@model DSS.Models.MediaSrcVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    @*if (Model != null)
+        {
+            status = Model.isActive;
+        }*@
 }
+
+
+
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -14,12 +23,12 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Add New Resource</h2>
+                    <h2>@((Model?.MediaSrcId != null) ? "Update Media information" : "Add new Media")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.LocationId != null) ? "Update" : "Add", "Location", new { LocationId = (Model?.LocationId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "Media", new { LocationId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -28,11 +37,22 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="first-name"
-                                       name="BrandId"
+                                       name="Title"
                                        class="form-control col-md-7 col-xs-12"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.BrandId)">
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <td style="width: 120px; visibility:hidden" >
+                                    <input type="checkbox" id="cbStatus" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                </td>
+                            </div>
+
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
@@ -46,10 +66,14 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Select file to upload
-                            </label>                               
-                                <input type="file" name="fileToUpload" id="fileToUpload">                          
+                            </label>
+                            <br /><br /><br />
+                            <div class="file-loading">
+                                <input id="file-0d" class="file" type="file">
+                            </div>
                         </div>
-                        
+
+
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -64,3 +88,47 @@
     </div>
 
 </div>
+
+@section styles {
+
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+
+    <!-- form Upload plugin -->
+    <link href="~/Content/form-upload-media/css//fileinput.css" media="all" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/form-upload-media/themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
+}
+@section scripts {
+
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+
+    <!-- form Upload plugin -->
+    <script src="~/Content/form-upload-media/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media./themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/themes/fa/theme.js" type="text/javascript"></script>
+    @*bỏ nút upload trng input*@
+    <script>
+        $("#file-0d").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
+        $("#file-0d")
+    </script>
+
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+
+
+
+
+}

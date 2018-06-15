@@ -19,7 +19,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.Id!=null) ? "Update":"Add", "Brand", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_brand", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Brand", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_brand", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
