@@ -68,7 +68,7 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
-      
+
         public ActionResult UpdateForm(int? id)
         {
             Models.ScenarioVM model = null;
@@ -108,6 +108,12 @@ namespace DSS.Controllers
                 return this.RedirectToAction("Index");
             }
             return View();
+        }
+        public ActionResult UpdateDetails()
+        {
+
+
+            return View("UpdateDetails");
         }
     }
 }
