@@ -63,6 +63,17 @@ namespace Wisky.Models
 
     public class RegisterViewModel
     {
+        //public string Id { get; set; }
+
+        //[Required]
+        //public int BrandId { get; set; }
+        //public string PhoneNumber { get; set; }
+        //[Required]
+        //public bool isActive { get; set; }
+        //[Required]
+        //public string Role { get; set; }
+
+        //Auto Generated
         [Display(Name = "Email")]
         public string Email { get; set; }
 
