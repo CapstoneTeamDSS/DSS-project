@@ -18,5 +18,7 @@ namespace DSS.Models
         public string Description { get; set; }
         public DateTime UpdateDatetime { get; set; }
         public DateTime CreateDatetime { get; set; }
+
+        public bool isActive { get; set; }
     }
 }
