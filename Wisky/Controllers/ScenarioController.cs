@@ -33,7 +33,7 @@ namespace DSS.Controllers
                 };
                 scenariosVMs.Add(b);
             }
-            ViewBag.scenariosList =scenariosVMs ;
+            ViewBag.scenariosList = scenariosVMs;
             return View();
         }
         // GET: Scenario/Delete/:id
@@ -47,7 +47,29 @@ namespace DSS.Controllers
             return this.RedirectToAction("Index");
         }
         // GET: AndroidBox/Form/:id
-        public ActionResult Form(int? id)
+        public ActionResult Form()
+        {
+            return View();
+        }
+        // POST: Scenario/Add
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var scenario = new Data.Models.Entities.Scenario
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    LayoutID = model.LayoutId
+                };
+                await this.scenarioService.CreateAsync(scenario);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+
+        public ActionResult UpdateForm(int? id)
         {
             Models.ScenarioVM model = null;
 
@@ -58,14 +80,40 @@ namespace DSS.Controllers
                 {
                     model = new Models.ScenarioVM
                     {
-                       ScenarioId = scenario.ScenarioID,
-                       LayoutId = scenario.LayoutID,
-                       Title = scenario.Title,
+                        ScenarioId = scenario.ScenarioID,
+                        Description = scenario.Description,
+                        LayoutId = scenario.LayoutID,
+                        Title = scenario.Title,
 
                     };
                 }
             }
-            return View(model);
+
+            return View("UpdateForm", model);
+        }
+        // POST: Scenario/Update
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var scenario = this.scenarioService.Get(model.ScenarioId);
+                if (scenario != null)
+                {
+                    scenario.LayoutID = model.LayoutId;
+                    scenario.Description = model.Description;
+                    scenario.Title = model.Title;
+                }
+                await this.scenarioService.UpdateAsync(scenario);
+                return this.RedirectToAction("Index");
+            }
+            return View();
+        }
+        public ActionResult UpdateDetails()
+        {
+
+
+            return View("UpdateDetails");
         }
     }
 }

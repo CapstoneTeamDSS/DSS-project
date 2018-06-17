@@ -36,7 +36,7 @@
                 //Run this code whenever an item is dragged and dropped out of this list
                 var order = $(this).sortable('serialize');
             },
-           
+
         });
     </script>
     <script>
@@ -64,9 +64,6 @@
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
-        //for (var i = 0; i < videoPlayButtons.length; i++) {
-        //    videoPlayButtons[i].addEventListener('click', swapVideo);
-        //}
     </script>
 
 
@@ -135,6 +132,7 @@
             padding-left: 10px;
             padding-right: 10px;
         }
+
         #namelist2 li {
             width: 500px;
             height: 40px;
@@ -169,15 +167,15 @@
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>Create Scenario</h3>
+                <h3>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")</h3>
             </div>
 
             <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                      
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
+                            
                         </span>
                     </div>
                 </div>
@@ -187,10 +185,10 @@
 
         <div class="row">
 
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-sm-8 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Create Senario<small>Step by step</small></h2>
+                        <h2>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")<small>Step by step</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -216,100 +214,93 @@
 
 
                         <!-- Smart Wizard -->
-                        <p>You can create a new scenario just following these simple steps</p>
+                        <p>@((Model?.ScenarioId != null) ? "" : "You can create a new scenario just following these simple steps")</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps anchor">
                                 <li>
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-1" class="selected" isdone="1" rel="1">
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
-                                            Step 1<br>
+                                            @((Model?.ScenarioId != null) ? "Enter Info" : "Step 1")<br>
                                             <small>Enter scenario info</small>
                                         </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
-                                        <span class="step_no">2</span>
-                                        <span class="step_descr">
-                                            Step 2<br>
-                                            <small>Choose screen type</small>
+                                @if (Model?.ScenarioId == null)
+                                {
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
+                                            <span class="step_no">2</span>
+                                            <span class="step_descr">
+                                                Step 2<br>
+                                                <small>Choose screen type</small>
 
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-3" class="disabled" isdone="0" rel="3">
-                                        <span class="step_no">3</span>
-                                        <span class="step_descr">
-                                            Step 3<br>
-                                            <small>Choose screen layout</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
-                                        <span class="step_no">4</span>
-                                        <span class="step_descr">
-                                            Step 4<br>
-                                            <small>Navigate scenario details</small>
-                                        </span>
-                                    </a>
-                                </li>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-3" class="disabled" isdone="0" rel="3">
+                                            <span class="step_no">3</span>
+                                            <span class="step_descr">
+                                                Step 3<br>
+                                                <small>Choose screen layout</small>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
+                                            <span class="step_no">4</span>
+                                            <span class="step_descr">
+                                                Step 4<br>
+                                                <small>Navigate scenario details</small>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
                             </ul>
-
-
-
-
-
                             <div class="stepContainer" style="height:auto">
                                 <div id="step-1" class="content" style="display: block;">
-
-                                    <form class="form-horizontal form-label-left">
-
+                                    @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
+                                    {
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                                 Title <span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" value="@(Model?.Title)" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="Title">
                                             </div>
                                         </div>
-
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                Description
+                                            </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                <input id="middle-name" value="@(Model?.Description)" class="form-control col-md-7 col-xs-12" type="text" name="Description">
                                             </div>
                                         </div>
-                                    </form>
+                                        <input type="hidden" value="@(Model?.LayoutId)" name="LayoutId" />
+                                        if (Model?.ScenarioId != null)
+                                        {
+                                            <button style="margin-left:580px" type="submit" class="btn btn-success">Submit</button>
+                                        }
+                                    }
                                 </div>
                                 <div id="step-2" class="content" style="display: none;">
-
                                     <form class="form-horizontal form-label-left">
-
-
                                         <div style="float:left; padding-left:250px;padding-top:30px"><img src="~/Content/images/Scenario/Landscape.png" /><br /><div style="text-align:center">Landscape<br /><br /><br /><div><input type="radio" class="flat" checked name="iCheck"></div></div></div>
                                         <div style="float:right;padding-right:250px;padding-bottom:20px"><img src="~/Content/images/Scenario/Portraintpng.png" /><br /><div style="text-align:center">Portrait<br /><div><input type="radio" class="flat" name="iCheck"></div></div></div>
-
                                     </form>
-
-
-
                                 </div><div id="step-3" class="content" style="display: none;">
-
                                     <div>
                                         <div class="" style="display:inline-block;padding-left:250px"><img src="~/Content/images/Scenario/4col.jpg" /></div>
                                         <div style="display:inline-block;padding-left:200px"><img src="~/Content/images/Scenario/4col_2.jpg" /></div>
                                     </div>
-
                                     <div>
                                         <div style="display:inline-block;padding-left:250px;padding-top:50px"><img src="~/Content/images/Scenario/4col_3.jpg" /></div>
                                         <div style="display:inline-block;padding-left:200px;padding-top:50px"><img src="~/Content/images/Scenario/5col.jpg" /></div>
                                     </div>
-
-
-                                </div><div id="step-4" class="content" style="display:none;">
+                                </div>
+                                <div id="step-4" class="content" style="display:none;">
 
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel" style="height:441px">
@@ -317,76 +308,55 @@
                                                 <h2>Playlist Detail</h2>
                                                 <div class="clearfix"></div>
                                             </div>
-
-
-
                                             <ul id="namelist2" style="height:350px" class="stepContainer">
                                                 <li id='ii_1'>
-
                                                     <span id="title"> Playlist1 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_2'>
-
                                                     <span id="title">Playlist2 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_3'>
-
                                                     <span id="title">Playlist3 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_4'>
-
                                                     <span id="title">Playlist4</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" d data-video-url="/Content/videos/Relax.mp4">Add</button>
                                                 </li>
                                                 <li id='ii_5'>
-
                                                     <span id="title">Playlist5 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
                                                 </li>
                                                 <li id='ii_6'>
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_7'>
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_8'>
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                                 <li id='ii_9'>
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-
                                                 </li>
                                             </ul>
-
                                         </div>
                                     </div>
-
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel">
                                             <div class="x_title">
@@ -402,97 +372,65 @@
                                                         <div class="select-layout" style="display:inline-block" onclick="myFunction()"><video style="width:240px; height:100px;" id="player" src="/Content/videos/Relax.mp4" controls></video></div>
                                                     </div>
                                                 </div>
-
-
-
-
                                                 <hr />
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel"style="height:441px">
+                                        <div class="x_panel" style="height:441px">
                                             <div class="x_title">
                                                 <h2>Area's list playlist</h2>
                                                 <div class="clearfix"></div>
                                             </div>
-
-
-
                                             <ul id="namelist" style="height:350px" class="stepContainer">
                                                 <li id='i_1' class="i-old" onclick="swapVideo('i_1',this)">
-
                                                     <span id="title"> Playlist1 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_2' class="i-old" onclick="swapVideo('i_2',this)">
-
                                                     <span id="title">Playlist2 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_3' class="i-old" onclick="swapVideo('i_3',this)">
-
                                                     <span id="title">Playlist3 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/Relax.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
                                                     <span id="title">Playlist4</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" d data-video-url="/Content/videos/video1.mp4"> Remove</button>
                                                 </li>
                                                 <li id='i_5' class="i-old" onclick="swapVideo('i_5',this)">
-
                                                     <span id="title">Playlist5 </span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
                                                 </li>
                                                 <li id='i_6' class="i-old" onclick="swapVideo('i_6',this)">
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_7' class="i-old" onclick="swapVideo('i_7',this)">
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_8' class="i-old" onclick="swapVideo('i_8',this)">
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                                 <li id='i_9' class="i-old" onclick="swapVideo('i_9',this)">
-
                                                     <span id="title">Playlist6</span>
                                                     <span id="duration"> 7:40 </span>
                                                     <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-
                                                 </li>
                                             </ul>
-
-
-
-
-
-
                                         </div>
                                     </div>
-
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel">
                                             <div class="x_title">
@@ -530,6 +468,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
