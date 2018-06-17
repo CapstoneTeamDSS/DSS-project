@@ -1,4 +1,4 @@
-﻿
+﻿@model DSS.Models.PlaylistDetailVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,46 +22,118 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.LocationId != null) ? "Update" : "Add", "Location", new { LocationId = (Model?.LocationId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
-                        <div style="margin-left: 30px">
-                            <h4 style="display: inline-block">Resource Items</h4><h4 style="display: inline-block; position: relative; left: 50%">New Playlist</h4>
+
+                        <div style="position:relative; top: 0; left: -170px;" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Playlist Title <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="first-name"
+                                       name="Title"
+                                       class="form-control col-md-7 col-xs-12"
+                                       data-parsley-id="5" type="text"
+                                       value="@(Model?.Title)">
+                            </div>
                         </div>
-                        <div class="col-sm-5">
-                            <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
-                                <option value="1" data-position="1">Item 1</option>
-                                <option value="2" data-position="2">Item 5</option>
-                                <option value="2" data-position="3">Item 2</option>
-                                <option value="2" data-position="4">Item 4</option>
-                                <option value="3" data-position="5">Item 3</option>
-                            </select>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
-                            <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
-                            <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                            <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
-                        </div>
-
-                        <div class="col-sm-5" id="selectedFiles">
-                            <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Description
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
+                            </div>
+                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
 
 
 
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="margin-top: 30px; width: 800px ">
-                            @*<input id="" class="btn btn-primary" type="file" style="display: inline-block; margin-left: -30%">*@
-                            <button style="margin-left:80%" type="submit" class="btn btn-success">Submit</button>
+                        @*<div style="margin-left: 30px">
+                                <h4  style="margin-left:120px; display: inline-block">Resource Items</h4><h4 style="display: inline-block; position: relative; left: 50%">New Playlist</h4>
+                            </div>*@
+
+
+                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Resource Items <span class="required">*</span>
+
+
+                            </label>
+                            <div class="file-type text-navy">
+                                <small style="font-size:15px" class="text-navy">File type:</small>
+                                <br />
+                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4">Video
+                                &nbsp;&nbsp;<br />
+                                <input style="display:inline-block" type="checkbox" name="img" value="png">Image
+                                &nbsp;&nbsp;<br />
+                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss">Other
+                            </div>
+                            <div style="margin-left: 0px" class="col-sm-3">
+                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                                    <option value="1" data-position="1">Atem 1</option>
+                                    <option value="2" data-position="2">Item 5</option>
+                                    <option value="2" data-position="3">Stem 2</option>
+                                    <option value="2" data-position="4">Item 4</option>
+                                    <option value="3" data-position="5">Ktem 3</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                            </div>
+                            <div style=" display: inline-block"></div>
+
+
+                            <div class="col-sm-3" id="selectedFiles">
+                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                            </div>
+                        </div>
+                        @*<div  style=" display: inline-block" ><h4 style=" display: inline-block">Resource Items</h4></div>
+                            <div style="margin-left: 130px" class="col-sm-3">
+                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                                    <option value="1" data-position="1">Atem 1</option>
+                                    <option value="2" data-position="2">Item 5</option>
+                                    <option value="2" data-position="3">Stem 2</option>
+                                    <option value="2" data-position="4">Item 4</option>
+                                    <option value="3" data-position="5">Ktem 3</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                                <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                                <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                                <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                            </div>
+                            <div  style=" display: inline-block"></div>
+
+
+                            <div class="col-sm-3" id="selectedFiles">
+                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                            </div>*@
+
+
+
+
+
+
+                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
+                            <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
+                            <button style="margin-left: 0" type="submit" class="btn btn-success">Submit</button>
                         </div>
                     }
                 </div>
+            </div>
         </div>
-    </div>
 
-</div>
     </div>
+</div>
 
 @section scripts{
 
@@ -112,11 +184,6 @@
     </script>
 
     <script>
-
-       
-
-
-
         var selDiv = "";
 
         document.addEventListener("DOMContentLoaded", init, false);
@@ -144,4 +211,13 @@
 
 
     </script>
-    }
+}
+@section styles{
+    <style>
+        .file-type {
+            position: absolute;
+            top: 40px;
+            left: 200px;
+        }
+    </style>
+}
