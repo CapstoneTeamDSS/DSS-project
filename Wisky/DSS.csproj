@@ -1857,6 +1857,8 @@
     <Content Include="Views\MatchingDevice\Index.cshtml" />
     <Content Include="Views\Scenario\Index.cshtml" />
     <Content Include="Views\Scenario\Form.cshtml" />
+    <Content Include="Views\Scenario\UpdateForm.cshtml" />
+    <Content Include="Views\Scenario\UpdateDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
