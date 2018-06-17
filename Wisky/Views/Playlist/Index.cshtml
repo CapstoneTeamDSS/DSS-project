@@ -40,21 +40,22 @@
                         </thead>    
                         <tbody>
                             @{
-                                @*var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
+                                var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
                                 var i = 0;
                                 foreach (var item in playlistsList)
                                 {
                                     <tr>
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
+                                        <td>Duration</td>
                                         <td>@(item.Description)</td>
-                                        <td style="width:180px; text-align:center">
-                                            <a href="/Brand/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Brand/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                            <a href="/Brand/Detail/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Detail</i></a>
+                                        <td  style="width:300px; text-align:center">
+                                            <a href="/Playlist/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
                                         </td>
                                     </tr>
-                                }*@
+                                }
                             }
                         </tbody>
                     </table>
