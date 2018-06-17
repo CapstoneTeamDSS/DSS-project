@@ -28,13 +28,13 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Username <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
@@ -54,7 +54,7 @@
                         if (Model?.Id == null)
                         {
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password <span class="required">*</span></label>
                                 <div class="col-md-6 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" name="Password">
                                 </div>
@@ -64,7 +64,7 @@
                             </div>
                         }
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Role</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Role <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_multiple form-control" name="Role" multiple="multiple">
                                     <option value="0">--- Select Role ---</option>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_group form-control" name="BrandId">
                                     <option value="0">--- Select Brand name ---</option>
