@@ -11,7 +11,7 @@ namespace DSS.Controllers
         // GET: Playlist
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         // GET: Playlist/Form/:id
@@ -19,6 +19,13 @@ namespace DSS.Controllers
         {
 
             return View("Form");
+        }
+
+        // GET: Playlist/Detail/:id
+        public ActionResult Detail()
+        {
+
+            return View("Detail");
         }
     }
 
