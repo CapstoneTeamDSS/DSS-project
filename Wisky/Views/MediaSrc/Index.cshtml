@@ -20,8 +20,6 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-
-
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
@@ -45,40 +43,36 @@
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
                                             <tr>
-
                                                 <th><input type="checkbox" id="check-all" class="flat"></th>
                                                 <th>No</th>
                                                 <th>Name</th>
+                                                <th>Status</th>
                                                 <th>Preview</th>
                                                 <th>Description</th>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             @{
                                                 var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcVM>;
-
                                                 var i = 0;
                                                 foreach (var item in mediaSrcList)
                                                 {
                                                     if (item.TypeId == 1)
                                                     {
-                                                        <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                            <td>@(++i)</td>
-                                                            <td>@(item.Title)</td>
-                                                            <td><img src="~/Resource/Image/test1.jpg" style="max-width: 200px;"></td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                            </td>
-                                                        </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                <td>@(++i)</td>
+                                                <td>@(item.Title)</td>
+                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                <td><img src="@(item.URL)" style="max-width: 200px;"></td>
+                                                <td>@(item.Description)</td>
+                                                <td style="width:180px; text-align:center">
+                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                </td>
+                                            </tr>
                                                     }
-
-
                                                 }
                                             }
                                         </tbody>
@@ -88,7 +82,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_video" aria-labelledby="profile-tab">
                             <p>
-                                <h2>Video Manager</small></h2>
+                                <h2>Video Manager</h2>
                                 <div class="x_content">
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
@@ -96,33 +90,33 @@
                                                 <th><input type="checkbox" id="check-all" class="flat"></th>
                                                 <th>No</th>
                                                 <th>Name</th>
+                                                <th>Status</th>
                                                 <th>Description</th>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             @{
-
                                                 var j = 0;
                                                 foreach (var item in mediaSrcList)
                                                 {
                                                     if (item.TypeId == 2)
                                                     {
-                                                        <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                            <td>@(++j)</td>
-                                                            <td>@(item.Title)</td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                            </td>
-                                                        </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                <td>@(++j)</td>
+                                                <td>@(item.Title)</td>
+                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                <td>@(item.Description)</td>
+                                                <td style="width:300px; text-align:center">
+                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                    <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
+                                                        <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                                     }
-
-
                                                 }
                                             }
                                         </tbody>
@@ -132,7 +126,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_audio" aria-labelledby="profile-tab">
                             <p>
-                                <h2>Audio Manager</small></h2>
+                                <h2>Audio Manager</h2>
                                 <div class="x_content">
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
@@ -140,17 +134,14 @@
                                                 <th><input type="checkbox" id="check-all" class="flat"></th>
                                                 <th>No</th>
                                                 <th>Name</th>
+                                                <th>Status</th>
                                                 <th>Description</th>
                                                 <th>Preview</th>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             @{
-
-
                                                 var k = 0;
                                                 foreach (var item in mediaSrcList)
                                                 {
@@ -160,10 +151,11 @@
                                                 <td><input type="checkbox" id="check-all" class="flat"></td>
                                                 <td>@(++k)</td>
                                                 <td>@(item.Title)</td>
+                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
                                                 <td>@(item.Description)</td>
                                                 <td>
                                                     <audio controls>
-                                                        <source src="@item.URL" type="audio/mpeg">
+                                                        <source src="@(item.URL)" type="audio/mpeg">
                                                     </audio>
                                                 </td>
                                                 <td style="width:180px; text-align:center">
@@ -172,8 +164,6 @@
                                                 </td>
                                             </tr>
                                                     }
-
-
                                                 }
                                             }
                                         </tbody>
@@ -183,7 +173,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_ortherfile" aria-labelledby="profile-tab">
                             <p>
-                                <h2>Order File Manager</small></h2>
+                                <h2>Order File Manager</h2>
                                 <div class="x_content">
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
@@ -191,34 +181,30 @@
                                                 <th><input type="checkbox" id="check-all" class="flat"></th>
                                                 <th>No</th>
                                                 <th>Name</th>
+                                                <th>Status</th>
                                                 <th>Description</th>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
-
-
                                         <tbody>
                                             @{
-
-
                                                 var f = 0;
                                                 foreach (var item in mediaSrcList)
                                                 {
                                                     if (item.TypeId == 4)
                                                     {
-                                                        <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                            <td>@(++f)</td>
-                                                            <td>@(item.Title)</td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                            </td>
-                                                        </tr>
+                                            <tr>
+                                                <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                <td>@(++f)</td>
+                                                <td>@(item.Title)</td>
+                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                <td>@(item.Description)</td>
+                                                <td style="width:180px; text-align:center">
+                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                </td>
+                                            </tr>
                                                     }
-
-
                                                 }
                                             }
                                         </tbody>
@@ -228,8 +214,20 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+@section scripts{
+    <!-- preview button scripts-section -->
+    <script type="text/javascript" src="~/Content/index-media-preview-video/src/jquery.flashy.min.js"></script>
+    <script type="text/javascript" src="~/Content/index-media-preview-video/js/main.js"></script>
+    <!-- /end scripts-section -->
+}
+
+@section styles{
+    <!-- preview button css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/css/effect.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/src/flashy.min.css">
+    <!-- /end css -->
+}

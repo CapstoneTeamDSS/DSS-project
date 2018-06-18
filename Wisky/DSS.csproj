@@ -941,6 +941,13 @@
     <Content Include="Content\images\shortvideo.mp4" />
     <Content Include="Content\images\The Scarecrow.mp4" />
     <Content Include="Content\images\trashDelete.png" />
+    <Content Include="Content\index-media-preview-video\css\effect.css" />
+    <Content Include="Content\index-media-preview-video\css\style.css" />
+    <Content Include="Content\index-media-preview-video\js\main.js" />
+    <Content Include="Content\index-media-preview-video\src\flashy.css" />
+    <Content Include="Content\index-media-preview-video\src\flashy.min.css" />
+    <Content Include="Content\index-media-preview-video\src\jquery.flashy.js" />
+    <Content Include="Content\index-media-preview-video\src\jquery.flashy.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\Campaign.js" />
     <Content Include="Content\js\Campaign2.js" />
@@ -1747,6 +1754,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailMarketing.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Content\index-media-preview-video\src\flashy.less" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %284%29.pubxml" />
@@ -1776,6 +1784,7 @@
     <Content Include="Resource\Audio\testAudio.mp3" />
     <Content Include="Resource\Image\test1.jpg" />
     <Content Include="Resource\Image\test2.jpg" />
+    <Content Include="Resource\Video\VideoTest1.MP4" />
     <Content Include="Scripts\delaySearch.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1874,7 +1883,6 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
     <Folder Include="Resource\OrtherFile\" />
-    <Folder Include="Resource\Video\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
