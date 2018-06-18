@@ -51,7 +51,7 @@ namespace DSS.Controllers
                     };
                 }
             }
-            ViewBag.itemList = MediaSrcController.GetMediaSrcListByBrandId();
+            ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandId();
             return View("Form", model);
         }
 
@@ -63,7 +63,7 @@ namespace DSS.Controllers
 
         // POST: Playlist/Add
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistDetailVM model)
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistDetailVM model, int[] to)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +73,26 @@ namespace DSS.Controllers
                     Description = model.Description,
                 };
                 await this.playlistService.CreateAsync(playlist);
+
+                /* Add item to playlist*/
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                if (to.Length > 0)
+                {
+                    var i = 0;
+                    foreach (var item in to)
+                    {
+
+                        var playlistItem = new Data.Models.Entities.PlaylistItem
+                        {
+                            PlaylistID = playlist.PlaylistID,
+                            MediaSrcID = item,
+                            DisplayOrder = i++,
+                            Duration = "00:00",
+                        };
+                        await playlistItemService.CreateAsync(playlistItem);
+                    }
+                }
+
                 return this.RedirectToAction("Index");
             }
             return View("Form", model);
