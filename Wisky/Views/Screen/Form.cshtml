@@ -21,61 +21,71 @@
                 <div class="x_content">
                     <br>
                     @using (Html.BeginForm((Model?.ScreenId != null) ? "Update" : "Add", "Screen", new { ScreenId = (Model?.ScreenId) }, FormMethod.Post, new { @id = "frm_screen", @class = "form-horizontal form-label-left", role = "form" }))
-    {
-                @Html.ValidationSummary()
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                        Screen Name <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="first-name"
-                               name="Name"
-                               class="form-control col-md-7 col-xs-12"
-                               data-parsley-id="5" type="text"
-                               value="@(Model?.Name)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                        Location ID <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="Location-Id"
-                               name="LocationId"
-                               class="form-control col-md-7 col-xs-12"
-                               data-parsley-id="5" type="text"
-                               value="@(Model?.LocationId)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                        Resolution ID <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="Resolution-Id"
-                               name="ResolutionId"
-                               class="form-control col-md-7 col-xs-12"
-                               data-parsley-id="5" type="text"
-                               value="@(Model?.ResolutionId)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                        Description
-                    </label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
-                    </div>
-                    @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
-                </div>
-                <div class="ln_solid"></div>
-                <div class="form-group">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-}
+                    {
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Screen Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="first-name"
+                                       name="Name"
+                                       class="form-control col-md-7 col-xs-12"
+                                       data-parsley-id="5" type="text"
+                                       value="@(Model?.Name)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Location  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select2_group form-control" name="LocationId">
+                                    <option value="0">--- Select Location ---</option>
+                                    @{
+                                        var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
+                                        foreach (var item in locationList)
+                                        {
+                                            <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Resolution  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="select2_group form-control" name="ResolutionId">
+                                    <option value="0">--- Select Resolution ---</option>
+                                    @{
+                                        var resolutionList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
+                                        foreach (var item in resolutionList)
+                                        {
+                                            <option value="@(item.Id)" @(Model?.Id == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Description
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
+                            </div>
+                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
