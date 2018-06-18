@@ -66,6 +66,8 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationList();
+            ViewBag.resolutionList = ResolutionController.GetResolutionList();
             return View(model);
         }
         // POST: Screen/Add

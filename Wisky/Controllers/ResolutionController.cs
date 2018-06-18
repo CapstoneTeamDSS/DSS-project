@@ -35,6 +35,28 @@ namespace DSS.Controllers
             ViewBag.brandList = resolutionVMs;
             return View();
         }
+        public static List<Models.ResolutionDetailVM> GetResolutionList()
+        {
+            IResolutionService resolutionService = DependencyUtils.Resolve<IResolutionService>();
+            var resolutions = resolutionService.Get().ToList();
+            var resolutionVMs = new List<Models.ResolutionDetailVM>();
+
+            foreach (var item in resolutions)
+            {
+                var b = new Models.ResolutionDetailVM
+                {
+                   Height=item.Height,
+                   Id=item.ResolutionID,
+                   Width=item.Width,
+                   Note=item.Note,
+
+
+
+                };
+                resolutionVMs.Add(b);
+            }
+            return resolutionVMs;
+        }
 
         // GET: Brand/Form/:id
         public ActionResult Form(int? id)
