@@ -22,7 +22,6 @@ namespace DSS.Controllers
             DateTime dateUpdate = DateTime.Now;
             var mediaSrcs = this.mediaSrcService.Get().ToList();
             var mediaSrcVMs = new List<Models.MediaSrcVM>();
-
             foreach (var item in mediaSrcs)
             {
                 var b = new Models.MediaSrcVM
@@ -40,13 +39,14 @@ namespace DSS.Controllers
             }
             ViewBag.mediaSrcList = mediaSrcVMs;
             return View();
-
         }
+
         // Media/Form
         public ActionResult Form()
         {
             return View();
         }
+
         // Media/Add resource
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
