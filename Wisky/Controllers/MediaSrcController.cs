@@ -43,9 +43,29 @@ namespace DSS.Controllers
 
         }
         // Media/Form
-        public ActionResult Form()
+        public ActionResult Form(int? id)
         {
-            return View();
+            DateTime aDateTime = DateTime.Now;
+            Models.MediaSrcVM model = null;
+
+            if (id != null)
+            {
+                var mediaSrc = this.mediaSrcService.Get(id);
+                if (mediaSrc != null)
+                {
+                    model = new Models.MediaSrcVM
+                    {
+                        MediaSrcId = mediaSrc.MediaSrcID,
+                        BrandId = mediaSrc.BrandID,
+                        Title = mediaSrc.Title,
+                        isActive = (bool)mediaSrc.Status,
+                        URL = mediaSrc.URL,
+                        Description = mediaSrc.Description,
+                        UpdateDatetime = aDateTime
+                    };
+                }
+            }
+            return View(model);
         }
         // Media/Add resource
         [HttpPost]
@@ -137,6 +157,60 @@ namespace DSS.Controllers
             }
             return this.RedirectToAction("Index");
         }
-    }
+        // Media/Update resource
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MediaSrcVM model, HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0 && ModelState.IsValid)
+            {
+                var urlCheck = "";
+                var tyleIdCheck = 0;
+                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
+                var resultCheck = CheckFileType(fileName);
+                if (resultCheck == 1)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Image/";
+                    tyleIdCheck = 1;
+                }
+                else if (resultCheck == 2)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Video/";
+                    tyleIdCheck = 2;
+                }
+                else if (resultCheck == 3)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Audio/";
+                    tyleIdCheck = 3;
+                }
+                else if (resultCheck == 4)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/OrtherFile/";
+                    tyleIdCheck = 4;
+                }
+                DateTime time = DateTime.Now;
+                var mediaSrc = this.mediaSrcService.Get(model.MediaSrcId);
+                if (mediaSrc != null)
+                {
+                    mediaSrc.Title = model.Title;
+                    mediaSrc.Status = model.isActive;
+                    mediaSrc.TypeID = tyleIdCheck;
+                    mediaSrc.URL = urlCheck + fileName;
+                    mediaSrc.Description = model.Description;
+                    mediaSrc.UpdateDatetime = time.ToShortTimeString();
+                };
+                await this.mediaSrcService.CreateAsync(mediaSrc);
+                return this.RedirectToAction("Index");
 
+            }
+            return View("Form", model);
+        }
+    }
 }
