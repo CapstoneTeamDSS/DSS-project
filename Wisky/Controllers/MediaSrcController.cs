@@ -51,13 +51,11 @@ namespace DSS.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
         {
-
             if (file != null && file.ContentLength > 0 && ModelState.IsValid)
             {
-
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~Resource/Image/"), fileName);
-                file.SaveAs(path);
+                var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
+                file.SaveAs(path); //Save file to project folder
                 DateTime time = DateTime.Now;
                 var media = new Data.Models.Entities.MediaSrc
                 {
@@ -65,12 +63,10 @@ namespace DSS.Controllers
                     Title = model.Title,
                     Status = model.Status,
                     TypeID = 1,
-                    URL = path,
+                    URL = "/Resource/Image/" + fileName,
                     Description = model.Description,
                     CreateDatetime = time.ToShortTimeString(),
                     UpdateDatetime = time.ToShortTimeString(),
-
-
                 };
 
                 await this.mediaSrcService.CreateAsync(media);
@@ -84,9 +80,8 @@ namespace DSS.Controllers
         {
             if (file != null && file.ContentLength > 0)
             {
-
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~Resource/Images/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Resource/Images/"), fileName);
                 file.SaveAs(path);
             }
 
