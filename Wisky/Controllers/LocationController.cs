@@ -39,6 +39,31 @@ namespace DSS.Controllers
             return View();
         }
 
+        public static List<Models.LocationAdditionalVM> GetLocationList()
+        {
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
+            var locations = locationService.Get().ToList();
+            var locationVMs = new List<Models.LocationAdditionalVM>();
+
+            foreach (var item in locations)
+            {
+                var b = new Models.LocationAdditionalVM
+                {
+                    Address = item.Address,
+                    Description = item.Description,
+                    BrandId = item.BrandID,
+                    District = item.District,
+                    Province = item.Province,
+                    LocationId = item.LocationID,
+                   
+                    
+
+                };
+                locationVMs.Add(b);
+            }
+            return locationVMs;
+        }
+
         // GET: Location/Form/:id
         public ActionResult Form(int? id)
         {

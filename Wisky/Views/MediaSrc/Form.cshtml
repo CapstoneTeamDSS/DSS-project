@@ -48,8 +48,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="checkbox" id="cbStatus" class="js-switch" @(status ? "checked" : "") value="@status"/>
-                                <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                             </div>
 
                         </div>
@@ -70,7 +69,7 @@
                             <br />
                             <br />
                             <div class="file-loading">
-                                <input id="file" class="file" type="file">
+                                <input id="file" class="file" type="file" name="file">
                             </div>
                         </div>
 

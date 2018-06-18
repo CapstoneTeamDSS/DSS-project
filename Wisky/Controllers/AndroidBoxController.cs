@@ -64,6 +64,7 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationList();
             return View(model);
         }
         // POST: AndroidBox/Add
