@@ -56,8 +56,6 @@ namespace DSS.Controllers
                 var user = this.aspNetUserService.Get(id);
                 if (user != null)
                 {
-                    var userRoles = UserManager.GetRoles(user.Id).ToArray();
-                    ViewBag.userRoles = userRoles;
                     model = new Models.UserDetailVM
                     {
                         UserName = user.UserName,
@@ -68,6 +66,8 @@ namespace DSS.Controllers
                         BrandId = user.BrandID,
                         Id = user.Id,
                     };
+                    var userRoles = UserManager.GetRoles(user.Id).ToArray();
+                    ViewBag.userRoles = userRoles;
                     if (userRoles.Length > 0)
                     {
                         model.Role = userRoles[0];

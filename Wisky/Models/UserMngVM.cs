@@ -43,4 +43,17 @@ namespace DSS.Models
         [Required]
         public string Role { get; set; }
     }
+
+    public class CurrentUserVM
+    {
+        public String Id { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string FullName { get; set; }
+        [Required]
+        public int BrandId { get; set; }
+        [Required]
+        public string Role { get; set; }
+    }
 }

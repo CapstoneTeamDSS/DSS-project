@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize]
     public class PlaylistController : Controller
     {
         IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
@@ -50,13 +51,13 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.itemList = MediaSrcController.GetMediaSrcListByBrandId();
             return View("Form", model);
         }
 
         // GET: Playlist/Detail/:id
         public ActionResult Detail()
         {
-
             return View("Detail");
         }
 
