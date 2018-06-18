@@ -16,7 +16,7 @@ namespace DSS.Controllers
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
         // GET: Media/Index
-        public ActionResult Index() 
+        public ActionResult Index()
         {
             DateTime dateCreate = DateTime.Now;
             DateTime dateUpdate = DateTime.Now;
@@ -30,7 +30,7 @@ namespace DSS.Controllers
                     MediaSrcId = item.MediaSrcID,
                     Description = item.Description,
                     Title = item.Title,
-                    Status = true,
+                    isActive = (bool)item.Status,
                     TypeId = item.TypeID,
                     URL = item.URL,
                     CreateDatetime = dateCreate,
@@ -53,41 +53,80 @@ namespace DSS.Controllers
         {
             if (file != null && file.ContentLength > 0 && ModelState.IsValid)
             {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
-                file.SaveAs(path); //Save file to project folder
+                var urlCheck = "";
+                var tyleIdCheck = 0;
+                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
+                var resultCheck = CheckFileType(fileName);
+                if (resultCheck == 1)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Image/";
+                    tyleIdCheck = 1;
+                }
+                else if (resultCheck == 2)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Video/";
+                    tyleIdCheck = 2;
+                }
+                else if (resultCheck == 3)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/Audio/";
+                    tyleIdCheck = 3;
+                }
+                else if (resultCheck == 4)
+                {
+                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
+                    file.SaveAs(path); //Save file to project folder
+                    urlCheck = "/Resource/OrtherFile/";
+                    tyleIdCheck = 4;
+                }
                 DateTime time = DateTime.Now;
                 var media = new Data.Models.Entities.MediaSrc
                 {
                     BrandID = 1,
                     Title = model.Title,
-                    Status = model.Status,
-                    TypeID = 1,
-                    URL = "/Resource/Image/" + fileName,
+                    Status = model.isActive,
+                    TypeID = tyleIdCheck,
+                    URL = urlCheck + fileName,
                     Description = model.Description,
                     CreateDatetime = time.ToShortTimeString(),
                     UpdateDatetime = time.ToShortTimeString(),
                 };
-
                 await this.mediaSrcService.CreateAsync(media);
                 return this.RedirectToAction("Index");
+                
             }
             return View("Form", model);
-        }
-
-        [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file)
+        }   
+        // Check type file
+        private int CheckFileType(string FileName)
         {
-            if (file != null && file.ContentLength > 0)
+            string ext = Path.GetExtension(FileName);
+            if (ext.Equals(".png") || ext.Equals(".jpg"))
             {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Resource/Images/"), fileName);
-                file.SaveAs(path);
+                return 1;
             }
+            else if (ext.Equals(".mp4") || ext.Equals(".mov"))
+            {
+                return 2;
+            }
+            else if (ext.Equals(".mp3") || ext.Equals(".midi"))
+            {
+                return 3;
+            }
+            else if (ext.Equals(".txt"))
+            {
+                return 4;
+            }
+            return 0;
 
-            return RedirectToAction("UploadDocument");
         }
-
+      
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -99,5 +138,5 @@ namespace DSS.Controllers
             return this.RedirectToAction("Index");
         }
     }
-    
+
 }
