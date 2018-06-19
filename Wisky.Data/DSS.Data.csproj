@@ -369,12 +369,14 @@
     <Compile Include="Models\Entities\Services\LocationServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\MediaSrcService.cs" />
     <Compile Include="Models\Entities\Services\MediaSrcServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Services\MediaTypeServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\PlaylistItemService.cs" />
     <Compile Include="Models\Entities\Services\PlaylistItemServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
