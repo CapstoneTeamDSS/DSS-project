@@ -8,15 +8,6 @@
         status = Model.isActive;
     }
 }
-@if (TempData["UserMessage"] != null)
-{
-    var message = (MessageVM)TempData["UserMessage"];
-    <div class="alert @message.CssClassName">
-        <strong>@message.Title</strong>
-        @message.Message
-    </div>
-}
-@RenderBody()
 <div class="">
     <div class="page-title">
         <div class="title_left">
