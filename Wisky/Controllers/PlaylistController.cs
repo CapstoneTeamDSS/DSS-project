@@ -34,6 +34,28 @@ namespace DSS.Controllers
             return View("Index");
         }
 
+        //Update Playlist Item
+
+        public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
+        {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            if (playlistItemIds.Length > 0)
+            {
+                var i = 0;
+                foreach (var item in playlistItemIds)
+                {
+                    var playlistItem = playlistItemService.GetPlaylistItemById(item);
+                    if (playlistItem != null)
+                    {
+                        playlistItem.DisplayOrder = i++;
+                        await playlistItemService.UpdateAsync(playlistItem);
+                    }
+                }
+                return this.RedirectToAction("Index");
+            }
+            return View();
+        }
+
         // GET: Playlist/Form/:id
         public ActionResult Form(int? id)
         {
