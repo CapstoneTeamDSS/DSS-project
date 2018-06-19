@@ -116,12 +116,16 @@ namespace DSS.Controllers
                     Description = model.Description,
                     CreateDatetime = time.ToShortTimeString(),
                     UpdateDatetime = time.ToShortTimeString(),
+
                 };
                 await this.mediaSrcService.CreateAsync(media);
+                ViewBag.Name = "Add successful!";
                 return this.RedirectToAction("Index");
                 
             }
+            ViewBag.Name = "Add Fail!!!";
             return View("Form", model);
+
         }   
         // Check type file
         private int CheckFileType(string FileName)

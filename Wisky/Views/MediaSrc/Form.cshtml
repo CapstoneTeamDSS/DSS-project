@@ -5,10 +5,11 @@
     //Chỉnh nút status
     bool status = true;
     if (Model != null)
-        {
-            status = Model.isActive;
-        }
+    {
+        status = Model.isActive;
+    }
 }
+
 
 
 
@@ -28,7 +29,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { LocationId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" , enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { LocationId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form", enctype = "multipart/form-data" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -69,7 +70,7 @@
                             <br />
                             <br />
                             <div class="file-loading">
-                                <input id="file" class="file" type="file" name="file">
+                                <input id="file" class="file" type="file" name="file">                                
                             </div>
                         </div>
 
