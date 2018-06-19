@@ -37,7 +37,7 @@
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>    
+                        </thead>
                         <tbody>
                             @{
                                 var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
@@ -49,9 +49,9 @@
                                         <td>@(item.Title)</td>
                                         <td>Duration</td>
                                         <td>@(item.Description)</td>
-                                        <td  style="width:300px; text-align:center">
+                                        <td style="width:300px; text-align:center">
                                             <a href="/Playlist/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
                                             <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
                                         </td>
                                     </tr>

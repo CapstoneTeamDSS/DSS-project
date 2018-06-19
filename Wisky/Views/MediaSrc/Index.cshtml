@@ -54,24 +54,24 @@
                                         </thead>
                                         <tbody>
                                             @{
-                                                var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcVM>;
+                                                var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcUseVM>;
                                                 var i = 0;
                                                 foreach (var item in mediaSrcList)
                                                 {
                                                     if (item.TypeId == 1)
                                                     {
-                                            <tr>
-                                                <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                <td>@(++i)</td>
-                                                <td>@(item.Title)</td>
-                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                <td><img src="@(item.URL)" style="max-width: 200px;"></td>
-                                                <td>@(item.Description)</td>
-                                                <td style="width:180px; text-align:center">
-                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                </td>
-                                            </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            <td>@(++i)</td>
+                                                            <td>@(item.Title)</td>
+                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td><img src="@(item.URL)" style="max-width: 200px;"></td>
+                                                            <td>@(item.Description)</td>
+                                                            <td style="width:180px; text-align:center">
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                            </td>
+                                                        </tr>
                                                     }
                                                 }
                                             }
@@ -102,20 +102,20 @@
                                                 {
                                                     if (item.TypeId == 2)
                                                     {
-                                            <tr>
-                                                <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                <td>@(++j)</td>
-                                                <td>@(item.Title)</td>
-                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                <td>@(item.Description)</td>
-                                                <td style="width:300px; text-align:center">
-                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                    <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
-                                                        <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            <td>@(++j)</td>
+                                                            <td>@(item.Title)</td>
+                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.Description)</td>
+                                                            <td style="width:300px; text-align:center">
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                                <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
+                                                                    <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
                                                     }
                                                 }
                                             }
@@ -147,22 +147,22 @@
                                                 {
                                                     if (item.TypeId == 3)
                                                     {
-                                            <tr>
-                                                <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                <td>@(++k)</td>
-                                                <td>@(item.Title)</td>
-                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                <td>@(item.Description)</td>
-                                                <td>
-                                                    <audio controls>
-                                                        <source src="@(item.URL)" type="audio/mpeg">
-                                                    </audio>
-                                                </td>
-                                                <td style="width:180px; text-align:center">
-                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                </td>
-                                            </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            <td>@(++k)</td>
+                                                            <td>@(item.Title)</td>
+                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.Description)</td>
+                                                            <td>
+                                                                <audio controls>
+                                                                    <source src="@(item.URL)" type="audio/mpeg">
+                                                                </audio>
+                                                            </td>
+                                                            <td style="width:180px; text-align:center">
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                            </td>
+                                                        </tr>
                                                     }
                                                 }
                                             }
@@ -193,17 +193,17 @@
                                                 {
                                                     if (item.TypeId == 4)
                                                     {
-                                            <tr>
-                                                <td><input type="checkbox" id="check-all" class="flat"></td>
-                                                <td>@(++f)</td>
-                                                <td>@(item.Title)</td>
-                                                <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                <td>@(item.Description)</td>
-                                                <td style="width:180px; text-align:center">
-                                                    <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                    <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                </td>
-                                            </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            <td>@(++f)</td>
+                                                            <td>@(item.Title)</td>
+                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.Description)</td>
+                                                            <td style="width:180px; text-align:center">
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                            </td>
+                                                        </tr>
                                                     }
                                                 }
                                             }

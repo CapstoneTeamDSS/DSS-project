@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using AutoMapper;
 using DSS.Data.Models.Entities.Services;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace DSS.Controllers
 {
+    [Authorize]
     public class MediaSrcController : Controller
     {
         IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
@@ -18,30 +20,30 @@ namespace DSS.Controllers
         // GET: Media/Index
         public ActionResult Index()
         {
-            DateTime dateCreate = DateTime.Now;
-            DateTime dateUpdate = DateTime.Now;
-            var mediaSrcs = this.mediaSrcService.Get().ToList();
-            var mediaSrcVMs = new List<Models.MediaSrcVM>();
-
-            foreach (var item in mediaSrcs)
-            {
-                var b = new Models.MediaSrcVM
-                {
-                    MediaSrcId = item.MediaSrcID,
-                    Description = item.Description,
-                    Title = item.Title,
-                    isActive = (bool)item.Status,
-                    TypeId = item.TypeID,
-                    URL = item.URL,
-                    CreateDatetime = dateCreate,
-                    UpdateDatetime = dateUpdate,
-                };
-                mediaSrcVMs.Add(b);
-            }
-            ViewBag.mediaSrcList = mediaSrcVMs;
+            //DateTime dateCreate = DateTime.Now;
+            //DateTime dateUpdate = DateTime.Now;
+            //var mediaSrcs = this.mediaSrcService.Get().ToList();
+            //var mediaSrcVMs = new List<Models.MediaSrcVM>();
+            //foreach (var item in mediaSrcs)
+            //{
+            //    var b = new Models.MediaSrcVM
+            //    {
+            //        MediaSrcId = item.MediaSrcID,
+            //        Description = item.Description,
+            //        Title = item.Title,
+            //        isActive = (bool)item.Status,
+            //        TypeId = item.TypeID,
+            //        URL = item.URL,
+            //        CreateDatetime = dateCreate,
+            //        UpdateDatetime = dateUpdate,
+            //    };
+            //    mediaSrcVMs.Add(b);
+            //}
+            //ViewBag.mediaSrcList = mediaSrcVMs;
+            ViewBag.mediaSrcList = GetMediaSrcListByBrandId();
             return View();
-
         }
+
         // Media/Form
         public ActionResult Form(int? id)
         {
@@ -67,6 +69,32 @@ namespace DSS.Controllers
             }
             return View(model);
         }
+
+
+        //TrinhNNP
+        //Get media Src List by Brand ID
+        public static List<Models.MediaSrcUseVM> GetMediaSrcListByBrandId()
+        {
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var mediaSrcUseVMs = new List<Models.MediaSrcUseVM>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM )System.Web.HttpContext.Current.Session["currentUser"];
+            var mediaSrcList = mediaSrcService.GetMediaSrcByBrand(currUser.BrandId);
+            foreach (var item in mediaSrcList)
+            {
+                var m = new Models.MediaSrcUseVM
+                {
+                    Title = item.Title,
+                    Description = item.Description,
+                    URL = item.URL,
+                    isActive = (bool)item.Status,
+                    MediaSrcId = item.MediaSrcID,
+                    TypeId = item.TypeID,
+                };
+                mediaSrcUseVMs.Add(m);
+            }
+            return mediaSrcUseVMs;
+        }
+
         // Media/Add resource
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
