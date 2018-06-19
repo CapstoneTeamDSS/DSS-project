@@ -21,10 +21,19 @@ namespace DSS.Data.Models.Entities.Services
                 .ToList();
             return result;
         }
+
+        public MediaSrc GetById(int Id)
+        {
+            var mediaSrc = this.repository
+                .Get(a => a.MediaSrcID == Id)
+                .FirstOrDefault();
+            return mediaSrc;
+        }
     }
 
     public partial interface IMediaSrcService
     {
         List<MediaSrc> GetMediaSrcByBrand(int brandId);
+        MediaSrc GetById(int Id);
     }
 }

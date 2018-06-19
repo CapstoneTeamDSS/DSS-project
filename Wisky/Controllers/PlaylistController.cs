@@ -56,11 +56,38 @@ namespace DSS.Controllers
         }
 
         // GET: Playlist/Detail/:id
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var playlistItems = playlistItemService.GetMediaSrcByPlaylistId(id);
+            var playlistItemVMs = new List<Models.PlaylistItemVM>();
+            if (playlistItems != null)
+            {
+                foreach (var item in playlistItems)
+                {
+                    var p = new Models.PlaylistItemVM
+                    {
+                        playlistId = item.PlaylistID,
+                        mediaSrcId = item.MediaSrcID,
+                        displayOrder = item.DisplayOrder,
+                        duration = item.Duration,
+                        playlistItemId = item.PlaylistItemID,
+                    };
+                    var mediaSrc = mediaSrcService.GetById(item.MediaSrcID);
+                    if (mediaSrc != null)
+                    {
+                        p.mediaSrcTitle = mediaSrc.Title;
+                        p.URL = mediaSrc.URL;
+                    }
+                    playlistItemVMs.Add(p);
+                }
+            }
+            ViewBag.playlistItemList = playlistItemVMs;
             return View("Detail");
         }
 
+        //TrinhNNP
         // POST: Playlist/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistDetailVM model, int[] to)

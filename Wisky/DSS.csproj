@@ -282,6 +282,7 @@
     <Compile Include="Models\BrandDetailVM.cs" />
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
+    <Compile Include="Models\PlaylistItemVM.cs" />
     <Compile Include="Models\ScenarioVM.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
     <Compile Include="Models\MediaSrcVM.cs" />
