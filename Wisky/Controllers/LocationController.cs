@@ -17,28 +17,53 @@ namespace DSS.Controllers
         //GET: Location/Index
         public ActionResult Index()
         {
-            DateTime aDateTime = DateTime.Now;
-            var locations = this.locationService.Get().ToList();
-            var locationVMs = new List<Models.LocationDetailVM>();
+            //DateTime aDateTime = DateTime.Now;
+            //var locations = this.locationService.Get().ToList();
+            //var locationVMs = new List<Models.LocationDetailVM>();
 
-            foreach (var item in locations)
-            {
-                var b = new Models.LocationDetailVM
-                {
-                    LocationId = item.LocationID,
-                    BrandId = item.BrandID,
-                    Province = item.Province,
-                    District = item.District,
-                    Address = item.Address,
-                    Description = item.Description,
-                    Time = aDateTime
-                };
-                locationVMs.Add(b);
-            }
-            ViewBag.locationList = locationVMs;
+            //foreach (var item in locations)
+            //{
+            //    var b = new Models.LocationDetailVM
+            //    {
+            //        LocationId = item.LocationID,
+            //        BrandId = item.BrandID,
+            //        Province = item.Province,
+            //        District = item.District,
+            //        Address = item.Address,
+            //        Description = item.Description,
+            //        Time = aDateTime
+            //    };
+            //    locationVMs.Add(b);
+            //}
+            //ViewBag.locationList = locationVMs;
+            ViewBag.locationList = GetLocationIdByBrandId();
             return View();
         }
 
+        //ToanTXSE
+        //Get location List by location ID
+        public static List<Models.LocationAdditionalVM> GetLocationIdByBrandId()
+        {
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
+            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
+            foreach (var item in locationList)
+            {
+                var m = new Models.LocationAdditionalVM
+                {
+                    BrandName = brandService.GetBrandNameByID(item.BrandID),
+                    LocationId = item.LocationID,
+                    Description = item.Description,
+                    Province = item.Province,
+                    District = item.District,
+                    Address = item.Address,
+                };
+                LocationAdditionalVM.Add(m);
+            }
+            return LocationAdditionalVM;
+        }
         public static List<Models.LocationAdditionalVM> GetLocationList()
         {
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();

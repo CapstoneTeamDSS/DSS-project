@@ -30,7 +30,7 @@
                                     No
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Brand Id
+                                    Brand Name
                                 </th>
                                 <th>Province</th>
                                 <th>District</th>
@@ -43,13 +43,13 @@
                         </thead>
                         <tbody>
                             @{
-                                var locationsList = ViewBag.locationList as List<DSS.Models.LocationDetailVM>;
+                                var locationsList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
                                 var i = 0;
                                 foreach (var item in locationsList)
                                 {
                                     <tr>
                                         <td>@(++i)</td>
-                                        <td>@(item.BrandId)</td>
+                                        <td>@(item.BrandName)</td>
                                         <td>@(item.Province)</td>
                                         <td>@(item.District)</td>
                                         <td>@(item.Address )</td>
@@ -67,8 +67,7 @@
             </div>
         </div>
     </div>
-    </div>
-    }
+    </div>    
     @section scripts{
         <!-- Datatables -->
         <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
