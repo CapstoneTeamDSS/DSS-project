@@ -12,5 +12,6 @@ namespace DSS.Models
         public string Title { get; set; }
 
         public string Description { get; set; }
+        public string BrandName { get; set; }
     }
 }

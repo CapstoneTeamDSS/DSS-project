@@ -20,6 +20,7 @@ namespace DSS.Data.Models.Entities
             this.Accounts = new HashSet<Account>();
             this.Locations = new HashSet<Location>();
             this.MediaSrcs = new HashSet<MediaSrc>();
+            this.Playlists = new HashSet<Playlist>();
         }
     
         public int BrandID { get; set; }
@@ -33,5 +34,7 @@ namespace DSS.Data.Models.Entities
         public virtual ICollection<Location> Locations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MediaSrc> MediaSrcs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Playlist> Playlists { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace DSS.Data.Models.Entities.Services
     }
     public partial interface ILocationService
     {
-        List<Location> GetLocationIdByBrandId(int locationId);
+        List<Location> GetLocationIdByBrandId(int brandId);
         Location GetById(int Id);
     }
 }
