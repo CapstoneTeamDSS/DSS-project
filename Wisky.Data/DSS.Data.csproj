@@ -350,6 +350,7 @@
     <Compile Include="Models\Entities\Services\AspNetUserServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\BoxService.cs" />
     <Compile Include="Models\Entities\Services\BoxServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
@@ -396,6 +397,7 @@
     <Compile Include="Models\Entities\Services\ScenarioServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\ScreenService.cs" />
     <Compile Include="Models\Entities\Services\ScreenServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
