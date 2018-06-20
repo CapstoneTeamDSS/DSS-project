@@ -366,6 +366,7 @@
     <Compile Include="Models\Entities\Services\LayoutServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\LocationService.cs" />
     <Compile Include="Models\Entities\Services\LocationServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>

@@ -30,5 +30,6 @@ namespace DSS.Models
         [Required(ErrorMessage = "Address can not Empty!!!")]
         public string Address { get; set; }
         public string Description { get; set; }
+        public string BrandName { get; set; }
     }
 }
