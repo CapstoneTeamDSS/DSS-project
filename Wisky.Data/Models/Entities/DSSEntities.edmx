@@ -173,6 +173,7 @@
           <Property Name="PlaylistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Description" Type="text" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PlaylistItem">
           <Key>
@@ -429,6 +430,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Playlist_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Playlist" Type="Self.Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Playlist">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PlaylistItem_MediaSrc">
           <End Role="MediaSrc" Type="Self.MediaSrc" Multiplicity="1" />
           <End Role="PlaylistItem" Type="Self.PlaylistItem" Multiplicity="*" />
@@ -609,6 +622,10 @@
             <End Role="MediaType" EntitySet="MediaType" />
             <End Role="MediaSrc" EntitySet="MediaSrc" />
           </AssociationSet>
+          <AssociationSet Name="FK_Playlist_Brand" Association="Self.FK_Playlist_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Playlist" EntitySet="Playlist" />
+          </AssociationSet>
           <AssociationSet Name="FK_PlaylistItem_MediaSrc" Association="Self.FK_PlaylistItem_MediaSrc">
             <End Role="MediaSrc" EntitySet="MediaSrc" />
             <End Role="PlaylistItem" EntitySet="PlaylistItem" />
@@ -708,6 +725,10 @@
           <AssociationSet Name="FK_MediaSrc_Brand" Association="DSSModel.FK_MediaSrc_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="MediaSrc" EntitySet="MediaSrcs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Playlist_Brand" Association="DSSModel.FK_Playlist_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Playlist" EntitySet="Playlists" />
           </AssociationSet>
           <AssociationSet Name="FK_DeviceMatching_Screen" Association="DSSModel.FK_DeviceMatching_Screen">
             <End Role="Screen" EntitySet="Screens" />
@@ -862,6 +883,7 @@
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="MediaSrcs" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
+          <NavigationProperty Name="Playlists" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Brand" ToRole="Playlist" />
         </EntityType>
         <EntityType Name="Device">
           <Key>
@@ -947,6 +969,8 @@
           <Property Name="PlaylistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Playlist" ToRole="Brand" />
           <NavigationProperty Name="PlaylistItems" Relationship="DSSModel.FK_PlaylistItem_Playlist" FromRole="Playlist" ToRole="PlaylistItem" />
           <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="Playlist" ToRole="ScenarioItem" />
         </EntityType>
@@ -1150,6 +1174,18 @@
               <PropertyRef Name="BrandID" />
             </Principal>
             <Dependent Role="MediaSrc">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Playlist_Brand">
+          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="DSSModel.Playlist" Role="Playlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Playlist">
               <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1464,6 +1500,7 @@
           <EntitySetMapping Name="Playlists">
             <EntityTypeMapping TypeName="DSSModel.Playlist">
               <MappingFragment StoreEntitySet="Playlist">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="PlaylistID" ColumnName="PlaylistID" />

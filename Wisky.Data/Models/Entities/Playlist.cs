@@ -24,7 +24,9 @@ namespace DSS.Data.Models.Entities
         public int PlaylistID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public int BrandID { get; set; }
     
+        public virtual Brand Brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlaylistItem> PlaylistItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
