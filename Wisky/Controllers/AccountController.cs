@@ -96,24 +96,30 @@ namespace Wisky.Controllers
             }
         }
 
+        //TrinhNNP
         //Get current user as usable VM
         public DSS.Models.CurrentUserVM GetCurrentUser()
         {
             var currentUser = System.Web.HttpContext.Current.User;
-            var user = UserManager.FindById(currentUser.Identity.GetUserId());
-            var userVM = new DSS.Models.CurrentUserVM
+            if (currentUser != null)
             {
-                UserName = user.UserName,
-                BrandId = user.BrandId,
-                FullName = user.FullName,
-            };
-            /*Get Role*/
-            var userRoles = UserManager.GetRoles(user.Id).ToArray();
-            if (userRoles.Length > 0)
-            {
-                userVM.Role = userRoles[0];
+                var user = UserManager.FindById(currentUser.Identity.GetUserId());
+                var userVM = new DSS.Models.CurrentUserVM
+                {
+                    UserName = user.UserName,
+                    BrandId = user.BrandId,
+                    FullName = user.FullName,
+                    Id = user.Id,
+                };
+                /*Get Role*/
+                var userRoles = UserManager.GetRoles(user.Id).ToArray();
+                if (userRoles.Length > 0)
+                {
+                    userVM.Role = userRoles[0];
+                }
+                return userVM;
             }
-            return userVM;
+            return null;
         }
 
         //

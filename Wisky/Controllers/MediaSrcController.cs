@@ -20,26 +20,6 @@ namespace DSS.Controllers
         // GET: Media/Index
         public ActionResult Index()
         {
-            //DateTime dateCreate = DateTime.Now;
-            //DateTime dateUpdate = DateTime.Now;
-            //var mediaSrcs = this.mediaSrcService.Get().ToList();
-            //var mediaSrcVMs = new List<Models.MediaSrcVM>();
-            //foreach (var item in mediaSrcs)
-            //{
-            //    var b = new Models.MediaSrcVM
-            //    {
-            //        MediaSrcId = item.MediaSrcID,
-            //        Description = item.Description,
-            //        Title = item.Title,
-            //        isActive = (bool)item.Status,
-            //        TypeId = item.TypeID,
-            //        URL = item.URL,
-            //        CreateDatetime = dateCreate,
-            //        UpdateDatetime = dateUpdate,
-            //    };
-            //    mediaSrcVMs.Add(b);
-            //}
-            //ViewBag.mediaSrcList = mediaSrcVMs;
             ViewBag.mediaSrcList = GetMediaSrcListByBrandId();
             return View();
         }
