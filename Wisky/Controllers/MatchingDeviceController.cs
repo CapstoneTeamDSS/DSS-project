@@ -21,7 +21,6 @@ namespace DSS.Controllers
         {
             var devices = this.deviceService.Get().ToList();
             var deviceVMs = new List<Models.MatchingDeviceVM>();
-
             foreach (var item in devices)
             {
                 var b = new Models.MatchingDeviceVM
@@ -35,9 +34,6 @@ namespace DSS.Controllers
                 deviceVMs.Add(b);
             }
             ViewBag.devicesList = deviceVMs;
-
-
-
             return View();
         }
     }

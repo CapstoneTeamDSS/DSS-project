@@ -11,12 +11,12 @@ namespace DSS.Data.Models.Entities.Services
 {
     using System;
     using System.Collections.Generic;
-
-
+    
+    
     public partial interface IBrandService : SkyWeb.DatVM.Data.IBaseService<Brand>
     {
     }
-
+    
     public partial class BrandService : SkyWeb.DatVM.Data.BaseService<Brand>, IBrandService
     {
         public BrandService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.IBrandRepository repository) : base(unitOfWork, repository)

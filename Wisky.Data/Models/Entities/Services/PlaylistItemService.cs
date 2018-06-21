@@ -30,11 +30,20 @@ namespace DSS.Data.Models.Entities.Services
                 .FirstOrDefault();
             return playlistItem;
         }
+
+        public List<PlaylistItem> GetPlaylistItemByPlaylistId(int id)
+        {
+            List<PlaylistItem> playlistItems = playlistItemRepository
+                .Get(a => a.PlaylistID == id)
+                .ToList();
+            return playlistItems;
+        }
     }
 
     public partial interface IPlaylistItemService
     {
         List<PlaylistItem> GetMediaSrcByPlaylistId(int playlistId);
         PlaylistItem GetPlaylistItemById(int id);
+        List<PlaylistItem> GetPlaylistItemByPlaylistId(int id);
     }
 }
