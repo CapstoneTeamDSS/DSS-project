@@ -21,23 +21,44 @@ namespace DSS.Controllers
         // GET: Playlist
         public ActionResult Index()
         {
-            var playlists = this.playlistService.Get().ToList();
-            var playlistVMs = new List<Models.PlaylistDetailVM>();
+            //var playlists = this.playlistService.Get().ToList();
+            //var playlistVMs = new List<Models.PlaylistDetailVM>();
 
-            foreach (var item in playlists)
+            //foreach (var item in playlists)
+            //{
+            //    var p = new Models.PlaylistDetailVM
+            //    {
+            //        Title = item.Title,
+            //        Description = item.Description,
+            //        Id = item.PlaylistID,
+            //    };
+            //    playlistVMs.Add(p);
+            //}
+            ViewBag.playlistList = GetPlaylistIdByBrandId();
+            return View("Index");
+        }
+        //ToanTXSE
+        //Get location List by location ID
+        public static List<Models.PlaylistDetailVM> GetPlaylistIdByBrandId()
+        {
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var playlistList = playlistService.GetPlaylistIdByBrandId(currUser.BrandId);
+            foreach (var item in playlistList)
             {
-                var p = new Models.PlaylistDetailVM
+                var m = new Models.PlaylistDetailVM
                 {
                     Title = item.Title,
                     Description = item.Description,
                     Id = item.PlaylistID,
+                    Duration = "00:00:00",
                 };
-                playlistVMs.Add(p);
+                playlistDetailVM.Add(m);
             }
-            ViewBag.playlistList = playlistVMs;
-            return View("Index");
+            return playlistDetailVM;
         }
-
         //Update Playlist Item
 
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)

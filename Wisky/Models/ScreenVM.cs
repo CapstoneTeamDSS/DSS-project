@@ -16,6 +16,7 @@ namespace DSS.Models
         [Required(ErrorMessage = "Vui long dien ten Screen")]
         public string Name { get; set; }
         public string Description { get; set; }
+        public string BrandName { get; set; }
 
     }
 }
