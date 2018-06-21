@@ -20,33 +20,32 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
+                    <div width:50%;">
+                        <label>Location</label>
+                        <select style="width:300px; height:25px" id="locationSelect">
+                            <option value="0">--- Select Location ---</option>
+                            @{
+                                var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
+                                foreach (var item in locationStringList)
+                                {
+                                    <option value="@(item.LocationId)">@(item.LocationStringList)</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <p class="text-muted font-13 m-b-30" style="color:dodgerblue">
                         Please select screen and android box you wish to match.
                     </p>
                     <div style="float:left; width:100%">
                         <label>Screen</label>
 
-                        <select style="width:200px">
+                        <select style="width:300px; height:25px">
                             <option>Choose screen</option>
-                          //  @{
-                            //    var screenList = ViewBag.screensList as List<DSS.Models.ScreenVM>;
-                            //    var i = 0;
-                            //    foreach (var item in screenList)
-                              //  {
-                   // <option>@(item.ScreenId)</option>
-}
-
-                           // }
-
-
                         </select>
-
-
-
-                        <div style="float:left; width:50%;">
+                        <div style="float:left; width:50%; ">
                             <label>Android Box</label>
 
-                            <select style="width:200px">
+                            <select style="width:300px; height:25px">
                                 <option>Choose box</option>
                                 <option>Option one</option>
                                 <option>Option two</option>
@@ -54,10 +53,8 @@
                                 <option>Option four</option>
                             </select>
                         </div>
-
                         <div style="float:right"><button type="submit" class="btn btn-success" style="margin-bottom:20px">Match</button></div>
                     </div>
-
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -78,21 +75,20 @@
                                 var j = 0;
                                 foreach (var item in deviceList)
                                 {
-                    <tr>
-                        <td>@(++j)</td>
-                        <td>@(item.DeviceId)</td>
-                        <td>@(item.Description)</td>
-                        
-                        <td style="width:180px; text-align:center">
-                           
-                            <a href="/AndroidBox/Delete/@(item.DeviceId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                        </td>
-                    </tr>
-}
+                                    <tr>
+                                        <td>@(++j)</td>
+                                        <td>@(item.DeviceId)</td>
+                                        <td>@(item.Description)</td>
+
+                                        <td style="width:180px; text-align:center">
+
+                                            <a href="/AndroidBox/Delete/@(item.DeviceId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                        </td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
@@ -115,6 +111,38 @@
         <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
         <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
         <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+
+        <script>
+            $("#locationSelect").change(function (event) {
+                event.preventDefault();
+                var data = {
+                    id: $(this).val(),
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/MatchingDevice/receiveLocationId",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        //data = JSON.parse(data);
+                        for (var i = 0; i < data.boxListByLocationId.length; i++) {
+                            if (data.boxListByLocationId[i] != '') {
+                                console.log(data.boxListByLocationId[i]);                                
+                            }
+                        }
+                        for (var i = 0; i < data.screenListByLocationId.length; i++) {
+                            if (data.screenListByLocationId[i] != '') {
+                                // here you will get each item of list as data[i]
+                            }
+                        }
+                    },
+                    error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+            });
+        </script>
     }
 
     @section styles{

@@ -32,4 +32,10 @@ namespace DSS.Models
         public string Description { get; set; }
         public string BrandName { get; set; }
     }
+
+    public class LocationStringVM
+    {
+        public int LocationId { get; set; }
+        public string LocationStringList { get; set; }
+    }
 }

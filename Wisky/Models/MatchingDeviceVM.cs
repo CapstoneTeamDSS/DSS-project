@@ -14,4 +14,6 @@ namespace DSS.Models
         public int BoxId { get; set; }
         public string Description { get; set; }
     }
+
+
 }
