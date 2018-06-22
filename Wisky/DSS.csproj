@@ -849,6 +849,7 @@
     <Content Include="Content\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\form-matching-device\jquery.colorbox.js" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.css" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.min.css" />
     <Content Include="Content\form-upload-media\css\fileinput.css" />
