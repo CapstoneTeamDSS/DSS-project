@@ -50,21 +50,26 @@
                             <div class="file-type text-navy">
                                 <small style="font-size:15px" class="text-navy">File type:</small>
                                 <br />
-                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4">Video
+                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4"> Video
                                 &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="img" value="png">Image
+                                <input style="display:inline-block" type="checkbox" name="img" value="png"> Image
                                 &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss">Other
+                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss"> Other
                             </div>
                             <div style="margin-left: 0px" class="col-sm-3">
                                 <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
                                     @{
                                         var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcUseVM>;
+                                        var itemList = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
                                         var i = 0;
                                         foreach (var item in mediaSrcList)
                                         {
-                                            <option value="@(item.MediaSrcId)" data-position="@(++i)">@(item.Title)</option>
+                                            if (!itemList.Exists(e => e.mediaSrcId == item.MediaSrcId))
+                                            {
+                                                <option value="@(item.MediaSrcId)" data-position="@(++i)">@(item.Title)</option>
+                                            }
                                         }
+                                        <input type="hidden" name="url[]" value="" />
                                     }
                                 </select>
                             </div>
@@ -76,10 +81,16 @@
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
                             </div>
                             <div style=" display: inline-block"></div>
-
-
                             <div class="col-sm-3" id="selectedFiles">
-                                <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+                                <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
+                                    @{
+                                        var itemListTo = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
+                                        foreach (var item in itemListTo)
+                                        {
+                                            <option value="@(item.mediaSrcId)" data-position="@(++i)">@(item.mediaSrcTitle)</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">

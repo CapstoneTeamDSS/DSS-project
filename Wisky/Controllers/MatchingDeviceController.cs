@@ -116,6 +116,7 @@ namespace DSS.Controllers
             {
                 throw ex;
             }
+            return View();
         }
 
     }
