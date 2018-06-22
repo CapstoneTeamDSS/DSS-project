@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using DSS.Data.Models.Entities.Services;
@@ -18,6 +17,7 @@ namespace DSS.Controllers
         // GET: Scenario
         public ActionResult Index()
         {
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var scenarios = this.scenarioService.Get().ToList();
             var scenariosVMs = new List<Models.ScenarioVM>();
 
@@ -29,13 +29,13 @@ namespace DSS.Controllers
                     Description = item.Description,
                     LayoutId = item.LayoutID,
                     Title = item.Title
-
                 };
                 scenariosVMs.Add(b);
             }
             ViewBag.scenariosList = scenariosVMs;
             return View();
         }
+
         // GET: Scenario/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -46,11 +46,14 @@ namespace DSS.Controllers
             }
             return this.RedirectToAction("Index");
         }
+
         // GET: AndroidBox/Form/:id
         public ActionResult Form()
         {
+            ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
             return View();
         }
+
         // POST: Scenario/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioVM model)
@@ -91,6 +94,7 @@ namespace DSS.Controllers
 
             return View("UpdateForm", model);
         }
+
         // POST: Scenario/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioVM model)
@@ -109,6 +113,7 @@ namespace DSS.Controllers
             }
             return View();
         }
+
         public ActionResult UpdateDetails()
         {
 

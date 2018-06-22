@@ -1,9 +1,13 @@
 ﻿using AutoMapper;
 using DSS.Data.Models.Entities.Services;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 using SkyWeb.DatVM.Mvc.Autofac;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,6 +53,7 @@ namespace DSS.Controllers
                     Title = item.Title,
                     Description = item.Description,
                     Id = item.PlaylistID,
+                    Duration = "00:00:00",
                 };
                 playlistDetailVM.Add(m);
             }
@@ -94,7 +99,27 @@ namespace DSS.Controllers
                 }
             }
             ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandId();
+            ViewBag.itemList = GetMediaSrcListByPlaylistId(id ?? default(int));
             return View("Form", model);
+        }
+
+        //TrinhNNP
+        //Get media Src List by playlist ID
+        public static List<Models.PlaylistItemVM> GetMediaSrcListByPlaylistId(int playlistId)
+        {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var itemList = new List<Models.PlaylistItemVM>();
+            var playlistItems = playlistItemService.GetMediaSrcByPlaylistId(playlistId);
+            foreach (var item in playlistItems)
+            {
+                var p = new Models.PlaylistItemVM();
+                var pObj = mediaSrcService.GetById(item.MediaSrcID);
+                p.mediaSrcTitle = pObj.Title;
+                p.mediaSrcId = pObj.MediaSrcID;
+                itemList.Add(p);
+            }
+            return itemList;
         }
 
         // GET: Playlist/Detail/:id
@@ -136,15 +161,18 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
+                Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
                 var playlist = new Data.Models.Entities.Playlist
                 {
                     Title = model.Title,
                     Description = model.Description,
+                    BrandID = currUser.BrandId,
                 };
                 await this.playlistService.CreateAsync(playlist);
 
                 /* Add item to playlist*/
                 IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
                 if (to.Length > 0)
                 {
                     var i = 0;
@@ -156,15 +184,24 @@ namespace DSS.Controllers
                             PlaylistID = playlist.PlaylistID,
                             MediaSrcID = item,
                             DisplayOrder = i++,
-                            Duration = "00:00",
+                            Duration = GetVideoDuration(mediaSrcService.GetById(item).URL),
                         };
                         await playlistItemService.CreateAsync(playlistItem);
                     }
                 }
-
                 return this.RedirectToAction("Index");
             }
             return View("Form", model);
+        }
+
+        private static string GetVideoDuration(string filePath)
+        {
+            string applicationPath = System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+            string appPath = applicationPath.Replace("\\", "/");
+            ShellFile so = ShellFile.FromFilePath(appPath + filePath);
+            IShellProperty prop = so.Properties.System.Media.Duration;
+            var u = (ulong)prop.ValueAsObject;
+            return TimeSpan.FromTicks((long)u).ToString();
         }
 
         // POST: Playlist/Update
@@ -196,8 +233,4 @@ namespace DSS.Controllers
             return this.RedirectToAction("Index");
         }
     }
-
-
-
-    
 }

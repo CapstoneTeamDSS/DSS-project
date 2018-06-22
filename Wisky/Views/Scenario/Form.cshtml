@@ -173,9 +173,9 @@
             <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                     <div class="input-group">
-                      
+
                         <span class="input-group-btn">
-                            
+
                         </span>
                     </div>
                 </div>
@@ -211,8 +211,6 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-
-
                         <!-- Smart Wizard -->
                         <p>@((Model?.ScenarioId != null) ? "" : "You can create a new scenario just following these simple steps")</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
@@ -301,7 +299,6 @@
                                     </div>
                                 </div>
                                 <div id="step-4" class="content" style="display:none;">
-
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel" style="height:441px">
                                             <div class="x_title">
@@ -309,51 +306,17 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <ul id="namelist2" style="height:350px" class="stepContainer">
-                                                <li id='ii_1'>
-                                                    <span id="title"> Playlist1 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_2'>
-                                                    <span id="title">Playlist2 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_3'>
-                                                    <span id="title">Playlist3 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_4'>
-                                                    <span id="title">Playlist4</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" d data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_5'>
-                                                    <span id="title">Playlist5 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_6'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_7'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_8'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_9'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
+                                                @{
+                                                    var playlistList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
+                                                    foreach (var item in playlistList)
+                                                    {
+                                                        <li id='ii_1'>
+                                                            <span id="title">@(item.Title)</span>
+                                                            <span id="duration">@(item.Duration)</span>
+                                                            <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                        </li>
+                                                    }
+                                                }
                                             </ul>
                                         </div>
                                     </div>
