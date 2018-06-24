@@ -110,7 +110,7 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
-        // POST: Brand/Update
+        // POST: Screen/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScreenVM model)
         {

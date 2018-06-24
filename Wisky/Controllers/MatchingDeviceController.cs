@@ -18,7 +18,7 @@ namespace DSS.Controllers
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
 
-        // GET: MatchingDevice
+        // GET: MatchingDevice/index
         public ActionResult Index()
         {
             var devices = this.deviceService.Get().ToList();
@@ -39,6 +39,37 @@ namespace DSS.Controllers
             ViewBag.locationStringList = GetLocationIdByBrandId();
             return View();
         }
+        // GET: Matching/Form/:id
+        public ActionResult Form(int? id, string boxId, string screenId)
+        {
+            int boxID = Int32.Parse(boxId);
+            int screenID = Int32.Parse(screenId);
+            Models.MatchingDeviceVM model = null;
+            if (id != null)
+            {
+                var device = this.deviceService.Get(id);
+                if (device != null)
+                {
+                    model = new Models.MatchingDeviceVM
+                    {
+                        DeviceId = device.DeviceID,
+                        ScreenId = device.ScreenID,
+                        BoxId = device.BoxID,
+                        Description = device.Description
+                    };
+                }
+            }
+            else
+            {
+                model = new Models.MatchingDeviceVM
+                {
+                    ScreenId = screenID,
+                    BoxId = boxID,
+                };
+            }
+            return View(model);
+        }
+
         public static List<Models.LocationStringVM> GetLocationIdByBrandId()
         {
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
@@ -51,16 +82,16 @@ namespace DSS.Controllers
                 var m = new Models.LocationStringVM
                 {
                     LocationId = item.LocationID,
-                    LocationStringList = item.Address + " " + item.District + " " + item.Province,
+                    LocationStringList = item.Address + ", Quận " + item.District + ", TP." + item.Province,
 
                 };
                 locationStringList.Add(m);
             }
             return locationStringList;
         }
-        // GET: Home/JqAJAX  
+        // GET: MatchingDevice/ReceiveLocationId  
         [HttpPost]
-        public JsonResult receiveLocationId(string id)
+        public JsonResult ReceiveLocationId(string id)
         {
             int locationId = Int32.Parse(id);
             try
@@ -85,7 +116,7 @@ namespace DSS.Controllers
                         };
                         boxVMs.Add(b);
                     }
-                }       
+                }
                 //get Screen list By Location ID
                 IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
                 var screens = screenService.Get().ToList();
@@ -104,7 +135,7 @@ namespace DSS.Controllers
                             LocationId = item.LocationID,
                         };
                         screenVMs.Add(b);
-                    }                                   
+                    }
                 }
                 return Json(new
                 {
@@ -116,8 +147,6 @@ namespace DSS.Controllers
             {
                 throw ex;
             }
-            return View();
         }
-
     }
 }

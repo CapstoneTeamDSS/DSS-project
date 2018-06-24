@@ -1,9 +1,7 @@
-﻿
-@{
-    ViewBag.Title = "Matching Device";
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -23,15 +21,15 @@
                     <div width:50%;">
                         <label>Location</label>
                         <select style="width:300px; height:25px" id="locationSelect">
-                            <option value="0">--- Select Location ---</option>
-                            @{
-                                var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
-                                foreach (var item in locationStringList)
-                                {
-                                    <option value="@(item.LocationId)">@(item.LocationStringList)</option>
+                                <option value="0">--- Select Location ---</option>
+                                @{
+                                    var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
+                                    foreach (var item in locationStringList)
+                                    {
+                                        <option value="@(item.LocationId)">@(item.LocationStringList)</option>
+                                    }
                                 }
-                            }
-                        </select>
+                            </select>
                     </div>
                     <p class="text-muted font-13 m-b-30" style="color:dodgerblue">
                         Please select screen and android box you wish to match.
@@ -39,32 +37,28 @@
                     <div style="float:left; width:100%">
                         <label>Screen</label>
 
-                        <select style="width:300px; height:25px" id="screenListById">
+                        <select style="width:300px; height:25px" id="screenListById" name="screenListById">
                             <option value="0">--- Choose Screen ---</option>
                         </select>
                         <div style="float:left; width:50%; ">
                             <label>Android Box</label>
-                            <select style="width:300px; height:25px" id="boxListById">
+                            <select style="width:300px; height:25px" id="boxListById" name="boxListById">
                                 <option value="0">--- Choose Box ---</option>
                             </select>
                         </div>
-                        @*test popup show information*@
-                        <div id="myModal" class="modal">
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <p>Some text in the Modal..</p>
-                            </div>
-
+                        <div style="float:right">
+                            @{
+                                <a class='iframe btn btn-success'
+                                   id="btnMatch"
+                                   title="Please choose Location, Box And Screen">
+                                    Match
+                                </a>
+                            }
                         </div>
-                        @*end test popup show information*@
-                        <div style="float:right"><button title="Please choose Location, Box And Screen" type="submit" class="btn btn-success" id="btnMatch" style="margin-bottom:20px">Match</button></div>
-
                     </div>
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-
                                 <th>
                                     No
                                 </th>
@@ -97,204 +91,133 @@
             </div>
         </div>
     </div>
-    @section scripts{
-        <!-- Datatables -->
-        <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-        <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
-        <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
-        <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
-        <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
-        //get list box and screen by location Id
-        <script>
-            $("#locationSelect").change(function (event) {
-                event.preventDefault();
-                var data = {
-                    id: $(this).val(),
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "/MatchingDevice/receiveLocationId",
-                    data: JSON.stringify(data),
-                    dataType: "json",
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        //data = JSON.parse(data);
-                        //remove data when change location
-                        $("#boxListById").find('option').remove().end()
-                            .append('<option value="' + 0 + '">' + "--- Choose Box ---" + '</option>');
-                        $("#screenListById").find('option').remove().end().append('<option value="' + 0 + '">' + "--- Choose Screen ---" + '</option>');
-                        //load data box, screen by loaction id
-                        for (var i = 0; i < data.boxListByLocationId.length; i++) {
-                            if (data.boxListByLocationId[i] != '') {
-                                $('#boxListById').append('<option value="' + data.boxListByLocationId[i].BoxId + '">' + data.boxListByLocationId[i].Name + '</option>');
-                            }
-                        }
-                        for (var i = 0; i < data.screenListByLocationId.length; i++) {
-                            if (data.screenListByLocationId[i] != '') {
-                                $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + '</option>');
-                            }
-                        }
-                    },
-                    error: function () {
-                        alert("Error occured!!")
-                    }
-                });
+</div>
+@section scripts{
+    <!-- Datatables -->
+    <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>*@
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({ iframe: true, width: "80%", height: "80%" });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
             });
-        </script>
-        // match screen, box by locationId
-        <script>
-            $("#locationSelect").change(function (event) {
-                event.preventDefault();
-                var data = {
-                    id: $(this).val(),
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "/MatchingDevice/receiveLocationId",
-                    data: JSON.stringify(data),
-                    dataType: "json",
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        //data = JSON.parse(data);
-                        //remove data when change location
-                        $("#boxListById").find('option').remove().end()
-                            .append('<option value="' + 0 + '">' + "--- Choose Box ---" + '</option>');
-                        $("#screenListById").find('option').remove().end().append('<option value="' + 0 + '">' + "--- Choose Screen ---" + '</option>');
-                        //load data box, screen by loaction id
-                        for (var i = 0; i < data.boxListByLocationId.length; i++) {
-                            if (data.boxListByLocationId[i] != '') {
-                                $('#boxListById').append('<option value="' + data.boxListByLocationId[i].BoxId + '">' + data.boxListByLocationId[i].Name + '</option>');
-                            }
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!-- get list box and screen by location Id-->
+    <script>
+        $("#locationSelect").change(function (event) {
+            event.preventDefault();
+            var data = {
+                id: $(this).val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/MatchingDevice/ReceiveLocationId",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //data = JSON.parse(data);
+                    //remove data when change location
+                    $("#boxListById").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Box ---" + '</option>');
+                    $("#screenListById").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Screen ---" + '</option>');
+                    //load data box, screen by loaction id
+                    for (var i = 0; i < data.boxListByLocationId.length; i++) {
+                        if (data.boxListByLocationId[i] != '') {
+                            $('#boxListById').append('<option value="' + data.boxListByLocationId[i].BoxId + '">' + data.boxListByLocationId[i].Name + '</option>');
                         }
-                        for (var i = 0; i < data.screenListByLocationId.length; i++) {
-                            if (data.screenListByLocationId[i] != '') {
-                                $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + '</option>');
-                            }
-                        }
-                    },
-                    error: function () {
-                        alert("Error occured!!")
                     }
-                });
-            });
-        </script>
-        @*show information button*@
-        <script>
-            // Get the modal
-            var modal = document.getElementById('myModal');
-
-            // Get the button that opens the modal
-            var btnMatch = document.getElementById("btnMatch");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            btnMatch.onclick = function () {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+                    for (var i = 0; i < data.screenListByLocationId.length; i++) {
+                        if (data.screenListByLocationId[i] != '') {
+                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + '</option>');
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
                 }
-            }
-        </script>
-        @* end show information button *@
-        @* check value seleted *@
-        <script>
-            $(document).ready(function () {
-                setBtnStatus();
             });
+        });
+    </script>
+    <!-- END get list box and screen by location Id-->
+    <!-- check value box, screen is seleted-->
+    <script>
+        $(document).ready(function () {
+            setBtnStatus();
+        });
+        $("#boxListById").change(function () {
+            setBtnStatus();
+        });
+        $("#screenListById").change(function () {
+            setBtnStatus();
+        });
+        function setBtnStatus() {
+            var box = $('#boxListById');
+            var screen = $('#screenListById');
+            var btnMatch = $('#btnMatch');
+            if (box.val() == 0 || screen.val() == 0) {
+                //console.log(box);
+                btnMatch.attr("disabled", true);
+            } else {
+                btnMatch.attr("disabled", false);
+            }
+
+        }
+    </script>
+    <!--end check value box, screen is seleted-->
+    <script>
+        $(document).ready(function () {
+            var selectedBoxId;
+            var selectedScreenId;
             $("#boxListById").change(function () {
-                setBtnStatus();
+                selectedBoxId = $(this).val();
+                console.log(selectedBoxId);
+                params += selectedBoxId;
             });
             $("#screenListById").change(function () {
-                setBtnStatus();
+                selectedScreenId = $(this).val();
+                console.log(selectedScreenId);
+                params += selectedScreenId;
             });
-            function setBtnStatus() {
-                var box = $('#boxListById');
-                var screen = $('#screenListById');
-                var btnMatch = $('#btnMatch');
-                if (box.val() == 0 || screen.val() == 0) {
-                    btnMatch.attr("disabled", true);
-                } else {
-                    btnMatch.attr("disabled", false);
-                }
+            $("#btnMatch").click(function () {
+                $(this).attr("href", "/MatchingDevice/Form?boxId=" + selectedBoxId + "&screenId=" + selectedScreenId);  //-----this will change href
+            })
+        }); 
+    </script>
+}
 
-            }
-        </script>
-        @* end check value seleted *@
-
-    }
-
-    @section styles{
-        <!-- Datatables -->
-        <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            /* The Modal (background) */
-            .modal {
-                display: none; /* Hidden by default */
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                padding-top: 100px; /* Location of the box */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: rgb(0,0,0); /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            }
-
-            /* Modal Content */
-            .modal-content {
-                background-color: #fefefe;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-                height: 80%;
-            }
-
-            /* The Close Button */
-            .close {
-                color: #aaaaaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-
-                .close:hover,
-                .close:focus {
-                    color: #000;
-                    text-decoration: none;
-                    cursor: pointer;
-                }
-        </style>
-    }
+@section styles{
+    <!-- Datatables -->
+    <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+}
