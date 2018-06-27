@@ -11,7 +11,6 @@ namespace DSS.Controllers
     [Authorize]
     public class ScenarioController : Controller
     {
-
         IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         // GET: Scenario
@@ -51,6 +50,7 @@ namespace DSS.Controllers
         public ActionResult Form()
         {
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
+            ViewBag.layoutList = GetLayoutList();
             return View();
         }
 
@@ -70,6 +70,29 @@ namespace DSS.Controllers
                 return this.RedirectToAction("Index");
             }
             return View("Form", model);
+        }
+
+        public List<Models.LayoutVM> GetLayoutList()
+        {
+            ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
+            var layoutList = layoutService.Get().ToList();
+            var layoutVMs = new List<Models.LayoutVM>();
+            if (layoutList != null)
+            {
+                foreach (var item in layoutList)
+                {
+                    var l = new Models.LayoutVM
+                    {
+                        LayoutID = item.LayoutID,
+                        Title = item.Title,
+                        Type = item.Type,
+                        Description = item.Description,
+                        URL = item.URL,
+                    };
+                    layoutVMs.Add(l);
+                }
+            }
+            return layoutVMs;
         }
 
         public ActionResult UpdateForm(int? id)
@@ -113,11 +136,85 @@ namespace DSS.Controllers
             }
             return View();
         }
+        
+        [HttpPost]
+        public ActionResult LoadLayout(int layoutId)
+        {
+            var url = "/Resource/Layout/Layout_" + layoutId + ".cshtml";
+            return PartialView(url);
+        }
+
+        [HttpPost]
+        public ActionResult LoadPlaylistInfo(int playlistId)
+        {
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var playlist = playlistService.GetById(playlistId);
+            return Json(new
+            {
+                Id = playlist.PlaylistID,
+                Description = playlist.Description,
+                Title = playlist.Title,
+                Duration = "00:00:00",
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult LoadAreaPlaylist(string areaIdStr, string scenarioIdStr)
+        {
+            int AreaId = Int32.Parse(areaIdStr);
+            int ScenarioId = Int32.Parse(scenarioIdStr);
+            IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var ScenarioItems = scenarioItemService.GetItemListByAreaScenarioId(AreaId, ScenarioId);
+            var ScenarioItemVMs = new List<Models.ScenarioItemVM>();
+            var PlaylistList = PlaylistController.GetPlaylistIdByBrandId();
+            if (scenarioItemService != null)
+            {
+                foreach (var item in ScenarioItems)
+                {
+                    var p = playlistService.GetById(item.PlaylistID);
+                    var s = new Models.ScenarioItemVM
+                    {
+                        ScenarioItemId = item.ScenarioItemID,
+                        ScenarioId = item.ScenarioID,
+                        PlaylistId = item.PlaylistID,
+                        Note = item.Note,
+                        AreaId = item.AreaID,
+                        DisplayOrder = item.DisplayOrder,
+                        Title = p.Title,
+                        Duration = "Not Yet",
+                    };
+                    ScenarioItemVMs.Add(s);
+                }
+            }
+            if (scenarioItemService != null)
+            {
+                foreach (var item in ScenarioItems)
+                {
+                    var p = playlistService.GetById(item.PlaylistID);
+                    var s = new Models.ScenarioItemVM
+                    {
+                        ScenarioItemId = item.ScenarioItemID,
+                        ScenarioId = item.ScenarioID,
+                        PlaylistId = item.PlaylistID,
+                        Note = item.Note,
+                        AreaId = item.AreaID,
+                        DisplayOrder = item.DisplayOrder,
+                        Title = p.Title,
+                        Duration = "Not Yet",
+                    };
+                    ScenarioItemVMs.Add(s);
+                }
+            }
+            return Json(new
+            {
+                ScenarioItems = ScenarioItemVMs,
+                PlaylistList = PlaylistList
+            }, JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult UpdateDetails()
         {
-
-
             return View("UpdateDetails");
         }
     }
