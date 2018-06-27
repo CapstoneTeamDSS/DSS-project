@@ -16,6 +16,7 @@ namespace DSS.Models
         public string District { get; set; }
         [Required(ErrorMessage = "Address can not Empty!!!")]
         public string Address { get; set; }
+        public string BrandName { get; set; }
         public string Description { get; set; }
         public DateTime Time { get; set; }
     }

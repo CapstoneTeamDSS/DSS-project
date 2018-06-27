@@ -21,15 +21,15 @@
                     <div width:50%;">
                         <label>Location</label>
                         <select style="width:300px; height:25px" id="locationSelect">
-                                <option value="0">--- Select Location ---</option>
-                                @{
-                                    var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
-                                    foreach (var item in locationStringList)
-                                    {
-                                        <option value="@(item.LocationId)">@(item.LocationStringList)</option>
-                                    }
+                            <option value="0">--- Select Location ---</option>
+                            @{
+                                var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
+                                foreach (var item in locationStringList)
+                                {
+                                    <option value="@(item.LocationId)">@(item.LocationStringList)</option>
                                 }
-                            </select>
+                            }
+                        </select>
                     </div>
                     <p class="text-muted font-13 m-b-30" style="color:dodgerblue">
                         Please select screen and android box you wish to match.
@@ -63,8 +63,10 @@
                                     No
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Device ID
+                                    Title
                                 </th>
+                                <th>Screen Name</th>
+                                <th>Box Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -77,10 +79,13 @@
                                 {
                                     <tr>
                                         <td>@(++j)</td>
-                                        <td>@(item.DeviceId)</td>
+                                        <td>@(item.Title)</td>
+                                        <td>@(item.ScreenName)</td>
+                                        <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/AndroidBox/Delete/@(item.DeviceId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/MatchingDevice/Delete/@(item.DeviceId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -111,12 +116,15 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
     <!-- iframe button matching-->
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>*@
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
         $(document).ready(function () {
             //Examples of how to assign the Colorbox event to elements
-            $(".iframe").colorbox({ iframe: true, width: "80%", height: "80%" });
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
                 $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
@@ -188,26 +196,24 @@
 
         }
     </script>
-    <!--end check value box, screen is seleted-->
+    <!--End check value box, screen is seleted-->
+    <!--Send screen id, box id to controller-->
     <script>
         $(document).ready(function () {
             var selectedBoxId;
             var selectedScreenId;
             $("#boxListById").change(function () {
                 selectedBoxId = $(this).val();
-                console.log(selectedBoxId);
-                params += selectedBoxId;
             });
             $("#screenListById").change(function () {
                 selectedScreenId = $(this).val();
-                console.log(selectedScreenId);
-                params += selectedScreenId;
             });
             $("#btnMatch").click(function () {
                 $(this).attr("href", "/MatchingDevice/Form?boxId=" + selectedBoxId + "&screenId=" + selectedScreenId);  //-----this will change href
             })
-        }); 
+        });
     </script>
+    <!--End Get screen id, box id send to controller-->
 }
 
 @section styles{
