@@ -41,7 +41,7 @@ namespace DSS.Controllers
         }
 
         //ToanTXSE
-        //Get location List by location ID
+        //Get location List by Brand ID
         public static List<Models.LocationAdditionalVM> GetLocationIdByBrandId()
         {
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
@@ -79,10 +79,7 @@ namespace DSS.Controllers
                     BrandId = item.BrandID,
                     District = item.District,
                     Province = item.Province,
-                    LocationId = item.LocationID,
-                   
-                    
-
+                    LocationId = item.LocationID,                
                 };
                 locationVMs.Add(b);
             }

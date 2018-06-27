@@ -858,6 +858,8 @@
     <Content Include="Content\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\form-matching-device\colorbox.css" />
+    <Content Include="Content\form-matching-device\jquery.colorbox.js" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.css" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.min.css" />
     <Content Include="Content\form-upload-media\css\fileinput.css" />
@@ -1886,6 +1888,7 @@
     <Content Include="Views\Scenario\Form.cshtml" />
     <Content Include="Views\Scenario\UpdateForm.cshtml" />
     <Content Include="Views\Scenario\UpdateDetails.cshtml" />
+    <Content Include="Views\MatchingDevice\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
