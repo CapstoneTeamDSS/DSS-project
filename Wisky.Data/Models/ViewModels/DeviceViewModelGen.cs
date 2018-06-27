@@ -18,8 +18,9 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int DeviceID { get; set; }
     			public virtual int ScreenID { get; set; }
     			public virtual int BoxID { get; set; }
-    			public virtual string CreateDatetime { get; set; }
+    			public virtual System.DateTime CreateDatetime { get; set; }
     			public virtual string Description { get; set; }
+    			public virtual string Title { get; set; }
     	
     	public DeviceViewModel() : base() { }
     	public DeviceViewModel(DSS.Data.Models.Entities.Device entity) : base(entity) { }

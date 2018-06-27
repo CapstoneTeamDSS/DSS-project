@@ -22,12 +22,8 @@ namespace DSS.Data.Models.Entities
     
         public int AreaID { get; set; }
         public int LayoutID { get; set; }
-        public int AreaCode { get; set; }
-        public double X1Position { get; set; }
-        public double X2Position { get; set; }
-        public double Y1Position { get; set; }
-        public double Y2Postition { get; set; }
-        public string Note { get; set; }
+        public string AreaCode { get; set; }
+        public string URL { get; set; }
     
         public virtual Layout Layout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

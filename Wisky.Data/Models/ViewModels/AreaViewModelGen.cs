@@ -17,12 +17,8 @@ namespace DSS.Data.Models.ViewModels
     	
     			public virtual int AreaID { get; set; }
     			public virtual int LayoutID { get; set; }
-    			public virtual int AreaCode { get; set; }
-    			public virtual double X1Position { get; set; }
-    			public virtual double X2Position { get; set; }
-    			public virtual double Y1Position { get; set; }
-    			public virtual double Y2Postition { get; set; }
-    			public virtual string Note { get; set; }
+    			public virtual string AreaCode { get; set; }
+    			public virtual string URL { get; set; }
     	
     	public AreaViewModel() : base() { }
     	public AreaViewModel(DSS.Data.Models.Entities.Area entity) : base(entity) { }

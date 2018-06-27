@@ -24,12 +24,8 @@
           </Key>
           <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
-          <Property Name="AreaCode" Type="int" Nullable="false" />
-          <Property Name="X1Position" Type="float" Nullable="false" />
-          <Property Name="X2Position" Type="float" Nullable="false" />
-          <Property Name="Y1Position" Type="float" Nullable="false" />
-          <Property Name="Y2Postition" Type="float" Nullable="false" />
-          <Property Name="Note" Type="text" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -110,8 +106,9 @@
           <Property Name="DeviceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ScreenID" Type="int" Nullable="false" />
           <Property Name="BoxID" Type="int" Nullable="false" />
-          <Property Name="CreateDatetime" Type="nchar" MaxLength="10" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
           <Property Name="Description" Type="text" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="DeviceScenario">
           <Key>
@@ -130,7 +127,9 @@
           </Key>
           <Property Name="LayoutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="AreasNum" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="URL" Type="varchar" MaxLength="150" />
+          <Property Name="Type" Type="bit" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -346,7 +345,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeviceMatching_Box">
+        <Association Name="FK_Device_Box">
           <End Role="Box" Type="Self.Box" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,7 +357,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeviceMatching_Screen">
+        <Association Name="FK_Device_Screen">
           <End Role="Screen" Type="Self.Screen" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
           <ReferentialConstraint>
@@ -366,7 +365,7 @@
               <PropertyRef Name="ScreenID" />
             </Principal>
             <Dependent Role="Device">
-              <PropertyRef Name="BoxID" />
+              <PropertyRef Name="ScreenID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -594,11 +593,11 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeviceMatching_Box" Association="Self.FK_DeviceMatching_Box">
+          <AssociationSet Name="FK_Device_Box" Association="Self.FK_Device_Box">
             <End Role="Box" EntitySet="Box" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeviceMatching_Screen" Association="Self.FK_DeviceMatching_Screen">
+          <AssociationSet Name="FK_Device_Screen" Association="Self.FK_Device_Screen">
             <End Role="Screen" EntitySet="Screen" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
@@ -714,7 +713,7 @@
             <End Role="Location" EntitySet="Locations" />
             <End Role="Box" EntitySet="Boxes" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeviceMatching_Box" Association="DSSModel.FK_DeviceMatching_Box">
+          <AssociationSet Name="FK_Device_Box" Association="DSSModel.FK_Device_Box">
             <End Role="Box" EntitySet="Boxes" />
             <End Role="Device" EntitySet="Devices" />
           </AssociationSet>
@@ -730,7 +729,7 @@
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Playlist" EntitySet="Playlists" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeviceMatching_Screen" Association="DSSModel.FK_DeviceMatching_Screen">
+          <AssociationSet Name="FK_Device_Screen" Association="DSSModel.FK_Device_Screen">
             <End Role="Screen" EntitySet="Screens" />
             <End Role="Device" EntitySet="Devices" />
           </AssociationSet>
@@ -800,12 +799,8 @@
           </Key>
           <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
-          <Property Name="AreaCode" Type="Int32" Nullable="false" />
-          <Property Name="X1Position" Type="Double" Nullable="false" />
-          <Property Name="X2Position" Type="Double" Nullable="false" />
-          <Property Name="Y1Position" Type="Double" Nullable="false" />
-          <Property Name="Y2Postition" Type="Double" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Area_Layout" FromRole="Area" ToRole="Layout" />
           <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="Area" ToRole="ScenarioItem" />
         </EntityType>
@@ -870,7 +865,7 @@
           <Property Name="BoxName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Location" Relationship="DSSModel.FK_Box_Location" FromRole="Box" ToRole="Location" />
-          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_DeviceMatching_Box" FromRole="Box" ToRole="Device" />
+          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Box" FromRole="Box" ToRole="Device" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
@@ -892,10 +887,11 @@
           <Property Name="DeviceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ScreenID" Type="Int32" Nullable="false" />
           <Property Name="BoxID" Type="Int32" Nullable="false" />
-          <Property Name="CreateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Box" Relationship="DSSModel.FK_DeviceMatching_Box" FromRole="Device" ToRole="Box" />
-          <NavigationProperty Name="Screen" Relationship="DSSModel.FK_DeviceMatching_Screen" FromRole="Device" ToRole="Screen" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Box" Relationship="DSSModel.FK_Device_Box" FromRole="Device" ToRole="Box" />
+          <NavigationProperty Name="Screen" Relationship="DSSModel.FK_Device_Screen" FromRole="Device" ToRole="Screen" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="Device" ToRole="DeviceScenario" />
         </EntityType>
         <EntityType Name="DeviceScenario">
@@ -917,7 +913,9 @@
           </Key>
           <Property Name="LayoutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AreasNum" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Boolean" />
           <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_Layout" FromRole="Layout" ToRole="Area" />
           <NavigationProperty Name="Scenarios" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Layout" ToRole="Scenario" />
         </EntityType>
@@ -1040,7 +1038,7 @@
           <Property Name="ResolutionID" Type="Int32" Nullable="false" />
           <Property Name="ScreenName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_DeviceMatching_Screen" FromRole="Screen" ToRole="Device" />
+          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Screen" FromRole="Screen" ToRole="Device" />
           <NavigationProperty Name="Location" Relationship="DSSModel.FK_Screen_Location" FromRole="Screen" ToRole="Location" />
           <NavigationProperty Name="Resolution" Relationship="DSSModel.FK_Screen_Resolution" FromRole="Screen" ToRole="Resolution" />
         </EntityType>
@@ -1142,7 +1140,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeviceMatching_Box">
+        <Association Name="FK_Device_Box">
           <End Type="DSSModel.Box" Role="Box" Multiplicity="1" />
           <End Type="DSSModel.Device" Role="Device" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1190,7 +1188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeviceMatching_Screen">
+        <Association Name="FK_Device_Screen">
           <End Type="DSSModel.Screen" Role="Screen" Multiplicity="1" />
           <End Type="DSSModel.Device" Role="Device" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1198,7 +1196,7 @@
               <PropertyRef Name="ScreenID" />
             </Principal>
             <Dependent Role="Device">
-              <PropertyRef Name="BoxID" />
+              <PropertyRef Name="ScreenID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1349,11 +1347,7 @@
           <EntitySetMapping Name="Areas">
             <EntityTypeMapping TypeName="DSSModel.Area">
               <MappingFragment StoreEntitySet="Area">
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Y2Postition" ColumnName="Y2Postition" />
-                <ScalarProperty Name="Y1Position" ColumnName="Y1Position" />
-                <ScalarProperty Name="X2Position" ColumnName="X2Position" />
-                <ScalarProperty Name="X1Position" ColumnName="X1Position" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
                 <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="AreaID" ColumnName="AreaID" />
@@ -1431,6 +1425,7 @@
           <EntitySetMapping Name="Devices">
             <EntityTypeMapping TypeName="DSSModel.Device">
               <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
                 <ScalarProperty Name="BoxID" ColumnName="BoxID" />
@@ -1454,7 +1449,9 @@
           <EntitySetMapping Name="Layouts">
             <EntityTypeMapping TypeName="DSSModel.Layout">
               <MappingFragment StoreEntitySet="Layout">
-                <ScalarProperty Name="AreasNum" ColumnName="AreasNum" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
               </MappingFragment>
