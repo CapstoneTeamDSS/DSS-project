@@ -20,6 +20,7 @@ namespace DSS.Models
         public string FullName { get; set; }
         [Required]
         public int BrandID { get; set; }
+        public bool isActive { get; set; }
         public string BrandName { get; set; }
     }
 
@@ -28,7 +29,7 @@ namespace DSS.Models
         public String Id { get; set; }
         [Required(ErrorMessage = "Day la loi Name bi rong")]
         public string UserName { get; set; }
-        [Required]
+        //[Required]
         public string Password { get; set; }
         [Required]
         public string Email { get; set; }
@@ -39,6 +40,19 @@ namespace DSS.Models
         public string PhoneNumber { get; set; }
         [Required]
         public bool isActive { get; set; }
+        [Required]
+        public string Role { get; set; }
+    }
+
+    public class CurrentUserVM
+    {
+        public String Id { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string FullName { get; set; }
+        [Required]
+        public int BrandId { get; set; }
         [Required]
         public string Role { get; set; }
     }

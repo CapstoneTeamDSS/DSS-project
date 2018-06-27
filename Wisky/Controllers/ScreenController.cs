@@ -17,24 +17,46 @@ namespace DSS.Controllers
         // GET: Screen
         public ActionResult Index()
         {
-            var screens = this.screenService.Get().ToList();
-            var screenVMs = new List<Models.ScreenVM>();
+            //var screens = this.screenService.Get().ToList();
+            //var screenVMs = new List<Models.ScreenVM>();
 
-            foreach (var item in screens)
+            //foreach (var item in screens)
+            //{
+            //    var b = new Models.ScreenVM
+            //    {
+            //        Name = item.ScreenName,
+            //        Description =item.Description,                  
+            //        ResolutionId = item.ResolutionID,
+            //        ScreenId = item.ScreenID,
+            //        LocationId = item.LocationID,
+
+            //    };
+            //    screenVMs.Add(b);
+            //}
+            ViewBag.screensList = GetScreenIdByBrandId();
+            return View();
+        }
+        //ToanTXSE
+        //Get screen List by location ID
+        public static List<Models.ScreenVM> GetScreenIdByBrandId()
+        {
+            IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+            var ScreenVM = new List<Models.ScreenVM>();      
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var screenList = screenService.GetScreenIdByBrandId(currUser.BrandId);
+            foreach (var item in screenList)
             {
-                var b = new Models.ScreenVM
+                var m = new Models.ScreenVM
                 {
                     Name = item.ScreenName,
-                    Description =item.Description,                  
+                    Description = item.Description,
                     ResolutionId = item.ResolutionID,
                     ScreenId = item.ScreenID,
                     LocationId = item.LocationID,
-
                 };
-                screenVMs.Add(b);
+                ScreenVM.Add(m);
             }
-            ViewBag.screensList = screenVMs;
-            return View();
+            return ScreenVM;
         }
         // GET: Screen/Delete/:id
         public ActionResult Delete(int id)
@@ -66,6 +88,8 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationList();
+            ViewBag.resolutionList = ResolutionController.GetResolutionList();
             return View(model);
         }
         // POST: Screen/Add
@@ -86,7 +110,7 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
-        // POST: Brand/Update
+        // POST: Screen/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScreenVM model)
         {

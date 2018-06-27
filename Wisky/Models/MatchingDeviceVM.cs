@@ -13,5 +13,13 @@ namespace DSS.Models
         public int ScreenId { get; set; }
         public int BoxId { get; set; }
         public string Description { get; set; }
+        public string Title { get; set; }
     }
+    public class MatchingDeviceBoxScreenVM
+    {
+        public int ScreenId { get; set; }
+        public int BoxId { get; set; }
+    }
+
+
 }

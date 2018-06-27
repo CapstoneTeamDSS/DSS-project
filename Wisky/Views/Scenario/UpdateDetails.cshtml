@@ -1,0 +1,418 @@
+﻿
+@{
+    ViewBag.Title = "Update Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <script src="/Content/vendors/iCheck/icheck.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script>
+        function swapVideo() {
+            player.src = this.getAttribute("data-video-url");
+            player.load();
+            player.play();
+        }
+
+        var videoPlayButtons = document.querySelectorAll("button"),
+            player = document.getElementById("player");
+
+        for (var i = 0; i < videoPlayButtons.length; i++) {
+            videoPlayButtons[i].addEventListener('click', swapVideo);
+        }
+    </script>
+    <script>
+        function myFunction() {
+            document.getElementById("1").style.border = "thick solid #0000FF"
+        }
+    </script>
+
+    <script>
+        $("#namelist").sortable({
+            connectWith: '#deleteArea',
+            update: function (event, ui) {
+                //Run this code whenever an item is dragged and dropped out of this list
+                var order = $(this).sortable('serialize');
+            },
+
+        });
+    </script>
+    <script>
+
+        function swapVideo(id, el) {
+            var allListItem = document.querySelectorAll('#namelist li');
+
+            for (var item of allListItem) {
+                if (item.getAttribute('id') == id) {
+                    item.classList.add('i-new');
+                    item.classList.remove('i-old');
+                } else {
+                    item.classList.add('i-old');
+                    item.classList.remove('i-new');
+                }
+            }
+
+
+            var firstBtn = document.querySelector(`#${id} .btn-success`);
+            player.src = firstBtn.getAttribute("data-video-url");
+            player.load();
+            player.play();
+        }
+
+        var videoPlayButtons = document.querySelectorAll("button"),
+            player = document.getElementById("player");
+
+    </script>
+
+
+
+}
+@section styles{
+    <style>
+        .select-layout {
+            border-style: dashed;
+            border-spacing: 0px;
+        }
+
+        #duration {
+            position: relative;
+            top: -15px;
+            left: 0;
+            display: inline-block;
+            margin-left: 0%;
+            width: 20px;
+        }
+
+        #title {
+            display: inline-block;
+            width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #deleteArea {
+            background-color: navajowhite;
+            display: inline-block;
+        }
+
+        #namelist {
+            display: inline-block;
+            background-color: transparent;
+            margin-right: 20px;
+        }
+
+        #namelist2 {
+            display: inline-block;
+            background-color: transparent;
+            margin-right: 20px;
+        }
+
+        #preview-warapper {
+            background-color: transparent;
+        }
+
+        video {
+            position: relative;
+            width: 350px;
+            height: 350px
+        }
+
+
+        #namelist li {
+            width: 500px;
+            height: 40px;
+            background-color: aliceblue;
+            line-height: 40px;
+            cursor: move;
+            list-style-type: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #namelist2 li {
+            width: 500px;
+            height: 40px;
+            background-color: aliceblue;
+            line-height: 40px;
+            cursor: move;
+            list-style-type: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .dropArea {
+            background-color: #fee
+        }
+
+        .dropAreaHover {
+            background-color: #f00;
+        }
+
+        .i-old {
+            border-radius: 3px;
+        }
+
+        .i-new {
+            border: 1px solid red;
+            box-shadow: 20px 10px 20px;
+        }
+    </style>
+}
+<div class="" role="main" style="min-height: 1207px;width:inherit">
+    <div style="width:1230px;margin-right:1000px">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Scenario Details</h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+
+                        <span class="input-group-btn">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Update details<small>Step by step</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+
+                        <!-- Smart Wizard -->
+                      
+                        <div id="wizard" class="form_wizard wizard_horizontal">
+                            <ul class="wizard_steps anchor">
+
+                                <li>
+                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                            Step 4<br>
+                                            <small>Navigate scenario details</small>
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div class="stepContainer" style="height:auto">
+
+
+                                <div id="step-4" class="content" style="display:none;">
+
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel" style="height:441px">
+                                            <div class="x_title">
+                                                <h2>Playlist Detail</h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <ul id="namelist2" style="height:350px" class="stepContainer">
+                                                <li id='ii_1'>
+                                                    <span id="title"> Playlist1 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_2'>
+                                                    <span id="title">Playlist2 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_3'>
+                                                    <span id="title">Playlist3 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_4'>
+                                                    <span id="title">Playlist4</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" d data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_5'>
+                                                    <span id="title">Playlist5 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_6'>
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_7'>
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_8'>
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                                <li id='ii_9'>
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Preview </h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div id="preview-warapper" style="display:inline-block;">
+                                                    <div style="height=400px;width:500px;">
+                                                        <div class="select-layout" style="display:inline-block; width:500px;height:200px;" onclick="myFunction()"> <video style="width:inherit; height:inherit" id="player" src="/Content/videos/Relax.mp4" controls></video> </div>
+                                                        <br />
+                                                        <div class="select-layout" style="display:inline-block" onclick="myFunction()"><video style="width:240px; height:100px;" id="player" src="/Content/videos/Relax.mp4" controls></video></div>
+                                                        <div class="select-layout" style="display:inline-block" onclick="myFunction()"><video style="width:240px; height:100px;" id="player" src="/Content/videos/Relax.mp4" controls></video></div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel" style="height:441px">
+                                            <div class="x_title">
+                                                <h2>Area's list playlist</h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <ul id="namelist" style="height:350px" class="stepContainer">
+                                                <li id='i_1' class="i-old" onclick="swapVideo('i_1',this)">
+                                                    <span id="title"> Playlist1 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_2' class="i-old" onclick="swapVideo('i_2',this)">
+                                                    <span id="title">Playlist2 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_3' class="i-old" onclick="swapVideo('i_3',this)">
+                                                    <span id="title">Playlist3 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/Relax.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
+                                                    <span id="title">Playlist4</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" d data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_5' class="i-old" onclick="swapVideo('i_5',this)">
+                                                    <span id="title">Playlist5 </span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_6' class="i-old" onclick="swapVideo('i_6',this)">
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_7' class="i-old" onclick="swapVideo('i_7',this)">
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_8' class="i-old" onclick="swapVideo('i_8',this)">
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                                <li id='i_9' class="i-old" onclick="swapVideo('i_9',this)">
+                                                    <span id="title">Playlist6</span>
+                                                    <span id="duration"> 7:40 </span>
+                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Preview </h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Title:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <label>CoCa CoLa</label>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Description:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <label>Good video</label>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Duration:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <label>18:00</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

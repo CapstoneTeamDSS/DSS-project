@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.3\build\MSBuild.Microsoft.VisualStudio.Web.targets.props" Condition="Exists('..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.3\build\MSBuild.Microsoft.VisualStudio.Web.targets.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -99,6 +100,12 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
@@ -261,6 +268,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountController_bk.cs" />
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
@@ -268,7 +276,7 @@
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlaylistController.cs" />
-    <Compile Include="Controllers\MediaController.cs" />
+    <Compile Include="Controllers\MediaSrcController.cs" />
     <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
     <Compile Include="Controllers\ScenarioController.cs" />
@@ -281,11 +289,16 @@
     <Compile Include="Models\BrandDetailVM.cs" />
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
+    <Compile Include="Models\LayoutVM.cs" />
+    <Compile Include="Models\PlaylistItemVM.cs" />
+    <Compile Include="Models\ScenarioItemVM.cs" />
     <Compile Include="Models\ScenarioVM.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
+    <Compile Include="Models\MediaSrcVM.cs" />
     <Compile Include="Models\MatchingDeviceVM.cs" />
     <Compile Include="Models\PlaylistDetailVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
+    <Compile Include="Models\RoleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />
@@ -845,6 +858,78 @@
     <Content Include="Content\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\form-matching-device\colorbox.css" />
+    <Content Include="Content\form-matching-device\jquery.colorbox.js" />
+    <Content Include="Content\form-upload-media\css\fileinput-rtl.css" />
+    <Content Include="Content\form-upload-media\css\fileinput-rtl.min.css" />
+    <Content Include="Content\form-upload-media\css\fileinput.css" />
+    <Content Include="Content\form-upload-media\css\fileinput.min.css" />
+    <Content Include="Content\form-upload-media\js\fileinput.js" />
+    <Content Include="Content\form-upload-media\js\fileinput.min.js" />
+    <Content Include="Content\form-upload-media\js\locales\ar.js" />
+    <Content Include="Content\form-upload-media\js\locales\az.js" />
+    <Content Include="Content\form-upload-media\js\locales\bg.js" />
+    <Content Include="Content\form-upload-media\js\locales\ca.js" />
+    <Content Include="Content\form-upload-media\js\locales\cr.js" />
+    <Content Include="Content\form-upload-media\js\locales\cs.js" />
+    <Content Include="Content\form-upload-media\js\locales\da.js" />
+    <Content Include="Content\form-upload-media\js\locales\de.js" />
+    <Content Include="Content\form-upload-media\js\locales\el.js" />
+    <Content Include="Content\form-upload-media\js\locales\es.js" />
+    <Content Include="Content\form-upload-media\js\locales\et.js" />
+    <Content Include="Content\form-upload-media\js\locales\fa.js" />
+    <Content Include="Content\form-upload-media\js\locales\fi.js" />
+    <Content Include="Content\form-upload-media\js\locales\fr.js" />
+    <Content Include="Content\form-upload-media\js\locales\gl.js" />
+    <Content Include="Content\form-upload-media\js\locales\hu.js" />
+    <Content Include="Content\form-upload-media\js\locales\id.js" />
+    <Content Include="Content\form-upload-media\js\locales\it.js" />
+    <Content Include="Content\form-upload-media\js\locales\ja.js" />
+    <Content Include="Content\form-upload-media\js\locales\ka.js" />
+    <Content Include="Content\form-upload-media\js\locales\kr.js" />
+    <Content Include="Content\form-upload-media\js\locales\kz.js" />
+    <Content Include="Content\form-upload-media\js\locales\LANG.js" />
+    <Content Include="Content\form-upload-media\js\locales\lt.js" />
+    <Content Include="Content\form-upload-media\js\locales\nl.js" />
+    <Content Include="Content\form-upload-media\js\locales\no.js" />
+    <Content Include="Content\form-upload-media\js\locales\pl.js" />
+    <Content Include="Content\form-upload-media\js\locales\pt-BR.js" />
+    <Content Include="Content\form-upload-media\js\locales\pt.js" />
+    <Content Include="Content\form-upload-media\js\locales\ro.js" />
+    <Content Include="Content\form-upload-media\js\locales\ru.js" />
+    <Content Include="Content\form-upload-media\js\locales\sk.js" />
+    <Content Include="Content\form-upload-media\js\locales\sl.js" />
+    <Content Include="Content\form-upload-media\js\locales\sv.js" />
+    <Content Include="Content\form-upload-media\js\locales\th.js" />
+    <Content Include="Content\form-upload-media\js\locales\tr.js" />
+    <Content Include="Content\form-upload-media\js\locales\uk.js" />
+    <Content Include="Content\form-upload-media\js\locales\vi.js" />
+    <Content Include="Content\form-upload-media\js\locales\zh-TW.js" />
+    <Content Include="Content\form-upload-media\js\locales\zh.js" />
+    <Content Include="Content\form-upload-media\js\plugins\piexif.js" />
+    <Content Include="Content\form-upload-media\js\plugins\piexif.min.js" />
+    <Content Include="Content\form-upload-media\js\plugins\purify.js" />
+    <Content Include="Content\form-upload-media\js\plugins\purify.min.js" />
+    <Content Include="Content\form-upload-media\js\plugins\sortable.js" />
+    <Content Include="Content\form-upload-media\js\plugins\sortable.min.js" />
+    <Content Include="Content\form-upload-media\themes\explorer-fas\theme.css" />
+    <Content Include="Content\form-upload-media\themes\explorer-fas\theme.js" />
+    <Content Include="Content\form-upload-media\themes\explorer-fas\theme.min.css" />
+    <Content Include="Content\form-upload-media\themes\explorer-fas\theme.min.js" />
+    <Content Include="Content\form-upload-media\themes\explorer-fa\theme.css" />
+    <Content Include="Content\form-upload-media\themes\explorer-fa\theme.js" />
+    <Content Include="Content\form-upload-media\themes\explorer-fa\theme.min.css" />
+    <Content Include="Content\form-upload-media\themes\explorer-fa\theme.min.js" />
+    <Content Include="Content\form-upload-media\themes\explorer\theme.css" />
+    <Content Include="Content\form-upload-media\themes\explorer\theme.js" />
+    <Content Include="Content\form-upload-media\themes\explorer\theme.min.css" />
+    <Content Include="Content\form-upload-media\themes\explorer\theme.min.js" />
+    <Content Include="Content\form-upload-media\themes\fas\theme.js" />
+    <Content Include="Content\form-upload-media\themes\fas\theme.min.js" />
+    <Content Include="Content\form-upload-media\themes\fa\theme.js" />
+    <Content Include="Content\form-upload-media\themes\fa\theme.min.js" />
+    <Content Include="Content\form-upload-media\themes\gly\theme.js" />
+    <Content Include="Content\form-upload-media\themes\gly\theme.min.js" />
     <Content Include="Content\images\access-point-icon.png" />
     <Content Include="Content\images\BrandLogo\sheraton.png" />
     <Content Include="Content\images\city.jpg" />
@@ -868,6 +953,13 @@
     <Content Include="Content\images\shortvideo.mp4" />
     <Content Include="Content\images\The Scarecrow.mp4" />
     <Content Include="Content\images\trashDelete.png" />
+    <Content Include="Content\index-media-preview-video\css\effect.css" />
+    <Content Include="Content\index-media-preview-video\css\style.css" />
+    <Content Include="Content\index-media-preview-video\js\main.js" />
+    <Content Include="Content\index-media-preview-video\src\flashy.css" />
+    <Content Include="Content\index-media-preview-video\src\flashy.min.css" />
+    <Content Include="Content\index-media-preview-video\src\jquery.flashy.js" />
+    <Content Include="Content\index-media-preview-video\src\jquery.flashy.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\Campaign.js" />
     <Content Include="Content\js\Campaign2.js" />
@@ -1674,6 +1766,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EmailMarketing.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Content\index-media-preview-video\src\flashy.less" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %284%29.pubxml" />
@@ -1699,7 +1792,15 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>WorkCategory.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Resource\Layout\Layout_2.cshtml" />
+    <Content Include="Resource\Layout\Layout_3.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Resource\Audio\testAudio.mp3" />
+    <Content Include="Resource\Image\test1.jpg" />
+    <Content Include="Resource\Image\test2.jpg" />
+    <None Include="Resource\Layout\Layout_1.cshtml" />
+    <None Include="Resource\Layout\Layout_sample.cshtml" />
+    <Content Include="Resource\Video\VideoTest1.MP4" />
     <Content Include="Scripts\delaySearch.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1779,12 +1880,15 @@
     <Content Include="Views\Location\Form.cshtml" />
     <Content Include="Views\Playlist\Index.cshtml" />
     <Content Include="Views\Playlist\Form.cshtml" />
-    <Content Include="Views\Media\Index.cshtml" />
-    <Content Include="Views\Media\Form.cshtml" />
+    <Content Include="Views\MediaSrc\Index.cshtml" />
+    <Content Include="Views\MediaSrc\Form.cshtml" />
     <Content Include="Views\MatchingDevice\Index.cshtml" />
     <Content Include="Views\Playlist\Detail.cshtml" />
     <Content Include="Views\Scenario\Index.cshtml" />
     <Content Include="Views\Scenario\Form.cshtml" />
+    <Content Include="Views\Scenario\UpdateForm.cshtml" />
+    <Content Include="Views\Scenario\UpdateDetails.cshtml" />
+    <Content Include="Views\MatchingDevice\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1795,7 +1899,7 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\css\" />
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
-    <Folder Include="Content\videos\" />
+    <Folder Include="Resource\OrtherFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -2116,6 +2220,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.3\build\MSBuild.Microsoft.VisualStudio.Web.targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.3\build\MSBuild.Microsoft.VisualStudio.Web.targets.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

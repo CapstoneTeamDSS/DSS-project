@@ -37,14 +37,19 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                Location ID <span class="required">*</span>
+                                Location  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="Location-Id"
-                                       name="LocationId"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.LocationId)">
+                                <select class="select2_group form-control" name="LocationId">
+                                    <option value="0">--- Select Location ---</option>
+                                    @{
+                                        var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
+                                        foreach (var item in locationList)
+                                        {
+                                            <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

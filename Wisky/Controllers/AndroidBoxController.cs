@@ -17,23 +17,44 @@ namespace DSS.Controllers
         // GET: AndroidBox
         public ActionResult Index()
         {
-            var boxs = this.boxService.Get().ToList();
-            var boxVMs = new List<Models.AndroidBoxVM>();
+            //var boxs = this.boxService.Get().ToList();
+            //var boxVMs = new List<Models.AndroidBoxVM>();
 
-            foreach (var item in boxs)
+            //foreach (var item in boxs)
+            //{
+            //    var b = new Models.AndroidBoxVM
+            //    {
+            //        Name = item.BoxName,
+            //        Description = item.Description,
+            //        BoxId = item.BoxID,
+            //        LocationId = item.LocationID
+
+            //    };
+            //    boxVMs.Add(b);
+            //}
+            ViewBag.boxsList = GetBoxIdByBrandId();
+            return View();
+        }
+        //ToanTXSE
+        //Get box List by location ID
+        public static List<Models.AndroidBoxVM> GetBoxIdByBrandId()
+        {
+            IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+            var AndroidBoxVM = new List<Models.AndroidBoxVM>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var boxList = boxService.GetBoxIdByBrandId(currUser.BrandId);
+            foreach (var item in boxList)
             {
-                var b = new Models.AndroidBoxVM
+                var m = new Models.AndroidBoxVM
                 {
                     Name = item.BoxName,
                     Description = item.Description,
                     BoxId = item.BoxID,
                     LocationId = item.LocationID
-
                 };
-                boxVMs.Add(b);
+                AndroidBoxVM.Add(m);
             }
-            ViewBag.boxsList = boxVMs;
-            return View();
+            return AndroidBoxVM;
         }
         // GET: AndroidBox/Delete/:id
         public ActionResult Delete(int id)
@@ -64,6 +85,7 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationList();
             return View(model);
         }
         // POST: AndroidBox/Add
