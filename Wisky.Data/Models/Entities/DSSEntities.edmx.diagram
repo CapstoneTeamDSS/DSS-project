@@ -34,11 +34,11 @@
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DSSModel.FK_Box_Location" />
-        <AssociationConnector Association="DSSModel.FK_DeviceMatching_Box" />
+        <AssociationConnector Association="DSSModel.FK_Device_Box" />
         <AssociationConnector Association="DSSModel.FK_Location_Brand" />
         <AssociationConnector Association="DSSModel.FK_MediaSrc_Brand" />
         <AssociationConnector Association="DSSModel.FK_Playlist_Brand" />
-        <AssociationConnector Association="DSSModel.FK_DeviceMatching_Screen" />
+        <AssociationConnector Association="DSSModel.FK_Device_Screen" />
         <AssociationConnector Association="DSSModel.FK_DeviceScenario_Device" />
         <AssociationConnector Association="DSSModel.FK_DeviceScenario_Scenario" />
         <AssociationConnector Association="DSSModel.FK_Scenario_Layout" />
