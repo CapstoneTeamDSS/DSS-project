@@ -159,56 +159,42 @@ namespace DSS.Controllers
         }
 
         [HttpPost]
-        public JsonResult LoadAreaPlaylist(string areaIdStr, string scenarioIdStr)
+        public JsonResult LoadAreaPlaylist(int areaId, int scenarioId)
         {
-            int AreaId = Int32.Parse(areaIdStr);
-            int ScenarioId = Int32.Parse(scenarioIdStr);
             IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
-            var ScenarioItems = scenarioItemService.GetItemListByAreaScenarioId(AreaId, ScenarioId);
-            var ScenarioItemVMs = new List<Models.ScenarioItemVM>();
-            var PlaylistList = PlaylistController.GetPlaylistIdByBrandId();
-            if (scenarioItemService != null)
+            //var ScenarioItems = scenarioItemService.GetItemListByAreaScenarioId(AreaId, ScenarioId);
+            //var ScenarioItemVMs = new List<Models.ScenarioItemVM>();
+            //if (scenarioItemService != null)
+            //{
+            //    foreach (var item in ScenarioItems)
+            //    {
+            //        var p = playlistService.GetById(item.PlaylistID);
+            //        var s = new Models.ScenarioItemVM
+            //        {
+            //            ScenarioItemId = item.ScenarioItemID,
+            //            ScenarioId = item.ScenarioID,
+            //            PlaylistId = item.PlaylistID,
+            //            Note = item.Note,
+            //            AreaId = item.AreaID,
+            //            DisplayOrder = item.DisplayOrder,
+            //            Title = p.Title,
+            //            Duration = "Not Yet",
+            //        };
+            //        ScenarioItemVMs.Add(s);
+            //    }
+            //}
+            var PlaylistList = PlaylistController.GetPlaylistIdByBrandId() as List<Models.PlaylistDetailVM>;
+            if (PlaylistList != null)
             {
-                foreach (var item in ScenarioItems)
+                foreach (var item in PlaylistList)
                 {
-                    var p = playlistService.GetById(item.PlaylistID);
-                    var s = new Models.ScenarioItemVM
-                    {
-                        ScenarioItemId = item.ScenarioItemID,
-                        ScenarioId = item.ScenarioID,
-                        PlaylistId = item.PlaylistID,
-                        Note = item.Note,
-                        AreaId = item.AreaID,
-                        DisplayOrder = item.DisplayOrder,
-                        Title = p.Title,
-                        Duration = "Not Yet",
-                    };
-                    ScenarioItemVMs.Add(s);
-                }
-            }
-            if (scenarioItemService != null)
-            {
-                foreach (var item in ScenarioItems)
-                {
-                    var p = playlistService.GetById(item.PlaylistID);
-                    var s = new Models.ScenarioItemVM
-                    {
-                        ScenarioItemId = item.ScenarioItemID,
-                        ScenarioId = item.ScenarioID,
-                        PlaylistId = item.PlaylistID,
-                        Note = item.Note,
-                        AreaId = item.AreaID,
-                        DisplayOrder = item.DisplayOrder,
-                        Title = p.Title,
-                        Duration = "Not Yet",
-                    };
-                    ScenarioItemVMs.Add(s);
+                    item.isShow = scenarioItemService.CheckIfPlaylistAdded(areaId, scenarioId, item.Id ?? default(int));
                 }
             }
             return Json(new
             {
-                ScenarioItems = ScenarioItemVMs,
+                //ScenarioItems = ScenarioItemVMs,
                 PlaylistList = PlaylistList
             }, JsonRequestBehavior.AllowGet);
         }

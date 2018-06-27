@@ -21,11 +21,20 @@ namespace DSS.Data.Models.Entities.Services
                 .ToList();
             return devices;
         }
+
+        public bool CheckIfPlaylistAdded(int areaId, int scenarioId, int playlistId)
+        {
+            var devices = scenarioItemRepository
+                .Get(a => a.AreaID == areaId && a.ScenarioID == scenarioId && a.PlaylistID == playlistId)
+                .FirstOrDefault();
+            return devices==null;
+        }
     }
 
     public partial interface IScenarioItemService
     {
         List<ScenarioItem> GetItemListByAreaScenarioId(int areaId, int scenarioId);
+        bool CheckIfPlaylistAdded(int areaId, int scenarioId, int playlistId);
 
     }
 }
