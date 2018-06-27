@@ -289,7 +289,9 @@
     <Compile Include="Models\BrandDetailVM.cs" />
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
+    <Compile Include="Models\LayoutVM.cs" />
     <Compile Include="Models\PlaylistItemVM.cs" />
+    <Compile Include="Models\ScenarioItemVM.cs" />
     <Compile Include="Models\ScenarioVM.cs" />
     <Compile Include="Models\LocationDetailVM.cs" />
     <Compile Include="Models\MediaSrcVM.cs" />
@@ -1788,10 +1790,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>WorkCategory.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Resource\Layout\Layout_2.cshtml" />
+    <Content Include="Resource\Layout\Layout_3.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Resource\Audio\testAudio.mp3" />
     <Content Include="Resource\Image\test1.jpg" />
     <Content Include="Resource\Image\test2.jpg" />
+    <None Include="Resource\Layout\Layout_1.cshtml" />
+    <None Include="Resource\Layout\Layout_sample.cshtml" />
     <Content Include="Resource\Video\VideoTest1.MP4" />
     <Content Include="Scripts\delaySearch.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
