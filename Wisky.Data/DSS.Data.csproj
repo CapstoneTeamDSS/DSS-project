@@ -392,6 +392,7 @@
     <Compile Include="Models\Entities\Services\RoleServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\ScenarioItemService.cs" />
     <Compile Include="Models\Entities\Services\ScenarioItemServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>

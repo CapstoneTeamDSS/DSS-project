@@ -5,12 +5,12 @@ using System.Web;
 
 namespace DSS.Models
 {
-    public class PlaylistDetailVM
+    public class LayoutVM
     {
-        public int? Id { get; set; }
+        public int LayoutID { get; set; }
         public string Title { get; set; }
-        public string Duration { get; set; }
+        public string URL { get; set; }
+        public bool? Type { get; set; }
         public string Description { get; set; }
-        public string BrandName { get; set; }
     }
 }
