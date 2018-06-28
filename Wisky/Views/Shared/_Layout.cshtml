@@ -50,41 +50,30 @@
                             <h3>@DSS.ResourcesLanguage.MenuText.GeneralSection</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
+                                    <a href="@Url.Action("Index", "UserMng")"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>
+                                    @*<ul class="nav child_menu">
                                         <li><a href="@Url.Action("Form", "UserMng")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
                                         <li><a href="@Url.Action("Index", "UserMng")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    </ul>*@
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Location")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Location")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index", "Location")"><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng</a>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-cogs"></i>@DSS.ResourcesLanguage.MenuText.DeviceMng <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>
-                                            <a>@DSS.ResourcesLanguage.MenuText.ScreenMng <span class="fa fa-chevron-down"></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Form", "Screen")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                                <li><a href="@Url.Action("Index", "Screen")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                            </ul>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Screen")">@DSS.ResourcesLanguage.MenuText.ScreenMng</a>
                                         </li>
                                         <li>
-                                            <a>@DSS.ResourcesLanguage.MenuText.BoxMng <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Form", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                                <li><a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                            </ul>
+                                            <a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.BoxMng</a>
                                         </li>
                                         <li>
                                             @*<a>@DSS.ResourcesLanguage.MenuText.Matching <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">*@
-                                                <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
-                                        </li>
+            <ul class="nav child_menu">*@
+                                        <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
+</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -93,25 +82,13 @@
                             <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "MediaSrc")">@DSS.ResourcesLanguage.MenuText.AddNew </a></li>
-                                        <li><a href="@Url.Action("Index", "MediaSrc")">@DSS.ResourcesLanguage.MenuText.ViewListMng </a></li>                                      
-                                    </ul>
+                                    <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Playlist")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Playlist")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Scenario")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index","Scenario")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    <a><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
@@ -127,18 +104,10 @@
                             <h3>@DSS.ResourcesLanguage.MenuText.SystemSection</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-flag"></i> @DSS.ResourcesLanguage.MenuText.BrandMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Brand")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Brand")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index", "Brand")"><i class="fa fa-flag"></i> @DSS.ResourcesLanguage.MenuText.BrandMng </a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Resolution")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Resolution")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</span></a>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
