@@ -794,6 +794,7 @@
     <Content Include="Content\assets\bootstrap-select\js\i18n\defaults-zh_TW.js" />
     <Content Include="Content\assets\bootstrap-select\js\i18n\defaults-zh_TW.min.js" />
     <Content Include="Content\assets\datatables\js\dataTables.colReorder.min.js" />
+    <Content Include="Content\button-add\css\custom.min.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="Content\assets\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.svg" />
