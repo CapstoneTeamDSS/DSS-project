@@ -16,11 +16,13 @@ namespace DSS.Controllers
     {
         IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
+        IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+        IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
 
 
         // GET: MatchingDevice/index
         public ActionResult Index()
-        {
+        {           
             var devices = this.deviceService.Get().ToList();
             var deviceVMs = new List<Models.MatchingDeviceVM>();
             foreach (var item in devices)
@@ -29,9 +31,9 @@ namespace DSS.Controllers
                 {
                     DeviceId = item.DeviceID,
                     Description = item.Description,
-                    BoxId = item.BoxID,
-                    ScreenId = item.ScreenID,
-
+                    BoxName = boxService.GetBoxNameByID(item.BoxID),
+                    ScreenName = screenService.GetScreenNameByID(item.ScreenID),
+                    Title = item.Title
                 };
                 deviceVMs.Add(b);
             }
@@ -41,9 +43,7 @@ namespace DSS.Controllers
         }
         // GET: Matching/Form/:id
         public ActionResult Form(int? id, string boxId, string screenId)
-        {
-            int boxID = Int32.Parse(boxId);
-            int screenID = Int32.Parse(screenId);
+        { 
             Models.MatchingDeviceVM model = null;
             if (id != null)
             {
@@ -53,16 +53,23 @@ namespace DSS.Controllers
                     model = new Models.MatchingDeviceVM
                     {
                         DeviceId = device.DeviceID,
+                        Title = device.Title,
                         ScreenId = device.ScreenID,
                         BoxId = device.BoxID,
+                        ScreenName = screenService.GetScreenNameByID(device.ScreenID),
+                        BoxName = boxService.GetBoxNameByID(device.BoxID),
                         Description = device.Description
                     };
                 }
             }
             else
             {
+                int boxID = Int32.Parse(boxId);
+                int screenID = Int32.Parse(screenId);
                 model = new Models.MatchingDeviceVM
                 {
+                    ScreenName = screenService.GetScreenNameByID(screenID),
+                    BoxName = boxService.GetBoxNameByID(boxID),
                     ScreenId = screenID,
                     BoxId = boxID,
                 };
@@ -148,5 +155,59 @@ namespace DSS.Controllers
                 throw ex;
             }
         }
+        // POST: MatchingDevice/Add
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.MatchingDeviceVM model)
+        {
+            DateTime aDateTime = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                var device = new Data.Models.Entities.Device
+                {
+                    CreateDatetime = aDateTime,
+                    BoxID = model.BoxId,
+                    ScreenID = model.ScreenId,
+                    Title = model.Title,
+                    Description = model.Description
+                };
+                await this.deviceService.CreateAsync(device);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+
+        // POST: MatchingDevice/Update
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MatchingDeviceVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var device = this.deviceService.Get(model.DeviceId);
+                if (device != null)
+                {
+                    device.DeviceID = (int)model.DeviceId;
+                    device.BoxID = model.BoxId;
+                    device.ScreenID = model.ScreenId;
+                    device.Title = model.Title;
+                    device.Description = model.Description;
+
+                }
+                await this.deviceService.UpdateAsync(device);
+                return this.RedirectToAction("Index");
+            }
+            return View("Form", model);
+        }
+
+        // GET: MatchingDevice/Delete/:id
+        public ActionResult Delete(int id)
+        {
+            var device = this.deviceService.Get(id);
+            if (device != null)
+            {
+                this.deviceService.Delete(device);
+            }
+            return this.RedirectToAction("Index");
+        }
+
     }
 }

@@ -859,6 +859,11 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\form-matching-device\colorbox.css" />
+    <Content Include="Content\form-matching-device\images\border.png" />
+    <Content Include="Content\form-matching-device\images\controls.png" />
+    <Content Include="Content\form-matching-device\images\loading.gif" />
+    <Content Include="Content\form-matching-device\images\loading_background.png" />
+    <Content Include="Content\form-matching-device\images\overlay.png" />
     <Content Include="Content\form-matching-device\jquery.colorbox.js" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.css" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.min.css" />

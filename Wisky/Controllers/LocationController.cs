@@ -12,8 +12,7 @@ namespace DSS.Controllers
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-        IMapper mapper = DependencyUtils.Resolve<IMapper>();
-
+        IMapper mapper = DependencyUtils.Resolve<IMapper>();        
         //GET: Location/Index
         public ActionResult Index()
         {
@@ -44,9 +43,9 @@ namespace DSS.Controllers
         //Get location List by Brand ID
         public static List<Models.LocationAdditionalVM> GetLocationIdByBrandId()
         {
-            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
+            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();           
             Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
             var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
             foreach (var item in locationList)
@@ -91,7 +90,7 @@ namespace DSS.Controllers
         {
             DateTime aDateTime = DateTime.Now;
             Models.LocationDetailVM model = null;
-
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             if (id != null)
             {
                 var location = this.locationService.Get(id);
@@ -99,8 +98,9 @@ namespace DSS.Controllers
                 {
                     model = new Models.LocationDetailVM
                     {
-                        LocationId = location.LocationID,
                         BrandId = location.BrandID,
+                        LocationId = location.LocationID,
+                        BrandName = brandService.GetBrandNameByID(location.BrandID),
                         Province = location.Province,
                         District = location.District,
                         Address = location.Address,
@@ -116,6 +116,7 @@ namespace DSS.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.LocationDetailVM model)
         {
+            DateTime aDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
                 var location = new Data.Models.Entities.Location
@@ -125,6 +126,7 @@ namespace DSS.Controllers
                     Province = model.Province,
                     District = model.District,
                     Address = model.Address,
+                    CreateDatetime = aDateTime,
                     Description = model.Description
                 };
                 await this.locationService.CreateAsync(location);
