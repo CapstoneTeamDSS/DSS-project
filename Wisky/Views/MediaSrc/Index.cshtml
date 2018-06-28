@@ -77,7 +77,7 @@
                                                             <td><img src="@(item.URL)" style="max-width: 200px;"></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
@@ -118,7 +118,7 @@
                                                             <td>@(item.isActive ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                                 <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
                                                                     <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
@@ -168,7 +168,7 @@
                                                                 </audio>
                                                             </td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
