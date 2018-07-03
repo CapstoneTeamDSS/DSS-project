@@ -15,4 +15,25 @@ namespace DSS.Models
         public string Title { get; set; }
         public string Description { get; set; }
     }
+
+    public class ScenarioDetailVM
+    {
+        public int? ScenarioId { get; set; }
+        public string Description { get; set; }
+        public string Title { get; set; }
+        public int LayoutId { get; set; }
+        public PlaylistArea[] PlaylistAreaArr { get; set; }
+    }
+
+    public class PlaylistArea
+    {
+        public int AreaId { get; set; }
+        public int[] PlaylistIds { get; set; }
+    }
+
+    public class PlaylistAreaObj
+    {
+        public int ScenarioId { get; set; }
+        public PlaylistArea[] PlaylistAreaArr { get; set; }
+    }
 }
