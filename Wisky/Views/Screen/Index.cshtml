@@ -17,6 +17,15 @@
                     <h2>Screen list</h2>
                     <div class="clearfix"></div>
                 </div>
+                <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
+                    <a href="/Screen/Form" class="iframe">
+                        <ul class="bs-glyphicons-list">
+                            <li>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
+                            </li>
+                        </ul>
+                    </a>
+                </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                         DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
@@ -46,7 +55,7 @@
                                         <td>@(item.Description)</td>
 
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Screen/Form/@(item.ScreenId) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/Screen/Form/@(item.ScreenId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                             <a href="/Screen/Delete/@(item.ScreenId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
@@ -77,6 +86,24 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
 }
 
 @section styles{
@@ -86,6 +113,12 @@
     <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
 }
 
 

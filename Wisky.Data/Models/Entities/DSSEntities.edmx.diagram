@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="DSSModel.Account" Width="1.5" PointX="3" PointY="10.75" />
         <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="6" PointY="7.625" />
         <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="3.625" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="1" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="1" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="3.75" />
         <EntityTypeShape EntityType="DSSModel.AspNetUser" Width="1.5" PointX="8" PointY="1.125" />
         <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="5.25" PointY="24.25" />
         <EntityTypeShape EntityType="DSSModel.Brand" Width="1.5" PointX="0.75" PointY="10.875" />

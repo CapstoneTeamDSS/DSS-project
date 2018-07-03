@@ -17,6 +17,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
+                    <a href="/MediaSrc/Form" class="iframe">
+                        <ul class="bs-glyphicons-list">
+                            <li>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
+                            </li>
+                        </ul>
+                    </a>
+                </div>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -68,7 +77,7 @@
                                                             <td><img src="@(item.URL)" style="max-width: 200px;"></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
@@ -109,7 +118,7 @@
                                                             <td>@(item.isActive ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                                 <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
                                                                     <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
@@ -159,7 +168,7 @@
                                                                 </audio>
                                                             </td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
@@ -200,7 +209,7 @@
                                                             <td>@(item.isActive ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
@@ -223,6 +232,24 @@
     <script type="text/javascript" src="~/Content/index-media-preview-video/src/jquery.flashy.min.js"></script>
     <script type="text/javascript" src="~/Content/index-media-preview-video/js/main.js"></script>
     <!-- /end scripts-section -->
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
 }
 
 @section styles{
@@ -230,4 +257,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/css/effect.css">
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/src/flashy.min.css">
     <!-- /end css -->
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
 }
