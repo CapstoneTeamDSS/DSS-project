@@ -21,19 +21,6 @@ namespace DSS.Controllers
         // GET: Playlist
         public ActionResult Index()
         {
-            //var playlists = this.playlistService.Get().ToList();
-            //var playlistVMs = new List<Models.PlaylistDetailVM>();
-
-            //foreach (var item in playlists)
-            //{
-            //    var p = new Models.PlaylistDetailVM
-            //    {
-            //        Title = item.Title,
-            //        Description = item.Description,
-            //        Id = item.PlaylistID,
-            //    };
-            //    playlistVMs.Add(p);
-            //}
             ViewBag.playlistList = GetPlaylistIdByBrandId();
             return View("Index");
         }
@@ -59,8 +46,8 @@ namespace DSS.Controllers
             }
             return playlistDetailVM;
         }
-        //Update Playlist Item
 
+        //Update Playlist Item
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
         {
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
