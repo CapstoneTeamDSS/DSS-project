@@ -20,6 +20,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int ResolutionID { get; set; }
     			public virtual string ScreenName { get; set; }
     			public virtual string Description { get; set; }
+    			public virtual bool isHorizontal { get; set; }
     	
     	public ScreenViewModel() : base() { }
     	public ScreenViewModel(DSS.Data.Models.Entities.Screen entity) : base(entity) { }

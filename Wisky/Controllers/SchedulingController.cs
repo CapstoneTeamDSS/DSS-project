@@ -13,5 +13,12 @@ namespace DSS.Controllers
         {
             return View();
         }
+
+        // GET: Scheduling/Form/id
+        public ActionResult Form()
+        {
+
+            return View();
+        }
     }
 }
