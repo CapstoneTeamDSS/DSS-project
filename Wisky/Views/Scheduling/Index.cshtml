@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>Scheduling</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,11 +13,11 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Playlist list</h2>
+                    <h2>Schedule list</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
-                    <a href="/Playlist/Form">
+                    <a href="/Scheduling/Form">
                         <ul class="bs-glyphicons-list">
                             <li>
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
@@ -33,37 +32,16 @@
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-
-                                <th>
-                                    No
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Title
-                                </th>
-                                <th>Duration</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>No</th>
+                                <th>Scenario Title</th>
+                                <th>Device ID</th>
+                                <th>Times to play</th>
+                                <th>Start time</th>
+                                <th>End time</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @{
-                                var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
-                                var i = 0;
-                                foreach (var item in playlistsList)
-                                {
-                                    <tr>
-                                        <td>@(++i)</td>
-                                        <td>@(item.Title)</td>
-                                        <td>Duration</td>
-                                        <td>@(item.Description)</td>
-                                        <td style="width:300px; text-align:center">
-                                            <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
-                                            <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
+                            z
                         </tbody>
                     </table>
                 </div>
@@ -89,26 +67,7 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- iframe button matching-->
-    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
-    <script>
-        $(document).ready(function () {
-            //Examples of how to assign the Colorbox event to elements
-            $(".iframe").colorbox({
-                iframe: true, width: "80%", height: "80%",
-                //refresh page when summit
-                onClosed: function () { location.reload(true); },
-            });
-            //Example of preserving a JavaScript event for inline calls.
-            $("#click").click(function () {
-                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                return false;
-            });
-        });
-    </script>
-    <!-- end iframe button matching-->
 }
-
 @section styles{
     <!-- Datatables -->
     <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -116,10 +75,8 @@
     <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- iframe button matching-->
-    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
-    <!-- end iframe button matching-->
     <!--Button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
     <!-- End button add-->
 }
+
