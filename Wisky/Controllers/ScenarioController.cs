@@ -85,7 +85,7 @@ namespace DSS.Controllers
                     {
                         LayoutID = item.LayoutID,
                         Title = item.Title,
-                        Type = item.Type,
+                        isHorizontal = item.isHorizontal,
                         Description = item.Description,
                         URL = item.URL,
                     };

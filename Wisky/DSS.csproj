@@ -1393,6 +1393,8 @@
     <Content Include="Content\plugins\swal\sweetalert.min.js" />
     <Content Include="Content\pnotify\pnotify.css" />
     <Content Include="Content\pnotify\pnotify.js" />
+    <Content Include="Content\sweetalert\sweetalert.css" />
+    <Content Include="Content\sweetalert\sweetalert.min.js" />
     <Content Include="Content\TabPane.css" />
     <Content Include="Content\template-material\css\app.min.1.css" />
     <Content Include="Content\template-material\css\app.min.2.css" />
@@ -1895,6 +1897,7 @@
     <Content Include="Views\Scenario\UpdateForm.cshtml" />
     <Content Include="Views\Scenario\UpdateDetails.cshtml" />
     <Content Include="Views\MatchingDevice\Form.cshtml" />
+    <Content Include="Views\Playlist\ImageDuration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

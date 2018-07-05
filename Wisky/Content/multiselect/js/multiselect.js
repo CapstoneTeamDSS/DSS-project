@@ -40,7 +40,7 @@ if (typeof jQuery === 'undefined') {
          *  @constructor
         **/
         function Multiselect( $select, settings ) {
-            var id = $select.prop('id');
+            var id = $select.prop('id');			
             this.$left = $select;
             this.$right = $( settings.right ).length ? $( settings.right ) : $('#' + id + '_to');
             this.actions = {
@@ -585,7 +585,8 @@ if (typeof jQuery === 'undefined') {
              *  @default true
              *  @return {boolean}
             **/
-            beforeMoveToRight: function($left, $right, $options) { return true; },
+            beforeMoveToRight: function($left, $right, $options) { 
+			return true; },
 
             /*  will be executed each time after moving option[s] to right
              *
