@@ -1,26 +1,23 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Scenario Management</h3>
+            <h3>Scheduling</h3>
         </div>
     </div>
     <div class="clearfix"></div>
-    
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Scenario list</h2>
+                    <h2>Schedule list</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
-                    <a href="/Scenario/Form" class="iframe">
+                    <a href="/Scheduling/Form">
                         <ul class="bs-glyphicons-list">
                             <li>
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
@@ -30,40 +27,22 @@
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                        List of created scenarios
+                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-
-                                <th>
-                                    No
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Title
-                                </th>
-                                <th>Description</th>
+                                <th>No</th>
+                                <th>Scenario Title</th>
+                                <th>Device ID</th>
+                                <th>Times to play</th>
+                                <th>Start time</th>
+                                <th>End time</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @{
-                                var scenarioList = ViewBag.scenariosList as List<DSS.Models.ScenarioVM>;
-                                var i = 0;
-                                foreach (var item in scenarioList)
-                                {
-                                    <tr>
-                                        <td>@(++i)</td>
-                                        <td>@(item.Title)</td>
-                                        <td>@(item.Description)</td>
-                                        <td style="width:300px; text-align:center">
-                                            <a href="/Scenario/UpdateForm/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info"> Edit Info</i></a>
-                                            <a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success"> Edit Details</i></a>
-                                            <a href="/Scenario/Delete/@(item.ScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                        </td>
-                                    </tr>
-                                }
-                            }
+                            z
                         </tbody>
                     </table>
                 </div>
@@ -90,7 +69,6 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
 }
-
 @section styles{
     <!-- Datatables -->
     <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -98,6 +76,8 @@
     <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!--Button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
 }
 

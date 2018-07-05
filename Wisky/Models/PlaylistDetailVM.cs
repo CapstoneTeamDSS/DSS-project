@@ -12,5 +12,6 @@ namespace DSS.Models
         public string Duration { get; set; }
         public string Description { get; set; }
         public string BrandName { get; set; }
+        public bool isShow { get; set; }
     }
 }

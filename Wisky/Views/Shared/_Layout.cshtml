@@ -29,8 +29,6 @@
 
     <!-- Custom Theme Style -->
     <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
-
-
     @RenderSection("styles", false)
 </head>
 
@@ -52,9 +50,9 @@
                                 <li>
                                     <a href="@Url.Action("Index", "UserMng")"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>
                                     @*<ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "UserMng")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "UserMng")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>*@
+                                            <li><a href="@Url.Action("Form", "UserMng")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
+                                            <li><a href="@Url.Action("Index", "UserMng")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                        </ul>*@
                                 </li>
                                 <li>
                                     <a href="@Url.Action("Index", "Location")"><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng</a>
@@ -63,17 +61,14 @@
                                     <a><i class="fa fa-cogs"></i>@DSS.ResourcesLanguage.MenuText.DeviceMng <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>
-                                        <li>
                                             <a href="@Url.Action("Index", "Screen")">@DSS.ResourcesLanguage.MenuText.ScreenMng</a>
                                         </li>
                                         <li>
                                             <a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.BoxMng</a>
                                         </li>
                                         <li>
-                                            @*<a>@DSS.ResourcesLanguage.MenuText.Matching <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">*@
-                                        <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
-</li>
+                                            <a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
@@ -88,10 +83,10 @@
                                     <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
+                                    <a href="@Url.Action("Index", "Scenario")"><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                    <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
 
                                 </li>
                                 <li>
