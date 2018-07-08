@@ -19,7 +19,7 @@ namespace DSS.Data.Models.Entities
         public int ScenarioID { get; set; }
         public Nullable<int> TimesToPlay { get; set; }
         public System.DateTime StartTime { get; set; }
-        public System.DateTime EndTime { get; set; }
+        public Nullable<System.DateTime> EndTime { get; set; }
     
         public virtual Device Device { get; set; }
         public virtual Scenario Scenario { get; set; }

@@ -362,6 +362,7 @@
     <Compile Include="Models\Entities\Services\DeviceScenarioServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\DeviceService.cs" />
     <Compile Include="Models\Entities\Services\DeviceServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>

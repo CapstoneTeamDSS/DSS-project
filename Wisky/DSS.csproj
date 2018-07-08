@@ -300,6 +300,7 @@
     <Compile Include="Models\PlaylistDetailVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
     <Compile Include="Models\RoleVM.cs" />
+    <Compile Include="Models\ScheduleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />

@@ -16,7 +16,6 @@ namespace DSS.Controllers
         // GET: Scenario
         public ActionResult Index()
         {
-            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             ViewBag.scenariosList = GetScenariosByBrandId();
             return View();
         }
@@ -40,6 +39,25 @@ namespace DSS.Controllers
                 scenarioVMs.Add(s);
             }
             return scenarioVMs;
+        }
+
+        public static List<Models.ScenarioRefVM> GetScenarioReferenceByBrandId(bool isHorizontal)
+        {
+            IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var scenarioRefVMs = new List<Models.ScenarioRefVM>();
+            var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(currUser.BrandId, isHorizontal);
+            foreach (var item in scenarioList)
+            {
+                var s = new Models.ScenarioRefVM
+                {
+                    ScenarioId = item.ScenarioID,
+                    Title = item.Title,
+                };
+                scenarioRefVMs.Add(s);
+            }
+            return scenarioRefVMs;
         }
 
         // GET: Scenario/Delete/:id

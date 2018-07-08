@@ -119,7 +119,7 @@
           <Property Name="ScenarioID" Type="int" Nullable="false" />
           <Property Name="TimesToPlay" Type="int" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
-          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Layout">
           <Key>
@@ -926,7 +926,7 @@
           <Property Name="ScenarioID" Type="Int32" Nullable="false" />
           <Property Name="TimesToPlay" Type="Int32" />
           <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Device" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="DeviceScenario" ToRole="Device" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="DeviceScenario" ToRole="Scenario" />
         </EntityType>

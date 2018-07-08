@@ -22,6 +22,15 @@ namespace DSS.Data.Models.Entities.Services
             return result;
         }
 
+        public List<Scenario> GetScenarioIdByBrandIdAndLayoutType(int brandId, bool isHorizontal)
+        {
+            List<Scenario> result = null;
+            result = scenarioRepository
+                .Get(a => a.BrandID == brandId && a.Layout.isHorizontal == isHorizontal)
+                .ToList();
+            return result;
+        }
+
         public Scenario GetById(int Id)
         {
             var scenario = this.repository
@@ -29,11 +38,34 @@ namespace DSS.Data.Models.Entities.Services
                 .FirstOrDefault();
             return scenario;
         }
+
+        public String GetScenarioNameById(int Id)
+        {
+            string result = "";
+            result = this.repository
+                .Get(a => a.ScenarioID == Id)
+                .FirstOrDefault()
+                ?.Title; //có thể trả ra giá trị null nếu id ko tồn tại
+            return result;
+        }
+
+        public bool? GetScenarioOrientationById(int Id)
+        {
+            bool? result = true;
+            result = this.repository
+                .Get(a => a.ScenarioID == Id)
+                .FirstOrDefault()
+                ?.Layout.isHorizontal; //có thể trả ra giá trị null nếu id ko tồn tại
+            return result;
+        }
     }
 
     public partial interface IScenarioService
     {
         List<Scenario> GetScenarioIdByBrandId(int brandId);
+        List<Scenario> GetScenarioIdByBrandIdAndLayoutType(int brandId, bool isHorizontal);
         Scenario GetById(int Id);
+        String GetScenarioNameById(int Id);
+        bool? GetScenarioOrientationById(int Id);
     }
 }
