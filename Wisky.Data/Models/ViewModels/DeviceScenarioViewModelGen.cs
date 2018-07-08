@@ -20,7 +20,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int ScenarioID { get; set; }
     			public virtual Nullable<int> TimesToPlay { get; set; }
     			public virtual System.DateTime StartTime { get; set; }
-    			public virtual System.DateTime EndTime { get; set; }
+    			public virtual Nullable<System.DateTime> EndTime { get; set; }
     	
     	public DeviceScenarioViewModel() : base() { }
     	public DeviceScenarioViewModel(DSS.Data.Models.Entities.DeviceScenario entity) : base(entity) { }

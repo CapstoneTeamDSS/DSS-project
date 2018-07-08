@@ -41,6 +41,26 @@ namespace DSS.Controllers
             ViewBag.locationStringList = GetLocationIdByBrandId();
             return View();
         }
+
+        public static List<Models.DeviceRefVM> GetDeviceReferenceByBrandId(bool isHorizontal)
+        {
+            IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var deviceVMs = new List<Models.DeviceRefVM>();
+            var deviceList = deviceService.GetDeviceByBrandIdAndScreenType(currUser.BrandId, isHorizontal);
+            foreach (var item in deviceList)
+            {
+                var s = new Models.DeviceRefVM
+                {
+                    DeviceId = item.DeviceID,
+                    Title = item.Title,
+                };
+                deviceVMs.Add(s);
+            }
+            return deviceVMs;
+        }
+
         // GET: Matching/Form/:id
         public ActionResult Form(int? id, string boxId, string screenId)
         { 
@@ -168,7 +188,7 @@ namespace DSS.Controllers
                     BoxID = model.BoxId,
                     ScreenID = model.ScreenId,
                     Title = model.Title,
-                    Description = model.Description
+                    Description = model.Description,
                 };
                 await this.deviceService.CreateAsync(device);
                 return this.RedirectToAction("Index");

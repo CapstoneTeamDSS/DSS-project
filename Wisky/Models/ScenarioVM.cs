@@ -36,4 +36,10 @@ namespace DSS.Models
         public int ScenarioId { get; set; }
         public PlaylistArea[] PlaylistAreaArr { get; set; }
     }
+
+    public class ScenarioRefVM
+    {
+        public int ScenarioId { get; set; }
+        public string Title { get; set; }
+    }
 }

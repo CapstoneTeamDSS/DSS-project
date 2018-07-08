@@ -17,19 +17,6 @@ namespace DSS.Controllers
         //GET: Brand/Index
         public ActionResult Index()
         {
-            //var brands = this.brandService.Get().ToList();
-            //var brandVMs = new List<Models.BrandDetailVM>();
-
-            //foreach (var item in brands)
-            //{
-            //    var b = new Models.BrandDetailVM
-            //    {
-            //        Name = item.BrandName,
-            //        Description = item.Description,
-            //        Id = item.BrandID,
-            //    };
-            //    brandVMs.Add(b);
-            //}
             var brandVMs = new List<Models.BrandDetailVM>();
             brandVMs = BrandController.GetBrandList();
             ViewBag.brandList = brandVMs;
