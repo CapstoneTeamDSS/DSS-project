@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class PlaylistController : Controller
     {
         IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();

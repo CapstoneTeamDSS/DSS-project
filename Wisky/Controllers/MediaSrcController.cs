@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class MediaSrcController : Controller
     {
         IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();

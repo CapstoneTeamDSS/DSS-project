@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class ScenarioController : Controller
     {
         IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();

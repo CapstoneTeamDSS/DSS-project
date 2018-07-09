@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();

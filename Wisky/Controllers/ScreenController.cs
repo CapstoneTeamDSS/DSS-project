@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ScreenController : Controller
     {
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();

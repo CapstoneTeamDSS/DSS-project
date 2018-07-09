@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin, Active User")]
     public class SchedulingController : Controller
     {
         // GET: Scheduling

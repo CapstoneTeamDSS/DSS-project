@@ -11,7 +11,7 @@ using System.Web.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class MatchingDeviceController : Controller
     {
         IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();

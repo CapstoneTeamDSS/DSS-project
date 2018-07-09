@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "System Admin")]
     public class BrandController : Controller
     {
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
@@ -28,7 +28,6 @@ namespace DSS.Controllers
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var brands = brandService.Get().ToList();
             var brandVMs = new List<Models.BrandDetailVM>();
-
             foreach (var item in brands)
             {
                 var b = new Models.BrandDetailVM

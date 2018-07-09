@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AndroidBoxController : Controller
     {
         IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
