@@ -25,6 +25,7 @@ namespace DSS.Data.Models.Entities
         public int ResolutionID { get; set; }
         public string ScreenName { get; set; }
         public string Description { get; set; }
+        public bool isHorizontal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Device> Devices { get; set; }

@@ -21,6 +21,15 @@ namespace DSS.Data.Models.Entities.Services
                 .ToList();
             return result;
         }
+        public string GetScreenNameByID(int screenId)
+        {
+            string result = "";
+            result = this.repository
+                .Get(a => a.ScreenID == screenId)
+                .FirstOrDefault()
+                ?.ScreenName; 
+            return result;
+        }
 
         public Screen GetById(int Id)
         {
@@ -34,5 +43,6 @@ namespace DSS.Data.Models.Entities.Services
     {
         List<Screen> GetScreenIdByBrandId(int brandId);
         Screen GetById(int Id);
+        string GetScreenNameByID(int screenId);
     }
 }

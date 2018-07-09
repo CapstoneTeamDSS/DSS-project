@@ -280,6 +280,7 @@
     <Compile Include="Controllers\MatchingDeviceController.cs" />
     <Compile Include="Controllers\ResolutionController.cs" />
     <Compile Include="Controllers\ScenarioController.cs" />
+    <Compile Include="Controllers\SchedulingController.cs" />
     <Compile Include="Controllers\ScreenController.cs" />
     <Compile Include="Controllers\UserMngController.cs" />
     <Compile Include="Global.asax.cs">
@@ -299,6 +300,7 @@
     <Compile Include="Models\PlaylistDetailVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
     <Compile Include="Models\RoleVM.cs" />
+    <Compile Include="Models\ScheduleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />
@@ -794,6 +796,7 @@
     <Content Include="Content\assets\bootstrap-select\js\i18n\defaults-zh_TW.js" />
     <Content Include="Content\assets\bootstrap-select\js\i18n\defaults-zh_TW.min.js" />
     <Content Include="Content\assets\datatables\js\dataTables.colReorder.min.js" />
+    <Content Include="Content\button-add\css\custom.min.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\theme.css" />
     <Content Include="Content\assets\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.svg" />
@@ -859,6 +862,11 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\form-matching-device\colorbox.css" />
+    <Content Include="Content\form-matching-device\images\border.png" />
+    <Content Include="Content\form-matching-device\images\controls.png" />
+    <Content Include="Content\form-matching-device\images\loading.gif" />
+    <Content Include="Content\form-matching-device\images\loading_background.png" />
+    <Content Include="Content\form-matching-device\images\overlay.png" />
     <Content Include="Content\form-matching-device\jquery.colorbox.js" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.css" />
     <Content Include="Content\form-upload-media\css\fileinput-rtl.min.css" />
@@ -1889,6 +1897,8 @@
     <Content Include="Views\Scenario\UpdateForm.cshtml" />
     <Content Include="Views\Scenario\UpdateDetails.cshtml" />
     <Content Include="Views\MatchingDevice\Form.cshtml" />
+    <Content Include="Views\Scheduling\Index.cshtml" />
+    <Content Include="Views\Scheduling\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

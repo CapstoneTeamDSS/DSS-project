@@ -1,49 +1,201 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Update Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="" role="main" style="min-height: 1207px;width:inherit">
+    <div style="width:1230px;margin-right:1000px">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Update Scenario Details</h3>
+            </div>
 
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+
+                        <span class="input-group-btn">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Update details<small>Step by step</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <!-- Smart Wizard -->
+                        <div id="wizard" class="form_wizard wizard_horizontal">
+                            <ul class="wizard_steps anchor">
+                                <li>
+                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                            Step 4<br>
+                                            <small>Navigate scenario details</small>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
+                            {
+                                <div id="step-4" class="content" style="display:none;">
+                                    <input type="hidden" id="txtScenarioId" value="@(Model?.ScenarioId)" />
+                                    <input type="hidden" id="txtLayoutId" value="@(Model?.LayoutId)" />
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel" style="height:441px">
+                                            <div class="x_title">
+                                                <h2>Your Playlists</h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <ul id="fromList" style="height:350px" class="stepContainer"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Preview </h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div id="preview-warapper" style="display:inline-block;">
+                                                    <div style=" height=400px;width:500px;" id="divLayout">
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel" style="height:441px">
+                                            <div class="x_title">
+                                                <h2>Area's list playlist</h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <ul id="toList" style="height:350px" class="stepContainer"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Playlist Information</h2>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Title:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="titleInfo">
+                                                        CoCa CoLa
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Description:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="descriptionInfo">
+                                                        Good video
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                        Duration:
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="durationInfo">
+                                                        18:00
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
     <script>
-        function swapVideo() {
-            player.src = this.getAttribute("data-video-url");
-            player.load();
-            player.play();
-        }
-
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
         for (var i = 0; i < videoPlayButtons.length; i++) {
             videoPlayButtons[i].addEventListener('click', swapVideo);
         }
+        function submitFunction() {
+            var other_data = $('#frm_scenario').serializeArray();
+            var data = {
+                PlaylistAreaArr: [],
+            };
+            data['ScenarioId'] = $("#txtScenarioId").val();
+            $.each(PlaylistAreaObj, function (index, value) {
+                var obj = {
+                    "AreaId": index,
+                    "PlaylistIds": value,
+                };
+                data["PlaylistAreaArr"].push(obj);
+            });
+            console.log(data);
+            $.ajax({
+                url: '/Scenario/UpdateDetails',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    if (res.success) {
+                        location.href = res.url;
+                    } else {
+                        alert("500: Server error!");
+                    }
+                },
+                error: function () {
+                    alert("Can not send request!");
+                }
+            });
+        };
     </script>
     <script>
-        function myFunction() {
-            document.getElementById("1").style.border = "thick solid #0000FF"
-        }
-    </script>
-
-    <script>
-        $("#namelist").sortable({
+        $("#toList").sortable({
             connectWith: '#deleteArea',
             update: function (event, ui) {
                 //Run this code whenever an item is dragged and dropped out of this list
                 var order = $(this).sortable('serialize');
             },
-
         });
     </script>
     <script>
-
         function swapVideo(id, el) {
-            var allListItem = document.querySelectorAll('#namelist li');
-
+            var allListItem = document.querySelectorAll('#toList li');
             for (var item of allListItem) {
                 if (item.getAttribute('id') == id) {
                     item.classList.add('i-new');
@@ -53,21 +205,265 @@
                     item.classList.remove('i-new');
                 }
             }
-
-
             var firstBtn = document.querySelector(`#${id} .btn-success`);
             player.src = firstBtn.getAttribute("data-video-url");
             player.load();
             player.play();
         }
-
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
-
     </script>
+    <script>
+        /* STEP 3*/
+        var playlistList;
+        var PlaylistAreaObj = {};
+        var areaId;
+        $(document).ready(function () {
+            var layoutId = $("#txtLayoutId").val();
+            if (layoutId == null){
+                layoutId = 1;
+            }
+            loadLayout(layoutId);
+            loadPlaylistList();
+        });
+        function loadLayout(id) {
+            var data = {
+                layoutId: id,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/LoadLayout",
+                data: JSON.stringify(data),
+                dataType: "html",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#divLayout").html(data);
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+        function loadPlaylistList() {
+            var data = {
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/LoadPlaylistList",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    playlistList = data.PlaylistList;
+                    showAllPlaylist();
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+        function showAllPlaylist() {
+            console.log(playlistList);
+            for (var i = 0; i < playlistList.length; i++) {
+                if (playlistList[i] != '') {
+                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                        + ">"
+                        + "<span id='title'>" + playlistList[i].Title + "</span>"
+                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "</li>");
+                }
+            }
+        }
+        /* STEP 4*/
+        function onVdPlay(el) {
+            /*Marked current sellected area */
+            areaId = $(el).attr("area-id");
+            if (!PlaylistAreaObj[areaId]) {
+                PlaylistAreaObj[areaId] = [];
+            }
+            $(".vdReview").css("border", "none");
+            $(el).css("border", "thick solid");
+            //$.each($(".vdReview"), function (index, value) {
+            //    console.log(value);
+            //    value.pause();
+            //    $(el).play();
+            //});
+            var scenarioId = $("#txtScenarioId").val();
+            console.log(scenarioId);
+            var data = {
+                areaId: areaId,
+                scenarioId: scenarioId,
+            };
+            if (!scenarioId) {
+                renderPlaylistList([]);
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/Scenario/LoadAreaPlaylist",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        renderPlaylistList(data.ScenarioItemIds);
+                    },
+                    error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+            }
+        }
 
+        function renderPlaylistList(ScenarioItemIds) {
+            /*Remove data when change location*/
+            $("#fromList").find('li').remove().end();
+            $("#toList").find('li').remove().end();
+            /*Load playlist list*/
+            for (var i = 0; i < playlistList.length; i++) {
+                if (playlistList[i] != '') {
+                    var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
+                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                        + style
+                        + ">"
+                        + "<span id='title'>" + playlistList[i].Title + "</span>"
+                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "</li>");
+                    if (!isShow) {
+                        PlaylistAreaObj[areaId].push(playlistList[i].Id);
+                        $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                            + ">"
+                            + "<span id='title'>" + playlistList[i].Title + "</span>"
+                            + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='/Content/videos/Relax.mp4'> - </a>"
+                            + "</li>");
+                    }
+                }
+            }
+        }
 
+        function isInArray(value, array) {
+            return array.indexOf(value) > -1;
+        }
 
+        /*Add playlist to area*/
+        function addToArea(el) {
+            if (!areaId) {
+                alert("Please select area!");
+            } else {
+                var liObjOrigin = $(el).parent()[0];
+                var liObj = $(liObjOrigin).clone().appendTo("#toList");
+                var playlistId = parseInt($(liObj).attr("data-id"));
+                PlaylistAreaObj[areaId].push(playlistId);
+                $(liObj).children('a').attr('class', "btn btn-danger btnRemovePlaylist");
+                $(liObj).children('a').attr('onclick', "removeItem(this);");
+                $(liObj).children('a').text(" - ");
+                $(el).parent().hide();
+            }
+        };
+        /*Remove playlist from area*/
+        function removeItem(el) {
+            var id = $(el).parent().attr("id");
+            var playlistId = parseInt($(el).parent().attr("data-id"));
+            $('#fromList').find("#" + id).show();
+            $(el).parent().remove();
+            PlaylistAreaObj[areaId] = jQuery.grep(PlaylistAreaObj[areaId], function (value) {
+                return value != playlistId;
+            });
+            console.log(PlaylistAreaObj);
+        }
+        /*Marked and show info when click on playlist*/
+        function playlistClick(el) {
+            /*Mark*/
+            $("ul > li").css("border", "none");
+            $(el).css("border", "solid");
+            var data = {
+                playlistId: $(el).attr("data-id"),
+            };
+            console.log(data);
+            /*Show info*/
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/LoadPlaylistInfo",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#titleInfo").html(data.Title);
+                    $("#descriptionInfo").html(data.Description);
+                    $("#durationInfo").html(data.Duration);
+                },
+                error: function () {
+                    $("#titleInfo").html("###");
+                    $("#descriptionInfo").html("###");
+                    $("#durationInfo").html("###");
+                }
+            });
+        };
+
+        $('#wizard').smartWizard({
+            onLeaveStep: leaveAStepCallback,
+            onFinish: onFinishCallback
+        });
+
+        function leaveAStepCallback(obj, context) {
+            return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation
+        }
+
+        /* Submit Form Data on Finish*/
+        function onFinishCallback(objs, context) {
+            if (validateAllSteps()) {
+                $('#frm_scenario').submit(function (event) {
+                    alert("fdfd submit");
+                });
+            }
+        }
+
+        // Your Step validation logic
+        function validateSteps(stepnumber) {
+            var isStepValid = true;
+            // validate step 1
+            if (stepnumber == 1) {
+                if (validateStep1() == false) {
+                    isStepValid = false;
+                    $('#wizard').smartWizard('showMessage', 'Please correct the errors in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
+                } else {
+                    $('#wizard').smartWizard('hideMessage');
+                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: false });
+                }
+            }
+            return isStepValid;
+        }
+
+        function validateStep1() {
+            var isValid = true;
+            /* Validate Title */
+            var title = $("#txtTitle").val();
+            if (!title.trim()) {
+                isValid = false;
+                $('#msg_title').html('Please fill in Title').show();
+            } else {
+                $('#msg_title').html('').hide();
+            }
+            return isValid;
+        }
+
+        function validateAllSteps() {
+            var isStepValid = true;
+            if (validateStep1() == false) {
+                isStepValid = false;
+                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: true });
+            } else {
+                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: false });
+            }
+            if (!isStepValid) {
+                $('#wizard').smartWizard('showMessage', 'Please correct the errors in the steps and continue');
+            }
+            return isStepValid;
+        }
+    </script>
 }
 @section styles{
     <style>
@@ -98,13 +494,13 @@
             display: inline-block;
         }
 
-        #namelist {
+        #toList {
             display: inline-block;
             background-color: transparent;
             margin-right: 20px;
         }
 
-        #namelist2 {
+        #fromList {
             display: inline-block;
             background-color: transparent;
             margin-right: 20px;
@@ -121,7 +517,7 @@
         }
 
 
-        #namelist li {
+        #toList li {
             width: 500px;
             height: 40px;
             background-color: aliceblue;
@@ -133,7 +529,7 @@
             padding-right: 10px;
         }
 
-        #namelist2 li {
+        #fromList li {
             width: 500px;
             height: 40px;
             background-color: aliceblue;
@@ -163,253 +559,6 @@
         }
     </style>
 }
-<div class="" role="main" style="min-height: 1207px;width:inherit">
-    <div style="width:1230px;margin-right:1000px">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Update Scenario Details</h3>
-            </div>
-
-            <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-
-                        <span class="input-group-btn">
-
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-
-        <div class="row">
-
-            <div class="col-md-12 col-sm-8 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Update details<small>Step by step</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li>
-                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-
-
-                        <!-- Smart Wizard -->
-                      
-                        <div id="wizard" class="form_wizard wizard_horizontal">
-                            <ul class="wizard_steps anchor">
-
-                                <li>
-                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
-                                        <span class="step_no">4</span>
-                                        <span class="step_descr">
-                                            Step 4<br>
-                                            <small>Navigate scenario details</small>
-                                        </span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <div class="stepContainer" style="height:auto">
-
-
-                                <div id="step-4" class="content" style="display:none;">
-
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel" style="height:441px">
-                                            <div class="x_title">
-                                                <h2>Playlist Detail</h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <ul id="namelist2" style="height:350px" class="stepContainer">
-                                                <li id='ii_1'>
-                                                    <span id="title"> Playlist1 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_2'>
-                                                    <span id="title">Playlist2 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_3'>
-                                                    <span id="title">Playlist3 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_4'>
-                                                    <span id="title">Playlist4</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" d data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_5'>
-                                                    <span id="title">Playlist5 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_6'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_7'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_8'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                                <li id='ii_9'>
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success" data-video-url="/Content/videos/Relax.mp4">Add</button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel">
-                                            <div class="x_title">
-                                                <h2>Preview </h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="x_content">
-                                                <div id="preview-warapper" style="display:inline-block;">
-                                                    <div style="height=400px;width:500px;">
-                                                        <div class="select-layout" style="display:inline-block; width:500px;height:200px;" onclick="myFunction()"> <video style="width:inherit; height:inherit" id="player" src="/Content/videos/Relax.mp4" controls></video> </div>
-                                                        <br />
-                                                        <div class="select-layout" style="display:inline-block" onclick="myFunction()"><video style="width:240px; height:100px;" id="player" src="/Content/videos/Relax.mp4" controls></video></div>
-                                                        <div class="select-layout" style="display:inline-block" onclick="myFunction()"><video style="width:240px; height:100px;" id="player" src="/Content/videos/Relax.mp4" controls></video></div>
-                                                    </div>
-                                                </div>
-                                                <hr />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel" style="height:441px">
-                                            <div class="x_title">
-                                                <h2>Area's list playlist</h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <ul id="namelist" style="height:350px" class="stepContainer">
-                                                <li id='i_1' class="i-old" onclick="swapVideo('i_1',this)">
-                                                    <span id="title"> Playlist1 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_2' class="i-old" onclick="swapVideo('i_2',this)">
-                                                    <span id="title">Playlist2 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_3' class="i-old" onclick="swapVideo('i_3',this)">
-                                                    <span id="title">Playlist3 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/Relax.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-                                                    <span id="title">Playlist4</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" d data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_5' class="i-old" onclick="swapVideo('i_5',this)">
-                                                    <span id="title">Playlist5 </span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_6' class="i-old" onclick="swapVideo('i_6',this)">
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_7' class="i-old" onclick="swapVideo('i_7',this)">
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_8' class="i-old" onclick="swapVideo('i_8',this)">
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                                <li id='i_9' class="i-old" onclick="swapVideo('i_9',this)">
-                                                    <span id="title">Playlist6</span>
-                                                    <span id="duration"> 7:40 </span>
-                                                    <button style="position:relative; top: -15px; left:0; margin-left:50%" class="fa fa-trash btn btn-danger" data-video-url="/Content/videos/video1.mp4"> Remove</button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel">
-                                            <div class="x_title">
-                                                <h2>Preview </h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="x_content">
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Title:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <label>CoCa CoLa</label>
-                                                    </div>
-                                                </div>
-                                                <br />
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Description:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <label>Good video</label>
-                                                    </div>
-                                                </div>
-                                                <br />
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Duration:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <label>18:00</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

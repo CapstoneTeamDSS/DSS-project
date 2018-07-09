@@ -21,7 +21,15 @@ namespace DSS.Data.Models.Entities.Services
                 .ToList();
             return result;
         }
-
+        public string GetBoxNameByID(int boxId)
+        {
+            string result = "";
+            result = this.repository
+                .Get(a => a.BoxID == boxId)
+                .FirstOrDefault()
+                ?.BoxName; 
+            return result;
+        }
         public Box GetById(int Id)
         {
             var box = this.repository
@@ -34,5 +42,6 @@ namespace DSS.Data.Models.Entities.Services
     {
         List<Box> GetBoxIdByBrandId(int brandId);
         Box GetById(int Id);
+        string GetBoxNameByID(int boxId);
     }
 }

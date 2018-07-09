@@ -69,7 +69,6 @@
                                             <span class="step_descr">
                                                 Step 2<br>
                                                 <small>Choose screen type</small>
-
                                             </span>
                                         </a>
                                     </li>
@@ -94,15 +93,17 @@
                                 }
                             </ul>
                             <div class="stepContainer" style="height:auto">
-                                <div id="step-1" class="content" style="display: block;">
-                                    @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
-                                    {
+                                @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
+                                {
+                                    <input type="hidden" id="txtScenarioId" value="@(Model?.ScenarioId)" />
+                                    <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                Title <span class="required">*</span>
+                                                Title <span class="required">*</span> <br />
+                                                <span id="msg_title" style="color:red"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="text" value="@(Model?.Title)" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="Title">
+                                                <input type="text" value="@(Model?.Title)" id="txtTitle" required="required" class="form-control col-md-7 col-xs-12" name="Title">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -110,146 +111,140 @@
                                                 Description
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="middle-name" value="@(Model?.Description)" class="form-control col-md-7 col-xs-12" type="text" name="Description">
+                                                <input id="txtDescription" value="@(Model?.Description)" class="form-control col-md-7 col-xs-12" type="text" name="Description">
                                             </div>
                                         </div>
-                                        <input type="hidden" value="@(Model?.LayoutId)" name="LayoutId" />
-                                        if (Model?.ScenarioId != null)
-                                        {
-                                            <button style="margin-left:580px" type="submit" class="btn btn-success">Submit</button>
-                                        }
-                                    }
-                                </div>
-                                <div id="step-2" class="content" style="display: none;">
-                                    <div style="float:left; padding-left:250px;padding-top:30px">
-                                        <img src="~/Content/images/Scenario/Landscape.png" /><br />
-                                        <div style="text-align:center">
-                                            Landscape<br /><br /><br />
-                                            <div><input type="radio" class="flat" value="0" name="rdOrientation"></div>
+                                    </div>
+                                    <div id="step-2" class="content" style="display: none;">
+                                        <div style="float:left; padding-left:250px;padding-top:30px">
+                                            <img src="~/Content/images/Scenario/Landscape.png" /><br />
+                                            <div style="text-align:center">
+                                                Landscape<br /><br /><br />
+                                                <div><input type="radio" class="flat" checked value="1" name="Orientation"></div>
+                                            </div>
+                                        </div>
+                                        <div style="float:right;padding-right:250px;padding-bottom:20px">
+                                            <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
+                                            <div style="text-align:center">
+                                                Portrait<br />
+                                                <div><input type="radio" class="flat" value="2" name="Orientation"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div style="float:right;padding-right:250px;padding-bottom:20px">
-                                        <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
-                                        <div style="text-align:center">
-                                            Portrait<br />
-                                            <div><input type="radio" class="flat" value="1" name="rdOrientation"></div>
-                                        </div>
-                                    </div>
-                                </div><div id="step-3" class="content" style="display: none;">
-                                    @{
-                                        var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;
-                                        if (layoutList != null)
-                                        {
-                                            for (int i = 0; i < layoutList.Count; i += 3)
+                                    <div id="step-3" class="content" style="display: none;">
+                                        @{
+                                            var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;
+                                            if (layoutList != null)
                                             {
-                                                <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="col-md-4 col-sm-4 col-xs-4">
-                                                        <img src="@(layoutList[i].URL)" style="display:block; margin:auto" />
-                                                        <input type="radio" value="@(layoutList[i].LayoutID)" name="rdLayout" style="display:block; margin:auto; margin-top:20px" />
+                                                for (int i = 0; i < layoutList.Count; i += 3)
+                                                {
+                                                    <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                                            <img src="@(layoutList[i].URL)" style="display:block; margin:auto" />
+                                                            <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
+                                                        </div>
+                                                        @if (i + 1 < layoutList.Count)
+                                                        {
+                                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto" />
+                                                                <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                            </div>
+                                                        }
+                                                        @if (i + 2 < layoutList.Count)
+                                                        {
+                                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto" />
+                                                                <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                            </div>
+                                                        }
                                                     </div>
-                                                    @if (i + 1 < layoutList.Count)
-                                                    {
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                                            <img src="@(layoutList[i+1].URL)" style="display:block; margin:auto" />
-                                                            <input type="radio" value="@(layoutList[i+1].LayoutID)" name="rdLayout" style="display:block; margin:auto; margin-top:20px" />
-                                                        </div>
-                                                    }
-                                                    @if (i + 2 < layoutList.Count)
-                                                    {
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                                            <img src="@(layoutList[i+2].URL)" style="display:block; margin:auto" />
-                                                            <input type="radio" value="@(layoutList[i+2].LayoutID)" name="rdLayout" style="display:block; margin:auto; margin-top:20px" />
-                                                        </div>
-                                                    }
-                                                </div>
+                                                }
                                             }
                                         }
-                                    }
-                                </div>
-                                <div id="step-4" class="content" style="display:none;">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel" style="height:441px">
-                                            <div class="x_title">
-                                                <h2>Your Playlists</h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <ul id="fromList" style="height:350px" class="stepContainer">
-                                                @{
-                                                    var playlistList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
-                                                    foreach (var item in playlistList)
-                                                    {
-                                                        <li class="playlistList" id="fromList_@item.Id" data-id="@(item.Id)">
-                                                            <span id="title">@(item.Title)</span>
-                                                            <span id="duration">@(item.Duration)</span>
-                                                            <button style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success btnAddPlaylist" data-video-url="/Content/videos/Relax.mp4"> + </button>
-                                                        </li>
-                                                    }
-                                                }
-                                            </ul>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel">
-                                            <div class="x_title">
-                                                <h2>Preview </h2>
-                                                <div class="clearfix"></div>
+                                    <div id="step-4" class="content" style="display:none;">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel" style="height:441px">
+                                                <div class="x_title">
+                                                    <h2>Your Playlists</h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <ul id="fromList" style="height:350px" class="stepContainer">
+                                                    @*@{
+                                                            var playlistList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
+                                                            foreach (var item in playlistList)
+                                                            {
+                                                                <li class="playlistList" id="fromList_@item.Id" data-id="@(item.Id)">
+                                                                    <span id="title">@(item.Title)</span>
+                                                                    <span id="duration">@(item.Duration)</span>
+                                                                    <a onclick="addToArea(this)" style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success btnAddPlaylist" data-video-url="/Content/videos/Relax.mp4"> + </a>
+                                                                </li>
+                                                            }
+                                                        }*@
+                                                </ul>
                                             </div>
-                                            <div class="x_content">
-                                                <div id="preview-warapper" style="display:inline-block;">
-                                                    <div style="height=400px;width:500px;" id="divLayout">
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel">
+                                                <div class="x_title">
+                                                    <h2>Preview </h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="x_content">
+                                                    <div id="preview-warapper" style="display:inline-block;">
+                                                        <div style="height=400px;width:500px;" id="divLayout">
 
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <hr />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel" style="height:441px">
-                                            <div class="x_title">
-                                                <h2>Area's list playlist</h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <ul id="toList" style="height:350px" class="stepContainer"></ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="x_panel">
-                                            <div class="x_title">
-                                                <h2>Playlist Infomation</h2>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="x_content">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Title:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="titleInfo">
-                                                        CoCa CoLa
-                                                    </div>
-                                                </div>
-                                                <br />
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Description:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="descriptionInfo">
-                                                        Good video
-                                                    </div>
-                                                </div>
-                                                <br />
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Duration:
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12" id="durationInfo">
-                                                        18:00
-                                                    </div>
+                                                    <hr />
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel" style="height:441px">
+                                                <div class="x_title">
+                                                    <h2>Area's list playlist</h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <ul id="toList" style="height:350px" class="stepContainer"></ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel">
+                                                <div class="x_title">
+                                                    <h2>Playlist Information</h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="x_content">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                            Title:
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12" id="titleInfo">
+                                                            CoCa CoLa
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                            Description:
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12" id="descriptionInfo">
+                                                            Good video
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                                            Duration:
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12" id="durationInfo">
+                                                            18:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -275,6 +270,38 @@
         for (var i = 0; i < videoPlayButtons.length; i++) {
             videoPlayButtons[i].addEventListener('click', swapVideo);
         }
+        function submitFunction() {
+            var other_data = $('#frm_scenario').serializeArray();
+            var data = {
+                PlaylistAreaArr: [],
+            };
+            $.each(other_data, function (key, input) {
+                data[input.name] = input.value;
+            });
+            $.each(PlaylistAreaObj, function (index, value) {
+                var obj = {
+                    "AreaId": index,
+                    "PlaylistIds": value,
+                };
+                data["PlaylistAreaArr"].push(obj);
+            });
+            console.log(data);
+            $.ajax({
+                url: '/Scenario/Add',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    if (res.success) {
+                        location.href = res.url;
+                    } else {
+                        alert("500: Server error!");
+                    }
+                },
+                error: function () {
+                    alert("Can not send request!");
+                }
+            });
+        };
     </script>
     <script>
         $("#toList").sortable({
@@ -308,9 +335,23 @@
     </script>
     <script>
         /* STEP 3*/
-        $("input:radio[name='rdLayout']").change(function () {
+        var playlistList;
+        var PlaylistAreaObj = {};
+        var areaId;
+        $(document).ready(function () {
+            var layoutId = $("#txtLayoutId").val();
+            if (layoutId == null) {
+                layoutId = 1;
+            }
+            loadLayout(layoutId);
+            loadPlaylistList();
+        });
+        $("input:radio[name='LayoutId']").change(function () {
+            loadLayout($(this).val());
+        });
+        function loadLayout(id) {
             var data = {
-                layoutId: $(this).val(),
+                layoutId: id,
             };
             $.ajax({
                 type: "POST",
@@ -325,71 +366,138 @@
                     alert("Error occured!!")
                 }
             });
-        });
-        /* STEP 4*/
-        function onVdPlay(el) {
-            /*Marked current sellected area */
+        }
+        function loadPlaylistList() {
             var data = {
-                areaIdStr: $(el).attr("area-id"),
-                scenarioIdStr: "4",
             };
             $.ajax({
                 type: "POST",
-                url: "/Scenario/LoadAreaPlaylist",
+                url: "/Scenario/LoadPlaylistList",
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    //remove data when change location
-                    $("#toList").find('li').remove().end();
-                    //load playlist list
-                    for (var i = 0; i < data.PlaylistList.length; i++) {
-                        if (data.PlaylistList[i] != '') {
-                            $('#fromList').append("<li class='playlistList' id='fromList_" + data.PlaylistList[i].Id + "' data-id='" + data.PlaylistList[i].Id + "'>"
-                                + "<span id='title' style='width:40%'>" + data.PlaylistList[i].Title + "</span>"
-                                + "<span id='duration' style='width:20%'>" + data.PlaylistList[i].Duration + "</span>"
-                                + "<button style='position:relative; top: -15px; left:0; margin-left:60%' class= 'btn btn-success btnAddPlaylist' data-video-url='/Content/videos/video1.mp4'> Remove</button >"
-                                + "</li>");
-                        }
-                    }
-                    //load area's playlist list
-                    for (var i = 0; i < data.ScenarioItems.length; i++) {
-                        if (data.ScenarioItems[i] != '') {
-                            $('#toList').append("<li id='ii_" + i + "'>"
-                                + "<span id='title' style='width:40%'>" + data.ScenarioItems[i].Title + "</span>"
-                                + "<span id='duration' style='width:20%'>" + data.ScenarioItems[i].Duration + "</span>"
-                                + "<button style='position:relative; top: -15px; left:0; margin-left:20%' class= 'fa fa-trash btn btn-danger' data-video-url='/Content/videos/video1.mp4'> Remove</button >"
-                                + "</li>");
-                        }
-                    }
+                    playlistList = data.PlaylistList;
+                    showAllPlaylist();
                 },
                 error: function () {
                     alert("Error occured!!")
                 }
             });
         }
+        function showAllPlaylist() {
+            console.log(playlistList);
+            for (var i = 0; i < playlistList.length; i++) {
+                if (playlistList[i] != '') {
+                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                        + ">"
+                        + "<span id='title'>" + playlistList[i].Title + "</span>"
+                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "</li>");
+                }
+            }
+        }
+        /* STEP 4*/
+        function onVdPlay(el) {
+            /*Marked current sellected area */
+            areaId = $(el).attr("area-id");
+            if (!PlaylistAreaObj[areaId]) {
+                PlaylistAreaObj[areaId] = [];
+            }
+            $(".vdReview").css("border", "none");
+            $(el).css("border", "thick solid");
+            var scenarioId = $("#txtScenarioId").val();
+            console.log(scenarioId);
+            var data = {
+                areaId: areaId,
+                scenarioId: scenarioId,
+            };
+            if (!scenarioId) {
+                renderPlaylistList([]);
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/Scenario/LoadAreaPlaylist",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        renderPlaylistList(data.ScenarioItemIds);
+                    },
+                    error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+            }            
+        }
+
+        function renderPlaylistList(ScenarioItemIds) {
+            /*Remove data when change location*/
+            $("#fromList").find('li').remove().end();
+            $("#toList").find('li').remove().end();
+            /*Load playlist list*/
+            for (var i = 0; i < playlistList.length; i++) {
+                if (playlistList[i] != '') {
+                    var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
+                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                        + style
+                        + ">"
+                        + "<span id='title'>" + playlistList[i].Title + "</span>"
+                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "</li>");
+                    if (!isShow) {
+                        PlaylistAreaObj[areaId].push(playlistList[i].Id);
+                        $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                            + ">"
+                            + "<span id='title'>" + playlistList[i].Title + "</span>"
+                            + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='/Content/videos/Relax.mp4'> - </a>"
+                            + "</li>");
+                    }
+                }
+            }
+        }
+
+        function isInArray(value, array) {
+            return array.indexOf(value) > -1;
+        }
+
         /*Add playlist to area*/
-        $(".btnAddPlaylist").click(function () {
-            var liObjOrigin = $(this).parent()[0];
-            var liObj = $(liObjOrigin).clone().appendTo("#toList");
-            $(liObj).children(':button').attr('class', "btn btn-danger btnRemovePlaylist");
-            $(liObj).children(':button').attr('onclick', "removeItem(this);");
-            $(liObj).children(':button').text(" - ");
-            $(this).parent().hide();
-        });
+        function addToArea(el) {
+            if (!areaId) {
+                alert("Please select area!");
+            } else {
+                var liObjOrigin = $(el).parent()[0];
+                var liObj = $(liObjOrigin).clone().appendTo("#toList");
+                var playlistId = parseInt($(liObj).attr("data-id"));
+                PlaylistAreaObj[areaId].push(playlistId);
+                $(liObj).children('a').attr('class', "btn btn-danger btnRemovePlaylist");
+                $(liObj).children('a').attr('onclick', "removeItem(this);");
+                $(liObj).children('a').text(" - ");
+                $(el).parent().hide();
+            }
+        };
         /*Remove playlist from area*/
         function removeItem(el) {
             var id = $(el).parent().attr("id");
+            var playlistId = parseInt($(el).parent().attr("data-id"));
             $('#fromList').find("#" + id).show();
             $(el).parent().remove();
+            PlaylistAreaObj[areaId] = jQuery.grep(PlaylistAreaObj[areaId], function (value) {
+                return value != playlistId;
+            });
+            console.log(PlaylistAreaObj);
         }
         /*Marked and show info when click on playlist*/
-        $("ul > li").click(function () {
+        function playlistClick(el) {
             /*Mark*/
             $("ul > li").css("border", "none");
-            $(this).css("border", "solid");
+            $(el).css("border", "solid");
             var data = {
-                playlistId: $(this).attr("data-id"),
+                playlistId: $(el).attr("data-id"),
             };
             /*Show info*/
             $.ajax({
@@ -409,7 +517,69 @@
                     $("#durationInfo").html("###");
                 }
             });
+        };
+
+        $('#wizard').smartWizard({
+            onLeaveStep: leaveAStepCallback,
+            onFinish: onFinishCallback
         });
+
+        function leaveAStepCallback(obj, context) {
+            return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation
+        }
+
+        /* Submit Form Data on Finish*/
+        function onFinishCallback(objs, context) {
+            if (validateAllSteps()) {
+                $('#frm_scenario').submit(function (event) {
+                    alert("fdfd submit");
+                });
+            }
+        }
+
+        // Your Step validation logic
+        function validateSteps(stepnumber) {
+            var isStepValid = true;
+            // validate step 1
+            if (stepnumber == 1) {
+                if (validateStep1() == false) {
+                    isStepValid = false;
+                    $('#wizard').smartWizard('showMessage', 'Please correct the errors in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
+                } else {
+                    $('#wizard').smartWizard('hideMessage');
+                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: false });
+                }
+            }
+            return isStepValid;
+        }
+
+        function validateStep1() {
+            var isValid = true;
+            /* Validate Title */
+            var title = $("#txtTitle").val();
+            if (!title.trim()) {
+                isValid = false;
+                $('#msg_title').html('Please fill in Title').show();
+            } else {
+                $('#msg_title').html('').hide();
+            }
+            return isValid;
+        }
+
+        function validateAllSteps() {
+            var isStepValid = true;
+            if (validateStep1() == false) {
+                isStepValid = false;
+                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: true });
+            } else {
+                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: false });
+            }
+            if (!isStepValid) {
+                $('#wizard').smartWizard('showMessage', 'Please correct the errors in the steps and continue');
+            }
+            return isStepValid;
+        }
     </script>
 }
 @section styles{

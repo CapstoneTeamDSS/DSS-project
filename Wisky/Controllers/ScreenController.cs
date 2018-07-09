@@ -17,22 +17,6 @@ namespace DSS.Controllers
         // GET: Screen
         public ActionResult Index()
         {
-            //var screens = this.screenService.Get().ToList();
-            //var screenVMs = new List<Models.ScreenVM>();
-
-            //foreach (var item in screens)
-            //{
-            //    var b = new Models.ScreenVM
-            //    {
-            //        Name = item.ScreenName,
-            //        Description =item.Description,                  
-            //        ResolutionId = item.ResolutionID,
-            //        ScreenId = item.ScreenID,
-            //        LocationId = item.LocationID,
-
-            //    };
-            //    screenVMs.Add(b);
-            //}
             ViewBag.screensList = GetScreenIdByBrandId();
             return View();
         }
@@ -41,9 +25,11 @@ namespace DSS.Controllers
         public static List<Models.ScreenVM> GetScreenIdByBrandId()
         {
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
-            var ScreenVM = new List<Models.ScreenVM>();      
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var screenList = screenService.GetScreenIdByBrandId(currUser.BrandId);
+            var ScreenVM = new List<Models.ScreenVM>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
             foreach (var item in screenList)
             {
                 var m = new Models.ScreenVM

@@ -127,7 +127,6 @@
         $(document).ready(function () {
             // make code pretty
             window.prettyPrint && prettyPrint();
-
             // hack for iPhone 7.0.3 multiselects bug
             if (navigator.userAgent.match(/iPhone/i)) {
                 $('select[multiple]').each(function () {
@@ -162,24 +161,15 @@
             document.querySelector('#files').addEventListener('change', handleFileSelect, false);
             selDiv = document.querySelector("#selectedFiles");
         }
-
         function handleFileSelect(e) {
-
             if (!e.target.files) return;
-
             selDiv.innerHTML = "";
-
             var files = e.target.files;
             for (var i = 0; i < files.length; i++) {
                 var f = files[i];
-
                 selDiv.innerHTML += f.name + "<br/>";
-
             }
-
         }
-
-
     </script>
 }
 @section styles{

@@ -12,30 +12,10 @@ namespace DSS.Controllers
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-        IMapper mapper = DependencyUtils.Resolve<IMapper>();
-
+        IMapper mapper = DependencyUtils.Resolve<IMapper>();        
         //GET: Location/Index
         public ActionResult Index()
         {
-            //DateTime aDateTime = DateTime.Now;
-            //var locations = this.locationService.Get().ToList();
-            //var locationVMs = new List<Models.LocationDetailVM>();
-
-            //foreach (var item in locations)
-            //{
-            //    var b = new Models.LocationDetailVM
-            //    {
-            //        LocationId = item.LocationID,
-            //        BrandId = item.BrandID,
-            //        Province = item.Province,
-            //        District = item.District,
-            //        Address = item.Address,
-            //        Description = item.Description,
-            //        Time = aDateTime
-            //    };
-            //    locationVMs.Add(b);
-            //}
-            //ViewBag.locationList = locationVMs;
             ViewBag.locationList = GetLocationIdByBrandId();
             return View();
         }
@@ -44,11 +24,13 @@ namespace DSS.Controllers
         //Get location List by Brand ID
         public static List<Models.LocationAdditionalVM> GetLocationIdByBrandId()
         {
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
-            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
                 var m = new Models.LocationAdditionalVM
@@ -91,7 +73,7 @@ namespace DSS.Controllers
         {
             DateTime aDateTime = DateTime.Now;
             Models.LocationDetailVM model = null;
-
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             if (id != null)
             {
                 var location = this.locationService.Get(id);
@@ -99,8 +81,9 @@ namespace DSS.Controllers
                 {
                     model = new Models.LocationDetailVM
                     {
-                        LocationId = location.LocationID,
                         BrandId = location.BrandID,
+                        LocationId = location.LocationID,
+                        BrandName = brandService.GetBrandNameByID(location.BrandID),
                         Province = location.Province,
                         District = location.District,
                         Address = location.Address,
@@ -116,6 +99,7 @@ namespace DSS.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.LocationDetailVM model)
         {
+            DateTime aDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
                 var location = new Data.Models.Entities.Location
@@ -125,6 +109,7 @@ namespace DSS.Controllers
                     Province = model.Province,
                     District = model.District,
                     Address = model.Address,
+                    CreateDatetime = aDateTime,
                     Description = model.Description
                 };
                 await this.locationService.CreateAsync(location);

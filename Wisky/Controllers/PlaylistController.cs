@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DSS.Data.Models.Entities;
 using DSS.Data.Models.Entities.Services;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
@@ -21,19 +22,6 @@ namespace DSS.Controllers
         // GET: Playlist
         public ActionResult Index()
         {
-            //var playlists = this.playlistService.Get().ToList();
-            //var playlistVMs = new List<Models.PlaylistDetailVM>();
-
-            //foreach (var item in playlists)
-            //{
-            //    var p = new Models.PlaylistDetailVM
-            //    {
-            //        Title = item.Title,
-            //        Description = item.Description,
-            //        Id = item.PlaylistID,
-            //    };
-            //    playlistVMs.Add(p);
-            //}
             ViewBag.playlistList = GetPlaylistIdByBrandId();
             return View("Index");
         }
@@ -43,9 +31,12 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var playlistList = playlistService.GetPlaylistIdByBrandId(currUser.BrandId);
+            var mapper= DependencyUtils.Resolve<IMapper>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             foreach (var item in playlistList)
             {
                 var m = new Models.PlaylistDetailVM
@@ -57,10 +48,11 @@ namespace DSS.Controllers
                 };
                 playlistDetailVM.Add(m);
             }
+            //playlistDetailVM = playlistList.Select(mapper.Map<Playlist, Models.PlaylistDetailVM>).ToList();
             return playlistDetailVM;
         }
-        //Update Playlist Item
 
+        //Update Playlist Item
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
         {
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
@@ -161,12 +153,14 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-                Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+                var userService = DependencyUtils.Resolve<IAspNetUserService>();
+                var username = System.Web.HttpContext.Current.User.Identity.Name;
+                var user = userService.FirstOrDefault(a => a.UserName == username);
                 var playlist = new Data.Models.Entities.Playlist
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    BrandID = currUser.BrandId,
+                    BrandID = user.BrandID,
                 };
                 await this.playlistService.CreateAsync(playlist);
 

@@ -14,18 +14,37 @@ namespace DSS.Data.Models.Entities.Services
 
         public List<ScenarioItem> GetItemListByAreaScenarioId(int areaId, int scenarioId)
         {
-            var devices = new List<ScenarioItem>();
-            devices = scenarioItemRepository
+            var items = new List<ScenarioItem>();
+            items = scenarioItemRepository
                 .Get(a => a.AreaID == areaId && a.ScenarioID == scenarioId)
                 .OrderBy(a => a.DisplayOrder)
                 .ToList();
-            return devices;
+            return items;
+        }
+
+        public bool CheckIfPlaylistAdded(int areaId, int scenarioId, int playlistId)
+        {
+            var item = scenarioItemRepository
+                .Get(a => a.AreaID == areaId && a.ScenarioID == scenarioId && a.PlaylistID == playlistId)
+                .FirstOrDefault();
+            return item==null;
+        }
+
+        public List<ScenarioItem> GetItemListByScenarioId(int scenarioId)
+        {
+            var items = new List<ScenarioItem>();
+            items = scenarioItemRepository
+                .Get(a => a.ScenarioID == scenarioId)
+                .OrderBy(a => a.DisplayOrder)
+                .ToList();
+            return items;
         }
     }
 
     public partial interface IScenarioItemService
     {
         List<ScenarioItem> GetItemListByAreaScenarioId(int areaId, int scenarioId);
-
+        bool CheckIfPlaylistAdded(int areaId, int scenarioId, int playlistId);
+        List<ScenarioItem> GetItemListByScenarioId(int scenarioId);
     }
 }
