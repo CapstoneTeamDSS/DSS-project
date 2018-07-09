@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class ScenarioController : Controller
     {
         IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
@@ -16,7 +16,6 @@ namespace DSS.Controllers
         // GET: Scenario
         public ActionResult Index()
         {
-            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             ViewBag.scenariosList = GetScenariosByBrandId();
             return View();
         }
@@ -26,8 +25,10 @@ namespace DSS.Controllers
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             var scenarioVMs = new List<Models.ScenarioVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var scenarioList = scenarioService.GetScenarioIdByBrandId(currUser.BrandId);
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var scenarioList = scenarioService.GetScenarioIdByBrandId(user.BrandID);
             foreach (var item in scenarioList)
             {
                 var s = new Models.ScenarioVM
@@ -40,6 +41,27 @@ namespace DSS.Controllers
                 scenarioVMs.Add(s);
             }
             return scenarioVMs;
+        }
+
+        public static List<Models.ScenarioRefVM> GetScenarioReferenceByBrandId(bool isHorizontal)
+        {
+            IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var scenarioRefVMs = new List<Models.ScenarioRefVM>();
+            var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(user.BrandID, isHorizontal);
+            foreach (var item in scenarioList)
+            {
+                var s = new Models.ScenarioRefVM
+                {
+                    ScenarioId = item.ScenarioID,
+                    Title = item.Title,
+                };
+                scenarioRefVMs.Add(s);
+            }
+            return scenarioRefVMs;
         }
 
         // GET: Scenario/Delete/:id

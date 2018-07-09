@@ -11,7 +11,7 @@ using System.Web.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class MatchingDeviceController : Controller
     {
         IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
@@ -41,6 +41,28 @@ namespace DSS.Controllers
             ViewBag.locationStringList = GetLocationIdByBrandId();
             return View();
         }
+
+        public static List<Models.DeviceRefVM> GetDeviceReferenceByBrandId(bool isHorizontal)
+        {
+            IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var deviceVMs = new List<Models.DeviceRefVM>();
+            var deviceList = deviceService.GetDeviceByBrandIdAndScreenType(user.BrandID, isHorizontal);
+            foreach (var item in deviceList)
+            {
+                var s = new Models.DeviceRefVM
+                {
+                    DeviceId = item.DeviceID,
+                    Title = item.Title,
+                };
+                deviceVMs.Add(s);
+            }
+            return deviceVMs;
+        }
+
         // GET: Matching/Form/:id
         public ActionResult Form(int? id, string boxId, string screenId)
         { 
@@ -82,8 +104,10 @@ namespace DSS.Controllers
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var locationStringList = new List<Models.LocationStringVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
                 var m = new Models.LocationStringVM
@@ -168,7 +192,7 @@ namespace DSS.Controllers
                     BoxID = model.BoxId,
                     ScreenID = model.ScreenId,
                     Title = model.Title,
-                    Description = model.Description
+                    Description = model.Description,
                 };
                 await this.deviceService.CreateAsync(device);
                 return this.RedirectToAction("Index");

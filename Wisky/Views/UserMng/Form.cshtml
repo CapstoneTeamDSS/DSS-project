@@ -78,7 +78,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name <span class="required">*</span></label>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Brand Name <span class="required">*</span>
+                            </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_group form-control" name="BrandId">
                                     <option value="0">--- Select Brand name ---</option>
@@ -99,9 +102,8 @@
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <td style="width: 120px">
                                     <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
-                                </td>
+                               
                             </div>
                         </div>
                         <div class="ln_solid"></div>

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
@@ -16,25 +17,6 @@ namespace DSS.Controllers
         //GET: Location/Index
         public ActionResult Index()
         {
-            //DateTime aDateTime = DateTime.Now;
-            //var locations = this.locationService.Get().ToList();
-            //var locationVMs = new List<Models.LocationDetailVM>();
-
-            //foreach (var item in locations)
-            //{
-            //    var b = new Models.LocationDetailVM
-            //    {
-            //        LocationId = item.LocationID,
-            //        BrandId = item.BrandID,
-            //        Province = item.Province,
-            //        District = item.District,
-            //        Address = item.Address,
-            //        Description = item.Description,
-            //        Time = aDateTime
-            //    };
-            //    locationVMs.Add(b);
-            //}
-            //ViewBag.locationList = locationVMs;
             ViewBag.locationList = GetLocationIdByBrandId();
             return View();
         }
@@ -45,9 +27,11 @@ namespace DSS.Controllers
         {
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();           
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
+            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
                 var m = new Models.LocationAdditionalVM

@@ -34,7 +34,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Scenario Title</th>
-                                <th>Device ID</th>
+                                <th>Device Name</th>
                                 <th>Times to play</th>
                                 <th>Start time</th>
                                 <th>End time</th>
@@ -42,7 +42,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            z
+                            @{
+                                var scheduleList = ViewBag.ScheduleList as List<DSS.Models.ScheduleVM>;
+                                var i = 0;
+                                foreach (var item in scheduleList)
+                                {
+                                    <tr>
+                                        <td>@(++i)</td>
+                                        <td>@(item.ScenarioTitle)</td>
+                                        <td>@(item.DeviceName)</td>
+                                        <td>@(item.TimeToPlay)</td>
+                                        <td>@(item.StartTime)</td>
+                                        <td>@(item.EndTime)</td>
+                                        <td style="width:180px; text-align:center">
+                                            <a href="/Scheduling/Form/@(item.DeviceScenarioId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/Scheduling/Delete/@(item.DeviceScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
                         </tbody>
                     </table>
                 </div>

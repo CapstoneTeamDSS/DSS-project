@@ -300,6 +300,7 @@
     <Compile Include="Models\PlaylistDetailVM.cs" />
     <Compile Include="Models\ResolutionDetailVM.cs" />
     <Compile Include="Models\RoleVM.cs" />
+    <Compile Include="Models\ScheduleVM.cs" />
     <Compile Include="Models\ScreenVM.cs" />
     <Compile Include="Models\UserMngVM.cs" />
     <Compile Include="Models\Identities\AccountViewModels.cs" />
@@ -1904,7 +1905,11 @@
     <Content Include="Views\MatchingDevice\Form.cshtml" />
     <Content Include="Views\Scheduling\Index.cshtml" />
     <Content Include="Views\Scheduling\Form.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Playlist\ImageDuration.cshtml" />
+=======
+    <Content Include="Views\Shared\_Layout_SystemAdmin.cshtml" />
+>>>>>>> d8b5ff3971eef22150c4f2e4c3db54346f57e7c1
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,230 @@
-﻿
+﻿@model DSS.Models.ScheduleAddVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    bool isHorizontal = true;
+    if (Model != null)
+    {
+        isHorizontal = Model?.isHorizontal??true;
+    }
 }
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Scheduling</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@((Model?.DeviceScenarioId != null) ? "Update Schedule" : "Make new Schedule")</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    @using (Html.BeginForm((Model?.DeviceScenarioId != null) ? "Update" : "Add", "Scheduling", new { DeviceScenarioId = (Model?.DeviceScenarioId) }, FormMethod.Post, new { @id = "frm_brand", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Screen orientation <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div id="orientaion" class="btn-group" data-toggle="buttons">
+                                    <input type="hidden" id="isHorizontal" value="@(isHorizontal?1:0)" />
+                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
+                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Scenario Title <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-9">
+                                <input type="hidden" id="ScenarioID" value="@(Model?.ScenarioID)" />
+                                <select class="select2_group form-control" name="ScenarioID" id="ScenarioList">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Device Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-9">
+                                <input type="hidden" id="DeviceID" value="@(Model?.DeviceID)" />
+                                <select class="select2_group form-control" name="DeviceID" id="DeviceList">
+                                    <option value="0">--- Select Device ---</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Playmode <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div id="playmode" class="btn-group" data-toggle="buttons">
+                                    <input type="hidden" id="isFixed" value="@(Model?.isFixed==true?1:0)" />
+                                    <label class="btn btn-primary" id="btnAuto" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                        <input type="radio" class="Playmode" name="isFixed" value="false"> &nbsp; Auto &nbsp;
+                                    </label>
+                                    <label class="btn btn-default" id="btnFixed" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                        <input type="radio" class="Playmode" name="isFixed" value="true"> Fixed
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Start time <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4">
+                                <div class='input-group date' id='datetimepickerStart'>
+                                    <input type="hidden" id="StartTime" value="" />
+                                    <input type='text' value="@(Model?.StartTime)" name="StartTime" class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                End time <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4">
+                                <div class='input-group date' id='datetimepickerEnd'>
+                                    <input type='text' value="@(Model?.EndTime)" name="EndTime" class="form-control" readonly="readonly" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Time to plays <span class="required">*</span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="TimeToPlay" id="TimeToPlay" class="form-control col-md-7 col-xs-12" min="0" type="number" value="@(Model?.TimeToPlay)" />
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/Content/vendors/moment/min/moment.min.js"></script>
+    <script src="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/vendors/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerStart').datetimepicker({
+                //format: 'DD/MM/YYYY hh:mm A',
+                //defaultDate: "11/1/2013",
+                //disabledDates: [
+                //    moment("12/25/2013"),
+                //    new Date(2013, 11 - 1, 21),
+                //    "11/22/2013 00:53"
+                //]
+            });
+            $('#datetimepickerEnd').datetimepicker({
+                //format: 'DD/MM/YYYY hh:mm A',
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var isHorizontal = $("#isHorizontal").val() == true;
+            loadReference(isHorizontal);
+            var isFixed = $("#isFixed").val() == true;
+            changePlayMode(isFixed)
+        });
 
-<h2>Form</h2>
+        $("input:radio[name='isHorizontal']").change(function () {
+            var isHorizontal = $(this).val() == "true";
+            loadReference(isHorizontal);
+        });
 
+        function loadReference(isHorizontal) {
+            $.ajax({
+                type: "GET",
+                url: "/Scheduling/LoadReference?isHorizontal=" + isHorizontal,
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    var deviceList = data.DeviceList;
+                    var scenarioList = data.ScenarioList;
+                    $("#ScenarioList").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Scenario ---" + '</option>');
+                    $("#DeviceList").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Device ---" + '</option>');
+                    for (var i = 0; i < scenarioList.length; i++) {
+                        var selected = $("#ScenarioID").val() == scenarioList[i].ScenarioId ? "selected" : "";
+                        if (scenarioList[i] != '') {
+                            $('#ScenarioList').append("<option value='" + scenarioList[i].ScenarioId + "'"
+                                + selected
+                                + ">" + scenarioList[i].Title + "</option > ");
+                        }
+                    }
+                    for (var i = 0; i < deviceList.length; i++) {
+                        var selected = $("#DeviceID").val() == deviceList[i].DeviceId ? "selected" : "";
+                        if (deviceList[i] != '') {
+                            $('#DeviceList').append("<option value='" + deviceList[i].DeviceId + "'"
+                                + selected
+                                + ">" + deviceList[i].Title + "</option > ");
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+
+        function changePlayMode(isFixed) {
+            if (isFixed == true) { //Fixed
+                console.log(true);
+                $("#TimeToPlay").attr("disabled", "disabled");
+                //$("#datetimepickerEnd > input").val("");
+                $("#datetimepickerEnd > input").removeAttr("readonly");
+                $("#btnAuto").removeClass("btn-primary");
+                $("#btnAuto").addClass("btn-default");
+                $("#btnFixed").removeClass("btn-default");
+                $("#btnFixed").addClass("btn-primary");
+            } else { //Auto
+                console.log(false);
+                $("#TimeToPlay").removeAttr("disabled");
+                //$("#TimeToPlay").val(0);
+                $("#datetimepickerEnd > input").attr("readonly", "readonly");
+                $("#btnAuto").removeClass("btn-default");
+                $("#btnAuto").addClass("btn-primary");
+                $("#btnFixed").removeClass("btn-primary");
+                $("#btnFixed").addClass("btn-default");
+            }
+        }
+
+        $(".Playmode").change(function () {
+            var value = $(this).val() == "true"; //false: Auto; true: Fixed
+            console.log(value);
+            changePlayMode(value);
+        });
+    </script>
+}
+@section styles{
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="~/Content/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+}
