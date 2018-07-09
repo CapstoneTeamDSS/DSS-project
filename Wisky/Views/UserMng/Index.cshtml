@@ -39,7 +39,12 @@
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
                                     Status
                                 </th>
-                                <th>Brand Name</th>
+                                @{
+                                    if (User.IsInRole("System Admin"))
+                                    {
+                                        <th>Brand Name</th>
+                                    }
+                                }
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -49,18 +54,23 @@
                                 var i = 0;
                                 foreach (var item in userList)
                                 {
-                                    <tr>
-                                        <td>@(++i)</td>
-                                        <td>@(item.UserName)</td>
-                                        <td>@(item.FullName)</td>
-                                        <td>@(item.Email)</td>
-                                        <td>@(item.isActive? "Enable" : "Disable")</td>
+                            <tr>
+                                <td>@(++i)</td>
+                                <td>@(item.UserName)</td>
+                                <td>@(item.FullName)</td>
+                                <td>@(item.Email)</td>
+                                <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                @{
+                                    if (User.IsInRole("System Admin"))
+                                    {
                                         <td>@(item.BrandName)</td>
-                                        <td style="width:180px; text-align:center">
-                                            <a href="/UserMng/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/UserMng/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                        </td>
-                                    </tr>
+                                    }
+                                }
+                                <td style="width:180px; text-align:center">
+                                    <a href="/UserMng/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                    <a href="/UserMng/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                </td>
+                            </tr>
                                 }
                             }
                         </tbody>
