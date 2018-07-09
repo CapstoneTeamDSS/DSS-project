@@ -585,7 +585,7 @@ if (typeof jQuery === 'undefined') {
              *  @default true
              *  @return {boolean}
             **/
-            beforeMoveToRight: function($left, $right, $options) { 
+            beforeMoveToRight: function($left, $right, $options) { 		
 			return true; },
 
             /*  will be executed each time after moving option[s] to right

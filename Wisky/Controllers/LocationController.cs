@@ -63,6 +63,42 @@ namespace DSS.Controllers
             }
             return LocationAdditionalVM;
         }
+        // GET: Location/ReceiveLocationIdToDelete
+        [HttpPost]
+        public JsonResult ReceiveLocationId(string id)
+        {
+            int locationId = Int32.Parse(id);
+            try
+            {
+                var locations = this.locationService.Get().ToList();
+                var locationVMs = new List<Models.LocationDetailVM>();
+                IMapper mapper = DependencyUtils.Resolve<IMapper>();
+                foreach (var item in locations)
+                {
+                    if (item.LocationID == locationId)
+                    {
+                        var b = new Models.LocationDetailVM
+                        {
+                            LocationId = item.LocationID,
+                            BrandId = item.BrandID,
+                            Province = item.Province,
+                            District = item.District,
+                            Address = item.Address,
+                            Description = item.Description
+                        };
+                        locationVMs.Add(b);
+                    }
+                }               
+                return Json(new
+                {
+                    locationIsDelete = locationVMs,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static List<Models.LocationAdditionalVM> GetLocationList()
         {
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();

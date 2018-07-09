@@ -17,6 +17,7 @@ namespace DSS.Controllers
     public class PlaylistController : Controller
     {
         IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+        IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         // GET: Playlist
         public ActionResult Index()
@@ -69,11 +70,12 @@ namespace DSS.Controllers
         }
 
         // GET: Playlist/Form/:id
-        public ActionResult Form(int? id)
+        public ActionResult Form(int? id, string imageId)
         {
             Models.PlaylistDetailVM model = null;
             if (id != null)
             {
+
                 var playlist = this.playlistService.Get(id);
                 if (playlist != null)
                 {
@@ -190,7 +192,25 @@ namespace DSS.Controllers
             var u = (ulong)prop.ValueAsObject;
             return TimeSpan.FromTicks((long)u).ToString();
         }
-
+        //Playlist/Get Image Id to input duration
+        public ActionResult ImageDuration(string imageId)
+        {
+            Models.MediaSrcUseVM model = null;
+            int Id = Int32.Parse(imageId);
+            var mediaSrc = this.mediaSrcService.Get(Id);
+            if (mediaSrc != null)
+            {
+                model = new Models.MediaSrcUseVM
+                {
+                    Title = mediaSrc.Title,
+                    Description = mediaSrc.Description,
+                    MediaSrcId = mediaSrc.MediaSrcID,
+                    isActive = (bool)mediaSrc.Status,
+                    
+                };
+            }
+            return View(model);
+        }
         // POST: Playlist/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistDetailVM model)

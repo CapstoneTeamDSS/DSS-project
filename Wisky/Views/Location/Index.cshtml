@@ -115,10 +115,25 @@
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <script>
         $(".btnDelete").click(function () {
+            var data = {
+                id: $(this).attr('data-id'),
+            };
             var btnDel = $(this);
             var boxNum = 0;
+            var location;
             $.ajax({
-
+                type: "POST",
+                url: "/Location/ReceiveLocationId",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {                   
+                    location = data.locationIdDelete.Province;
+                    console.log(location);
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
             });
             swal({
                 title: "Are you sure?",
