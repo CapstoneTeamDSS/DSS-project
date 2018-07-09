@@ -153,12 +153,14 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-                Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+                var userService = DependencyUtils.Resolve<IAspNetUserService>();
+                var username = System.Web.HttpContext.Current.User.Identity.Name;
+                var user = userService.FirstOrDefault(a => a.UserName == username);
                 var playlist = new Data.Models.Entities.Playlist
                 {
                     Title = model.Title,
                     Description = model.Description,
-                    BrandID = currUser.BrandId,
+                    BrandID = user.BrandID,
                 };
                 await this.playlistService.CreateAsync(playlist);
 

@@ -47,9 +47,11 @@ namespace DSS.Controllers
         {
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
             var scenarioRefVMs = new List<Models.ScenarioRefVM>();
-            var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(currUser.BrandId, isHorizontal);
+            var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(user.BrandID, isHorizontal);
             foreach (var item in scenarioList)
             {
                 var s = new Models.ScenarioRefVM
