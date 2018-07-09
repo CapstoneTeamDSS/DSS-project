@@ -119,7 +119,6 @@
                 id: $(this).attr('data-id'),
             };
             var btnDel = $(this);
-            var boxNum = 0;
             var location;
             $.ajax({
                 type: "POST",
@@ -137,7 +136,7 @@
             });
             swal({
                 title: "Are you sure?",
-                text: "You will not be able to recover this location!",
+                text: "You will not be able to recover this!" + location,
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
