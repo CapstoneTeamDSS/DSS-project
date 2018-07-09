@@ -26,9 +26,11 @@ namespace DSS.Controllers
         {
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();           
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var locationList = locationService.GetLocationIdByBrandId(currUser.BrandId);
+            var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
                 var m = new Models.LocationAdditionalVM

@@ -46,9 +46,11 @@ namespace DSS.Controllers
         {
             IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
             var deviceVMs = new List<Models.DeviceRefVM>();
-            var deviceList = deviceService.GetDeviceByBrandIdAndScreenType(currUser.BrandId, isHorizontal);
+            var deviceList = deviceService.GetDeviceByBrandIdAndScreenType(user.BrandID, isHorizontal);
             foreach (var item in deviceList)
             {
                 var s = new Models.DeviceRefVM

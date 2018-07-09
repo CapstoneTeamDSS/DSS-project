@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DSS.Data.Models.Entities;
 using DSS.Data.Models.Entities.Services;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
@@ -30,9 +31,12 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var playlistList = playlistService.GetPlaylistIdByBrandId(currUser.BrandId);
+            var mapper= DependencyUtils.Resolve<IMapper>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             foreach (var item in playlistList)
             {
                 var m = new Models.PlaylistDetailVM
@@ -44,6 +48,7 @@ namespace DSS.Controllers
                 };
                 playlistDetailVM.Add(m);
             }
+            //playlistDetailVM = playlistList.Select(mapper.Map<Playlist, Models.PlaylistDetailVM>).ToList();
             return playlistDetailVM;
         }
 

@@ -49,9 +49,6 @@ namespace DSS.Controllers
                    Id=item.ResolutionID,
                    Width=item.Width,
                    Note=item.Note,
-
-
-
                 };
                 resolutionVMs.Add(b);
             }

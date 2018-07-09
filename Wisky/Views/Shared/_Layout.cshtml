@@ -154,7 +154,7 @@
                                 <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> Log Out </a>
                             </li>
                             <li><a href="javascript:;"><i class="fa fa-5x fa-user"></i> My account </a></li>
-                            <li><a>Welcome, <b>@Session["username"]</b>!</a></li>
+                            <li><a>Welcome, <b>@User.Identity.Name</b>!</a></li>
                         </ul>
                     </nav>
                 </div>

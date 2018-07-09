@@ -41,8 +41,11 @@ namespace DSS.Controllers
         {
             IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
             var AndroidBoxVM = new List<Models.AndroidBoxVM>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var boxList = boxService.GetBoxIdByBrandId(currUser.BrandId);
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var boxList = boxService.GetBoxIdByBrandId(user.BrandID);
             foreach (var item in boxList)
             {
                 var m = new Models.AndroidBoxVM
