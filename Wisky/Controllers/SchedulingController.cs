@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin, Active User")]
     public class SchedulingController : Controller
     {
         // GET: Scheduling
@@ -22,8 +23,10 @@ namespace DSS.Controllers
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
             var scheduleVMs = new List<Models.ScheduleVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            Models.CurrentUserVM currUser = (Models.CurrentUserVM)System.Web.HttpContext.Current.Session["currentUser"];
-            var scheduleList = deviceScenarioService.GetSchedulesByBrandID(currUser.BrandId);
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var scheduleList = deviceScenarioService.GetSchedulesByBrandID(user.BrandID);
             IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             foreach (var item in scheduleList)

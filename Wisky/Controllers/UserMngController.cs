@@ -15,6 +15,7 @@ using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "System Admin, Admin")]
     public class UserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
@@ -22,13 +23,26 @@ namespace DSS.Controllers
         IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
-        //
+        [Authorize(Roles = "System Admin")]
         // GET: UserMng/Index
         public ActionResult Index()
+        {  
+            ViewBag.userList = GetAllUser();
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        // GET: UserMng/Accounts
+        public ActionResult Accounts()
+        {
+            ViewBag.userList = GetBrandAccounts();
+            return View("Index");
+        }
+
+        public List<Models.UserMngVM> GetAllUser()
         {
             var users = aspNetUserService.Get().ToList();
             var userVMs = new List<Models.UserMngVM>();
-
             foreach (var item in users)
             {
                 var u = new Models.UserMngVM
@@ -42,11 +56,33 @@ namespace DSS.Controllers
                 };
                 userVMs.Add(u);
             }
-            ViewBag.userList = userVMs;
-            return View();
+            return userVMs;
         }
 
-        //
+
+        public List<Models.UserMngVM> GetBrandAccounts()
+        {
+            var userService = DependencyUtils.Resolve<IAspNetUserService>();
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var users = aspNetUserService.GetAccountsByBrandId(user.BrandID);
+            var userVMs = new List<Models.UserMngVM>();
+            foreach (var item in users)
+            {
+                var u = new Models.UserMngVM
+                {
+                    UserName = item.UserName,
+                    Id = item.Id,
+                    Email = item.Email,
+                    FullName = item.FullName,
+                    isActive = item.isActive,
+                    BrandName = brandService.GetBrandNameByID(item.BrandID),
+                };
+                userVMs.Add(u);
+            }
+            return userVMs;
+        }
+
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
