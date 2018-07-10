@@ -41,7 +41,7 @@
                                         var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
                                         foreach (var item in locationList)
                                         {
-                                            <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
+                                            < option value = "@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "") >@(item.Address),Quan @(item.District),@(item.Province) </ option >
                                         }
                                     }
                                 </select>
