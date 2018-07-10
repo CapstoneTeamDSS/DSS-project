@@ -46,9 +46,7 @@ namespace DSS.Controllers
         {
             IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var deviceVMs = new List<Models.DeviceRefVM>();
             var deviceList = deviceService.GetDeviceByBrandIdAndScreenType(user.BrandID, isHorizontal);
             foreach (var item in deviceList)
@@ -104,9 +102,7 @@ namespace DSS.Controllers
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var locationStringList = new List<Models.LocationStringVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {

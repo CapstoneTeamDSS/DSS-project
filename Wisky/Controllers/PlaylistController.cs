@@ -31,11 +31,9 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper= DependencyUtils.Resolve<IMapper>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             foreach (var item in playlistList)
             {
@@ -153,9 +151,7 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userService = DependencyUtils.Resolve<IAspNetUserService>();
-                var username = System.Web.HttpContext.Current.User.Identity.Name;
-                var user = userService.FirstOrDefault(a => a.UserName == username);
+                var user = Helper.GetCurrentUser();
                 var playlist = new Data.Models.Entities.Playlist
                 {
                     Title = model.Title,
