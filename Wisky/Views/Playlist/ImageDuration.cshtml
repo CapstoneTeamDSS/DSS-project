@@ -1,7 +1,7 @@
 ﻿@model DSS.Models.MediaSrcUseVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     bool status = true;
     if (Model != null)
     {
@@ -9,17 +9,12 @@
     }
 }
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Image Information</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Input Image Duration</h2>
+                    <h2>Please Input Image Duration!!!</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -28,18 +23,18 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Title
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div id="title" style="padding-top:10px"></div>
+                            <div class="col-md-6 col-sm-6 col-xs-9" >
+                                <div id="title"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Status 
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12" style="padding-top:10px">
+                            <div class="col-md-9 col-sm-9 col-xs-9" @*style="padding-top:1px"*@>
                                 <input type="hidden" 
                                        id="cbStatus" 
                                        name="isActive" 
@@ -49,24 +44,24 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Duration
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-9">
                                 <input type="number" id="duration" name="duration"><br>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-                                <div id="description" style="padding-top:10px"></div>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <div id="description" ></div>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                 <button class="btn btn-primary" type="reset">Reset</button>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
