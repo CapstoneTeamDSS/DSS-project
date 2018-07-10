@@ -109,6 +109,7 @@
           <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrandID" Type="int" />
         </EntityType>
         <EntityType Name="DeviceScenario">
           <Key>
@@ -356,6 +357,18 @@
             </Principal>
             <Dependent Role="Device">
               <PropertyRef Name="BoxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Device_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Device" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -611,6 +624,10 @@
             <End Role="Box" EntitySet="Box" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
+          <AssociationSet Name="FK_Device_Brand" Association="Self.FK_Device_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
           <AssociationSet Name="FK_Device_Screen" Association="Self.FK_Device_Screen">
             <End Role="Screen" EntitySet="Screen" />
             <End Role="Device" EntitySet="Device" />
@@ -733,6 +750,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Device_Box" Association="DSSModel.FK_Device_Box">
             <End Role="Box" EntitySet="Boxes" />
+            <End Role="Device" EntitySet="Devices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Device_Brand" Association="DSSModel.FK_Device_Brand">
+            <End Role="Brand" EntitySet="Brands" />
             <End Role="Device" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Location_Brand" Association="DSSModel.FK_Location_Brand">
@@ -898,6 +919,7 @@
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
+          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="MediaSrcs" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
           <NavigationProperty Name="Playlists" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Brand" ToRole="Playlist" />
@@ -913,7 +935,9 @@
           <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrandID" Type="Int32" />
           <NavigationProperty Name="Box" Relationship="DSSModel.FK_Device_Box" FromRole="Device" ToRole="Box" />
+          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Device_Brand" FromRole="Device" ToRole="Brand" />
           <NavigationProperty Name="Screen" Relationship="DSSModel.FK_Device_Screen" FromRole="Device" ToRole="Screen" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="Device" ToRole="DeviceScenario" />
         </EntityType>
@@ -1175,6 +1199,18 @@
             </Principal>
             <Dependent Role="Device">
               <PropertyRef Name="BoxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Device_Brand">
+          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="DSSModel.Device" Role="Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1463,6 +1499,7 @@
           <EntitySetMapping Name="Devices">
             <EntityTypeMapping TypeName="DSSModel.Device">
               <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
