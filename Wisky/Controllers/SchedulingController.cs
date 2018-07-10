@@ -23,9 +23,7 @@ namespace DSS.Controllers
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
             var scheduleVMs = new List<Models.ScheduleVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scheduleList = deviceScenarioService.GetSchedulesByBrandID(user.BrandID);
             IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();

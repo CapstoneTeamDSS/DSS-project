@@ -62,9 +62,7 @@ namespace DSS.Controllers
 
         public List<Models.UserMngVM> GetBrandAccounts()
         {
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var users = aspNetUserService.GetAccountsByBrandId(user.BrandID);
             var userVMs = new List<Models.UserMngVM>();
             foreach (var item in users)

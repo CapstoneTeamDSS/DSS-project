@@ -28,9 +28,7 @@ namespace DSS.Controllers
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
@@ -129,6 +127,7 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.brandList = BrandController.GetBrandList();
             return View(model);
         }
 
@@ -150,7 +149,12 @@ namespace DSS.Controllers
                     Description = model.Description
                 };
                 await this.locationService.CreateAsync(location);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Location")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

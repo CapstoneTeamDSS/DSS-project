@@ -26,9 +26,7 @@ namespace DSS.Controllers
         {
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
             var ScreenVM = new List<Models.ScreenVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
             foreach (var item in screenList)
             {
@@ -92,7 +90,12 @@ namespace DSS.Controllers
                     ResolutionID= model.ResolutionId,
                 };
                 await this.screenService.CreateAsync(screen);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
