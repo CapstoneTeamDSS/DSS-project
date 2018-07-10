@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
 }
@@ -58,7 +57,7 @@
                                         var resolutionList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
                                         foreach (var item in resolutionList)
                                         {
-                                            <option value="@(item.Id)" @(Model?.Id == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
+                                    <option value="@(item.Id)" @(Model?.ResolutionId == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
                                         }
                                     }
                                 </select>

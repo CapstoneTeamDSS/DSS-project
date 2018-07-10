@@ -1,20 +1,14 @@
-﻿@model DSS.Models.LocationDetailVM
-@{
+﻿@{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
 }
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Location Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.LocationId != null) ? "Update Location information" : "Add new Location")</h2>
+                    <h2>@((Model?.LocationId != null) ? "Update Location information" : "Add New Location")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -27,11 +21,16 @@
                                 Brand Name <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.BrandName)">
-                                <input type="hidden" name="BrandId" value="@(Model?.BrandId)" />
+                                <select class="select2_group form-control" name="BrandId">
+                                    <option value="0">--- Select Brand ---</option>
+                                    @{
+                                        var brandList = ViewBag.brandList as List<DSS.Models.BrandDetailVM>;
+                                        foreach (var item in brandList)
+                                        {
+                                            <option value="@(item.Id)" @(Model?.BrandId == item.Id ? "selected" : "")>@(item.Name)</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -81,7 +80,7 @@
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                 <button class="btn btn-primary" type="reset">Reset</button>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
