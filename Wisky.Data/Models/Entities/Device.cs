@@ -26,8 +26,10 @@ namespace DSS.Data.Models.Entities
         public System.DateTime CreateDatetime { get; set; }
         public string Description { get; set; }
         public string Title { get; set; }
+        public Nullable<int> BrandID { get; set; }
     
         public virtual Box Box { get; set; }
+        public virtual Brand Brand { get; set; }
         public virtual Screen Screen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceScenario> DeviceScenarios { get; set; }
