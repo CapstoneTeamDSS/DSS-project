@@ -57,9 +57,7 @@ namespace DSS.Controllers
         {
             IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
             var mediaSrcUseVMs = new List<Models.MediaSrcUseVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var mediaSrcList = mediaSrcService.GetMediaSrcByBrand(user.BrandID);
             foreach (var item in mediaSrcList)
             {
