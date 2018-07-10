@@ -25,9 +25,7 @@ namespace DSS.Controllers
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             var scenarioVMs = new List<Models.ScenarioVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scenarioList = scenarioService.GetScenarioIdByBrandId(user.BrandID);
             foreach (var item in scenarioList)
             {
@@ -47,9 +45,7 @@ namespace DSS.Controllers
         {
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scenarioRefVMs = new List<Models.ScenarioRefVM>();
             var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(user.BrandID, isHorizontal);
             foreach (var item in scenarioList)
@@ -92,11 +88,13 @@ namespace DSS.Controllers
             if (ModelState.IsValid)
             {
                 /*Add scenario*/
+                var user = Helper.GetCurrentUser();
                 var scenario = new Data.Models.Entities.Scenario
                 {
                     Title = model.Title,
                     Description = model.Description,
                     LayoutID = model.LayoutId,
+                    BrandID = user.BrandID,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
@@ -125,7 +123,7 @@ namespace DSS.Controllers
                 {
                     success = true,
                     url = "/Scenario/Index",
-                }, JsonRequestBehavior.AllowGet); 
+                }, JsonRequestBehavior.AllowGet);
             }
             return Json(new
             {

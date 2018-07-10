@@ -272,6 +272,7 @@
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
+    <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1899,7 +1900,7 @@
     <Content Include="Views\MatchingDevice\Form.cshtml" />
     <Content Include="Views\Scheduling\Index.cshtml" />
     <Content Include="Views\Scheduling\Form.cshtml" />
-    <Content Include="Views\Shared\_Layout_SystemAdmin.cshtml" />
+    <Content Include="Views\Shared\_Layout_Popup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1911,6 +1912,7 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
     <Folder Include="Resource\OrtherFile\" />
+    <Folder Include="Views\Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
