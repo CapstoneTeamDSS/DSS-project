@@ -102,7 +102,12 @@ namespace DSS.Controllers
                     LocationID = model.LocationId
                 };
                 await this.boxService.CreateAsync(box);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
