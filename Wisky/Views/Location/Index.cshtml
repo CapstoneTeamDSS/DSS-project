@@ -63,7 +63,7 @@
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/Location/Form/@(item.LocationId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Location/Delete/@(item.LocationId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a class="btnDelete" data-id="@item.LocationId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -111,6 +111,63 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var data = {
+                id: $(this).attr('data-id'),
+            };
+            var btnDel = $(this);
+            var location;
+            $.ajax({
+                type: "POST",
+                url: "/Location/ReceiveLocationId",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {                   
+                    location = data.locationIdDelete.Province;
+                    console.log(location);
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this!" + location,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var locationIdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/Location/Delete?Id=" + locationIdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your location has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your location is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 
 @section styles{
@@ -127,5 +184,9 @@
     <!--button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
     <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
+
 }
 
