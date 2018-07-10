@@ -21,6 +21,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual System.DateTime CreateDatetime { get; set; }
     			public virtual string Description { get; set; }
     			public virtual string Title { get; set; }
+    			public virtual Nullable<int> BrandID { get; set; }
     	
     	public DeviceViewModel() : base() { }
     	public DeviceViewModel(DSS.Data.Models.Entities.Device entity) : base(entity) { }
