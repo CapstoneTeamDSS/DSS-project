@@ -49,6 +49,16 @@ namespace DSS.Data.Models.Entities.Services
             return result;
         }
 
+        public int GetLayoutIDById(int Id)
+        {
+            int result;
+            result = this.repository
+                .Get(a => a.ScenarioID == Id)
+                .FirstOrDefault()
+                ?.LayoutID ?? -1;
+            return result;
+        }
+
         public bool? GetScenarioOrientationById(int Id)
         {
             bool? result = true;
@@ -67,5 +77,6 @@ namespace DSS.Data.Models.Entities.Services
         Scenario GetById(int Id);
         String GetScenarioNameById(int Id);
         bool? GetScenarioOrientationById(int Id);
+        int GetLayoutIDById(int Id);
     }
 }

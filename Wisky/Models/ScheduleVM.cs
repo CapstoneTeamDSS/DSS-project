@@ -21,6 +21,7 @@ namespace DSS.Models
     {
         public int? DeviceScenarioId { get; set; }
         public int ScenarioID { get; set; }
+        public int? LayoutID { get; set; }
         public int DeviceID { get; set; }
         public bool isHorizontal { get; set; }
         public bool isFixed { get; set; }
