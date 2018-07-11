@@ -7,7 +7,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Box Management</small></h3>
+            <h3>Box Management</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -58,7 +58,7 @@
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/AndroidBox/Form/@(item.BoxId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/AndroidBox/Delete/@(item.BoxId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a class="btnDelete" data-id="@item.BoxId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -69,56 +69,103 @@
             </div>
         </div>
     </div>
-    @section scripts{
-        <!-- Datatables -->
-        <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-        <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-        <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
-        <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
-        <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
-        <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
-        <!-- iframe button matching-->
-        <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
-        <script>
-            $(document).ready(function () {
-                //Examples of how to assign the Colorbox event to elements
-                $(".iframe").colorbox({
-                    iframe: true, width: "70%", height: "70%",
-                    //refresh page when summit
-                    onClosed: function () { location.reload(true); },
-                });
-                //Example of preserving a JavaScript event for inline calls.
-                $("#click").click(function () {
-                    $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                    return false;
-                });
+</div>
+@section scripts{
+    <!-- Datatables -->
+    <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "70%", height: "70%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
             });
-        </script>
-        <!-- end iframe button matching-->
-    }
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
 
-    @section styles{
-        <!-- Datatables -->
-        <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-        <!-- iframe button matching-->
-        <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
-        <!-- end iframe button matching-->
-        <!--button add-->
-        <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
-        <!-- End button add-->
-    }
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this android box!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var IdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/AndroidBox/Delete?Id=" + IdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/AndroidBox/Delete?Id=" + IdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your android box has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your android box is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
+}
+
+@section styles{
+    <!-- Datatables -->
+    <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
+}
 

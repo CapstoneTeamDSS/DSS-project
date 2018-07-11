@@ -107,6 +107,49 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this location!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var locationIdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/Location/Delete?Id=" + locationIdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your location has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your location file is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 
 @section styles{
@@ -122,4 +165,7 @@
     <!--Button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
     <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
