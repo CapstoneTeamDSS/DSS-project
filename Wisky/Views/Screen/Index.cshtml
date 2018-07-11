@@ -39,6 +39,7 @@
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
                                     Screen Name
                                 </th>
+                                <th>Type</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
@@ -52,6 +53,7 @@
                                     <tr>
                                         <td>@(++i)</td>
                                         <td>@(item.Name)</td>
+                                        <td>@(item.isHorizontal ? "Landscape" : "Portraint")</td>
                                         <td>@(item.Description)</td>
 
                                         <td style="width:180px; text-align:center">
