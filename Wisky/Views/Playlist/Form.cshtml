@@ -43,7 +43,7 @@
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                         </div>
-                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                        <div style="position:relative" class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Resource Items <span class="required">*</span>
                             </label>
@@ -66,14 +66,13 @@
                                         {
                                             if (!itemList.Exists(e => e.mediaSrcId == item.MediaSrcId))
                                             {
-                                                <option value="@(item.MediaSrcId)" data-position="@(++i)">@(item.Title)</option>
+                                                <option value="@(item.MediaSrcId)" data-type="@(item.TypeId)" data-position="@(++i)">@(item.Title)</option>
                                             }
                                         }
-                                        <input type="hidden" name="url[]" value="" />
-                                }
+                                        @*<input type="hidden" name="url[]" value="" />*@
+                                    }
                                 </select>
                             </div>
-
                             <div class="col-sm-1">
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
@@ -101,7 +100,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -154,9 +152,7 @@
 
     <script>
         var selDiv = "";
-
         document.addEventListener("DOMContentLoaded", init, false);
-
         function init() {
             document.querySelector('#files').addEventListener('change', handleFileSelect, false);
             selDiv = document.querySelector("#selectedFiles");
@@ -171,6 +167,60 @@
             }
         }
     </script>
+
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "90%", height: "90%",
+                //refresh page when summit
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!--Check typeId, if Image == 1 show colorbox-->
+    <script>
+        $("#multiselect1").change(function () {
+            var optionSelected = $(this).find('option:selected').attr('data-type');
+            var selectedImageId = $(this).val();
+            if (optionSelected == 1) {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block iframe';
+                $("#multiselect1_rightSelected").click(function () {
+                    $(this).attr("href", "/Playlist/ImageDuration?imageId=" + selectedImageId);
+                })
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "60%", height: "60%",
+                        //refresh page when summit
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                    // send image id to controller
+                });
+            } else {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block';
+            }
+        });
+    </script>
+    <!--End Check typeId, if Image == 1 show colorbox-->
+    <!--send Image Id to controller-->
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+    <!--End send Image Id to controller-->
 }
 @section styles{
     <style>
@@ -180,4 +230,9 @@
             left: 200px;
         }
     </style>
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
 }
+
+
