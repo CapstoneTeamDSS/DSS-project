@@ -21,6 +21,7 @@
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
@@ -121,6 +122,7 @@
           <Property Name="TimesToPlay" Type="int" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
           <Property Name="EndTime" Type="datetime" />
+          <Property Name="LayoutID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Layout">
           <Key>
@@ -205,6 +207,7 @@
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="ScenarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
@@ -214,12 +217,15 @@
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
-            <PropertyRef Name="ScenarioItemID" />
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
-          <Property Name="ScenarioItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlaylistID" Type="int" Nullable="false" />
           <Property Name="ScenarioID" Type="int" Nullable="false" />
           <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="LayoutID" Type="int" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="Note" Type="text" />
         </EntityType>
@@ -402,9 +408,11 @@
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="DeviceScenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -492,18 +500,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PlaylistScenarioArea_Scenario">
-          <End Role="Scenario" Type="Self.Scenario" Multiplicity="1" />
-          <End Role="ScenarioItem" Type="Self.ScenarioItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Scenario">
-              <PropertyRef Name="ScenarioID" />
-            </Principal>
-            <Dependent Role="ScenarioItem">
-              <PropertyRef Name="ScenarioID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Scenario_Brand">
           <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Scenario" Type="Self.Scenario" Multiplicity="*" />
@@ -534,9 +530,25 @@
           <ReferentialConstraint>
             <Principal Role="Area">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScenarioItem_Scenario">
+          <End Role="Scenario" Type="Self.Scenario" Multiplicity="1" />
+          <End Role="ScenarioItem" Type="Self.ScenarioItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scenario">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="ScenarioItem">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -668,10 +680,6 @@
             <End Role="Playlist" EntitySet="Playlist" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
-          <AssociationSet Name="FK_PlaylistScenarioArea_Scenario" Association="Self.FK_PlaylistScenarioArea_Scenario">
-            <End Role="Scenario" EntitySet="Scenario" />
-            <End Role="ScenarioItem" EntitySet="ScenarioItem" />
-          </AssociationSet>
           <AssociationSet Name="FK_Scenario_Brand" Association="Self.FK_Scenario_Brand">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Scenario" EntitySet="Scenario" />
@@ -682,6 +690,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ScenarioItem_Area" Association="Self.FK_ScenarioItem_Area">
             <End Role="Area" EntitySet="Area" />
+            <End Role="ScenarioItem" EntitySet="ScenarioItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScenarioItem_Scenario" Association="Self.FK_ScenarioItem_Scenario">
+            <End Role="Scenario" EntitySet="Scenario" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
           <AssociationSet Name="FK_Screen_Location" Association="Self.FK_Screen_Location">
@@ -812,7 +824,7 @@
             <End Role="Resolution" EntitySet="Resolutions" />
             <End Role="Screen" EntitySet="Screens" />
           </AssociationSet>
-          <AssociationSet Name="FK_PlaylistScenarioArea_Scenario" Association="DSSModel.FK_PlaylistScenarioArea_Scenario">
+          <AssociationSet Name="FK_ScenarioItem_Scenario" Association="DSSModel.FK_ScenarioItem_Scenario">
             <End Role="Scenario" EntitySet="Scenarios" />
             <End Role="ScenarioItem" EntitySet="ScenarioItems" />
           </AssociationSet>
@@ -839,6 +851,7 @@
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
@@ -951,6 +964,7 @@
           <Property Name="TimesToPlay" Type="Int32" />
           <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Device" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="DeviceScenario" ToRole="Device" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="DeviceScenario" ToRole="Scenario" />
         </EntityType>
@@ -1053,6 +1067,7 @@
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="ScenarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
@@ -1062,21 +1077,24 @@
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Scenario_Brand" FromRole="Scenario" ToRole="Brand" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="Scenario" ToRole="DeviceScenario" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Scenario" ToRole="Layout" />
-          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_PlaylistScenarioArea_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
+          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
-            <PropertyRef Name="ScenarioItemID" />
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
-          <Property Name="ScenarioItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PlaylistID" Type="Int32" Nullable="false" />
           <Property Name="ScenarioID" Type="Int32" Nullable="false" />
           <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Area" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
           <NavigationProperty Name="Playlist" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="ScenarioItem" ToRole="Playlist" />
-          <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_PlaylistScenarioArea_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
+          <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
         </EntityType>
         <EntityType Name="Screen">
           <Key>
@@ -1144,9 +1162,11 @@
           <ReferentialConstraint>
             <Principal Role="Area">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1292,9 +1312,11 @@
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="DeviceScenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1382,15 +1404,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PlaylistScenarioArea_Scenario">
+        <Association Name="FK_ScenarioItem_Scenario">
           <End Type="DSSModel.Scenario" Role="Scenario" Multiplicity="1" />
           <End Type="DSSModel.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1512,6 +1536,7 @@
           <EntitySetMapping Name="DeviceScenarios">
             <EntityTypeMapping TypeName="DSSModel.DeviceScenario">
               <MappingFragment StoreEntitySet="DeviceScenario">
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="TimesToPlay" ColumnName="TimesToPlay" />
@@ -1625,10 +1650,10 @@
               <MappingFragment StoreEntitySet="ScenarioItem">
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="AreaID" ColumnName="AreaID" />
                 <ScalarProperty Name="ScenarioID" ColumnName="ScenarioID" />
                 <ScalarProperty Name="PlaylistID" ColumnName="PlaylistID" />
-                <ScalarProperty Name="ScenarioItemID" ColumnName="ScenarioItemID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

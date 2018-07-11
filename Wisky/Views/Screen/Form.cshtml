@@ -1,6 +1,11 @@
 ﻿@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    bool isHorizontal = true;
+    if (Model != null)
+    {
+        isHorizontal = Model?.isHorizontal ?? true;
+    }
 }
 
 <div class="">
@@ -48,6 +53,15 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Type  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:10px">
+                                <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
+                                <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Resolution  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -57,7 +71,7 @@
                                         var resolutionList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
                                         foreach (var item in resolutionList)
                                         {
-                                    <option value="@(item.Id)" @(Model?.ResolutionId == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
+                                            <option value="@(item.Id)" @(Model?.ResolutionId == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
                                         }
                                     }
                                 </select>
@@ -84,6 +98,17 @@
             </div>
         </div>
     </div>
-
 </div>
+@section scripts{
+    <!--Radio Button Check Type Value-->
+    <script>
+        var value;
+        $('input[name=optradio]').change(function () {
+            value = $('input[name=optradio]:checked').val();
+        });
+
+
+    </script>
+    <!--End Radio Button Check Type Value-->
+}
 

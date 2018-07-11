@@ -14,10 +14,10 @@ namespace DSS.Data.Models.Entities
     
     public partial class ScenarioItem
     {
-        public int ScenarioItemID { get; set; }
         public int PlaylistID { get; set; }
         public int ScenarioID { get; set; }
         public int AreaID { get; set; }
+        public int LayoutID { get; set; }
         public int DisplayOrder { get; set; }
         public string Note { get; set; }
     
