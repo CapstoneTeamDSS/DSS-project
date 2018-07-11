@@ -189,6 +189,7 @@ namespace DSS.Controllers
                     ScreenID = model.ScreenId,
                     Title = model.Title,
                     Description = model.Description,
+                    BrandID = Helper.GetCurrentUser().BrandID,
                 };
                 await this.deviceService.CreateAsync(device);
                 return this.RedirectToAction("Index");

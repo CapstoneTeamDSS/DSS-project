@@ -17,7 +17,6 @@ namespace DSS.Data.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Scenario()
         {
-            this.DeviceScenarios = new HashSet<DeviceScenario>();
             this.ScenarioItems = new HashSet<ScenarioItem>();
         }
     
@@ -28,8 +27,6 @@ namespace DSS.Data.Models.Entities
         public int BrandID { get; set; }
     
         public virtual Brand Brand { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeviceScenario> DeviceScenarios { get; set; }
         public virtual Layout Layout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScenarioItem> ScenarioItems { get; set; }

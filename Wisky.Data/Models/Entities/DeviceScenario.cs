@@ -22,6 +22,5 @@ namespace DSS.Data.Models.Entities
         public Nullable<System.DateTime> EndTime { get; set; }
     
         public virtual Device Device { get; set; }
-        public virtual Scenario Scenario { get; set; }
     }
 }

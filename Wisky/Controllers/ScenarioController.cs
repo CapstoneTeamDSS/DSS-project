@@ -63,7 +63,7 @@ namespace DSS.Controllers
         // GET: Scenario/Delete/:id
         public ActionResult Delete(int id)
         {
-            var scenario = this.scenarioService.Get(id);
+            var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
             if (scenario != null)
             {
                 this.scenarioService.Delete(scenario);
@@ -113,6 +113,7 @@ namespace DSS.Controllers
                                     PlaylistID = playlist,
                                     DisplayOrder = i++,
                                     ScenarioID = scenario.ScenarioID,
+                                    LayoutID = scenario.LayoutID,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
                             }
@@ -161,7 +162,7 @@ namespace DSS.Controllers
             Models.ScenarioVM model = null;
             if (id != null)
             {
-                var scenario = this.scenarioService.Get(id);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM
@@ -183,7 +184,7 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-                var scenario = this.scenarioService.Get(model.ScenarioId);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == model.ScenarioId);
                 if (scenario != null)
                 {
                     scenario.LayoutID = model.LayoutId;
@@ -257,7 +258,7 @@ namespace DSS.Controllers
             Models.ScenarioVM model = null;
             if (id != null)
             {
-                var scenario = this.scenarioService.Get(id);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM
