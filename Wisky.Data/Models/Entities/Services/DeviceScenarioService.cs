@@ -21,10 +21,19 @@ namespace DSS.Data.Models.Entities.Services
                 .ToList();
             return result;
         }
+
+        public bool CheckTimeValid(int deviceId, DateTime startTime, DateTime endTime)
+        {
+            var scheduleObj = this.repository
+                .Get(a => (a.DeviceID == deviceId) && ((a.StartTime < startTime && startTime < a.EndTime) || (a.StartTime < endTime && endTime < a.EndTime)))
+                .FirstOrDefault();
+            return scheduleObj == null;
+        }
     }
 
     public partial interface IDeviceScenarioService
     {
         List<DeviceScenario> GetSchedulesByBrandID(int brandId);
+        bool CheckTimeValid(int deviceId, DateTime startTime, DateTime endTime);
     }
 }
