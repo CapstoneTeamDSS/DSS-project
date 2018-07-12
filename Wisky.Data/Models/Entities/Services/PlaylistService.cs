@@ -12,7 +12,7 @@ namespace DSS.Data.Models.Entities.Services
         DSS.Data.Models.Entities.Repositories.IPlaylistRepository
             playListRepository = DependencyUtils
                 .Resolve<Repositories.IPlaylistRepository>();
-
+        
         public List<Playlist> GetPlaylistIdByBrandId(int brandId)
         {
             List<Playlist> result = null;

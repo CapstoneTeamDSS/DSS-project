@@ -51,7 +51,7 @@
                                 Duration
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input id="timeformatExample1" type="text" class="time" />
+                                <input id="imgDuration" type="text" class="time" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -86,16 +86,14 @@
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
-    <script src="~/Content/duration-picker/duration-picker.js"></script>
     <!--Duration picker-->
     <script type="text/javascript" src="~/Content/duration-picker/jquery.timepicker.min.js"></script>
     <script>
         $(function () {
-            $('#timeformatExample1').timepicker({ 'timeFormat': 'H:i:s' });
-        });
-        $('#timeformatExample1').on('changeTime', function () {
-            var value = $(this).val();
-            alert(value);
+            $('#imgDuration').timepicker({
+                'timeFormat': 'H:i:s',
+                'step': 1
+            });
         });
     </script>
     <!--End Duration picker-->
