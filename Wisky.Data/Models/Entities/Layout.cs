@@ -26,6 +26,7 @@ namespace DSS.Data.Models.Entities
         public string Description { get; set; }
         public string URL { get; set; }
         public bool isHorizontal { get; set; }
+        public string LayoutSrc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Area> Areas { get; set; }
