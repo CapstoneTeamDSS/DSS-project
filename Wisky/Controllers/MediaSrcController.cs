@@ -122,8 +122,7 @@ namespace DSS.Controllers
                     TypeID = tyleIdCheck,
                     URL = urlCheck + fileName,
                     Description = model.Description,
-                    CreateDatetime = time.ToShortTimeString(),
-                    UpdateDatetime = time.ToShortTimeString(),
+                    CreateDatetime = time,
                 };
                 await this.mediaSrcService.CreateAsync(media);
                 return this.RedirectToAction("Index");
@@ -212,7 +211,7 @@ namespace DSS.Controllers
                     mediaSrc.TypeID = tyleIdCheck;
                     mediaSrc.URL = urlCheck + fileName;
                     mediaSrc.Description = model.Description;
-                    mediaSrc.UpdateDatetime = time.ToShortTimeString();
+                    mediaSrc.UpdateDatetime = time;
                 };
                 await this.mediaSrcService.CreateAsync(mediaSrc);
                 return this.RedirectToAction("Index");
