@@ -85,6 +85,8 @@ namespace DSS.Controllers
                 var tyleIdCheck = 0;
                 var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
                 var resultCheck = CheckFileType(fileName);
+                // checkt entension file
+                string ext = Path.GetExtension(fileName);
                 if (resultCheck == 1)
                 {
                     var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
@@ -122,6 +124,7 @@ namespace DSS.Controllers
                     TypeID = tyleIdCheck,
                     URL = urlCheck + fileName,
                     Description = model.Description,
+                    Extension = ext,
                     CreateDatetime = time,
                 };
                 await this.mediaSrcService.CreateAsync(media);
@@ -152,8 +155,7 @@ namespace DSS.Controllers
             }
             return 0;
 
-        }
-      
+        }        
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
