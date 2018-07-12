@@ -78,7 +78,6 @@ namespace DSS.Controllers
             Models.PlaylistDetailVM model = null;
             if (id != null)
             {
-
                 var playlist = this.playlistService.Get(id);
                 if (playlist != null)
                 {
@@ -149,7 +148,7 @@ namespace DSS.Controllers
         //TrinhNNP
         // POST: Playlist/Add
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistDetailVM model, int[] to)
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistCRUDVM model)
         {
             if (ModelState.IsValid)
             {
@@ -161,27 +160,36 @@ namespace DSS.Controllers
                     BrandID = user.BrandID,
                 };
                 await this.playlistService.CreateAsync(playlist);
-
                 /* Add item to playlist*/
                 IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
                 IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
-                if (to.Length > 0)
+                if (model.AddedElements.Length > 0)
                 {
                     var i = 0;
-                    foreach (var item in to)
+                    foreach (var item in model.AddedElements)
                     {
-
                         var playlistItem = new Data.Models.Entities.PlaylistItem
                         {
                             PlaylistID = playlist.PlaylistID,
-                            MediaSrcID = item,
+                            MediaSrcID = item.ItemId,
                             DisplayOrder = i++,
-                            Duration = GetVideoDuration(mediaSrcService.GetById(item).URL),
                         };
+                        var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
+                        if (mediaSrcType != 1)
+                        {
+                            playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                        } else
+                        {
+                            playlistItem.Duration = TimeSpan.FromTicks((long)item.ItemDuration).ToString();
+                        }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
                 }
-                return this.RedirectToAction("Index");
+                return Json(new
+                {
+                    success = true,
+                    url = "/Playlist/Index",
+                }, JsonRequestBehavior.AllowGet);
             }
             return View("Form", model);
         }
@@ -216,7 +224,7 @@ namespace DSS.Controllers
         }
         // POST: Playlist/Update
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistDetailVM model)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistCRUDVM model)
         {
             if (ModelState.IsValid)
             {
