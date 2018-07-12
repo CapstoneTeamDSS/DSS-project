@@ -1,7 +1,12 @@
 ﻿@model DSS.Models.MediaSrcVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
     //Chỉnh nút status
     bool status = true;
     if (Model != null)
@@ -10,11 +15,6 @@
     }
 }
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Media Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,14 +25,14 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { LocationId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form", enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form", enctype = "multipart/form-data" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Title <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input id="first-name"
                                        name="Title"
                                        class="form-control col-md-7 col-xs-12"
@@ -41,10 +41,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Status <span class="required">*</span>
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-9 col-sm-9 col-xs-9">
                                 <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                             </div>
                         </div>
@@ -52,26 +52,25 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-6 col-sm-9 col-xs-12">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
+                        if (Model?.MediaSrcId == null)
+                        {
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Select file to upload
                             </label>
-                            <br />
-                            <br />
-                            <br />
                             <div class="file-loading">
                                 <input id="file" class="file" type="file" name="file" value="@(Model?.URL)">
                             </div>
                         </div>
-
+                        }
                         <div class="ln_solid"></div>
                         <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                 <button class="btn btn-primary" type="reset">Reset</button>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>

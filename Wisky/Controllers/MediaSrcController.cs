@@ -85,6 +85,8 @@ namespace DSS.Controllers
                 var tyleIdCheck = 0;
                 var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
                 var resultCheck = CheckFileType(fileName);
+                // checkt entension file
+                string ext = Path.GetExtension(fileName);
                 if (resultCheck == 1)
                 {
                     var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
@@ -122,15 +124,20 @@ namespace DSS.Controllers
                     TypeID = tyleIdCheck,
                     URL = urlCheck + fileName,
                     Description = model.Description,
+                    Extension = ext,
                     CreateDatetime = time,
-                    UpdateDatetime = time,
                 };
                 await this.mediaSrcService.CreateAsync(media);
-                return this.RedirectToAction("Index");
-                
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+                    ContentType = "text/html"
+                };
+
             }
             return View("Form", model);
-        }   
+        }
         // Check type file
         private int CheckFileType(string FileName)
         {
@@ -154,7 +161,6 @@ namespace DSS.Controllers
             return 0;
 
         }
-      
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -167,56 +173,27 @@ namespace DSS.Controllers
         }
         // Media/Update resource
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MediaSrcVM model, HttpPostedFileBase file)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MediaSrcVM model)
         {
-            if (file != null && file.ContentLength > 0 && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var urlCheck = "";
-                var tyleIdCheck = 0;
-                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
-                var resultCheck = CheckFileType(fileName);
-                if (resultCheck == 1)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Image/";
-                    tyleIdCheck = 1;
-                }
-                else if (resultCheck == 2)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Video/";
-                    tyleIdCheck = 2;
-                }
-                else if (resultCheck == 3)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Audio/";
-                    tyleIdCheck = 3;
-                }
-                else if (resultCheck == 4)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/OrtherFile/";
-                    tyleIdCheck = 4;
-                }
                 DateTime time = DateTime.Now;
-                var mediaSrc = this.mediaSrcService.Get(model.MediaSrcId);
+                var mediaSrc = this.mediaSrcService.GetById((int)model.MediaSrcId);
                 if (mediaSrc != null)
                 {
+                    mediaSrc.MediaSrcID = (int)model.MediaSrcId;
                     mediaSrc.Title = model.Title;
                     mediaSrc.Status = model.isActive;
-                    mediaSrc.TypeID = tyleIdCheck;
-                    mediaSrc.URL = urlCheck + fileName;
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;
                 };
-                await this.mediaSrcService.CreateAsync(mediaSrc);
-                return this.RedirectToAction("Index");
-
+                await this.mediaSrcService.UpdateAsync(mediaSrc);
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

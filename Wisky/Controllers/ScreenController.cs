@@ -127,7 +127,12 @@ namespace DSS.Controllers
                     screen.ResolutionID = model.ResolutionId;
                 }
                 await this.screenService.UpdateAsync(screen);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
