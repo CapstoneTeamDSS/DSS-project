@@ -133,7 +133,7 @@
     <script type="text/javascript">
         $(function () {
             $('#datetimepickerStart').datetimepicker({
-                //format: 'DD/MM/YYYY hh:mm A',
+                format: 'DD/MM/YYYY hh:mm A',
                 //defaultDate: "11/1/2013",
                 //disabledDates: [
                 //    moment("12/25/2013"),
@@ -142,7 +142,7 @@
                 //]
             });
             $('#datetimepickerEnd').datetimepicker({
-                //format: 'DD/MM/YYYY hh:mm A',
+                format: 'DD/MM/YYYY hh:mm A',
             });
         });
     </script>
@@ -219,7 +219,6 @@
 
         $(".Playmode").change(function () {
             var value = $(this).val() == "true"; //false: Auto; true: Fixed
-            console.log(value);
             changePlayMode(value);
         });
     </script>

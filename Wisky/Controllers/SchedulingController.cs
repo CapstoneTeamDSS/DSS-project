@@ -104,7 +104,7 @@ namespace DSS.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScheduleAddVM model)
         {
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
-            if (ModelState.IsValid && CheckTimeValid(model.DeviceScenarioId, model.StartTime, model.EndTime))
+            if (ModelState.IsValid && CheckTimeValid(model.DeviceID, model.StartTime, model.EndTime))
             {
                 if (model.isFixed)
                 {
@@ -133,7 +133,7 @@ namespace DSS.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScheduleAddVM model)
         {
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
-            if (ModelState.IsValid && CheckTimeValid(model.DeviceScenarioId, model.StartTime, model.EndTime))
+            if (ModelState.IsValid && CheckTimeValid(model.DeviceID, model.StartTime, model.EndTime))
             {
                 if (model.isFixed)
                 {
