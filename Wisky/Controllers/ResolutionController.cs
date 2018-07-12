@@ -90,7 +90,11 @@ namespace DSS.Controllers
                     Note = model.Note,
                 };
                 await this.resolutionService.CreateAsync(resolution);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Resolution")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
@@ -109,7 +113,11 @@ namespace DSS.Controllers
                     resolution.Note = model.Note;
                 }
                 await this.resolutionService.UpdateAsync(resolution);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Resolution")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
