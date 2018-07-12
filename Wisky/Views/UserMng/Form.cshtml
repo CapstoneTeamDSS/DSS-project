@@ -7,6 +7,13 @@
     {
         status = Model.isActive;
     }
+    <!--hide over flow x-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    <!-- End hide over flow x-->
 }
 <div class="">
     <div class="clearfix"></div>
@@ -49,18 +56,18 @@
                         if (Model?.Id == null)
                         {
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-9 col-xs-12">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Password <span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
                                     <input type="text" class="form-control" name="Password">
                                 </div>
-                                <div class="col-md-2 col-sm-9 col-xs-12">
+                                <div class="col-md-2 col-sm-3 col-xs-3">
                                     <input type="button" class="form-control btn btn-success" value="Auto Generate">
                                 </div>
                             </div>
                         }
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Role <span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-3 col-sm-6 col-xs-10">
                                 <select class="select2_multiple form-control" name="Role" multiple="multiple">
                                     <option value="0">--- Select Role ---</option>
                                     @{
@@ -97,8 +104,8 @@
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
-                               
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+
                             </div>
                         </div>
                         <div class="ln_solid"></div>
