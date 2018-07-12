@@ -1,4 +1,5 @@
-﻿@model DSS.Models.MediaSrcUseVM
+﻿
+@model DSS.Models.MediaSrcUseVM
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
@@ -50,7 +51,7 @@
                                 Duration
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input type="number" id="imgDuration">s
+                                <input id="timeformatExample1" type="text" class="time" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,33 +75,30 @@
     </div>
 </div>
 @section scripts{
+    <script>
+        $("#duration").change(function () {
+            var value = this.val();
+            alert(value);
+        });
+    </script>
     <!-- jQuery -->
     <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
     <script src="~/Content/duration-picker/duration-picker.js"></script>
+    <!--Duration picker-->
+    <script type="text/javascript" src="~/Content/duration-picker/jquery.timepicker.min.js"></script>
     <script>
-        $("#duration").durationPicker({
-            hours: {
-                label: "h",
-                min: 0,
-                max: 60
-            },
-            minutes: {
-                label: "m",
-                min: 0,
-                max: 60
-            },
-            seconds: {
-                label: "s",
-                min: 0,
-                max: 59
-            },
-            classname: 'form-control',
-            responsive: true
+        $(function () {
+            $('#timeformatExample1').timepicker({ 'timeFormat': 'H:i:s' });
+        });
+        $('#timeformatExample1').on('changeTime', function () {
+            var value = $(this).val();
+            alert(value);
         });
     </script>
+    <!--End Duration picker-->
     <!-- Switchery Change Status Text-->
     <script>
         $("#btnSet").click(function () {
@@ -134,7 +132,8 @@
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
     <!-- duration Picker -->
-    <link href="~/Content/duration-picker/duration-picker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/jquery.timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/site.css" />
     <!-- End duration Picker -->
 }
 

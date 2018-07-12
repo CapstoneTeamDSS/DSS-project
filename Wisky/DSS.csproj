@@ -857,10 +857,9 @@
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\tipped.css" />
     <Content Include="Content\css\wisky.css" />
-    <Content Include="Content\duration-picker\duration-picker.css" />
-    <Content Include="Content\duration-picker\duration-picker.js" />
-    <Content Include="Content\duration-picker\duration-picker.min.css" />
-    <Content Include="Content\duration-picker\duration-picker.min.js" />
+    <Content Include="Content\duration-picker\jquery.timepicker.css" />
+    <Content Include="Content\duration-picker\jquery.timepicker.min.js" />
+    <Content Include="Content\duration-picker\site.css" />
     <Content Include="Content\font-awesome-4.6.3\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.6.3\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
