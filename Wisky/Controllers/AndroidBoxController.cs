@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AndroidBoxController : Controller
     {
         IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
@@ -41,10 +41,8 @@ namespace DSS.Controllers
         {
             IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
             var AndroidBoxVM = new List<Models.AndroidBoxVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var boxList = boxService.GetBoxIdByBrandId(user.BrandID);
             foreach (var item in boxList)
             {
@@ -104,7 +102,12 @@ namespace DSS.Controllers
                     LocationID = model.LocationId
                 };
                 await this.boxService.CreateAsync(box);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

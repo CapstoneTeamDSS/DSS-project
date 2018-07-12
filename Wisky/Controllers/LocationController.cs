@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
@@ -27,9 +28,7 @@ namespace DSS.Controllers
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var LocationAdditionalVM = new List<Models.LocationAdditionalVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var locationList = locationService.GetLocationIdByBrandId(user.BrandID);
             foreach (var item in locationList)
             {
@@ -45,6 +44,42 @@ namespace DSS.Controllers
                 LocationAdditionalVM.Add(m);
             }
             return LocationAdditionalVM;
+        }
+        // GET: Location/ReceiveLocationIdToDelete
+        [HttpPost]
+        public JsonResult ReceiveLocationId(string id)
+        {
+            int locationId = Int32.Parse(id);
+            try
+            {
+                var locations = this.locationService.Get().ToList();
+                var locationVMs = new List<Models.LocationDetailVM>();
+                IMapper mapper = DependencyUtils.Resolve<IMapper>();
+                foreach (var item in locations)
+                {
+                    if (item.LocationID == locationId)
+                    {
+                        var b = new Models.LocationDetailVM
+                        {
+                            LocationId = item.LocationID,
+                            BrandId = item.BrandID,
+                            Province = item.Province,
+                            District = item.District,
+                            Address = item.Address,
+                            Description = item.Description
+                        };
+                        locationVMs.Add(b);
+                    }
+                }               
+                return Json(new
+                {
+                    locationIsDelete = locationVMs,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public static List<Models.LocationAdditionalVM> GetLocationList()
         {
@@ -92,6 +127,7 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.brandList = BrandController.GetBrandList();
             return View(model);
         }
 
@@ -113,7 +149,12 @@ namespace DSS.Controllers
                     Description = model.Description
                 };
                 await this.locationService.CreateAsync(location);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Location")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

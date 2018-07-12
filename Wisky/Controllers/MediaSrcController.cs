@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class MediaSrcController : Controller
     {
         IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
@@ -57,9 +57,7 @@ namespace DSS.Controllers
         {
             IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
             var mediaSrcUseVMs = new List<Models.MediaSrcUseVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var mediaSrcList = mediaSrcService.GetMediaSrcByBrand(user.BrandID);
             foreach (var item in mediaSrcList)
             {
@@ -124,8 +122,8 @@ namespace DSS.Controllers
                     TypeID = tyleIdCheck,
                     URL = urlCheck + fileName,
                     Description = model.Description,
-                    CreateDatetime = time.ToShortTimeString(),
-                    UpdateDatetime = time.ToShortTimeString(),
+                    CreateDatetime = time,
+                    UpdateDatetime = time,
                 };
                 await this.mediaSrcService.CreateAsync(media);
                 return this.RedirectToAction("Index");
@@ -214,7 +212,7 @@ namespace DSS.Controllers
                     mediaSrc.TypeID = tyleIdCheck;
                     mediaSrc.URL = urlCheck + fileName;
                     mediaSrc.Description = model.Description;
-                    mediaSrc.UpdateDatetime = time.ToShortTimeString();
+                    mediaSrc.UpdateDatetime = time;
                 };
                 await this.mediaSrcService.CreateAsync(mediaSrc);
                 return this.RedirectToAction("Index");

@@ -14,10 +14,11 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class PlaylistController : Controller
     {
         IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+        IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         // GET: Playlist
         public ActionResult Index()
@@ -31,11 +32,9 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper= DependencyUtils.Resolve<IMapper>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             foreach (var item in playlistList)
             {
@@ -74,7 +73,7 @@ namespace DSS.Controllers
         }
 
         // GET: Playlist/Form/:id
-        public ActionResult Form(int? id)
+        public ActionResult Form(int? id, string imageId)
         {
             Models.PlaylistDetailVM model = null;
             if (id != null)
@@ -149,13 +148,11 @@ namespace DSS.Controllers
         //TrinhNNP
         // POST: Playlist/Add
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistDetailVM model, int[] to)
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistCRUDVM model)
         {
             if (ModelState.IsValid)
             {
-                var userService = DependencyUtils.Resolve<IAspNetUserService>();
-                var username = System.Web.HttpContext.Current.User.Identity.Name;
-                var user = userService.FirstOrDefault(a => a.UserName == username);
+                var user = Helper.GetCurrentUser();
                 var playlist = new Data.Models.Entities.Playlist
                 {
                     Title = model.Title,
@@ -163,27 +160,36 @@ namespace DSS.Controllers
                     BrandID = user.BrandID,
                 };
                 await this.playlistService.CreateAsync(playlist);
-
                 /* Add item to playlist*/
                 IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
                 IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
-                if (to.Length > 0)
+                if (model.AddedElements.Length > 0)
                 {
                     var i = 0;
-                    foreach (var item in to)
+                    foreach (var item in model.AddedElements)
                     {
-
                         var playlistItem = new Data.Models.Entities.PlaylistItem
                         {
                             PlaylistID = playlist.PlaylistID,
-                            MediaSrcID = item,
+                            MediaSrcID = item.ItemId,
                             DisplayOrder = i++,
-                            Duration = GetVideoDuration(mediaSrcService.GetById(item).URL),
                         };
+                        var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
+                        if (mediaSrcType != 1)
+                        {
+                            playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                        } else
+                        {
+                            playlistItem.Duration = TimeSpan.FromTicks((long)item.ItemDuration).ToString();
+                        }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
                 }
-                return this.RedirectToAction("Index");
+                return Json(new
+                {
+                    success = true,
+                    url = "/Playlist/Index",
+                }, JsonRequestBehavior.AllowGet);
             }
             return View("Form", model);
         }
@@ -197,10 +203,28 @@ namespace DSS.Controllers
             var u = (ulong)prop.ValueAsObject;
             return TimeSpan.FromTicks((long)u).ToString();
         }
-
+        //Playlist/Get Image Id to input duration
+        public ActionResult ImageDuration(string imageId)
+        {
+            Models.MediaSrcUseVM model = null;
+            int Id = Int32.Parse(imageId);
+            var mediaSrc = this.mediaSrcService.Get(Id);
+            if (mediaSrc != null)
+            {
+                model = new Models.MediaSrcUseVM
+                {
+                    Title = mediaSrc.Title,
+                    Description = mediaSrc.Description,
+                    MediaSrcId = mediaSrc.MediaSrcID,
+                    isActive = (bool)mediaSrc.Status,
+                    
+                };
+            }
+            return View(model);
+        }
         // POST: Playlist/Update
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistDetailVM model)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistCRUDVM model)
         {
             if (ModelState.IsValid)
             {

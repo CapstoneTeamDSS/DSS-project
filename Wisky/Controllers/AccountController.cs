@@ -18,9 +18,7 @@ using Wisky.Data.Utility;
 namespace Wisky.Controllers
 {
     [Authorize]
-    //[Authorize(Roles = "ActiveUser")]  
-
-
+    //[Authorize(Roles = "System Admin")]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;

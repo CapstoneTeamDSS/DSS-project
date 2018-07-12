@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin, Active User")]
     public class SchedulingController : Controller
     {
         // GET: Scheduling
@@ -22,9 +23,7 @@ namespace DSS.Controllers
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
             var scheduleVMs = new List<Models.ScheduleVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scheduleList = deviceScenarioService.GetSchedulesByBrandID(user.BrandID);
             IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
@@ -49,8 +48,6 @@ namespace DSS.Controllers
         // GET: Scheduling/Form/:id
         public ActionResult Form(int? id)
         {
-            //ViewBag.DeviceList = MatchingDeviceController.GetDeviceReferenceByBrandId(true); //Get all Landscape Device
-            //ViewBag.ScenarioList = ScenarioController.GetScenarioReferenceByBrandId(true); //Get all Landscape Scenario
             Models.ScheduleAddVM model = null;
             if (id != null)
             {
@@ -66,10 +63,11 @@ namespace DSS.Controllers
                         DeviceScenarioId = item.DeviceScenationID,
                         DeviceID = item.DeviceID,
                         isHorizontal = scenarioService.GetScenarioOrientationById(item.ScenarioID)??true,
-                        isFixed = item.TimesToPlay == -1,
+                        isFixed = item.TimesToPlay == null,
                         StartTime = item.StartTime,
                         TimeToPlay = item.TimesToPlay,
                         EndTime = item.EndTime,
+                        LayoutID = item.LayoutID,
                     };
                 }
             }
@@ -91,7 +89,14 @@ namespace DSS.Controllers
         bool CheckTimeValid(int? deviceID, DateTime startTime, DateTime? endTime)
         {
             var result = true;
-
+            if (startTime > endTime)
+            {
+                result = false;
+            } else 
+            {
+                IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
+                result = deviceScenarioService.CheckTimeValid(deviceID ?? -1, startTime, endTime ?? DateTime.MinValue);
+            }            
             return result;
         }
 
@@ -99,7 +104,7 @@ namespace DSS.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScheduleAddVM model)
         {
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
-            if (ModelState.IsValid && CheckTimeValid(model.DeviceScenarioId, model.StartTime, model.EndTime))
+            if (ModelState.IsValid && CheckTimeValid(model.DeviceID, model.StartTime, model.EndTime))
             {
                 if (model.isFixed)
                 {
@@ -128,7 +133,7 @@ namespace DSS.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScheduleAddVM model)
         {
             IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
-            if (ModelState.IsValid && CheckTimeValid(model.DeviceScenarioId, model.StartTime, model.EndTime))
+            if (ModelState.IsValid && CheckTimeValid(model.DeviceID, model.StartTime, model.EndTime))
             {
                 if (model.isFixed)
                 {
@@ -137,6 +142,7 @@ namespace DSS.Controllers
                 {
                     model.EndTime = null;
                 }
+                IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
                 var schedule = new Data.Models.Entities.DeviceScenario
                 {
                     ScenarioID = model.ScenarioID,
@@ -144,6 +150,7 @@ namespace DSS.Controllers
                     TimesToPlay = model.TimeToPlay,
                     StartTime = model.StartTime,
                     EndTime = model.EndTime,
+                    LayoutID = scenarioService.GetLayoutIDById(model.ScenarioID),
                 };
                 await deviceScenarioService.CreateAsync(schedule);
                 return this.RedirectToAction("Index");

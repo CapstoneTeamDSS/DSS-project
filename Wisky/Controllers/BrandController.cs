@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "System Admin")]
     public class BrandController : Controller
     {
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
@@ -28,7 +28,6 @@ namespace DSS.Controllers
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var brands = brandService.Get().ToList();
             var brandVMs = new List<Models.BrandDetailVM>();
-
             foreach (var item in brands)
             {
                 var b = new Models.BrandDetailVM
@@ -74,7 +73,12 @@ namespace DSS.Controllers
                     Description = model.Description,
                 };
                 await this.brandService.CreateAsync(brand);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Brand")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

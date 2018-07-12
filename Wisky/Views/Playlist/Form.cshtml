@@ -35,6 +35,9 @@
                                        value="@(Model?.Title)">
                             </div>
                         </div>
+                        @*<div id="imgDuration">
+                                <input type="hidden" name="imgDuration[]" value="" />
+                            </div>*@
                         <div style="position:relative; top: 0; left: -120px" class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Description
@@ -43,18 +46,18 @@
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                         </div>
-                        <div style="position:relative; top: 0; left: -170px" class="form-group">
+                        <div style="position:relative" class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Resource Items <span class="required">*</span>
                             </label>
                             <div class="file-type text-navy">
                                 <small style="font-size:15px" class="text-navy">File type:</small>
                                 <br />
-                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4"> Video
+                                <input style="display:inline-block" type="checkbox" checked value="mp4"> Video
                                 &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="img" value="png"> Image
+                                <input style="display:inline-block" type="checkbox" value="png"> Image
                                 &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss"> Other
+                                <input style="display:inline-block" type="checkbox" value="ss"> Other
                             </div>
                             <div style="margin-left: 0px" class="col-sm-3">
                                 <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
@@ -66,14 +69,12 @@
                                         {
                                             if (!itemList.Exists(e => e.mediaSrcId == item.MediaSrcId))
                                             {
-                                                <option value="@(item.MediaSrcId)" data-position="@(++i)">@(item.Title)</option>
+                                                <option value="@(item.MediaSrcId)" data-type="@(item.TypeId)" data-position="@(++i)">@(item.Title)</option>
                                             }
                                         }
-                                        <input type="hidden" name="url[]" value="" />
-                                }
+                                    }
                                 </select>
                             </div>
-
                             <div class="col-sm-1">
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
@@ -95,18 +96,16 @@
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
                             <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
-                            <button style="margin-left: 0" type="submit" class="btn btn-success">Submit</button>
+                            <button style="margin-left: 0" type="button" id="btnSubmit" class="btn btn-success">Submit</button>
                         </div>
                     }
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 @section scripts{
-
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
@@ -122,7 +121,6 @@
         ga('create', 'UA-39934286-1', 'github.com');
         ga('send', 'pageview');
     </script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             // make code pretty
@@ -145,18 +143,64 @@
                     select.prepend(firstOption);
                 });
             }
-
             $('#multiselect1').multiselect();
             $('#multiselect2').multiselect();
-
         });
     </script>
-
+    <script>
+        var AddedElements = {};
+        //Get duration value from iframe
+        window.addEventListener('message', function (e) {
+            var $iframe = $('.iframe');
+            var eventName = e.data[0];
+            var data = JSON.parse(e.data[1]);
+            var mediaSrcId = data.mediaSrcId;
+            var duration = data.duration;
+            AddedElements[mediaSrcId] = duration;
+        }, false);
+        $("#btnSubmit").click(function () {
+            var SelectedOptions = $("#multiselect1_to > option");
+            for (var i = 0; i < SelectedOptions.length; i++) {
+                var Obj = SelectedOptions[i];
+                var ItemId = $(Obj).attr('value');
+                if (AddedElements[ItemId] == null) {
+                    AddedElements[ItemId] = 0;
+                }
+            }
+            var other_data = $('#frm_playlist').serializeArray();
+            var data = {
+                AddedElements: [],
+            };
+            $.each(other_data, function (key, input) {
+                data[input.name] = input.value;
+            });
+            $.each(AddedElements, function (index, value) {
+                var obj = {
+                    "ItemId": index,
+                    "ItemDuration": value,
+                };
+                data["AddedElements"].push(obj);
+            });
+            $.ajax({
+                url: '/Playlist/Add',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    if (res.success) {
+                        location.href = res.url;
+                    } else {
+                        alert("500: Server error!");
+                    }
+                },
+                error: function () {
+                    alert("Can not send request!");
+                }
+            });
+        });
+    </script>
     <script>
         var selDiv = "";
-
         document.addEventListener("DOMContentLoaded", init, false);
-
         function init() {
             document.querySelector('#files').addEventListener('change', handleFileSelect, false);
             selDiv = document.querySelector("#selectedFiles");
@@ -171,6 +215,53 @@
             }
         }
     </script>
+
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "90%", height: "90%",
+                //refresh page when summit
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!--Check typeId, if Image == 1 show colorbox-->
+    <script>
+        $("#multiselect1").change(function () {
+            var optionSelected = $(this).find('option:selected').attr('data-type');
+            var selectedImageId = $(this).val();
+            if (optionSelected == 1) {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block iframe';
+                $("#multiselect1_rightSelected").click(function () {
+                    $(this).attr("href", "/Playlist/ImageDuration?imageId=" + selectedImageId);
+                })
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "30%", height: "55%",
+                        //refresh page when summit
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                    // send image id to controller
+                });
+            } else {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block';
+            }
+        });
+    </script>
+    <!--End Check typeId, if Image == 1 show colorbox-->
 }
 @section styles{
     <style>
@@ -180,4 +271,9 @@
             left: 200px;
         }
     </style>
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
 }
+
+

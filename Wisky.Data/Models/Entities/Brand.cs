@@ -18,6 +18,7 @@ namespace DSS.Data.Models.Entities
         public Brand()
         {
             this.Accounts = new HashSet<Account>();
+            this.Devices = new HashSet<Device>();
             this.Locations = new HashSet<Location>();
             this.MediaSrcs = new HashSet<MediaSrc>();
             this.Playlists = new HashSet<Playlist>();
@@ -31,6 +32,8 @@ namespace DSS.Data.Models.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Device> Devices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Locations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

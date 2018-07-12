@@ -272,6 +272,7 @@
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
+    <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -856,6 +857,10 @@
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\tipped.css" />
     <Content Include="Content\css\wisky.css" />
+    <Content Include="Content\duration-picker\duration-picker.css" />
+    <Content Include="Content\duration-picker\duration-picker.js" />
+    <Content Include="Content\duration-picker\duration-picker.min.css" />
+    <Content Include="Content\duration-picker\duration-picker.min.js" />
     <Content Include="Content\font-awesome-4.6.3\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.6.3\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
@@ -1395,6 +1400,8 @@
     <Content Include="Content\plugins\swal\sweetalert.min.js" />
     <Content Include="Content\pnotify\pnotify.css" />
     <Content Include="Content\pnotify\pnotify.js" />
+    <Content Include="Content\sweetalert\sweetalert.css" />
+    <Content Include="Content\sweetalert\sweetalert.min.js" />
     <Content Include="Content\TabPane.css" />
     <Content Include="Content\template-material\css\app.min.1.css" />
     <Content Include="Content\template-material\css\app.min.2.css" />
@@ -1899,6 +1906,8 @@
     <Content Include="Views\MatchingDevice\Form.cshtml" />
     <Content Include="Views\Scheduling\Index.cshtml" />
     <Content Include="Views\Scheduling\Form.cshtml" />
+    <Content Include="Views\Playlist\ImageDuration.cshtml" />
+    <Content Include="Views\Shared\_Layout_Popup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1910,6 +1919,7 @@
     <Folder Include="Content\template-material\vendors\bower_components\eonasdan-bootstrap-datetimepicker\build\js\" />
     <Folder Include="Content\template-material\vendors\bower_components\mediaelement\build\" />
     <Folder Include="Resource\OrtherFile\" />
+    <Folder Include="Views\Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

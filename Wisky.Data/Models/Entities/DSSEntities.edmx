@@ -21,6 +21,7 @@
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
@@ -109,6 +110,7 @@
           <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BrandID" Type="int" />
         </EntityType>
         <EntityType Name="DeviceScenario">
           <Key>
@@ -120,6 +122,7 @@
           <Property Name="TimesToPlay" Type="int" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
           <Property Name="EndTime" Type="datetime" />
+          <Property Name="LayoutID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Layout">
           <Key>
@@ -153,9 +156,10 @@
           <Property Name="Status" Type="bit" />
           <Property Name="TypeID" Type="int" Nullable="false" />
           <Property Name="URL" Type="text" Nullable="false" />
-          <Property Name="UpdateDatetime" Type="nchar" MaxLength="10" />
-          <Property Name="CreateDatetime" Type="nchar" MaxLength="10" />
+          <Property Name="UpdateDatetime" Type="datetime" />
+          <Property Name="CreateDatetime" Type="datetime" />
           <Property Name="Description" Type="text" />
+          <Property Name="Extension" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="MediaType">
           <Key>
@@ -204,6 +208,7 @@
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="ScenarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
@@ -213,12 +218,15 @@
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
-            <PropertyRef Name="ScenarioItemID" />
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
-          <Property Name="ScenarioItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlaylistID" Type="int" Nullable="false" />
           <Property Name="ScenarioID" Type="int" Nullable="false" />
           <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="LayoutID" Type="int" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="Note" Type="text" />
         </EntityType>
@@ -359,6 +367,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Device_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Device" Type="Self.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Device_Screen">
           <End Role="Screen" Type="Self.Screen" Multiplicity="1" />
           <End Role="Device" Type="Self.Device" Multiplicity="*" />
@@ -389,9 +409,11 @@
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="DeviceScenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -479,18 +501,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PlaylistScenarioArea_Scenario">
-          <End Role="Scenario" Type="Self.Scenario" Multiplicity="1" />
-          <End Role="ScenarioItem" Type="Self.ScenarioItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Scenario">
-              <PropertyRef Name="ScenarioID" />
-            </Principal>
-            <Dependent Role="ScenarioItem">
-              <PropertyRef Name="ScenarioID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Scenario_Brand">
           <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Scenario" Type="Self.Scenario" Multiplicity="*" />
@@ -521,9 +531,25 @@
           <ReferentialConstraint>
             <Principal Role="Area">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScenarioItem_Scenario">
+          <End Role="Scenario" Type="Self.Scenario" Multiplicity="1" />
+          <End Role="ScenarioItem" Type="Self.ScenarioItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scenario">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="ScenarioItem">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -611,6 +637,10 @@
             <End Role="Box" EntitySet="Box" />
             <End Role="Device" EntitySet="Device" />
           </AssociationSet>
+          <AssociationSet Name="FK_Device_Brand" Association="Self.FK_Device_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
           <AssociationSet Name="FK_Device_Screen" Association="Self.FK_Device_Screen">
             <End Role="Screen" EntitySet="Screen" />
             <End Role="Device" EntitySet="Device" />
@@ -651,10 +681,6 @@
             <End Role="Playlist" EntitySet="Playlist" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
-          <AssociationSet Name="FK_PlaylistScenarioArea_Scenario" Association="Self.FK_PlaylistScenarioArea_Scenario">
-            <End Role="Scenario" EntitySet="Scenario" />
-            <End Role="ScenarioItem" EntitySet="ScenarioItem" />
-          </AssociationSet>
           <AssociationSet Name="FK_Scenario_Brand" Association="Self.FK_Scenario_Brand">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Scenario" EntitySet="Scenario" />
@@ -665,6 +691,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ScenarioItem_Area" Association="Self.FK_ScenarioItem_Area">
             <End Role="Area" EntitySet="Area" />
+            <End Role="ScenarioItem" EntitySet="ScenarioItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScenarioItem_Scenario" Association="Self.FK_ScenarioItem_Scenario">
+            <End Role="Scenario" EntitySet="Scenario" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
           <AssociationSet Name="FK_Screen_Location" Association="Self.FK_Screen_Location">
@@ -735,6 +765,10 @@
             <End Role="Box" EntitySet="Boxes" />
             <End Role="Device" EntitySet="Devices" />
           </AssociationSet>
+          <AssociationSet Name="FK_Device_Brand" Association="DSSModel.FK_Device_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Device" EntitySet="Devices" />
+          </AssociationSet>
           <AssociationSet Name="FK_Location_Brand" Association="DSSModel.FK_Location_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Location" EntitySet="Locations" />
@@ -791,7 +825,7 @@
             <End Role="Resolution" EntitySet="Resolutions" />
             <End Role="Screen" EntitySet="Screens" />
           </AssociationSet>
-          <AssociationSet Name="FK_PlaylistScenarioArea_Scenario" Association="DSSModel.FK_PlaylistScenarioArea_Scenario">
+          <AssociationSet Name="FK_ScenarioItem_Scenario" Association="DSSModel.FK_ScenarioItem_Scenario">
             <End Role="Scenario" EntitySet="Scenarios" />
             <End Role="ScenarioItem" EntitySet="ScenarioItems" />
           </AssociationSet>
@@ -818,6 +852,7 @@
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
@@ -898,6 +933,7 @@
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
+          <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="MediaSrcs" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
           <NavigationProperty Name="Playlists" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Brand" ToRole="Playlist" />
@@ -913,7 +949,9 @@
           <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrandID" Type="Int32" />
           <NavigationProperty Name="Box" Relationship="DSSModel.FK_Device_Box" FromRole="Device" ToRole="Box" />
+          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Device_Brand" FromRole="Device" ToRole="Brand" />
           <NavigationProperty Name="Screen" Relationship="DSSModel.FK_Device_Screen" FromRole="Device" ToRole="Screen" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="Device" ToRole="DeviceScenario" />
         </EntityType>
@@ -927,6 +965,7 @@
           <Property Name="TimesToPlay" Type="Int32" />
           <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Device" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="DeviceScenario" ToRole="Device" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="DeviceScenario" ToRole="Scenario" />
         </EntityType>
@@ -967,9 +1006,10 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
           <Property Name="URL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UpdateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreateDatetime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UpdateDatetime" Type="DateTime" Precision="3" />
+          <Property Name="CreateDatetime" Type="DateTime" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="MediaSrc" ToRole="Brand" />
           <NavigationProperty Name="MediaType" Relationship="DSSModel.FK_MediaSrc_MediaType" FromRole="MediaSrc" ToRole="MediaType" />
           <NavigationProperty Name="PlaylistItems" Relationship="DSSModel.FK_PlaylistItem_MediaSrc" FromRole="MediaSrc" ToRole="PlaylistItem" />
@@ -1029,6 +1069,7 @@
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
           <Property Name="ScenarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
@@ -1038,21 +1079,24 @@
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Scenario_Brand" FromRole="Scenario" ToRole="Brand" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="Scenario" ToRole="DeviceScenario" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Scenario" ToRole="Layout" />
-          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_PlaylistScenarioArea_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
+          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
-            <PropertyRef Name="ScenarioItemID" />
+            <PropertyRef Name="PlaylistID" />
+            <PropertyRef Name="ScenarioID" />
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
           </Key>
-          <Property Name="ScenarioItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PlaylistID" Type="Int32" Nullable="false" />
           <Property Name="ScenarioID" Type="Int32" Nullable="false" />
           <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Area" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
           <NavigationProperty Name="Playlist" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="ScenarioItem" ToRole="Playlist" />
-          <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_PlaylistScenarioArea_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
+          <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
         </EntityType>
         <EntityType Name="Screen">
           <Key>
@@ -1120,9 +1164,11 @@
           <ReferentialConstraint>
             <Principal Role="Area">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1175,6 +1221,18 @@
             </Principal>
             <Dependent Role="Device">
               <PropertyRef Name="BoxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Device_Brand">
+          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="DSSModel.Device" Role="Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1256,9 +1314,11 @@
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="DeviceScenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1346,15 +1406,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PlaylistScenarioArea_Scenario">
+        <Association Name="FK_ScenarioItem_Scenario">
           <End Type="DSSModel.Scenario" Role="Scenario" Multiplicity="1" />
           <End Type="DSSModel.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Scenario">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
               <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1463,6 +1525,7 @@
           <EntitySetMapping Name="Devices">
             <EntityTypeMapping TypeName="DSSModel.Device">
               <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
@@ -1475,6 +1538,7 @@
           <EntitySetMapping Name="DeviceScenarios">
             <EntityTypeMapping TypeName="DSSModel.DeviceScenario">
               <MappingFragment StoreEntitySet="DeviceScenario">
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="TimesToPlay" ColumnName="TimesToPlay" />
@@ -1511,6 +1575,7 @@
           <EntitySetMapping Name="MediaSrcs">
             <EntityTypeMapping TypeName="DSSModel.MediaSrc">
               <MappingFragment StoreEntitySet="MediaSrc">
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
                 <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
@@ -1588,10 +1653,10 @@
               <MappingFragment StoreEntitySet="ScenarioItem">
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="AreaID" ColumnName="AreaID" />
                 <ScalarProperty Name="ScenarioID" ColumnName="ScenarioID" />
                 <ScalarProperty Name="PlaylistID" ColumnName="PlaylistID" />
-                <ScalarProperty Name="ScenarioItemID" ColumnName="ScenarioItemID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

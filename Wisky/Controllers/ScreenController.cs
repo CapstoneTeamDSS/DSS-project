@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ScreenController : Controller
     {
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
@@ -26,9 +26,7 @@ namespace DSS.Controllers
         {
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
             var ScreenVM = new List<Models.ScreenVM>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
             foreach (var item in screenList)
             {
@@ -38,6 +36,7 @@ namespace DSS.Controllers
                     Description = item.Description,
                     ResolutionId = item.ResolutionID,
                     ScreenId = item.ScreenID,
+                    isHorizontal = item.isHorizontal,
                     LocationId = item.LocationID,
                 };
                 ScreenVM.Add(m);
@@ -53,6 +52,15 @@ namespace DSS.Controllers
                 this.screenService.Delete(screen);
             }
             return this.RedirectToAction("Index");
+        }
+        // GET: Screen/GetValueRadioButton
+        public bool GetValueRadioButton(string name)
+        {
+            if (name.ToString().Equals("Landscape"))
+            {
+                return true;
+            }
+            return false;
         }
         // GET: Screen/Form/:id
         public ActionResult Form(int? id)
@@ -71,6 +79,7 @@ namespace DSS.Controllers
                         Description = screen.Description,
                         ResolutionId = screen.ResolutionID,
                         LocationId = screen.LocationID,
+                        isHorizontal = screen.isHorizontal,
                     };
                 }
             }
@@ -90,9 +99,16 @@ namespace DSS.Controllers
                     Description = model.Description,
                     LocationID = model.LocationId,
                     ResolutionID= model.ResolutionId,
+                    isHorizontal = model.isHorizontal,
+
                 };
                 await this.screenService.CreateAsync(screen);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

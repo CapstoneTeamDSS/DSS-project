@@ -11,7 +11,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Brand Management</h3>
+            <h3>Scheduling</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -45,6 +45,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
                                 <input type="hidden" id="ScenarioID" value="@(Model?.ScenarioID)" />
+                                <input type="hidden" name="LayoutID" id="LayoutID" value="@(Model?.LayoutID)" />
                                 <select class="select2_group form-control" name="ScenarioID" id="ScenarioList">
                                 </select>
                             </div>
@@ -96,6 +97,7 @@
                             </label>
                             <div class="col-md-4">
                                 <div class='input-group date' id='datetimepickerEnd'>
+                                    <input type="hidden" id="EndTime" value="" />
                                     <input type='text' value="@(Model?.EndTime)" name="EndTime" class="form-control" readonly="readonly" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -132,7 +134,7 @@
     <script type="text/javascript">
         $(function () {
             $('#datetimepickerStart').datetimepicker({
-                //format: 'DD/MM/YYYY hh:mm A',
+                format: 'DD/MM/YYYY hh:mm A',
                 //defaultDate: "11/1/2013",
                 //disabledDates: [
                 //    moment("12/25/2013"),
@@ -141,7 +143,7 @@
                 //]
             });
             $('#datetimepickerEnd').datetimepicker({
-                //format: 'DD/MM/YYYY hh:mm A',
+                format: 'DD/MM/YYYY hh:mm A',
             });
         });
     </script>
@@ -207,7 +209,7 @@
             } else { //Auto
                 console.log(false);
                 $("#TimeToPlay").removeAttr("disabled");
-                //$("#TimeToPlay").val(0);
+                $("#TimeToPlay").val(1);
                 $("#datetimepickerEnd > input").attr("readonly", "readonly");
                 $("#btnAuto").removeClass("btn-default");
                 $("#btnAuto").addClass("btn-primary");
@@ -218,7 +220,6 @@
 
         $(".Playmode").change(function () {
             var value = $(this).val() == "true"; //false: Auto; true: Fixed
-            console.log(value);
             changePlayMode(value);
         });
     </script>

@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, Active User")]
     public class ScenarioController : Controller
     {
         IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
@@ -25,9 +25,7 @@ namespace DSS.Controllers
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             var scenarioVMs = new List<Models.ScenarioVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scenarioList = scenarioService.GetScenarioIdByBrandId(user.BrandID);
             foreach (var item in scenarioList)
             {
@@ -47,9 +45,7 @@ namespace DSS.Controllers
         {
             IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var userService = DependencyUtils.Resolve<IAspNetUserService>();
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            var user = userService.FirstOrDefault(a => a.UserName == username);
+            var user = Helper.GetCurrentUser();
             var scenarioRefVMs = new List<Models.ScenarioRefVM>();
             var scenarioList = scenarioService.GetScenarioIdByBrandIdAndLayoutType(user.BrandID, isHorizontal);
             foreach (var item in scenarioList)
@@ -67,7 +63,7 @@ namespace DSS.Controllers
         // GET: Scenario/Delete/:id
         public ActionResult Delete(int id)
         {
-            var scenario = this.scenarioService.Get(id);
+            var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
             if (scenario != null)
             {
                 this.scenarioService.Delete(scenario);
@@ -92,11 +88,13 @@ namespace DSS.Controllers
             if (ModelState.IsValid)
             {
                 /*Add scenario*/
+                var user = Helper.GetCurrentUser();
                 var scenario = new Data.Models.Entities.Scenario
                 {
                     Title = model.Title,
                     Description = model.Description,
                     LayoutID = model.LayoutId,
+                    BrandID = user.BrandID,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
@@ -115,6 +113,7 @@ namespace DSS.Controllers
                                     PlaylistID = playlist,
                                     DisplayOrder = i++,
                                     ScenarioID = scenario.ScenarioID,
+                                    LayoutID = scenario.LayoutID,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
                             }
@@ -125,7 +124,7 @@ namespace DSS.Controllers
                 {
                     success = true,
                     url = "/Scenario/Index",
-                }, JsonRequestBehavior.AllowGet); 
+                }, JsonRequestBehavior.AllowGet);
             }
             return Json(new
             {
@@ -163,7 +162,7 @@ namespace DSS.Controllers
             Models.ScenarioVM model = null;
             if (id != null)
             {
-                var scenario = this.scenarioService.Get(id);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM
@@ -185,7 +184,7 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-                var scenario = this.scenarioService.Get(model.ScenarioId);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == model.ScenarioId);
                 if (scenario != null)
                 {
                     scenario.LayoutID = model.LayoutId;
@@ -259,7 +258,7 @@ namespace DSS.Controllers
             Models.ScenarioVM model = null;
             if (id != null)
             {
-                var scenario = this.scenarioService.Get(id);
+                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM

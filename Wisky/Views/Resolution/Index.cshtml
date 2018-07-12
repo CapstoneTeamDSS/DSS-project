@@ -60,7 +60,7 @@
                                         <td>@(item.Note)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/Resolution/Form/@(item.Id)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Resolution/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -108,6 +108,49 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this resolution!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var IdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/Resolution/Delete?Id=" + IdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/Resolution/Delete?Id=" + IdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your resolution has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your resolution is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 }
 
@@ -124,4 +167,7 @@
     <!--button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
     <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
