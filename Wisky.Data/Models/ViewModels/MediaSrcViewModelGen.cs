@@ -21,9 +21,10 @@ namespace DSS.Data.Models.ViewModels
     			public virtual Nullable<bool> Status { get; set; }
     			public virtual int TypeID { get; set; }
     			public virtual string URL { get; set; }
-    			public virtual string UpdateDatetime { get; set; }
-    			public virtual string CreateDatetime { get; set; }
+    			public virtual Nullable<System.DateTime> UpdateDatetime { get; set; }
+    			public virtual Nullable<System.DateTime> CreateDatetime { get; set; }
     			public virtual string Description { get; set; }
+    			public virtual string Extension { get; set; }
     	
     	public MediaSrcViewModel() : base() { }
     	public MediaSrcViewModel(DSS.Data.Models.Entities.MediaSrc entity) : base(entity) { }
