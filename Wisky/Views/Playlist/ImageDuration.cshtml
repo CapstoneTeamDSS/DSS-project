@@ -51,6 +51,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
                                 <input type="number" id="imgDuration">s
+                                <input type="number" id="duration">s
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,12 +75,11 @@
     </div>
 </div>
 @section scripts{
+    <!-- jQuery -->
+    <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
-    <!-- duration Picker -->
-    <!-- jQuery -->
-    <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <script src="~/Content/duration-picker/duration-picker.js"></script>
     <script>
         $("#duration").durationPicker({
@@ -105,12 +105,13 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#btnSet").click(function () {
-            var input = $("#imgDuration");
+            //var input = $("#imgDuration");
+            var input = $("#duration");
             var data = {
                 'duration': input.val(),
                 'mediaSrcId': $("#mediaSrcId").val(),
             }
-            //window.parent.postMessage(['duration', input.val()], "*");
+            console.log(input.val());
             window.parent.postMessage(['data', JSON.stringify(data)], "*");
         });
 

@@ -78,7 +78,6 @@ namespace DSS.Controllers
             Models.PlaylistDetailVM model = null;
             if (id != null)
             {
-
                 var playlist = this.playlistService.Get(id);
                 if (playlist != null)
                 {
