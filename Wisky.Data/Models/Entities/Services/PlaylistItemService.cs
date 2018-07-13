@@ -13,6 +13,21 @@ namespace DSS.Data.Models.Entities.Services
             playlistItemRepository = DependencyUtils
                 .Resolve<Repositories.IPlaylistItemRepository>();
 
+        public string GetTotalDuration(int playlistID)
+        {
+            string result = "";
+            var playlistItems = this.repository
+                .Get(a => a.PlaylistID == playlistID)
+                .ToList();
+            var totalDuration = new TimeSpan();
+            foreach (var item in playlistItems)
+            {
+                totalDuration += TimeSpan.ParseExact(item.Duration, "g", null);
+            }
+            result = totalDuration.ToString();
+            return result;
+        }
+
         public List<PlaylistItem> GetMediaSrcByPlaylistId(int playlistId)
         {
             List<PlaylistItem> result = null;
@@ -45,5 +60,6 @@ namespace DSS.Data.Models.Entities.Services
         List<PlaylistItem> GetMediaSrcByPlaylistId(int playlistId);
         PlaylistItem GetPlaylistItemById(int id);
         List<PlaylistItem> GetPlaylistItemByPlaylistId(int id);
+        string GetTotalDuration(int playlistID);
     }
 }
