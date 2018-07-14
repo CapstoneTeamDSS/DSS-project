@@ -118,47 +118,47 @@
                                             <img src="~/Content/images/Scenario/Landscape.png" /><br />
                                             <div style="text-align:center">
                                                 Landscape<br /><br /><br />
-                                                <div><input type="radio" class="flat" checked value="1" name="Orientation"></div>
+                                                <div><input type="radio" checked value="true" name="Orientation"></div>
                                             </div>
                                         </div>
                                         <div style="float:right;padding-right:250px;padding-bottom:20px">
                                             <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
                                             <div style="text-align:center">
                                                 Portrait<br />
-                                                <div><input type="radio" class="flat" value="2" name="Orientation"></div>
+                                                <div><input type="radio" value="false" name="Orientation"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div id="step-3" class="content" style="display: none;">
-                                        @{
-                                            var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;
-                                            if (layoutList != null)
-                                            {
-                                                for (int i = 0; i < layoutList.Count; i += 3)
+                                        @*@{
+                                            var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;*@
+                                            @*if (layoutList != null)
                                                 {
-                                                    <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-                                                            <img src="@(layoutList[i].URL)" style="display:block; margin:auto" />
-                                                            <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
+                                                    for (int i = 0; i < layoutList.Count; i += 3)
+                                                    {
+                                                        <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                <img src="@(layoutList[i].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
+                                                            </div>
+                                                            @if (i + 1 < layoutList.Count)
+                                                            {
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                    <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                                </div>
+                                                            }
+                                                            @if (i + 2 < layoutList.Count)
+                                                            {
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                    <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                                </div>
+                                                            }
                                                         </div>
-                                                        @if (i + 1 < layoutList.Count)
-                                                        {
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto" />
-                                                                <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                            </div>
-                                                        }
-                                                        @if (i + 2 < layoutList.Count)
-                                                        {
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto" />
-                                                                <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                            </div>
-                                                        }
-                                                    </div>
+                                                    }
                                                 }
-                                            }
-                                        }
+                                        }*@
                                     </div>
                                     <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -167,19 +167,7 @@
                                                     <h2>Your Playlists</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
-                                                <ul id="fromList" style="height:350px" class="stepContainer">
-                                                    @*@{
-                                                            var playlistList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
-                                                            foreach (var item in playlistList)
-                                                            {
-                                                                <li class="playlistList" id="fromList_@item.Id" data-id="@(item.Id)">
-                                                                    <span id="title">@(item.Title)</span>
-                                                                    <span id="duration">@(item.Duration)</span>
-                                                                    <a onclick="addToArea(this)" style="position:relative; top: -15px; left:0; margin-left:60%" class="btn btn-success btnAddPlaylist" data-video-url="/Content/videos/Relax.mp4"> + </a>
-                                                                </li>
-                                                            }
-                                                        }*@
-                                                </ul>
+                                                <ul id="fromList" style="height:350px" class="stepContainer"></ul>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -189,9 +177,8 @@
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
-                                                    <div id="preview-warapper" style="display:inline-block;">
-                                                        <div style="height=400px;width:500px;" id="divLayout">
-
+                                                    <div id="preview-warapper" style="display:inline-block;align-content:center">
+                                                        <div style="height:400px;width:500px;align-content:center" id="divLayout">
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -332,6 +319,61 @@
             player = document.getElementById("player");
     </script>
     <script>
+        /* STEP 2*/
+        $("input:radio[name='Orientation']").change(function () {
+            var isLandscape = $(this).val();
+            if (isLandscape == "true") {
+                $("#divLayout").css("height", "300px");
+                $("#divLayout").css("width", "533px");
+            } else {
+                $("#divLayout").css("height", "533px");
+                $("#divLayout").css("width", "300px");
+            }            
+            loadLayoutList(isLandscape);
+        });
+        function loadLayoutList(isHorizontal) {
+            var data = {
+                isHorizontal: isHorizontal,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/LoadLayoutList",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    var layoutList = data.LayoutVMs;
+                    if (layoutList != null) {
+                        $("#step-3").find('div').remove().end();
+                        for (var i = 0; i < layoutList.length; i+=3) {
+                            var style = isHorizontal == "true" ? "width: 250px; height: 140px" : "width: 140px; height: 250px";
+                            $("#step-3").append('<div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">');
+                            $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
+                                + '<img src="' + layoutList[i].URL + '" style="display:block; margin:auto;' + style + '" />'
+                                + '<input type="radio" value="' + layoutList[i].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked onclick="loadLayout(' + layoutList[i].LayoutID + ')" />'
+                                + '</div>');
+                            if (i + 1 < layoutList.length) {
+                                $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
+                                    + '<img src="' + layoutList[i+1].URL + '" style="display:block; margin:auto;' + style + '" />'
+                                    + '<input type="radio" value="' + layoutList[i + 1].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i+1].LayoutID + ')"/>'
+                                    + '</div>');
+                            }
+                            if (i + 2 < layoutList.length) {
+                                $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
+                                    + '<img src="' + layoutList[i+2].URL + '" style="display:block; margin:auto;' + style + '" />'
+                                    + '<input type="radio" value="' + layoutList[i + 2].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i+2].LayoutID + ')"/>'
+                                    + '</div>');
+                            }
+                            $("#step-3").append('</div');
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+
         /* STEP 3*/
         var playlistList;
         var PlaylistAreaObj = {};
@@ -341,11 +383,9 @@
             if (layoutId == null) {
                 layoutId = 1;
             }
+            loadLayoutList("true");
             loadLayout(layoutId);
             loadPlaylistList();
-        });
-        $("input:radio[name='LayoutId']").change(function () {
-            loadLayout($(this).val());
         });
         function loadLayout(id) {
             var data = {
@@ -427,7 +467,7 @@
                         alert("Error occured!!")
                     }
                 });
-            }            
+            }
         }
 
         function renderPlaylistList(ScenarioItemIds) {
