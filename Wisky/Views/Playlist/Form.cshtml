@@ -23,7 +23,7 @@
                     {
                         @Html.ValidationSummary()
 
-                        <div style="position:relative; top: 0; left: -120px;" class="form-group">
+                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Playlist Title <span class="required">*</span>
                             </label>
@@ -35,10 +35,7 @@
                                        value="@(Model?.Title)">
                             </div>
                         </div>
-                        @*<div id="imgDuration">
-                                <input type="hidden" name="imgDuration[]" value="" />
-                            </div>*@
-                        <div style="position:relative; top: 0; left: -120px" class="form-group">
+                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Description
                             </label>
@@ -50,16 +47,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
                                 Resource Items <span class="required">*</span>
                             </label>
-                            <div class="file-type text-navy">
-                                <small style="font-size:15px" class="text-navy">File type:</small>
-                                <br />
-                                <input style="display:inline-block" type="checkbox" checked value="mp4"> Video
-                                &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" value="png"> Image
-                                &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" value="ss"> Other
-                            </div>
-                            <div style="margin-left: 0px" class="col-sm-3">
+                            <div style="margin-left: 0px" class="col-md-4 col-sm-4 col-xs-5">
                                 <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
                                     @{
                                         var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcUseVM>;
@@ -75,14 +63,14 @@
                                     }
                                 </select>
                             </div>
-                            <div class="col-sm-1">
+                            <div class=" col-md-1 col-sm-1 col-xs-2">
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
                             </div>
                             <div style=" display: inline-block"></div>
-                            <div class="col-sm-3" id="selectedFiles">
+                            <div class=" col-md-4 col-sm-4 col-xs-5" id="selectedFiles">
                                 <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
                                     @{
                                         var itemListTo = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
@@ -94,9 +82,19 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
-                            <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
-                            <button style="margin-left: 0" type="button" id="btnSubmit" class="btn btn-success">Submit</button>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="mp4"> Video
+                                <input style="display:inline-block" type="checkbox" name="fileType" value="png"> Image
+                                <input style="display:inline-block" type="checkbox" name="fileType" value="ss"> Other
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" formtaget="_parent" class="btn btn-success">Submit</button>
+                            </div>
                         </div>
                     }
                 </div>
