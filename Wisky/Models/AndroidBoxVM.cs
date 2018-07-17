@@ -9,7 +9,7 @@ namespace DSS.Models
     public class AndroidBoxVM
     {
         public int? BoxId { get; set; }
-        [Required(ErrorMessage = "Please enter Location")]
+        [Range(0, Double.PositiveInfinity, ErrorMessage = "Please select Location")]
         public int LocationId { get; set; }
         [Required(ErrorMessage = "Please enter Box's name")]
         public string Name { get; set; }
