@@ -28,24 +28,12 @@ namespace DSS.Data.Models.Entities.Services
                 .Get(a => a.MediaSrcID == Id)
                 .FirstOrDefault();
             return mediaSrc;
-        }
-
-        public List<MediaSrc> GetMediaSrcByType(int[] typeIds)
-        {
-            List<MediaSrc> result = null;
-            if (typeIds != null)
-            {
-                result = this.repository.Get(m => typeIds.Contains(m.TypeID))
-                .ToList();
-            }
-            return result;
-        }
+        }        
     }
 
     public partial interface IMediaSrcService
     {
         List<MediaSrc> GetMediaSrcByBrand(int brandId);
-        List<MediaSrc> GetMediaSrcByType(int[] typeIds);
         MediaSrc GetById(int Id);
     }
 }

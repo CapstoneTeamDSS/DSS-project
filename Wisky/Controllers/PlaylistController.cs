@@ -95,30 +95,6 @@ namespace DSS.Controllers
             return View("Form", model);
         }
 
-        [HttpPost]
-        public ActionResult GetMediaSrcListByType(int[] typeIDs)
-        {
-            var MediaSrcList = mediaSrcService.GetMediaSrcByType(typeIDs);
-            var MediaSrcVMs = new List<Models.MediaSrcUseVM>();
-            foreach (var item in MediaSrcList)
-            {
-                var m = new Models.MediaSrcUseVM
-                {
-                    Title = item.Title,
-                    Description = item.Description,
-                    URL = item.URL,
-                    isActive = (bool)item.Status,
-                    MediaSrcId = item.MediaSrcID,
-                    TypeId = item.TypeID,
-                };
-                MediaSrcVMs.Add(m);
-            }
-            return Json(new
-            {
-                MediaSrcList = MediaSrcVMs,
-            }, JsonRequestBehavior.AllowGet);
-        }
-
         //TrinhNNP
         //Get media Src List by playlist ID
         public static List<Models.PlaylistItemVM> GetMediaSrcListByPlaylistId(int playlistId)

@@ -85,9 +85,9 @@
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
                                 <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Video
-                                <input style="display:inline-block" type="checkbox" name="fileType" value="2"> Image
-                                <input style="display:inline-block" type="checkbox" name="fileType" value="3"> Audio
-                                <input style="display:inline-block" type="checkbox" name="fileType" value="4"> Text
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Image
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -238,26 +238,13 @@
             $("input:checkbox[name='fileType']:checked").each(function () {
                 values.push($(this).val());
             });
-            var data = {
-                typeIds: [], 
-            };
-            console.log(data);
-            data.typeIDs = values;
-            $.ajax({
-                url: '/Playlist/GetMediaSrcListByType',
-                method: 'POST',
-                data: data,
-                success: function (res) {
-                    var mediaSrcList = res.MediaSrcList;
-                    $("#multiselect1").find('option').remove().end();
-                    for (var i = 0; i < mediaSrcList.length; i++) {
-                        $("#multiselect1").append(
-                            '<option value="' + mediaSrcList[i].mediaSrcId + '" data-position="' + i + '">' + mediaSrcList[i].Title + '</option>'
-                        );
-                    }
-                },
-                error: function () {
-                    alert("Can not send request!");
+            console.log(values);
+            $("#multiselect1").find("option").each(function () {
+                var type = $(this).attr("data-type");
+                if ($.inArray(type, values)>-1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
                 }
             });
         });
