@@ -159,10 +159,7 @@
     box-shadow: none;
     border: none;
     background: 0 0;
-    outline: 0
-}
-
-.file-caption.icon-visible .file-caption-icon {
+    form-control .file-caption.icon-visible .file-caption-icon {
     display: inline-block
 }
 

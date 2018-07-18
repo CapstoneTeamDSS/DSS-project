@@ -86,7 +86,7 @@ namespace DSS.Controllers
                     };
                 }
             }
-            ViewBag.locationList = LocationController.GetLocationList();
+            ViewBag.locationList = LocationController.GetLocationIdByBrandId();
             return View(model);
         }
         // POST: AndroidBox/Add
