@@ -116,9 +116,10 @@ namespace DSS.Controllers
                     tyleIdCheck = 4;
                 }
                 DateTime time = DateTime.Now;
+                var user = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
                 {
-                    BrandID = 1,
+                    BrandID = user.BrandID,
                     Title = model.Title,
                     Status = model.isActive,
                     TypeID = tyleIdCheck,

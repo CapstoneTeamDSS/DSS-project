@@ -55,15 +55,15 @@
                             <div class="col-md-6 col-sm-9 col-xs-12">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
-                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
                         if (Model?.MediaSrcId == null)
                         {
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Select file to upload <span class="required">*</span></label>
+                                    Select file to upload <span class="required">*</span>
+                                </label>
                                 <div class="file-loading col-md-6 col-sm-9 col-xs-12">
-                                    <input id="file" class="file" type="file" name="file" value="@(Model?.URL)">
+                                    <input id="file" class="file" type="file" name="file">
                                 </div>
                             </div>
                         }
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
                                 </div>
                             </div>
                         }
@@ -82,7 +82,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
                                 </div>
                             </div>
                         }
@@ -100,6 +100,9 @@
     <link href="~/Content/form-upload-media/css//fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="~/Content/form-upload-media/themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
     <!-- End form Upload plugin -->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
 @section scripts {
 
@@ -116,7 +119,7 @@
     <!--End form Upload plugin -->
     <!--remove upload button in input file-->
     <script>
-        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
+        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any', 'allowedFileExtensions': ["jpg", "png", "jpeg", "mp3", "mp4", "txt", "mkv"] });
     </script>
     <!--End remove upload button in input file-->
     <!-- Switchery Change Status Text-->
@@ -130,4 +133,29 @@
         });
     </script>
     <!-- End Switchery Change Status Text-->
+    <!--Check type to input-->
+    <script>
+        //$(document).ready(function () {
+        //    $("#btnSubmit").click(function () {
+        //        var files = $("#file").prop("files");;
+        //        if (files.length > 0) {
+        //            $("#file").val(0);
+        //        } else {
+        //            $("#file").val(-1);
+        //        }
+        //    });
+        //});
+        $("#file").change(function () {
+            var fileExtension = ['jpeg', 'jpg', 'png', 'mp3', 'mp4', 'txt', 'mkv'];
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {               
+                swal("Only formats are allowed : " + fileExtension.join(', '));   
+                $("#file").fileinput("reset");
+            }
+        });
+    </script>
+    <!--End Check type to input-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <!--End Sweet alert-->
 }
+
