@@ -19,6 +19,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual double Width { get; set; }
     			public virtual double Height { get; set; }
     			public virtual string Note { get; set; }
+    			public virtual int BrandID { get; set; }
     	
     	public ResolutionViewModel() : base() { }
     	public ResolutionViewModel(DSS.Data.Models.Entities.Resolution entity) : base(entity) { }

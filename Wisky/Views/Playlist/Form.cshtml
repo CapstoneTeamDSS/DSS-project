@@ -84,9 +84,10 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="mp4"> Video
-                                <input style="display:inline-block" type="checkbox" name="fileType" value="png"> Image
-                                <input style="display:inline-block" type="checkbox" name="fileType" value="ss"> Other
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Video
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Image
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -213,7 +214,6 @@
             }
         }
     </script>
-
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
@@ -231,6 +231,24 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <script>
+        /*Get file list base on file type*/
+        $("input:checkbox[name='fileType']").change(function () {
+            var values = [];
+            $("input:checkbox[name='fileType']:checked").each(function () {
+                values.push($(this).val());
+            });
+            console.log(values);
+            $("#multiselect1").find("option").each(function () {
+                var type = $(this).attr("data-type");
+                if ($.inArray(type, values)>-1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    </script>
     <!--Check typeId, if Image == 1 show colorbox-->
     <script>
         $("#multiselect1").change(function () {
