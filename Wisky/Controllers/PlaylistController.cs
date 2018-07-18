@@ -32,11 +32,11 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
-            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper= DependencyUtils.Resolve<IMapper>();
             var user = Helper.GetCurrentUser();
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
+            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
             foreach (var item in playlistList)
             {
                 var m = new Models.PlaylistDetailVM
