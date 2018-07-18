@@ -389,6 +389,7 @@
     <Compile Include="Models\Entities\Services\PlaylistServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\ResolutionService.cs" />
     <Compile Include="Models\Entities\Services\ResolutionServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>

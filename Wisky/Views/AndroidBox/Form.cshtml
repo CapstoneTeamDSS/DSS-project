@@ -44,10 +44,14 @@
                                     <option value="-1">--- Select Location ---</option>
                                     @{
                                         var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
+                                        if (locationList != null)
+                                        {
                                             foreach (var item in locationList)
                                             {
-                                                < option value = "@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "") >@(item.Address),Quan @(item.District),@(item.Province) </ option >
+                                                <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
                                             }
+                                        }
+
                                     }
                                 </select>
                             </div>

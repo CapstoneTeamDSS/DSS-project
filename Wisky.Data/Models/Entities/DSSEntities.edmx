@@ -153,7 +153,7 @@
           </Key>
           <Property Name="MediaSrcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BrandID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="bit" />
           <Property Name="TypeID" Type="int" Nullable="false" />
           <Property Name="URL" Type="text" Nullable="false" />
@@ -197,6 +197,7 @@
           <Property Name="Width" Type="float" Nullable="false" />
           <Property Name="Height" Type="float" Nullable="false" />
           <Property Name="Note" Type="text" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -502,6 +503,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Resolution_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="Resolution" Type="Self.Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Resolution">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Scenario_Brand">
           <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Scenario" Type="Self.Scenario" Multiplicity="*" />
@@ -682,6 +695,10 @@
             <End Role="Playlist" EntitySet="Playlist" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
+          <AssociationSet Name="FK_Resolution_Brand" Association="Self.FK_Resolution_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Resolution" EntitySet="Resolution" />
+          </AssociationSet>
           <AssociationSet Name="FK_Scenario_Brand" Association="Self.FK_Scenario_Brand">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Scenario" EntitySet="Scenario" />
@@ -781,6 +798,10 @@
           <AssociationSet Name="FK_Playlist_Brand" Association="DSSModel.FK_Playlist_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Playlist" EntitySet="Playlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resolution_Brand" Association="DSSModel.FK_Resolution_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Resolution" EntitySet="Resolutions" />
           </AssociationSet>
           <AssociationSet Name="FK_Scenario_Brand" Association="DSSModel.FK_Scenario_Brand">
             <End Role="Brand" EntitySet="Brands" />
@@ -938,6 +959,7 @@
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="MediaSrcs" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
           <NavigationProperty Name="Playlists" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Brand" ToRole="Playlist" />
+          <NavigationProperty Name="Resolutions" Relationship="DSSModel.FK_Resolution_Brand" FromRole="Brand" ToRole="Resolution" />
           <NavigationProperty Name="Scenarios" Relationship="DSSModel.FK_Scenario_Brand" FromRole="Brand" ToRole="Scenario" />
         </EntityType>
         <EntityType Name="Device">
@@ -1004,7 +1026,7 @@
           </Key>
           <Property Name="MediaSrcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
           <Property Name="URL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -1057,6 +1079,8 @@
           <Property Name="Width" Type="Double" Nullable="false" />
           <Property Name="Height" Type="Double" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Resolution_Brand" FromRole="Resolution" ToRole="Brand" />
           <NavigationProperty Name="Screens" Relationship="DSSModel.FK_Screen_Resolution" FromRole="Resolution" ToRole="Screen" />
         </EntityType>
         <EntityType Name="Role">
@@ -1270,6 +1294,18 @@
               <PropertyRef Name="BrandID" />
             </Principal>
             <Dependent Role="Playlist">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resolution_Brand">
+          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="DSSModel.Resolution" Role="Resolution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="Resolution">
               <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
@@ -1624,6 +1660,7 @@
           <EntitySetMapping Name="Resolutions">
             <EntityTypeMapping TypeName="DSSModel.Resolution">
               <MappingFragment StoreEntitySet="Resolution">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="Width" ColumnName="Width" />

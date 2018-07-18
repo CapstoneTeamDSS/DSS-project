@@ -83,8 +83,8 @@ namespace DSS.Controllers
                     };
                 }
             }
-            ViewBag.locationList = LocationController.GetLocationList();
-            ViewBag.resolutionList = ResolutionController.GetResolutionList();
+            ViewBag.locationList = LocationController.GetLocationIdByBrandId();
+            ViewBag.resolutionList = ResolutionController.GetResolutionListByBrandID();
             return View(model);
         }
         // POST: Screen/Add

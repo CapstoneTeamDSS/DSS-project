@@ -24,7 +24,9 @@ namespace DSS.Data.Models.Entities
         public double Width { get; set; }
         public double Height { get; set; }
         public string Note { get; set; }
+        public int BrandID { get; set; }
     
+        public virtual Brand Brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Screen> Screens { get; set; }
     }

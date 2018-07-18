@@ -82,3 +82,18 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function (){
+            var valueHeight = $("#first-height").val();
+            var valueWidth = $("#first-width").val();
+            if (valueHeight == 0) {
+                $("#first-height").val('');                
+            }
+            if (valueWidth == 0) {
+                $("#first-width").val('');
+            }
+        });
+    </script>
+}
+
