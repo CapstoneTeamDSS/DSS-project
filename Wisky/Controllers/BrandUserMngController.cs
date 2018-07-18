@@ -15,29 +15,28 @@ using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
-    [Authorize(Roles = "System Admin")]
-    public class UserMngController : Controller
+    [Authorize(Roles = "Admin")]
+    public class BrandUserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
-        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
         IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
-        IMapper mapper = DependencyUtils.Resolve<IMapper>();
+        IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
 
-        [Authorize(Roles = "System Admin")]
-        // GET: UserMng/Index
+        // GET: BrandUserMng
         public ActionResult Index()
-        {  
-            ViewBag.userList = GetAllUser();
+        {
+            ViewBag.userList = GetBrandAccounts();
             return View();
         }
 
-        public List<Models.UserMngVM> GetAllUser()
+        public List<Models.BrandUserMngVM> GetBrandAccounts()
         {
-            var users = aspNetUserService.Get().ToList();
-            var userVMs = new List<Models.UserMngVM>();
+            var user = Helper.GetCurrentUser();
+            var users = aspNetUserService.GetAccountsByBrandId(user.BrandID);
+            var userVMs = new List<Models.BrandUserMngVM>();
             foreach (var item in users)
             {
-                var u = new Models.UserMngVM
+                var u = new Models.BrandUserMngVM
                 {
                     UserName = item.UserName,
                     Id = item.Id,
@@ -50,24 +49,23 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
-       
-        // GET: UserMng/Form/:id
+
+        // GET: BrandUserMng/Form/:id
         public ActionResult Form(string id)
         {
-            Models.UserDetailVM model = null;
+            Models.BrandUserDetailVM model = null;
             if (id != null)
             {
                 var user = this.aspNetUserService.Get(id);
                 if (user != null)
                 {
-                    model = new Models.UserDetailVM
+                    model = new Models.BrandUserDetailVM
                     {
                         UserName = user.UserName,
                         FullName = user.FullName,
                         isActive = user.isActive,
                         PhoneNumber = user.PhoneNumber,
                         Email = user.Email,
-                        BrandId = user.BrandID,
                         Id = user.Id,
                     };
                     var userRoles = UserManager.GetRoles(user.Id).ToArray();
@@ -79,57 +77,42 @@ namespace DSS.Controllers
                 }
             }
             ViewBag.brandList = BrandController.GetBrandList();
-            ViewBag.roleList = UserMngController.GetRoleList();
+            List<Models.RoleVM> roleList = UserMngController.GetRoleList();
+            roleList.RemoveAt(2);
+            ViewBag.roleList = roleList;
             return View(model);
         }
 
-        public static List<Models.RoleVM> GetRoleList()
-        {
-            IAspNetRoleService aspNetRoleService = DependencyUtils.Resolve<IAspNetRoleService>();
-            var roles = aspNetRoleService.Get().ToList();
-            var roleList = new List<Models.RoleVM>();
-            foreach (var item in roles)
-            {
-                var r = new Models.RoleVM
-                {
-                    RoleId = item.Id,
-                    RoleName = item.Name,
-                };
-                roleList.Add(r);
-            }
-            return roleList;
-        }
-
-
-        // POST: UserMng/Add
-        public async System.Threading.Tasks.Task<ActionResult> Add(Models.UserDetailVM model)
+        // POST: BrandUserMng/Add
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.BrandUserDetailVM model)
         {
             if (ModelState.IsValid)
             {
-                if (model.Role.CompareTo("System Admin") == 0)
-                {
-                    model.BrandId = -1;
-                }
+                var currUser = Helper.GetCurrentUser();
                 var user = new Wisky.Models.ApplicationUser
                 {
                     UserName = model.UserName,
                     Email = model.Email,
                     FullName = model.FullName,
                     PhoneNumber = model.PhoneNumber,
-                    BrandId = model.BrandId,
+                    BrandId = currUser.BrandID,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);                 
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (model.Role.CompareTo("System Admin") == 0)
+                    {
+                        model.Role = "Active User";
+                    }
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
                     return new ContentResult
                     {
-                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "BrandUserMng")),
                         ContentType = "text/html"
                     };
                 }
-                
+
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();
@@ -137,9 +120,8 @@ namespace DSS.Controllers
             return View("Form", model);
         }
 
-
-        // POST: UserMng/Update
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.UserDetailVM model)
+        // POST: BrandUserMng/Update
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.BrandUserDetailVM model)
         {
             if (ModelState.IsValid)
             {
@@ -147,13 +129,10 @@ namespace DSS.Controllers
                 var user = aspNetUserService
                 .Get(a => a.Id == model.Id)
                 .FirstOrDefault();
-                if (model.Role.CompareTo("System Admin") == 0)
-                {
-                    model.BrandId = -1;
-                }
+                var currUser = Helper.GetCurrentUser();
                 if (user != null)
                 {
-                    user.BrandID = model.BrandId;
+                    user.BrandID = currUser.BrandID;
                     user.FullName = model.FullName;
                     user.isActive = model.isActive;
                     await this.aspNetUserService.UpdateAsync(user);
@@ -166,10 +145,14 @@ namespace DSS.Controllers
                         UserManager.RemoveFromRole(user.Id, userRoles[0]);
                     }
                     //Add to new Role
+                    if (model.Role.CompareTo("System Admin") == 0)
+                    {
+                        model.Role = "Active User";
+                    }
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
                     return new ContentResult
                     {
-                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "BrandUserMng")),
                         ContentType = "text/html"
                     };
                 };
@@ -178,18 +161,6 @@ namespace DSS.Controllers
             ViewBag.brandList = BrandController.GetBrandList();
             ViewBag.roleList = UserMngController.GetRoleList();
             return View("Form", model);
-        }
-
-
-        // GET: UserMng/Delete/:id
-        public ActionResult Delete(string id)
-        {
-            var user = this.aspNetUserService.Get(id);
-            if (user != null)
-            {
-                this.aspNetUserService.Delete(user);
-            }
-            return this.RedirectToAction("Index");
         }
 
 
