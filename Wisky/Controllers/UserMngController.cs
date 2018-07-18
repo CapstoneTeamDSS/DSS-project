@@ -145,12 +145,17 @@ namespace DSS.Controllers
                     BrandId = model.BrandId,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, model.Password);          
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 }
+                
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();
@@ -184,7 +189,11 @@ namespace DSS.Controllers
                     }
                     //Add to new Role
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 };
             }
             // If we got this far, something failed, redisplay form
