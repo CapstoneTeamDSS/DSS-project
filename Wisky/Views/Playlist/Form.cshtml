@@ -84,8 +84,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Video
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Image
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Video
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Image
                                 <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
                                 <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
                             </div>
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
                                 <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" formtaget="_parent" class="btn btn-success">Submit</button>
+                                <button type="button" class="btn btn-success" onclick="submitFunction()">Submit</button>
                             </div>
                         </div>
                     }
@@ -157,7 +157,9 @@
             var duration = data.duration;
             AddedElements[mediaSrcId] = duration;
         }, false);
-        $("#btnSubmit").click(function () {
+        console.log(AddedElements);
+        function submitFunction() {
+            console.log(AddedElements);
             var SelectedOptions = $("#multiselect1_to > option");
             for (var i = 0; i < SelectedOptions.length; i++) {
                 var Obj = SelectedOptions[i];
@@ -195,7 +197,7 @@
                     alert("Can not send request!");
                 }
             });
-        });
+        }
     </script>
     <script>
         var selDiv = "";
@@ -238,7 +240,6 @@
             $("input:checkbox[name='fileType']:checked").each(function () {
                 values.push($(this).val());
             });
-            console.log(values);
             $("#multiselect1").find("option").each(function () {
                 var type = $(this).attr("data-type");
                 if ($.inArray(type, values)>-1) {
