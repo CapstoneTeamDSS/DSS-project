@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,7 @@ namespace DSS.Models
     public class PlaylistDetailVM
     {
         public int? Id { get; set; }
+        [Required(ErrorMessage = "Please input title.")]
         public string Title { get; set; }
         public string Duration { get; set; }
         public string Description { get; set; }

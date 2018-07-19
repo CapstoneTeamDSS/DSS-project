@@ -48,7 +48,7 @@
                         </div>
                         <div style="float:right">
                             @{
-                                <a class='iframe btn btn-success'
+                                <a class='btn btn-success'
                                    id="btnMatch"
                                    title="Please choose Location, Box And Screen">
                                     Match
@@ -117,21 +117,6 @@
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
-    <script>
-        $(document).ready(function () {
-            //Examples of how to assign the Colorbox event to elements
-            $(".iframe").colorbox({
-                iframe: true, width: "65%", height: "70%",
-                //refresh page when summit
-                onClosed: function () { location.reload(true); },
-            });
-            //Example of preserving a JavaScript event for inline calls.
-            $("#click").click(function () {
-                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                return false;
-            });
-        });
-    </script>
     <!-- end iframe button matching-->
     <!-- get list box and screen by location Id-->
     <script>
@@ -189,9 +174,26 @@
             var btnMatch = $('#btnMatch');
             if (box.val() == 0 || screen.val() == 0) {
                 //console.log(box);
-                btnMatch.attr("disabled", true);
+                btnMatch.attr("disabled", true);               
+                btnMatch.attr("class", "btn btn-success");
+                //btnMatch.click(true);     
             } else {
-                btnMatch.attr("disabled", false);
+                btnMatch.attr("disabled", false);              
+                btnMatch.attr("class", "iframe btn btn-success");
+                //show iframe
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "65%", height: "70%",
+                        //refresh page when summit
+                        onClosed: function () { location.reload(true); },
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                });
             }
         }
     </script>
