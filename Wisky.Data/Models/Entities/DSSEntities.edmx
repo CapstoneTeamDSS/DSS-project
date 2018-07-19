@@ -289,6 +289,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AspNetUsers_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Box_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="1" />
           <End Role="Box" Type="Self.Box" Multiplicity="*" />
@@ -627,6 +639,10 @@
             <End Role="Layout" EntitySet="Layout" />
             <End Role="Area" EntitySet="Area" />
           </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Brand" Association="Self.FK_AspNetUsers_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
           <AssociationSet Name="FK_Box_Location" Association="Self.FK_Box_Location">
             <End Role="Location" EntitySet="Location" />
             <End Role="Box" EntitySet="Box" />
@@ -774,6 +790,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DSSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Brand" Association="DSSModel.FK_AspNetUsers_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
           <AssociationSet Name="FK_Box_Location" Association="DSSModel.FK_Box_Location">
             <End Role="Location" EntitySet="Locations" />
@@ -933,6 +953,7 @@
           <Property Name="isActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="DSSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="DSSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_AspNetUsers_Brand" FromRole="AspNetUser" ToRole="Brand" />
           <NavigationProperty Name="AspNetRoles" Relationship="DSSModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
         </EntityType>
         <EntityType Name="Box">
@@ -955,6 +976,7 @@
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DSSModel.FK_AspNetUsers_Brand" FromRole="Brand" ToRole="AspNetUser" />
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
           <NavigationProperty Name="MediaSrcs" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="Brand" ToRole="MediaSrc" />
@@ -1223,6 +1245,18 @@
             </Principal>
             <Dependent Role="AspNetUserLogin">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Brand">
+          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="DSSModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
