@@ -148,9 +148,6 @@ namespace DSS.Controllers
                 int typeCheck = this.CheckFileType(ext);
                 DateTime time = DateTime.Now;
                 var user = Helper.GetCurrentUser();
-                var media = new Data.Models.Entities.MediaSrc
-                {
-                    BrandID = user.BrandID,
                 var currUser = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
                 {

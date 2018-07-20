@@ -66,13 +66,14 @@
                                 <div class="file-loading col-md-6 col-sm-9 col-xs-12">
                                     <input id="file" class="file" type="file" name="file">
                                     Select file to upload <span class="required">*</span></label>
-                                <div class="col-md-8 col-sm-8 col-xs-8">
-                                    <input type="hidden" name="URL" id="txtMediaURL" />
-                                    <input type="hidden" name="Filename" id="txtFilename" />
-                                    <input type="button" id="btnChange" value="Upload media" />
-                                    @*<input type="button" id="btnClose" value="Close" />*@
-                                    <div id="review_container"></div>
-                                    <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
+                                    <div class="col-md-8 col-sm-8 col-xs-8">
+                                        <input type="hidden" name="URL" id="txtMediaURL" />
+                                        <input type="hidden" name="Filename" id="txtFilename" />
+                                        <input type="button" id="btnChange" value="Upload media" />
+                                        @*<input type="button" id="btnClose" value="Close" />*@
+                                        <div id="review_container"></div>
+                                        <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
+                                    </div>
                                 </div>
                             </div>
                         }
@@ -218,14 +219,14 @@
                     $("#review_container").append("<video controls='controls' style='height: 250px; width: 300px'>"
                         + "<source src='" + url + "' type ='" + mimetype + "'/>"
                         + "</video>");
-                }                
+                }
             }
             btnChange.addEventListener('click', () => picker.open());
             //btnClose.addEventListener('click', () => picker.close());
         });
     </script>
     <!-- End Switchery Change Status Text-->
-<<<<<<< HEAD
+    <<<<<<< HEAD
     <!--Check type to input-->
     <script>
         //$(document).ready(function () {
@@ -240,8 +241,8 @@
         //});
         $("#file").change(function () {
             var fileExtension = ['jpeg', 'jpg', 'png', 'mp3', 'mp4', 'txt', 'mkv'];
-            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {               
-                swal("Only formats are allowed : " + fileExtension.join(', '));   
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                swal("Only formats are allowed : " + fileExtension.join(', '));
                 $("#file").fileinput("reset");
             }
         });
@@ -300,6 +301,6 @@
                 width: 30px;
                 border: 1px solid #2e68fb;
                 padding: 0;
-            }            
+            }
     </style>
 }
