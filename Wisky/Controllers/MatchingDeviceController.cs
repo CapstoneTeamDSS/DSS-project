@@ -22,7 +22,7 @@ namespace DSS.Controllers
 
         // GET: MatchingDevice/index
         public ActionResult Index()
-        {           
+        {
             var devices = this.deviceService.Get().ToList();
             var deviceVMs = new List<Models.MatchingDeviceVM>();
             foreach (var item in devices)
@@ -63,7 +63,7 @@ namespace DSS.Controllers
 
         // GET: Matching/Form/:id
         public ActionResult Form(int? id, string boxId, string screenId)
-        { 
+        {
             Models.MatchingDeviceVM model = null;
             if (id != null)
             {
