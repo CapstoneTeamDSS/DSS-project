@@ -15,6 +15,11 @@
     }
 }
 <div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Media Resource Management</h3>
+        </div>
+    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,7 +30,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form"}))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -56,13 +61,14 @@
                         {
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Select file to upload <span class="required">*</span></label>
+                                    Select file to upload <span class="required">*</span>
+                                </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
                                     <input type="hidden" name="URL" id="txtMediaURL" />
                                     <input type="hidden" name="Filename" id="txtFilename" />
-                                    <input type="button" id="btnChange" value="Change media"/>
-                                    <input type="button" id="btnClose" value="Close"/>
-                                    <div id="picker_container" style="width:780px;height:300px;"></div>
+                                    <input type="button" id="btnChange" value="Upload media" />
+                                    @*<input type="button" id="btnClose" value="Close" />*@
+                                    <div id="review_container"></div>
                                     <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
                                 </div>
                             </div>
@@ -92,6 +98,72 @@
         </div>
     </div>
 </div>
+@section scripts {
+
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
+    <!-- form Upload plugin -->
+    <script src="~/Content/form-upload-media/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/fileinput.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/locales/fr.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/js/locales/es.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media./themes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="~/Content/form-upload-media/themes/fa/theme.js" type="text/javascript"></script>
+    <!--End form Upload plugin -->
+    <!--remove upload button in input file-->
+    <script>
+        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
+    </script>
+    <!--End remove upload button in input file-->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const apikey = 'AtM1mPjxxQviwhQOqcFKdz';
+            const client = filestack.init(apikey);
+            const options = {
+                //displayMode: 'inline',
+                //container: '#picker_container',
+                maxFiles: 1,
+                fromSources: ['local_file_system', 'url', 'imagesearch'],
+                uploadInBackground: false,
+                onOpen: () => console.log('opened picker!'),
+                onUploadDone: (res) => uploadDoneCallBack(res),
+            };
+            var picker = client.picker(options);
+            //picker.open();
+            function uploadDoneCallBack(res) {
+                var url = res.filesUploaded[0].url;
+                var filename = res.filesUploaded[0].filename;
+                var mimetype = res.filesUploaded[0].mimetype;
+                var handle = res.filesUploaded[0].handle;
+                console.log(res.filesUploaded[0]);
+                $("#txtMediaURL").val(url);
+                $("#txtFilename").val(filename);
+                picker.close();
+                $("#btnChange").val("Change media");
+                //$("#btnClose").css("visibility", "visible");
+                $("#review_container").children().remove().end();
+                //$("#review_container").append("<img src='https://cdn.filestackcontent.com/resize=height:250/"+handle+"' alt='Alternate Text'/>");
+                $("#review_container").append("<video controls='controls' style='height: 250px; width: 300px'>"
+                    + "<source src='" + url + "' type ='" + mimetype + "'/>"
+                    + "</video>");
+            }
+            btnChange.addEventListener('click', () => picker.open());
+            //btnClose.addEventListener('click', () => picker.close());
+        });
+    </script>
+    <!-- End Switchery Change Status Text-->
+}
 @section styles {
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
@@ -140,66 +212,4 @@
                 padding: 0;
             }
     </style>
-}
-@section scripts {
-
-    <!-- Switchery -->
-    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
-    <!-- End Switchery -->
-    <!-- form Upload plugin -->
-    <script src="~/Content/form-upload-media/js/plugins/sortable.js" type="text/javascript"></script>
-    <script src="~/Content/form-upload-media/js/fileinput.js" type="text/javascript"></script>
-    <script src="~/Content/form-upload-media/js/locales/fr.js" type="text/javascript"></script>
-    <script src="~/Content/form-upload-media/js/locales/es.js" type="text/javascript"></script>
-    <script src="~/Content/form-upload-media./themes/explorer-fa/theme.js" type="text/javascript"></script>
-    <script src="~/Content/form-upload-media/themes/fa/theme.js" type="text/javascript"></script>
-    <!--End form Upload plugin -->
-    <!--remove upload button in input file-->
-    <script>
-        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
-    </script>
-    <!--End remove upload button in input file-->
-    <!-- Switchery Change Status Text-->
-    <script>
-        $("#cbStatus").change(function () {
-            var text = "Disable";
-            if (this.checked) {
-                text = "Enable";
-            }
-            $('#spStatus').text(text);
-        });
-    </script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            const apikey = 'AtM1mPjxxQviwhQOqcFKdz';
-            const client = filestack.init(apikey);
-            const options = {
-                //displayMode: 'inline',
-                //container: '#picker_container',
-                maxFiles: 1,
-                fromSources: ['local_file_system', 'url', 'imagesearch'],
-                uploadInBackground: false,
-                onOpen: () => console.log('opened picker!'),
-                onUploadDone: (res) => uploadDoneCallBack(res),
-            };
-            var picker = client.picker(options);
-            //picker.open();
-            function uploadDoneCallBack(res) {
-                var url = res.filesUploaded[0].url;
-                var filename = res.filesUploaded[0].filename;
-                var handle = res.filesUploaded[0].handle;
-                console.log(res.filesUploaded[0]);
-                $("#txtMediaURL").val(url);
-                $("#txtFilename").val(filename);
-                picker.close();
-                //$("#btnChange").css("visibility", "visible");
-                //$("#btnClose").css("visibility", "visible");
-                $("#picker_container").children().remove().end();
-                client.preview(handle, { id: "picker_container"});
-            }
-            btnChange.addEventListener('click', () => picker.open());
-            btnClose.addEventListener('click', () => picker.close());
-        });
-    </script>
-    <!-- End Switchery Change Status Text-->
 }
