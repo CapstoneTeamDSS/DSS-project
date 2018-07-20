@@ -28,22 +28,22 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Screen Name <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
                                        name="Name"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Name)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Location  <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <select class="select2_group form-control" name="LocationId">
                                     <option value="-1">--- Select Location ---</option>
                                     @{
@@ -61,16 +61,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Type  <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:10px">
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top:10px">
                                 <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
                                 <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Resolution  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -90,10 +90,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-3 col-sm-9 col-xs-9">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
