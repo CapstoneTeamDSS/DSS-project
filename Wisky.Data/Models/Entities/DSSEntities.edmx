@@ -134,6 +134,7 @@
           <Property Name="URL" Type="varchar" MaxLength="150" />
           <Property Name="isHorizontal" Type="bit" Nullable="false" />
           <Property Name="LayoutSrc" Type="varchar" MaxLength="150" />
+          <Property Name="isPublic" Type="bit" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -154,7 +155,7 @@
           <Property Name="MediaSrcID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BrandID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="isPublic" Type="bit" />
           <Property Name="TypeID" Type="int" Nullable="false" />
           <Property Name="URL" Type="text" Nullable="false" />
           <Property Name="UpdateDatetime" Type="datetime" />
@@ -178,6 +179,7 @@
           <Property Name="Title" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="isPublic" Type="bit" />
         </EntityType>
         <EntityType Name="PlaylistItem">
           <Key>
@@ -217,6 +219,7 @@
           <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="isPublic" Type="bit" />
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
@@ -1024,6 +1027,7 @@
           <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="isHorizontal" Type="Boolean" Nullable="false" />
           <Property Name="LayoutSrc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="isPublic" Type="Boolean" />
           <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_Layout" FromRole="Layout" ToRole="Area" />
           <NavigationProperty Name="Scenarios" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Layout" ToRole="Scenario" />
         </EntityType>
@@ -1049,7 +1053,7 @@
           <Property Name="MediaSrcID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
+          <Property Name="isPublic" Type="Boolean" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
           <Property Name="URL" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UpdateDatetime" Type="DateTime" Precision="3" />
@@ -1077,6 +1081,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="isPublic" Type="Boolean" />
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Playlist_Brand" FromRole="Playlist" ToRole="Brand" />
           <NavigationProperty Name="PlaylistItems" Relationship="DSSModel.FK_PlaylistItem_Playlist" FromRole="Playlist" ToRole="PlaylistItem" />
           <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="Playlist" ToRole="ScenarioItem" />
@@ -1124,6 +1129,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="isPublic" Type="Boolean" />
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Scenario_Brand" FromRole="Scenario" ToRole="Brand" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="Scenario" ToRole="DeviceScenario" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Scenario" ToRole="Layout" />
@@ -1623,6 +1629,7 @@
           <EntitySetMapping Name="Layouts">
             <EntityTypeMapping TypeName="DSSModel.Layout">
               <MappingFragment StoreEntitySet="Layout">
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
                 <ScalarProperty Name="LayoutSrc" ColumnName="LayoutSrc" />
                 <ScalarProperty Name="isHorizontal" ColumnName="isHorizontal" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
@@ -1654,7 +1661,7 @@
                 <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="TypeID" ColumnName="TypeID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="MediaSrcID" ColumnName="MediaSrcID" />
@@ -1673,6 +1680,7 @@
           <EntitySetMapping Name="Playlists">
             <EntityTypeMapping TypeName="DSSModel.Playlist">
               <MappingFragment StoreEntitySet="Playlist">
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1714,6 +1722,7 @@
           <EntitySetMapping Name="Scenarios">
             <EntityTypeMapping TypeName="DSSModel.Scenario">
               <MappingFragment StoreEntitySet="Scenario">
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

@@ -11,10 +11,15 @@
     bool status = true;
     if (Model != null)
     {
-        status = Model.isActive;
+        status = Model.isPublic;
     }
 }
 <div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Media Resource Management</h3>
+        </div>
+    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,7 +30,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form"}))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -41,7 +46,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -56,13 +61,14 @@
                         {
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                    Select file to upload <span class="required">*</span></label>
+                                    Select file to upload <span class="required">*</span>
+                                </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
                                     <input type="hidden" name="URL" id="txtMediaURL" />
                                     <input type="hidden" name="Filename" id="txtFilename" />
-                                    <input type="button" id="btnChange" value="Change media"/>
-                                    <input type="button" id="btnClose" value="Close"/>
-                                    <div id="picker_container" style="width:780px;height:300px;"></div>
+                                    <input type="button" id="btnChange" value="Upload media" />
+                                    @*<input type="button" id="btnClose" value="Close" />*@
+                                    <div id="review_container"></div>
                                     <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
                                 </div>
                             </div>
@@ -92,55 +98,6 @@
         </div>
     </div>
 </div>
-@section styles {
-    <!-- Switchery -->
-    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-    <!-- End Switchery -->
-    <style>
-        /* change picker appearance  */
-        .fsp-picker {
-            background: rgba(0,0,0,.288) !important;
-        }
-
-            /* update styles for drop area */
-            .fsp-picker .fsp-drop-area {
-                background: rgba(0,0,0,.03);
-                border-radius: 0;
-            }
-
-            /* customize picker modal  */
-            .fsp-picker .fsp-modal {
-                background: #fff;
-                border-radius: 0;
-                border: none;
-                box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)
-            }
-
-            .fsp-picker .fsp-header {
-                color: rgba(0,0,0,.54);
-            }
-
-            .fsp-picker .fsp-url-source__input,
-            .fsp-picker .fsp-url-source__submit-button {
-                border: none;
-                border-radius: 0;
-                height: 30px;
-                border-bottom: 1px solid #2e68fb;
-            }
-
-                .fsp-picker .fsp-url-source__input:focus {
-                    outline: none;
-                    border: none;
-                    border-bottom: 1px solid #2e68fb;
-                }
-
-            .fsp-picker .fsp-url-source__submit-button {
-                width: 30px;
-                border: 1px solid #2e68fb;
-                padding: 0;
-            }
-    </style>
-}
 @section scripts {
 
     <!-- Switchery -->
@@ -187,19 +144,75 @@
             function uploadDoneCallBack(res) {
                 var url = res.filesUploaded[0].url;
                 var filename = res.filesUploaded[0].filename;
+                var mimetype = res.filesUploaded[0].mimetype;
                 var handle = res.filesUploaded[0].handle;
                 console.log(res.filesUploaded[0]);
                 $("#txtMediaURL").val(url);
                 $("#txtFilename").val(filename);
                 picker.close();
-                //$("#btnChange").css("visibility", "visible");
-                //$("#btnClose").css("visibility", "visible");
-                $("#picker_container").children().remove().end();
-                client.preview(handle, { id: "picker_container"});
+                $("#btnChange").val("Change media");
+                $("#review_container").children().remove().end();
+                /*Change control base on mime type*/
+                if (mimetype.toLowerCase().indexOf("image") >= 0) {
+                    $("#review_container").append("<img src='https://cdn.filestackcontent.com/resize=height:250/" + handle + "' alt='Preview-loading'/>");
+                } else {
+                    $("#review_container").append("<video controls='controls' style='height: 250px; width: 300px'>"
+                        + "<source src='" + url + "' type ='" + mimetype + "'/>"
+                        + "</video>");
+                }                
             }
             btnChange.addEventListener('click', () => picker.open());
-            btnClose.addEventListener('click', () => picker.close());
+            //btnClose.addEventListener('click', () => picker.close());
         });
     </script>
     <!-- End Switchery Change Status Text-->
+}
+@section styles {
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <style>
+        /* change picker appearance  */
+        .fsp-picker {
+            background: rgba(0,0,0,.288) !important;
+        }
+
+            /* update styles for drop area */
+            .fsp-picker .fsp-drop-area {
+                background: rgba(0,0,0,.03);
+                border-radius: 0;
+            }
+
+            /* customize picker modal  */
+            .fsp-picker .fsp-modal {
+                background: #fff;
+                border-radius: 0;
+                border: none;
+                box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)
+            }
+
+            .fsp-picker .fsp-header {
+                color: rgba(0,0,0,.54);
+            }
+
+            .fsp-picker .fsp-url-source__input,
+            .fsp-picker .fsp-url-source__submit-button {
+                border: none;
+                border-radius: 0;
+                height: 30px;
+                border-bottom: 1px solid #2e68fb;
+            }
+
+                .fsp-picker .fsp-url-source__input:focus {
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid #2e68fb;
+                }
+
+            .fsp-picker .fsp-url-source__submit-button {
+                width: 30px;
+                border: 1px solid #2e68fb;
+                padding: 0;
+            }            
+    </style>
 }
