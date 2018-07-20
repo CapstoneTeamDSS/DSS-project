@@ -139,7 +139,7 @@
 
     </script>
     <!--End Radio Button Check Type Value-->
-
+    <!--Validation-->
     <script>
         function checkValidation() {
             $(".mylist").empty();
@@ -149,10 +149,10 @@
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
                 stringError.push("Please choose location.");
-            }         
+            }
             if ($("#resolution-list").prop("selectedIndex") === 0) {
                 stringError.push("Please choose resolution.");
-            }      
+            }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
                 $.each(stringError, function (i) {
@@ -171,6 +171,7 @@
             }
         }
     </script>
+    <!--End Validation-->
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <!--End Sweet alert-->

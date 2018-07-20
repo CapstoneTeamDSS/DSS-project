@@ -94,17 +94,6 @@
 @section scripts{
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
-    <script>
-        $(document).ready(function () {
-            $("#submit").click(function () {
-                var BrandOption = $("#BrandOption").val();
-                if (BrandOption == 0) {
-                    alert(BrandOption);
-                    $(".validation-summary-errors ul").append("<li>Please choose Brand Name!!!</li>");
-                }
-            });
-        });
-    </script>
     <!--End Sweet alert-->
 }
 @section styles{
