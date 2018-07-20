@@ -12,7 +12,6 @@
         }
     </style>
 }
-
 <div class="">
     <div class="clearfix"></div>
     <div class="row">
@@ -55,7 +54,6 @@
                                                 <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
                                             }
                                         }
-
                                     }
                                 </select>
                             </div>
@@ -104,7 +102,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -113,7 +111,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -130,8 +128,6 @@
         $('input[name=optradio]').change(function () {
             value = $('input[name=optradio]:checked').val();
         });
-
-
     </script>
     <!--End Radio Button Check Type Value-->
 }
