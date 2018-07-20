@@ -21,6 +21,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual string URL { get; set; }
     			public virtual bool isHorizontal { get; set; }
     			public virtual string LayoutSrc { get; set; }
+    			public virtual Nullable<bool> isPublic { get; set; }
     	
     	public LayoutViewModel() : base() { }
     	public LayoutViewModel(DSS.Data.Models.Entities.Layout entity) : base(entity) { }

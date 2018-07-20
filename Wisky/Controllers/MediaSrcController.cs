@@ -40,7 +40,7 @@ namespace DSS.Controllers
                         MediaSrcId = mediaSrc.MediaSrcID,
                         BrandId = mediaSrc.BrandID,
                         Title = mediaSrc.Title,
-                        isActive = (bool)mediaSrc.Status,
+                        isPublic = (bool)mediaSrc.isPublic,
                         URL = mediaSrc.URL,
                         Description = mediaSrc.Description,
                         UpdateDatetime = aDateTime
@@ -66,7 +66,7 @@ namespace DSS.Controllers
                     Title = item.Title,
                     Description = item.Description,
                     URL = item.URL,
-                    isActive = (bool)item.Status,
+                    isPublic = (bool)item.isPublic,
                     MediaSrcId = item.MediaSrcID,
                     TypeId = item.TypeID,
                 };
@@ -120,7 +120,7 @@ namespace DSS.Controllers
         //        {
         //            BrandID = 1,
         //            Title = model.Title,
-        //            Status = model.isActive,
+        //            isPublic = model.isActive,
         //            TypeID = tyleIdCheck,
         //            URL = urlCheck + fileName,
         //            Description = model.Description,
@@ -152,7 +152,7 @@ namespace DSS.Controllers
                 {
                     BrandID = currUser.BrandID,
                     Title = model.Title,
-                    Status = model.isActive,
+                    isPublic = model.isPublic,
                     TypeID = typeCheck,
                     URL = model.URL,
                     Description = model.Description,
@@ -237,7 +237,7 @@ namespace DSS.Controllers
                 {
                     mediaSrc.MediaSrcID = (int)model.MediaSrcId;
                     mediaSrc.Title = model.Title;
-                    mediaSrc.Status = model.isActive;
+                    mediaSrc.isPublic = model.isPublic;
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;
                 };

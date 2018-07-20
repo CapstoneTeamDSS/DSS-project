@@ -18,7 +18,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int MediaSrcID { get; set; }
     			public virtual int BrandID { get; set; }
     			public virtual string Title { get; set; }
-    			public virtual Nullable<bool> Status { get; set; }
+    			public virtual Nullable<bool> isPublic { get; set; }
     			public virtual int TypeID { get; set; }
     			public virtual string URL { get; set; }
     			public virtual Nullable<System.DateTime> UpdateDatetime { get; set; }
