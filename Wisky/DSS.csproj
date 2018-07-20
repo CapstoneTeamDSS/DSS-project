@@ -273,6 +273,7 @@
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\BrandController_BK.cs" />
     <Compile Include="Controllers\BrandUserMngController.cs" />
+    <Compile Include="Controllers\FileStackController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -1911,6 +1912,7 @@
     <Content Include="Views\Shared\_Layout_Popup.cshtml" />
     <Content Include="Views\BrandUserMng\Index.cshtml" />
     <Content Include="Views\BrandUserMng\Form.cshtml" />
+    <Content Include="Views\FileStack\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

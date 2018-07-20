@@ -108,7 +108,7 @@ namespace DSS.Controllers
             {
                 if (model.Role.CompareTo("System Admin") == 0)
                 {
-                    model.BrandId = -1;
+                    model.BrandId = 39;
                 }
                 var user = new Wisky.Models.ApplicationUser
                 {
@@ -149,7 +149,7 @@ namespace DSS.Controllers
                 .FirstOrDefault();
                 if (model.Role.CompareTo("System Admin") == 0)
                 {
-                    model.BrandId = -1;
+                    model.BrandId = 39;
                 }
                 if (user != null)
                 {

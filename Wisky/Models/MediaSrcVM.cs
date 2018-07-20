@@ -18,6 +18,7 @@ namespace DSS.Models
         public DateTime UpdateDatetime { get; set; }
         public DateTime CreateDatetime { get; set; }
         public bool isActive { get; set; }
+        public string Filename { get; set; }
     }
 
     public class MediaSrcUseVM

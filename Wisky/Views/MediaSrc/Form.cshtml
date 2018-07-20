@@ -1,7 +1,7 @@
 ﻿@model DSS.Models.MediaSrcVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     <style>
         body {
             overflow-x: hidden;
@@ -25,19 +25,15 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form", enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form"}))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Title <span class="required">*</span>
                             </label>
-                            <div class="col-md-9 col-sm-6 col-xs-12">
-                                <input id="first-name"
-                                       name="Title"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.Title)">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="first-name" name="Title" class="form-control" data-parsley-id="5" type="text" value="@(Model?.Title)">
                             </div>
                         </div>
                         <div class="form-group">
@@ -49,10 +45,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-6 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                         </div>
@@ -64,6 +60,14 @@
                                 </label>
                                 <div class="file-loading col-md-6 col-sm-9 col-xs-12">
                                     <input id="file" class="file" type="file" name="file">
+                                    Select file to upload <span class="required">*</span></label>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <input type="hidden" name="URL" id="txtMediaURL" />
+                                    <input type="hidden" name="Filename" id="txtFilename" />
+                                    <input type="button" id="btnChange" value="Change media"/>
+                                    <input type="button" id="btnClose" value="Close"/>
+                                    <div id="picker_container" style="width:780px;height:300px;"></div>
+                                    <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
                                 </div>
                             </div>
                         }
@@ -96,6 +100,7 @@
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
+<<<<<<< HEAD
     <!-- form Upload plugin -->
     <link href="~/Content/form-upload-media/css//fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="~/Content/form-upload-media/themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
@@ -103,6 +108,51 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <style>
+        /* change picker appearance  */
+        .fsp-picker {
+            background: rgba(0,0,0,.288) !important;
+        }
+
+            /* update styles for drop area */
+            .fsp-picker .fsp-drop-area {
+                background: rgba(0,0,0,.03);
+                border-radius: 0;
+            }
+
+            /* customize picker modal  */
+            .fsp-picker .fsp-modal {
+                background: #fff;
+                border-radius: 0;
+                border: none;
+                box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)
+            }
+
+            .fsp-picker .fsp-header {
+                color: rgba(0,0,0,.54);
+            }
+
+            .fsp-picker .fsp-url-source__input,
+            .fsp-picker .fsp-url-source__submit-button {
+                border: none;
+                border-radius: 0;
+                height: 30px;
+                border-bottom: 1px solid #2e68fb;
+            }
+
+                .fsp-picker .fsp-url-source__input:focus {
+                    outline: none;
+                    border: none;
+                    border-bottom: 1px solid #2e68fb;
+                }
+
+            .fsp-picker .fsp-url-source__submit-button {
+                width: 30px;
+                border: 1px solid #2e68fb;
+                padding: 0;
+            }
+    </style>
+>>>>>>> 3580f8f97b4ba40258554e81228a0ee0be8ddcb0
 }
 @section scripts {
 
@@ -130,6 +180,38 @@
                 text = "Enable";
             }
             $('#spStatus').text(text);
+        });
+    </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const apikey = 'AtM1mPjxxQviwhQOqcFKdz';
+            const client = filestack.init(apikey);
+            const options = {
+                //displayMode: 'inline',
+                //container: '#picker_container',
+                maxFiles: 1,
+                fromSources: ['local_file_system', 'url', 'imagesearch'],
+                uploadInBackground: false,
+                onOpen: () => console.log('opened picker!'),
+                onUploadDone: (res) => uploadDoneCallBack(res),
+            };
+            var picker = client.picker(options);
+            //picker.open();
+            function uploadDoneCallBack(res) {
+                var url = res.filesUploaded[0].url;
+                var filename = res.filesUploaded[0].filename;
+                var handle = res.filesUploaded[0].handle;
+                console.log(res.filesUploaded[0]);
+                $("#txtMediaURL").val(url);
+                $("#txtFilename").val(filename);
+                picker.close();
+                //$("#btnChange").css("visibility", "visible");
+                //$("#btnClose").css("visibility", "visible");
+                $("#picker_container").children().remove().end();
+                client.preview(handle, { id: "picker_container"});
+            }
+            btnChange.addEventListener('click', () => picker.open());
+            btnClose.addEventListener('click', () => picker.close());
         });
     </script>
     <!-- End Switchery Change Status Text-->

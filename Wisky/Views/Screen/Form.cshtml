@@ -59,7 +59,6 @@
                                                 <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
                                             }
                                         }
-
                                     }
                                 </select>
                             </div>
@@ -109,6 +108,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
                                     <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -118,6 +118,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
                                     <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
