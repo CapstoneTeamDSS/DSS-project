@@ -19,7 +19,7 @@ namespace DSS.Models
         //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
-        [StringLength(50, MinimumLength = 10, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Please enter phone number.")]
         public int BrandID { get; set; }
@@ -38,6 +38,8 @@ namespace DSS.Models
         [EmailAddress(ErrorMessage = "Invalid email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter full name only letter.")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Please enter phone number.")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
