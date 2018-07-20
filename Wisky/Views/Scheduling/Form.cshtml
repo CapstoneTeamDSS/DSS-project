@@ -214,7 +214,6 @@
 
         function changePlayMode(isFixed) {
             if (isFixed == true) { //Fixed
-                console.log(true);
                 $("#TimeToPlay").attr("disabled", "disabled");
                 //$("#datetimepickerEnd > input").val("");
                 $("#datetimepickerEnd > input").removeAttr("readonly");
@@ -223,7 +222,6 @@
                 $("#btnFixed").removeClass("btn-default");
                 $("#btnFixed").addClass("btn-primary");
             } else { //Auto
-                console.log(false);
                 $("#TimeToPlay").removeAttr("disabled");
                 $("#TimeToPlay").val(1);
                 $("#datetimepickerEnd > input").attr("readonly", "readonly");

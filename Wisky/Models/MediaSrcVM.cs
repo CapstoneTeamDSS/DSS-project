@@ -17,7 +17,7 @@ namespace DSS.Models
         public string Description { get; set; }
         public DateTime UpdateDatetime { get; set; }
         public DateTime CreateDatetime { get; set; }
-        public bool isActive { get; set; }
+        public bool isPublic { get; set; }
         public string Filename { get; set; }
     }
 
@@ -29,6 +29,6 @@ namespace DSS.Models
         public int TypeId { get; set; }
         public string URL { get; set; }
         public string Description { get; set; }
-        public bool isActive { get; set; }
+        public bool isPublic { get; set; }
     }
 }
