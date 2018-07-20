@@ -17,7 +17,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
-                    <a href="/Scheduling/Form">
+                    <a href="/Scheduling/Form" class="iframe">
                         <ul class="bs-glyphicons-list">
                             <li>
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
@@ -86,6 +86,24 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "65%", height: "80%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
 }
 @section styles{
     <!-- Datatables -->
@@ -97,5 +115,8 @@
     <!--Button add-->
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
     <!-- End button add-->
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
 }
 

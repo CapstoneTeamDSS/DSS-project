@@ -76,7 +76,7 @@
                                         <li>
                                             @{
 
-                                                string userMngUrl = User.IsInRole("System Admin") ? Url.Action("Index", "UserMng") : Url.Action("Accounts", "UserMng");
+                                                string userMngUrl = User.IsInRole("System Admin") ? Url.Action("Index", "UserMng") : Url.Action("Index", "BrandUserMng");
                                             }
                                             <a href="@userMngUrl"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>
                                         </li>

@@ -1,17 +1,15 @@
 ﻿@model DSS.Models.ResolutionDetailVM
 @{
-                /**/
-
-                ViewBag.Title = "Form";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 }
 
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Resolution Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -32,7 +30,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="first-height"
                                        name="Height"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Height)">
                             </div>
@@ -45,7 +43,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="first-width"
                                        name="Width"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Width)">
                             </div>
@@ -55,22 +53,47 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                 Note
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-12">
                                 <textarea class="form-control" rows="3" name="Note">@(Model?.Note)</textarea>
                             </div>
-                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
                         <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+@section scripts{
+    <script>
+        $(document).ready(function (){
+            var valueHeight = $("#first-height").val();
+            var valueWidth = $("#first-width").val();
+            if (valueHeight == 0) {
+                $("#first-height").val('');                
+            }
+            if (valueWidth == 0) {
+                $("#first-width").val('');
+            }
+        });
+    </script>
+}
+

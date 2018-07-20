@@ -15,25 +15,33 @@ namespace DSS.Controllers
         IResolutionService resolutionService = DependencyUtils.Resolve<IResolutionService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
-        //GET: Brand/Index
+        //GET: Resolution/Index
         public ActionResult Index()
         {
-            var resolutions = this.resolutionService.Get().ToList();
-            var resolutionVMs = new List<Models.ResolutionDetailVM>();
-
-            foreach (var item in resolutions)
+            ViewBag.resolutionList = GetResolutionIdByBrandId();
+            return View();
+        }
+        //ToanTXSE
+        //Get resolution List by Brand ID
+        public static List<Models.ResolutionDetailVM> GetResolutionIdByBrandId()
+        {
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            IResolutionService resolutionService = DependencyUtils.Resolve<IResolutionService>();
+            var resolutionVM = new List<Models.ResolutionDetailVM>();
+            var user = Helper.GetCurrentUser();
+            var resolutionList = resolutionService.GetResolutionIdByBrandId(user.BrandID);
+            foreach (var item in resolutionList)
             {
-                var b = new Models.ResolutionDetailVM
+                var m = new Models.ResolutionDetailVM
                 {
                     Note = item.Note,
                     Width = item.Width,
                     Height = item.Height,
                     Id = item.ResolutionID,
                 };
-                resolutionVMs.Add(b);
+                resolutionVM.Add(m);
             }
-            ViewBag.brandList = resolutionVMs;
-            return View();
+            return resolutionVM;
         }
         public static List<Models.ResolutionDetailVM> GetResolutionList()
         {
@@ -54,8 +62,30 @@ namespace DSS.Controllers
             }
             return resolutionVMs;
         }
+        //Resolution/GetResolutionListByBrandID
+        public static List<Models.ResolutionDetailVM> GetResolutionListByBrandID()
+        {
+            IResolutionService resolutionService = DependencyUtils.Resolve<IResolutionService>();
+            var resolutionVMs = new List<Models.ResolutionDetailVM>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();      
+            var user = Helper.GetCurrentUser();
+            var resolutions = resolutionService.GetResolutionIdByBrandId(user.BrandID);
 
-        // GET: Brand/Form/:id
+            foreach (var item in resolutions)
+            {
+                var b = new Models.ResolutionDetailVM
+                {
+                   Height=item.Height,
+                   Id=item.ResolutionID,
+                   Width=item.Width,
+                   Note=item.Note,
+                };
+                resolutionVMs.Add(b);
+            }
+            return resolutionVMs;
+        }
+
+        // GET: Resolution/Form/:id
         public ActionResult Form(int? id)
         {
             Models.ResolutionDetailVM model = null;
@@ -81,6 +111,7 @@ namespace DSS.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ResolutionDetailVM model)
         {
+            var user = Helper.GetCurrentUser();
             if (ModelState.IsValid)
             {
                 var resolution = new Data.Models.Entities.Resolution
@@ -88,9 +119,14 @@ namespace DSS.Controllers
                     Width = model.Width,
                     Height = model.Height,
                     Note = model.Note,
+                    BrandID = user.BrandID
                 };
                 await this.resolutionService.CreateAsync(resolution);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Resolution")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
@@ -109,7 +145,11 @@ namespace DSS.Controllers
                     resolution.Note = model.Note;
                 }
                 await this.resolutionService.UpdateAsync(resolution);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Resolution")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

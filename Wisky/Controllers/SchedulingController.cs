@@ -99,7 +99,7 @@ namespace DSS.Controllers
             }            
             return result;
         }
-
+        //Scheduling/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScheduleAddVM model)
         {
@@ -124,11 +124,15 @@ namespace DSS.Controllers
                     schedule.TimesToPlay = model.TimeToPlay;
                 }
                 await deviceScenarioService.UpdateAsync(schedule);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Scheduling")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
-
+        //Scheduling/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScheduleAddVM model)
         {
@@ -153,7 +157,11 @@ namespace DSS.Controllers
                     LayoutID = scenarioService.GetLayoutIDById(model.ScenarioID),
                 };
                 await deviceScenarioService.CreateAsync(schedule);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Scheduling")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

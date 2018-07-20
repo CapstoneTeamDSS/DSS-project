@@ -31,11 +31,12 @@ namespace DSS.Controllers
         public static List<Models.PlaylistDetailVM> GetPlaylistIdByBrandId()
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
-            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper= DependencyUtils.Resolve<IMapper>();
             var user = Helper.GetCurrentUser();
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
+            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
             foreach (var item in playlistList)
             {
                 var m = new Models.PlaylistDetailVM
@@ -43,7 +44,7 @@ namespace DSS.Controllers
                     Title = item.Title,
                     Description = item.Description,
                     Id = item.PlaylistID,
-                    Duration = "00:00:00",
+                    Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
                 };
                 playlistDetailVM.Add(m);
             }
@@ -180,11 +181,12 @@ namespace DSS.Controllers
                             playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
                         } else
                         {
-                            playlistItem.Duration = TimeSpan.FromTicks((long)item.ItemDuration).ToString();
+                            var duration = TimeSpan.Parse(item.ItemDuration);
+                            playlistItem.Duration = duration.ToString();
                         }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
-                }
+                }    
                 return Json(new
                 {
                     success = true,

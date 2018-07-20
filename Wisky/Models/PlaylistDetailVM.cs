@@ -27,7 +27,7 @@ namespace DSS.Models
     public class AddedElement
     {
         public int ItemId { get; set; }
-        public int ItemDuration { get; set; }
+        public string ItemDuration { get; set; }
     }
 
 }

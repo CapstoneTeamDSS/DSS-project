@@ -15,7 +15,7 @@ using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
-    [Authorize(Roles = "System Admin, Admin")]
+    [Authorize(Roles = "System Admin")]
     public class UserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
@@ -29,14 +29,6 @@ namespace DSS.Controllers
         {  
             ViewBag.userList = GetAllUser();
             return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        // GET: UserMng/Accounts
-        public ActionResult Accounts()
-        {
-            ViewBag.userList = GetBrandAccounts();
-            return View("Index");
         }
 
         public List<Models.UserMngVM> GetAllUser()
@@ -58,29 +50,7 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
-
-
-        public List<Models.UserMngVM> GetBrandAccounts()
-        {
-            var user = Helper.GetCurrentUser();
-            var users = aspNetUserService.GetAccountsByBrandId(user.BrandID);
-            var userVMs = new List<Models.UserMngVM>();
-            foreach (var item in users)
-            {
-                var u = new Models.UserMngVM
-                {
-                    UserName = item.UserName,
-                    Id = item.Id,
-                    Email = item.Email,
-                    FullName = item.FullName,
-                    isActive = item.isActive,
-                    BrandName = brandService.GetBrandNameByID(item.BrandID),
-                };
-                userVMs.Add(u);
-            }
-            return userVMs;
-        }
-
+       
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -136,6 +106,10 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.Role.CompareTo("System Admin") == 0)
+                {
+                    model.BrandId = 39;
+                }
                 var user = new Wisky.Models.ApplicationUser
                 {
                     UserName = model.UserName,
@@ -145,12 +119,17 @@ namespace DSS.Controllers
                     BrandId = model.BrandId,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, model.Password);                 
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 }
+                
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();
@@ -168,6 +147,10 @@ namespace DSS.Controllers
                 var user = aspNetUserService
                 .Get(a => a.Id == model.Id)
                 .FirstOrDefault();
+                if (model.Role.CompareTo("System Admin") == 0)
+                {
+                    model.BrandId = 39;
+                }
                 if (user != null)
                 {
                     user.BrandID = model.BrandId;
@@ -184,7 +167,11 @@ namespace DSS.Controllers
                     }
                     //Add to new Role
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 };
             }
             // If we got this far, something failed, redisplay form

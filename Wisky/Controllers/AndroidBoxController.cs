@@ -86,7 +86,7 @@ namespace DSS.Controllers
                     };
                 }
             }
-            ViewBag.locationList = LocationController.GetLocationList();
+            ViewBag.locationList = LocationController.GetLocationIdByBrandId();
             return View(model);
         }
         // POST: AndroidBox/Add
@@ -126,7 +126,11 @@ namespace DSS.Controllers
                     
                 }
                 await this.boxService.UpdateAsync(box);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
