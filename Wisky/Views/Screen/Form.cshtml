@@ -134,9 +134,6 @@
         $('input[name=optradio]').change(function () {
             value = $('input[name=optradio]:checked').val();
         });
-
-
-
     </script>
     <!--End Radio Button Check Type Value-->
     <!--Validation-->
@@ -145,7 +142,7 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input name screen.");
+                stringError.push("Please input screen name.");
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
                 stringError.push("Please choose location.");
@@ -171,7 +168,7 @@
             }
         }
     </script>
-    <!--End Validation-->
+    <!-- End Validation-->
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <!--End Sweet alert-->
