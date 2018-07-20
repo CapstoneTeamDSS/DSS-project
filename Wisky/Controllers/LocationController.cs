@@ -136,12 +136,13 @@ namespace DSS.Controllers
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.LocationDetailVM model)
         {
             DateTime aDateTime = DateTime.Now;
+            var user = Helper.GetCurrentUser();
             if (ModelState.IsValid)
             {
                 var location = new Data.Models.Entities.Location
                 {
                     LocationID = model.LocationId,
-                    BrandID = model.BrandId,
+                    BrandID = user.BrandID,
                     Province = model.Province,
                     District = model.District,
                     Address = model.Address,
@@ -163,13 +164,14 @@ namespace DSS.Controllers
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.LocationDetailVM model)
         {
+            var user = Helper.GetCurrentUser();
             if (ModelState.IsValid)
             {
                 var location = this.locationService.Get(model.LocationId);
                 if (location != null)
                 {
                     location.LocationID = model.LocationId;
-                    location.BrandID = model.BrandId;
+                    location.BrandID = user.BrandID;
                     location.Province = model.Province;
                     location.District = model.District;
                     location.Address = model.Address;
@@ -177,7 +179,11 @@ namespace DSS.Controllers
 
                 }
                 await this.locationService.UpdateAsync(location);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Location")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

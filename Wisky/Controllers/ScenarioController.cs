@@ -75,7 +75,6 @@ namespace DSS.Controllers
         public ActionResult Form()
         {
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
-            ViewBag.layoutList = GetLayoutList();
             return View();
         }
 
@@ -132,10 +131,11 @@ namespace DSS.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        public List<Models.LayoutVM> GetLayoutList()
+        [HttpPost]
+        public ActionResult LoadLayoutList(bool isHorizontal)
         {
             ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
-            var layoutList = layoutService.Get().ToList();
+            var layoutList = layoutService.Get(a=>a.isHorizontal==isHorizontal).ToList();
             var layoutVMs = new List<Models.LayoutVM>();
             if (layoutList != null)
             {
@@ -152,7 +152,11 @@ namespace DSS.Controllers
                     layoutVMs.Add(l);
                 }
             }
-            return layoutVMs;
+            //return layoutVMs;
+            return Json(new
+            {
+                LayoutVMs = layoutVMs,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         //GET
@@ -200,8 +204,10 @@ namespace DSS.Controllers
         [HttpPost]
         public ActionResult LoadLayout(int layoutId)
         {
-            var url = "/Resource/Layout/Layout_" + layoutId + ".cshtml";
-            return PartialView(url);
+            ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
+            string layoutSrc = "";
+            layoutSrc = layoutService.Get(a => a.LayoutID == layoutId).FirstOrDefault()?.LayoutSrc;
+            return PartialView(layoutSrc);
         }
 
         [HttpPost]
