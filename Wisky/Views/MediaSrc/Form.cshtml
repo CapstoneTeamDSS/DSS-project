@@ -11,7 +11,7 @@
     bool status = true;
     if (Model != null)
     {
-        status = Model.isActive;
+        status = Model.isPublic;
     }
 }
 <div class="">
@@ -46,7 +46,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                             </div>
                         </div>
                         <div class="form-group">

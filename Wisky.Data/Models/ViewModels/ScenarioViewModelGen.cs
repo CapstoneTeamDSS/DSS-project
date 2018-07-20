@@ -20,6 +20,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual string Title { get; set; }
     			public virtual string Description { get; set; }
     			public virtual int BrandID { get; set; }
+    			public virtual Nullable<bool> isPublic { get; set; }
     	
     	public ScenarioViewModel() : base() { }
     	public ScenarioViewModel(DSS.Data.Models.Entities.Scenario entity) : base(entity) { }
