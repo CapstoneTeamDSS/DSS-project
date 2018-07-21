@@ -99,6 +99,7 @@
           <Property Name="BrandName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDateTime" Type="nchar" MaxLength="10" />
           <Property Name="Description" Type="text" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="Device">
           <Key>
@@ -978,6 +979,7 @@
           <Property Name="BrandName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
           <NavigationProperty Name="AspNetUsers" Relationship="DSSModel.FK_AspNetUsers_Brand" FromRole="Brand" ToRole="AspNetUser" />
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
@@ -1593,6 +1595,7 @@
           <EntitySetMapping Name="Brands">
             <EntityTypeMapping TypeName="DSSModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
                 <ScalarProperty Name="BrandName" ColumnName="BrandName" />

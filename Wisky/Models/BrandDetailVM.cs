@@ -12,5 +12,6 @@ namespace DSS.Models
         [Required(ErrorMessage = "Please enter Brand's name")]
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool isActive { get; set; }
     }
 }
