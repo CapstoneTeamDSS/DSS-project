@@ -1,6 +1,13 @@
-﻿@{
+﻿@model DSS.Models.ScenarioVM
+@{
     ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.IsPublic;
+    }
 }
 <div class="">
     <div class="page-title">
@@ -41,7 +48,14 @@
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                                 <input type="hidden" value="@(Model?.LayoutId)" name="LayoutId" />
                             </div>
-
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                            </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
@@ -56,3 +70,18 @@
         </div>
     </div>
 </div>
+@section scripts{
+
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Private";
+            if (this.checked) {
+                text = "Public";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+}
