@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    
+
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
@@ -43,6 +43,7 @@
                                     Title
                                 </th>
                                 <th>Description</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,10 +57,10 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.Description)</td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.ScenarioId)">@( (bool)item.IsPublic ? "Public" : "Private")</a></td>
                                         <td style="width:300px; text-align:center">
                                             <a href="/Scenario/UpdateForm/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info"> Edit Info</i></a>
                                             <a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success"> Edit Details</i></a>
-                                            <a href="/Scenario/Delete/@(item.ScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -89,6 +90,30 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Scenario/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
 }
 
 @section styles{

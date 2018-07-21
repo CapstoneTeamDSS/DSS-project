@@ -39,5 +39,23 @@ namespace DSS.Controllers
             ViewBag.layoutsList = layoutVMs;
             return View();
         }
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var layout = this.layoutService
+                .Get(a => a.LayoutID == dataId)
+                .FirstOrDefault();
+            if (layout != null)
+            {
+                layout.isPublic = !layout.isPublic;
+                this.layoutService.Update(layout);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
+        }
     }     
     }

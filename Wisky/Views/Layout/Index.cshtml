@@ -19,15 +19,6 @@
             <div class="x_title">
                 <h2>Layout list</h2>
                 <div class="clearfix"></div>
-                <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
-                    <a href="/Resolution/Form" class="iframe">
-                        <ul class="bs-glyphicons-list">
-                            <li>
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
-                            </li>
-                        </ul>
-                    </a>
-                </div>
             </div>
             <div class="x_content">
                 <p class="text-muted font-13 m-b-30">
@@ -45,7 +36,7 @@
                             </th>
                             <th>Description</th>
                             <th>Type</th>
-                            <th>Status</th>                     
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,13 +45,13 @@
                             var i = 0;
                             foreach (var item in layouts)
                             {
-                        <tr>
-                            <td>@(++i)</td>
-                            <td>@(item.Title)</td>
-                            <td>@(item.Description)</td>
-                            <td>@(item.IsHorizontal ? "Horizontal" : "Vertical")</td>
-                            <td>@((bool) item.IsPublic ? "Enable":"Disable")</td>
-                        </tr>
+                                <tr>
+                                    <td>@(++i)</td>
+                                    <td>@(item.Title)</td>
+                                    <td>@(item.Description)</td>
+                                    <td>@(item.IsHorizontal ? "Horizontal" : "Vertical")</td>
+                                    <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool) item.IsPublic ? "Public" : "Private")</a></td>
+                                </tr>
                             }
                         }
                     </tbody>
@@ -69,7 +60,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 
 
@@ -105,6 +96,29 @@
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Layout/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
 }
 
 @section styles{
