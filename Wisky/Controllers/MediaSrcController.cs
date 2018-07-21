@@ -147,6 +147,7 @@ namespace DSS.Controllers
                 string ext = Path.GetExtension(model.Filename);
                 int typeCheck = this.CheckFileType(ext);
                 DateTime time = DateTime.Now;
+                var user = Helper.GetCurrentUser();
                 var currUser = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
                 {

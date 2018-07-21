@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace DSS.Models
     {
         public int? DeviceScenarioId { get; set; }
         public int ScenarioID { get; set; }
+        [Range(0, Double.PositiveInfinity, ErrorMessage = "Please select device.")]
         public int DeviceID { get; set; }
         public string DeviceName { get; set; }
         public string ScenarioTitle { get; set; }
@@ -22,6 +24,7 @@ namespace DSS.Models
         public int? DeviceScenarioId { get; set; }
         public int ScenarioID { get; set; }
         public int? LayoutID { get; set; }
+        [Range(0, Double.PositiveInfinity, ErrorMessage = "Please select device.")]
         public int DeviceID { get; set; }
         public bool isHorizontal { get; set; }
         public bool isFixed { get; set; }

@@ -22,47 +22,52 @@
                     @using (Html.BeginForm((Model?.DeviceId != null) ? "Update" : "Add", "MatchingDevice", new { DeviceID = (Model?.DeviceId) }, FormMethod.Post, new { @id = "frm_matchingdevice", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Title <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
                                        name="Title"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Title)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Screen Name<span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.ScreenName)" readonly="readonly" />
                                 <input type="hidden" name="ScreenId" value="@(Model?.ScreenId)" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Box Name<span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.BoxName)" readonly="readonly" />
                                 <input type="hidden" name="BoxId" value="@(Model?.BoxId)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-6 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
@@ -73,7 +78,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -82,7 +87,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -92,3 +97,32 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input title.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_matchingdevice").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
+}

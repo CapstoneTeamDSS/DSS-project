@@ -30,9 +30,14 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_mediaSrc", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Title <span class="required">*</span>
@@ -80,7 +85,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -89,7 +94,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -100,7 +105,36 @@
     </div>
 </div>
 @section scripts {
-
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input title.");
+            }
+            if ($('#txtMediaURL').val() == '') {
+                stringError.push("Please choose file to upload.");
+            }          
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_mediaSrc").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
@@ -171,6 +205,13 @@
     <!-- End Switchery Change Status Text-->
 }
 @section styles {
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
@@ -216,6 +257,6 @@
                 width: 30px;
                 border: 1px solid #2e68fb;
                 padding: 0;
-            }            
+            }
     </style>
 }
