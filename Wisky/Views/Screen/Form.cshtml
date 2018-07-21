@@ -12,7 +12,6 @@
         }
     </style>
 }
-
 <div class="">
     <div class="clearfix"></div>
     <div class="row">
@@ -93,7 +92,11 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
+<<<<<<< HEAD
                             <div class="col-md-8 col-sm-8 col-xs-8">
+=======
+                            <div class="col-md-3 col-sm-9 col-xs-9">
+>>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
@@ -104,7 +107,11 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-success">Submit</button>
+=======
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
+>>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                                 </div>
                             </div>
                         }
@@ -113,7 +120,11 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+<<<<<<< HEAD
                                     <button type="submit" class="btn btn-success">Submit</button>
+=======
+                                    <button type="button" onclick="formSubmit()" class="btn btn-success">Submit</button>
+>>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                                 </div>
                             </div>
                         }
@@ -130,8 +141,6 @@
         $('input[name=optradio]').change(function () {
             value = $('input[name=optradio]:checked').val();
         });
-
-
     </script>
     <!--End Radio Button Check Type Value-->
 }

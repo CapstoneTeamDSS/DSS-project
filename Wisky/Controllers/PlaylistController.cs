@@ -218,7 +218,7 @@ namespace DSS.Controllers
                     Title = mediaSrc.Title,
                     Description = mediaSrc.Description,
                     MediaSrcId = mediaSrc.MediaSrcID,
-                    isActive = (bool)mediaSrc.Status,
+                    isPublic = (bool)mediaSrc.isPublic,
                     
                 };
             }

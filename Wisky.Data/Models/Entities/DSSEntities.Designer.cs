@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿// T4 code generation is enabled for model 'F:\CAPSTONE\DSS-project\Wisky.Data\Models\Entities\DSSEntities.edmx'. 
+=======
+﻿// T4 code generation is enabled for model 'F:\CAPSTONE PROJECT\DSS-capstone-project\Wisky.Data\Models\Entities\DSSEntities.edmx'. 
+>>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
