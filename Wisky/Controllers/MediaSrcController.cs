@@ -144,7 +144,7 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-<<<<<<< HEAD
+
                 var urlCheck = "";
                 var tyleIdCheck = 0;
                 var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
@@ -179,10 +179,8 @@ namespace DSS.Controllers
                     urlCheck = "/Resource/OrtherFile/";
                     tyleIdCheck = 4;
                 }
-=======
                 string ext = Path.GetExtension(model.Filename);
                 int typeCheck = this.CheckFileType(ext);
->>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                 DateTime time = DateTime.Now;
                 var currUser = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
@@ -197,21 +195,14 @@ namespace DSS.Controllers
                     CreateDatetime = time,
                 };
                 await this.mediaSrcService.CreateAsync(media);
-<<<<<<< HEAD
-                //return this.RedirectToAction("Index");
-=======
->>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
                     ContentType = "text/html"
                 };
-<<<<<<< HEAD
-
             }
             return View("Form", model);
         }
-=======
             }
             return View("Form", model);
         }
@@ -237,8 +228,6 @@ namespace DSS.Controllers
         //    }
         //    return 0;
         //}
-
->>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
         // Check type file
         private int CheckFileType(string FileName)
         {
@@ -261,11 +250,6 @@ namespace DSS.Controllers
             }
             return 0;
         }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -288,11 +272,8 @@ namespace DSS.Controllers
                 {
                     mediaSrc.MediaSrcID = (int)model.MediaSrcId;
                     mediaSrc.Title = model.Title;
-<<<<<<< HEAD
                     mediaSrc.Status = model.isActive;
-=======
                     mediaSrc.isPublic = model.isPublic;
->>>>>>> 9d2df37a3e5a168c75690b1215fcd4529501a175
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;
                 };
