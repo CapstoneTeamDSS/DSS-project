@@ -84,16 +84,25 @@
 </div>
 @section scripts{
     <script>
-        $(document).ready(function (){
+        $(document).ready(function () {
             var valueHeight = $("#first-height").val();
             var valueWidth = $("#first-width").val();
             if (valueHeight == 0) {
-                $("#first-height").val('');                
+                $("#first-height").val('');
             }
             if (valueWidth == 0) {
                 $("#first-width").val('');
             }
         });
     </script>
+}
+@section styles{
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
 }
 

@@ -12,7 +12,7 @@ namespace DSS.Models
         public int ScreenId { get; set; }
         public int BoxId { get; set; }
         public string Description { get; set; }
-        [Required(ErrorMessage = "Title can not be empty!!!")]
+        [Required(ErrorMessage = "Please input Title.")]
         public string Title { get; set; }
         public string BoxName { get; set; }
         public string ScreenName { get; set; }
