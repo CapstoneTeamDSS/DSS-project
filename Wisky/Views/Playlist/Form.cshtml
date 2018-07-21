@@ -57,7 +57,7 @@
                                         {
                                             if (!itemList.Exists(e => e.mediaSrcId == item.MediaSrcId))
                                             {
-                                                <option value="@(item.MediaSrcId)" data-type="@(item.TypeId)" data-position="@(++i)">@(item.Title)</option>
+                                                <option value="@(item.MediaSrcId)" data-type="@(item.TypeId)" data-position="@(++i)" data-url="@(item.URL)">@(item.Title)</option>
                                             }
                                         }
                                     }
@@ -163,6 +163,7 @@
             var SelectedOptions = $("#multiselect1_to > option");
             for (var i = 0; i < SelectedOptions.length; i++) {
                 var Obj = SelectedOptions[i];
+                var type = $(Obj).attr("data-type");
                 var ItemId = $(Obj).attr('value');
                 if (AddedElements[ItemId] == null) {
                     AddedElements[ItemId] = 0;
@@ -242,7 +243,7 @@
             });
             $("#multiselect1").find("option").each(function () {
                 var type = $(this).attr("data-type");
-                if ($.inArray(type, values)>-1) {
+                if ($.inArray(type, values) > -1) {
                     $(this).show();
                 } else {
                     $(this).hide();
