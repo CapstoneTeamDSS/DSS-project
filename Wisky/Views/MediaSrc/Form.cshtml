@@ -30,9 +30,14 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_mediaSrc", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Title <span class="required">*</span>
@@ -63,17 +68,13 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
                                     Select file to upload <span class="required">*</span>
                                 </label>
-                                <div class="file-loading col-md-6 col-sm-9 col-xs-12">
-                                    <input id="file" class="file" type="file" name="file">
-                                    Select file to upload <span class="required">*</span></label>
-                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                        <input type="hidden" name="URL" id="txtMediaURL" />
-                                        <input type="hidden" name="Filename" id="txtFilename" />
-                                        <input type="button" id="btnChange" value="Upload media" />
-                                        @*<input type="button" id="btnClose" value="Close" />*@
-                                        <div id="review_container"></div>
-                                        <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
-                                    </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <input type="hidden" name="URL" id="txtMediaURL" />
+                                    <input type="hidden" name="Filename" id="txtFilename" />
+                                    <input type="button" id="btnChange" value="Upload media" />
+                                    @*<input type="button" id="btnClose" value="Close" />*@
+                                    <div id="review_container"></div>
+                                    <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
                                 </div>
                             </div>
                         }
@@ -83,7 +84,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -92,7 +93,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -102,64 +103,37 @@
         </div>
     </div>
 </div>
-@section styles {
-    <!-- Switchery -->
-    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-    <!-- End Switchery -->
-    <!-- form Upload plugin -->
-    <link href="~/Content/form-upload-media/css//fileinput.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="~/Content/form-upload-media/themes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css" />
-    <!-- End form Upload plugin -->
-    <!--Sweet alert-->
-    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
-    <!--End Sweet alert-->
-    <style>
-        /* change picker appearance  */
-        .fsp-picker {
-            background: rgba(0,0,0,.288) !important;
-        }
-
-            /* update styles for drop area */
-            .fsp-picker .fsp-drop-area {
-                background: rgba(0,0,0,.03);
-                border-radius: 0;
-            }
-
-            /* customize picker modal  */
-            .fsp-picker .fsp-modal {
-                background: #fff;
-                border-radius: 0;
-                border: none;
-                box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)
-            }
-
-            .fsp-picker .fsp-header {
-                color: rgba(0,0,0,.54);
-            }
-
-            .fsp-picker .fsp-url-source__input,
-            .fsp-picker .fsp-url-source__submit-button {
-                border: none;
-                border-radius: 0;
-                height: 30px;
-                border-bottom: 1px solid #2e68fb;
-            }
-
-                .fsp-picker .fsp-url-source__input:focus {
-                    outline: none;
-                    border: none;
-                    border-bottom: 1px solid #2e68fb;
-                }
-
-            .fsp-picker .fsp-url-source__submit-button {
-                width: 30px;
-                border: 1px solid #2e68fb;
-                padding: 0;
-            }
-    </style>
-}
 @section scripts {
-
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input title.");
+            }
+            if ($('#txtMediaURL').val() == '') {
+                stringError.push("Please choose file to upload.");
+            }          
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_mediaSrc").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
@@ -173,7 +147,7 @@
     <!--End form Upload plugin -->
     <!--remove upload button in input file-->
     <script>
-        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any', 'allowedFileExtensions': ["jpg", "png", "jpeg", "mp3", "mp4", "txt", "mkv"] });
+        $("#file").fileinput({ 'showUpload': false, 'previewFileType': 'any' });
     </script>
     <!--End remove upload button in input file-->
     <!-- Switchery Change Status Text-->
@@ -226,36 +200,15 @@
         });
     </script>
     <!-- End Switchery Change Status Text-->
-    <<<<<<< HEAD
-    <!--Check type to input-->
-    <script>
-        //$(document).ready(function () {
-        //    $("#btnSubmit").click(function () {
-        //        var files = $("#file").prop("files");;
-        //        if (files.length > 0) {
-        //            $("#file").val(0);
-        //        } else {
-        //            $("#file").val(-1);
-        //        }
-        //    });
-        //});
-        $("#file").change(function () {
-            var fileExtension = ['jpeg', 'jpg', 'png', 'mp3', 'mp4', 'txt', 'mkv'];
-            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                swal("Only formats are allowed : " + fileExtension.join(', '));
-                $("#file").fileinput("reset");
-            }
-        });
-    </script>
-    <!--End Check type to input-->
-    <!--Sweet alert-->
-    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
-    <!--End Sweet alert-->
-}
-
-=======
 }
 @section styles {
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
