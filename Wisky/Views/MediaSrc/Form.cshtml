@@ -30,11 +30,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-
-                    @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form", enctype = "multipart/form-data" }))
-
                     @using (Html.BeginForm((Model?.MediaSrcId != null) ? "Update" : "Add", "MediaSrc", new { MediaSrcId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
-
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -42,15 +38,7 @@
                                 Title <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-
-                                <input id="first-name"
-                                       name="Title"
-                                       class="form-control"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.Title)">
-=======
                                 <input id="first-name" name="Title" class="form-control" data-parsley-id="5" type="text" value="@(Model?.Title)">
-
                             </div>
                         </div>
                         <div class="form-group">
@@ -73,11 +61,6 @@
                         {
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">
-
-                                    Select file to upload <span class="required">*</span></label>
-                                <div class="file-loading col-md-6 col-sm-9 col-xs-12">
-                                    <input id="file" class="file" type="file" name="file" value="@(Model?.URL)">
-
                                     Select file to upload <span class="required">*</span>
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
@@ -87,7 +70,6 @@
                                     @*<input type="button" id="btnClose" value="Close" />*@
                                     <div id="review_container"></div>
                                     <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
-
                                 </div>
                             </div>
                         }
@@ -177,7 +159,7 @@
                     $("#review_container").append("<video controls='controls' style='height: 250px; width: 300px'>"
                         + "<source src='" + url + "' type ='" + mimetype + "'/>"
                         + "</video>");
-                }                
+                }
             }
             btnChange.addEventListener('click', () => picker.open());
             //btnClose.addEventListener('click', () => picker.close());
@@ -186,6 +168,13 @@
     <!-- End Switchery Change Status Text-->
 }
 @section styles {
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
@@ -231,6 +220,6 @@
                 width: 30px;
                 border: 1px solid #2e68fb;
                 padding: 0;
-            }            
+            }
     </style>
 }

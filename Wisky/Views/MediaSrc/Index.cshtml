@@ -119,7 +119,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++j)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
@@ -164,7 +164,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++k)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td>
                                                                 <audio controls>
@@ -214,7 +214,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++f)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>

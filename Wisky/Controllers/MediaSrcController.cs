@@ -144,44 +144,10 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var urlCheck = "";
-                var tyleIdCheck = 0;
-                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
-                var resultCheck = CheckFileType(fileName);
-                // checkt entension file
-                string ext = Path.GetExtension(fileName);
-                if (resultCheck == 1)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Image/";
-                    tyleIdCheck = 1;
-                }
-                else if (resultCheck == 2)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Video/";
-                    tyleIdCheck = 2;
-                }
-                else if (resultCheck == 3)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Audio/";
-                    tyleIdCheck = 3;
-                }
-                else if (resultCheck == 4)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/OrtherFile/";
-                    tyleIdCheck = 4;
-                }
                 string ext = Path.GetExtension(model.Filename);
                 int typeCheck = this.CheckFileType(ext);
                 DateTime time = DateTime.Now;
+                var user = Helper.GetCurrentUser();
                 var currUser = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
                 {
@@ -200,9 +166,6 @@ namespace DSS.Controllers
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
                     ContentType = "text/html"
                 };
-            }
-            return View("Form", model);
-        }
             }
             return View("Form", model);
         }
@@ -228,6 +191,7 @@ namespace DSS.Controllers
         //    }
         //    return 0;
         //}
+
         // Check type file
         private int CheckFileType(string FileName)
         {
@@ -250,6 +214,8 @@ namespace DSS.Controllers
             }
             return 0;
         }
+
+
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -272,7 +238,6 @@ namespace DSS.Controllers
                 {
                     mediaSrc.MediaSrcID = (int)model.MediaSrcId;
                     mediaSrc.Title = model.Title;
-                    mediaSrc.Status = model.isActive;
                     mediaSrc.isPublic = model.isPublic;
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;

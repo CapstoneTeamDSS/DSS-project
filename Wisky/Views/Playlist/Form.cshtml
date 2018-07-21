@@ -22,29 +22,25 @@
                     @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
-
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
-
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-
                                 Playlist Title <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
                                        name="Title"
-                                       class="form-control"
+                                       class="form-control col-md-7 col-xs-12"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Title)">
                             </div>
                         </div>
                         <div class="form-group">
-
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
-
                                 Description
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
@@ -99,16 +95,24 @@
                             </div>
                         </div>
                         <div class="ln_solid"></div>
-                        <div class="form-group">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
-
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="button" class="btn btn-success" onclick="submitFunction()">Submit</button>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
@@ -117,6 +121,37 @@
 </div>
 
 @section scripts{
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            var SelectedOptions = $("#multiselect1_to > option");
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input title.");
+            }
+            if (SelectedOptions.length === 0) {
+                stringError.push("Please select at least 1 item.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_playlist").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
@@ -254,7 +289,7 @@
             });
             $("#multiselect1").find("option").each(function () {
                 var type = $(this).attr("data-type");
-                if ($.inArray(type, values)>-1) {
+                if ($.inArray(type, values) > -1) {
                     $(this).show();
                 } else {
                     $(this).hide();
@@ -304,5 +339,3 @@
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
 }
-
-

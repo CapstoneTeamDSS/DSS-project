@@ -30,26 +30,26 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name <span class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Full Name <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone Number</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="PhoneNumber" value="@(Model?.PhoneNumber)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Username <span class="required">*</span></label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Username <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
                         </div>
@@ -81,12 +81,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">
                                 Account Status
                                 <br>
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
 
                             </div>
