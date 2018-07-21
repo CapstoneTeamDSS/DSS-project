@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <IncludeIisSettings>true</IncludeIisSettings>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -276,6 +277,7 @@
     <Compile Include="Controllers\FileStackController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlaylistController.cs" />
@@ -294,6 +296,7 @@
     <Compile Include="Models\BrandUserVM.cs" />
     <Compile Include="Models\Campaing\AdScheduleModel.cs" />
     <Compile Include="Models\Campaing\CampaingModel.cs" />
+    <Compile Include="Models\LayoutDetailVM.cs" />
     <Compile Include="Models\LayoutVM.cs" />
     <Compile Include="Models\PlaylistItemVM.cs" />
     <Compile Include="Models\ScenarioItemVM.cs" />
@@ -1913,6 +1916,7 @@
     <Content Include="Views\BrandUserMng\Index.cshtml" />
     <Content Include="Views\BrandUserMng\Form.cshtml" />
     <Content Include="Views\FileStack\Index.cshtml" />
+    <Content Include="Views\Layout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

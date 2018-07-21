@@ -34,7 +34,8 @@ namespace DSS.Controllers
                     ScenarioId = item.ScenarioID,
                     Description = item.Description,
                     LayoutId = item.LayoutID,
-                    Title = item.Title
+                    Title = item.Title,
+                    IsPublic = (bool) item.isPublic
                 };
                 scenarioVMs.Add(s);
             }
@@ -170,11 +171,13 @@ namespace DSS.Controllers
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM
-                    {
+                    {   
+                        
                         ScenarioId = scenario.ScenarioID,
                         Description = scenario.Description,
                         LayoutId = scenario.LayoutID,
                         Title = scenario.Title,
+                        IsPublic = (bool) scenario.isPublic
 
                     };
                 }
@@ -194,6 +197,7 @@ namespace DSS.Controllers
                     scenario.LayoutID = model.LayoutId;
                     scenario.Description = model.Description;
                     scenario.Title = model.Title;
+                    scenario.isPublic = model.IsPublic;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
                 return this.RedirectToAction("Index");
@@ -328,6 +332,24 @@ namespace DSS.Controllers
             {
                 success = false,
             }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var scenario = this.scenarioService
+                .Get(a => a.ScenarioID == dataId)
+                .FirstOrDefault();
+            if (scenario != null)
+            {
+                scenario.isPublic = !scenario.isPublic;
+                this.scenarioService.Update(scenario);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

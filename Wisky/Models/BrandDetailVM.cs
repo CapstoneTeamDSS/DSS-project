@@ -9,8 +9,9 @@ namespace DSS.Models
     public class BrandDetailVM
     {
         public int? Id { get; set; }
-        [Required(ErrorMessage = "Please enter Brand's name")]
+        [Required(ErrorMessage = "Please enter brand name.")]
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool isActive { get; set; }
     }
 }

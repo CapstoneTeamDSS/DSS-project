@@ -25,6 +25,7 @@ namespace DSS.Data.Models.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Area> Areas { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
@@ -46,6 +47,5 @@ namespace DSS.Data.Models.Entities
         public virtual DbSet<Scenario> Scenarios { get; set; }
         public virtual DbSet<ScenarioItem> ScenarioItems { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

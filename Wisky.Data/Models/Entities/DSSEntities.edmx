@@ -99,6 +99,7 @@
           <Property Name="BrandName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDateTime" Type="nchar" MaxLength="10" />
           <Property Name="Description" Type="text" />
+          <Property Name="isActive" Type="bit" />
         </EntityType>
         <EntityType Name="Device">
           <Key>
@@ -748,6 +749,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DSSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DSSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
           <EntitySet Name="Accounts" EntityType="DSSModel.Account" />
           <EntitySet Name="Areas" EntityType="DSSModel.Area" />
           <EntitySet Name="AspNetRoles" EntityType="DSSModel.AspNetRole" />
@@ -769,7 +771,6 @@
           <EntitySet Name="Scenarios" EntityType="DSSModel.Scenario" />
           <EntitySet Name="ScenarioItems" EntityType="DSSModel.ScenarioItem" />
           <EntitySet Name="Screens" EntityType="DSSModel.Screen" />
-          <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
           <AssociationSet Name="FK_Account_Brand" Association="DSSModel.FK_Account_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Account" EntitySet="Accounts" />
@@ -878,7 +879,17 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountID" />
@@ -978,6 +989,7 @@
           <Property Name="BrandName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
           <NavigationProperty Name="AspNetUsers" Relationship="DSSModel.FK_AspNetUsers_Brand" FromRole="Brand" ToRole="AspNetUser" />
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
@@ -1165,16 +1177,6 @@
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Screen" FromRole="Screen" ToRole="Device" />
           <NavigationProperty Name="Location" Relationship="DSSModel.FK_Screen_Location" FromRole="Screen" ToRole="Location" />
           <NavigationProperty Name="Resolution" Relationship="DSSModel.FK_Screen_Resolution" FromRole="Screen" ToRole="Resolution" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Account_Brand">
           <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
@@ -1508,6 +1510,17 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DSSModelStoreContainer" CdmEntityContainer="DSSEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DSSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="DSSModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -1593,6 +1606,7 @@
           <EntitySetMapping Name="Brands">
             <EntityTypeMapping TypeName="DSSModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
                 <ScalarProperty Name="BrandName" ColumnName="BrandName" />
@@ -1755,17 +1769,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DSSModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="DSSModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetUser">
               <ScalarProperty Name="Id" ColumnName="UserId" />
@@ -1774,7 +1777,7 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

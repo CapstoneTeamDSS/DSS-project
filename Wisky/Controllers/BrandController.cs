@@ -23,6 +23,26 @@ namespace DSS.Controllers
             return View();
         }
 
+        //GET: Brand/Index
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var brand = this.brandService
+                .Get(a => a.BrandID == dataId)
+                .FirstOrDefault();
+            if (brand != null)
+            {
+                brand.isActive = !brand.isActive;
+                this.brandService.Update(brand);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
+        }
+
         public static List<Models.BrandDetailVM> GetBrandList()
         {
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
@@ -35,6 +55,7 @@ namespace DSS.Controllers
                     Name = item.BrandName,
                     Description = item.Description,
                     Id = item.BrandID,
+                    isActive = item.isActive ?? true,
                 };
                 brandVMs.Add(b);
             }
@@ -55,6 +76,7 @@ namespace DSS.Controllers
                         Name = brand.BrandName,
                         Description = brand.Description,
                         Id = brand.BrandID,
+                        isActive = brand.isActive ?? true,
                     };
                 }
             }
@@ -71,6 +93,7 @@ namespace DSS.Controllers
                 {
                     BrandName = model.Name,
                     Description = model.Description,
+                    isActive = model.isActive
                 };
                 await this.brandService.CreateAsync(brand);
                 //return this.RedirectToAction("Index");
@@ -94,6 +117,7 @@ namespace DSS.Controllers
                 {
                     brand.BrandName = model.Name;
                     brand.Description = model.Description;
+                    brand.isActive = model.isActive;
                 }
                 await this.brandService.UpdateAsync(brand);
                 return new ContentResult
