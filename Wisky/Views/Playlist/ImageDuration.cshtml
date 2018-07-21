@@ -25,7 +25,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm("", "", new { ScreenId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_screen", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm("", "", new { ScreenId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_duration", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -51,8 +51,11 @@
                                 Duration
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input id="imgDuration" type="text" class="time" />
+                                <input id="imgDuration" type="text" class="time"  />
                             </div>
+                            <!--Show validation-->
+                            <span class="field-validation-error-duration" style="padding-left:120px; color:red"></span>
+                            <!--End Show validation-->
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
@@ -65,7 +68,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                <div type="submit" class="btn btn-success" id="btnSet">Set Duration</div>
+                                <div type="button" onclick="checkValidation()" class="btn btn-success" id="btnSet">Set Duration</div>
                             </div>
                         </div>
                     }
@@ -81,6 +84,23 @@
             alert(value);
         });
     </script>
+    <!--Validation-->
+    <script>       
+        function checkValidation() {
+            var pattern = /^[A-Za-z '.-]+$/;
+            $(".field-validation-error-duration").empty();
+            var input = $("#imgDuration");
+            if (input.val() == '') {
+                $(".field-validation-error-duration").html("Please input duration");
+            } else if (pattern.test(input.val())) {
+                $(".field-validation-error-duration").html("Please input with format 00:00:00");
+            } else {
+                $("#frm_screen").submit();
+                parent.jQuery.fn.colorbox.close();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <!-- jQuery -->
     <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Switchery -->
