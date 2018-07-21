@@ -56,7 +56,7 @@ namespace DSS.Data.Models.Entities.Services
                 .Get(a => a.Screen.Location.Brand.BrandName == name)
                 .ToList();
             return devices;
-        }
+        }       
     }
 
     public partial interface IBrandService
