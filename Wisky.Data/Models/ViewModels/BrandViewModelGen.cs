@@ -19,6 +19,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual string BrandName { get; set; }
     			public virtual string CreateDateTime { get; set; }
     			public virtual string Description { get; set; }
+    			public virtual Nullable<bool> isActive { get; set; }
     	
     	public BrandViewModel() : base() { }
     	public BrandViewModel(DSS.Data.Models.Entities.Brand entity) : base(entity) { }
