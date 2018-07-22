@@ -19,7 +19,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int MediaSrcID { get; set; }
     			public virtual int PlaylistID { get; set; }
     			public virtual int DisplayOrder { get; set; }
-    			public virtual string Duration { get; set; }
+    			public virtual int Duration { get; set; }
     	
     	public PlaylistItemViewModel() : base() { }
     	public PlaylistItemViewModel(DSS.Data.Models.Entities.PlaylistItem entity) : base(entity) { }
