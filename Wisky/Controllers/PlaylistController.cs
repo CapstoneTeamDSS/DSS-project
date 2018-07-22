@@ -180,11 +180,11 @@ namespace DSS.Controllers
                         if (mediaSrcType != 1)
                         {
                             //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
-                            playlistItem.Duration = "0";
+                            playlistItem.Duration = 0;
                         } else
                         {
                             var duration = TimeSpan.Parse(item.ItemDuration);
-                            playlistItem.Duration = duration.ToString();
+                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
