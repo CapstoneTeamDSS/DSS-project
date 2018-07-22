@@ -129,6 +129,7 @@ namespace DSS.Controllers
                 var pObj = mediaSrcService.GetById(item.MediaSrcID);
                 p.mediaSrcTitle = pObj.Title;
                 p.mediaSrcId = pObj.MediaSrcID;
+                p.URL = pObj.URL;
                 itemList.Add(p);
             }
             return itemList;
@@ -199,11 +200,12 @@ namespace DSS.Controllers
                         var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
                         if (mediaSrcType != 1)
                         {
-                            playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                            //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                            playlistItem.Duration = 0;
                         } else
                         {
                             var duration = TimeSpan.Parse(item.ItemDuration);
-                            playlistItem.Duration = duration.ToString();
+                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
@@ -221,7 +223,7 @@ namespace DSS.Controllers
         {
             string applicationPath = System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
             string appPath = applicationPath.Replace("\\", "/");
-            ShellFile so = ShellFile.FromFilePath(appPath + filePath);
+            ShellFile so = ShellFile.FromFilePath(filePath);
             IShellProperty prop = so.Properties.System.Media.Duration;
             var u = (ulong)prop.ValueAsObject;
             return TimeSpan.FromTicks((long)u).ToString();
