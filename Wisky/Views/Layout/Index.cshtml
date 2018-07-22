@@ -36,8 +36,9 @@
                             </th>
                             <th>Status</th>
                             <th>Preview</th>
-                            <th>Description</th>
                             <th>Type</th>
+                            <th>Description</th>
+
 
                         </tr>
                     </thead>
@@ -52,8 +53,9 @@
                             <td>@(item.Title)</td>
                             <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool)item.IsPublic ? "Public" : "Private")</a></td>
                             <td><img src="@(item.Url)" style="max-width: 200px;"></td>
-                            <td>@(item.Description)</td>
                             <td>@(item.IsHorizontal ? "Landscape" : "Portrait")</td>
+                            <td>@(item.Description)</td>
+
 
                         </tr>
                             }
