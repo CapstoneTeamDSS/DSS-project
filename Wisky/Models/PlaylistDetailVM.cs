@@ -13,6 +13,7 @@ namespace DSS.Models
         public string Description { get; set; }
         public string BrandName { get; set; }
         public bool isShow { get; set; }
+        public bool isPublic { get; set; }
     }
 
     public class PlaylistCRUDVM
@@ -22,6 +23,7 @@ namespace DSS.Models
         public string Duration { get; set   ; }
         public string Description { get; set; }
         public AddedElement[] AddedElements { get; set; }
+        public bool isPublic { get; set; }
     }
 
     public class AddedElement

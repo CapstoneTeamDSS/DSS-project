@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
 }
 <div class="">
     <div class="page-title">
@@ -33,6 +39,14 @@
                                        class="form-control col-md-7 col-xs-12"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Title)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -242,7 +256,7 @@
             });
             $("#multiselect1").find("option").each(function () {
                 var type = $(this).attr("data-type");
-                if ($.inArray(type, values)>-1) {
+                if ($.inArray(type, values) > -1) {
                     $(this).show();
                 } else {
                     $(this).hide();
@@ -250,6 +264,20 @@
             });
         });
     </script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Private";
+            if (this.checked) {
+                text = "Public";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- End Switchery Change Status Text-->
     <!--Check typeId, if Image == 1 show colorbox-->
     <script>
         $("#multiselect1").change(function () {
@@ -291,6 +319,9 @@
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
 }
 
 

@@ -190,7 +190,7 @@
           <Property Name="MediaSrcID" Type="int" Nullable="false" />
           <Property Name="PlaylistID" Type="int" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
-          <Property Name="Duration" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Resolution">
           <Key>
@@ -471,18 +471,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Playlist_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
-          <End Role="Playlist" Type="Self.Playlist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Playlist">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_PlaylistItem_MediaSrc">
           <End Role="MediaSrc" Type="Self.MediaSrc" Multiplicity="1" />
           <End Role="PlaylistItem" Type="Self.PlaylistItem" Multiplicity="*" />
@@ -699,10 +687,6 @@
             <End Role="MediaType" EntitySet="MediaType" />
             <End Role="MediaSrc" EntitySet="MediaSrc" />
           </AssociationSet>
-          <AssociationSet Name="FK_Playlist_Brand" Association="Self.FK_Playlist_Brand">
-            <End Role="Brand" EntitySet="Brand" />
-            <End Role="Playlist" EntitySet="Playlist" />
-          </AssociationSet>
           <AssociationSet Name="FK_PlaylistItem_MediaSrc" Association="Self.FK_PlaylistItem_MediaSrc">
             <End Role="MediaSrc" EntitySet="MediaSrc" />
             <End Role="PlaylistItem" EntitySet="PlaylistItem" />
@@ -770,7 +754,6 @@
           <EntitySet Name="Scenarios" EntityType="DSSModel.Scenario" />
           <EntitySet Name="ScenarioItems" EntityType="DSSModel.ScenarioItem" />
           <EntitySet Name="Screens" EntityType="DSSModel.Screen" />
-          <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
           <AssociationSet Name="FK_Account_Brand" Association="DSSModel.FK_Account_Brand">
             <End Role="Brand" EntitySet="Brands" />
             <End Role="Account" EntitySet="Accounts" />
@@ -879,6 +862,7 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -1096,7 +1080,7 @@
           <Property Name="MediaSrcID" Type="Int32" Nullable="false" />
           <Property Name="PlaylistID" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
-          <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" Nullable="false" />
           <NavigationProperty Name="MediaSrc" Relationship="DSSModel.FK_PlaylistItem_MediaSrc" FromRole="PlaylistItem" ToRole="MediaSrc" />
           <NavigationProperty Name="Playlist" Relationship="DSSModel.FK_PlaylistItem_Playlist" FromRole="PlaylistItem" ToRole="Playlist" />
         </EntityType>
@@ -1167,16 +1151,6 @@
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Screen" FromRole="Screen" ToRole="Device" />
           <NavigationProperty Name="Location" Relationship="DSSModel.FK_Screen_Location" FromRole="Screen" ToRole="Location" />
           <NavigationProperty Name="Resolution" Relationship="DSSModel.FK_Screen_Resolution" FromRole="Screen" ToRole="Resolution" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Account_Brand">
           <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
@@ -1504,6 +1478,16 @@
           <End Type="DSSModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="DSSModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1758,6 +1742,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DSSModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DSSModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1769,14 +1761,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DSSModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetUser">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="AspNetRole">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

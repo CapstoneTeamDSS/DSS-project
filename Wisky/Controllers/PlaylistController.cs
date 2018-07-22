@@ -38,12 +38,13 @@ namespace DSS.Controllers
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
             foreach (var item in playlistList)
-            {
+            {                
                 var m = new Models.PlaylistDetailVM
                 {
                     Title = item.Title,
                     Description = item.Description,
                     Id = item.PlaylistID,
+                    isPublic = (bool)item.isPublic,
                     Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
                 };
                 playlistDetailVM.Add(m);
@@ -94,7 +95,26 @@ namespace DSS.Controllers
             ViewBag.itemList = GetMediaSrcListByPlaylistId(id ?? default(int));
             return View("Form", model);
         }
+        //TOANTXSE62006
+        //GET: Playlist/UpdateStatus
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var playlist = this.playlistService
+                .Get(a => a.PlaylistID == dataId)
+                .FirstOrDefault();
+            if (playlist != null)
+            {
+                playlist.isPublic = !playlist.isPublic;
+                this.playlistService.Update(playlist);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
+        }
         //TrinhNNP
         //Get media Src List by playlist ID
         public static List<Models.PlaylistItemVM> GetMediaSrcListByPlaylistId(int playlistId)
@@ -159,6 +179,7 @@ namespace DSS.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     BrandID = user.BrandID,
+                    isPublic = model.isPublic,
                 };
                 await this.playlistService.CreateAsync(playlist);
                 /* Add item to playlist*/
@@ -235,6 +256,7 @@ namespace DSS.Controllers
                 {
                     playlist.Title = model.Title;
                     playlist.Description = model.Description;
+                    playlist.isPublic = model.isPublic;
                 }
                 await this.playlistService.UpdateAsync(playlist);
                 return this.RedirectToAction("Index");
