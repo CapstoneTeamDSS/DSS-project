@@ -22,7 +22,6 @@ namespace DSS.Data.Models.Entities
             this.Devices = new HashSet<Device>();
             this.Locations = new HashSet<Location>();
             this.MediaSrcs = new HashSet<MediaSrc>();
-            this.Playlists = new HashSet<Playlist>();
             this.Resolutions = new HashSet<Resolution>();
             this.Scenarios = new HashSet<Scenario>();
         }
@@ -43,8 +42,6 @@ namespace DSS.Data.Models.Entities
         public virtual ICollection<Location> Locations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MediaSrc> MediaSrcs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Playlist> Playlists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Resolution> Resolutions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
