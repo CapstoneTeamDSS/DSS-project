@@ -34,9 +34,11 @@
                             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
                                 Title
                             </th>
+                            <th>Status</th>
+                            <th>Preview</th>
                             <th>Description</th>
                             <th>Type</th>
-                            <th>Status</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -45,13 +47,15 @@
                             var i = 0;
                             foreach (var item in layouts)
                             {
-                                <tr>
-                                    <td>@(++i)</td>
-                                    <td>@(item.Title)</td>
-                                    <td>@(item.Description)</td>
-                                    <td>@(item.IsHorizontal ? "Horizontal" : "Vertical")</td>
-                                    <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool) item.IsPublic ? "Public" : "Private")</a></td>
-                                </tr>
+                        <tr>
+                            <td>@(++i)</td>
+                            <td>@(item.Title)</td>
+                            <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool)item.IsPublic ? "Public" : "Private")</a></td>
+                            <td><img src="@(item.Url)" style="max-width: 200px;"></td>
+                            <td>@(item.Description)</td>
+                            <td>@(item.IsHorizontal ? "Horizontal" : "Vertical")</td>
+
+                        </tr>
                             }
                         }
                     </tbody>
