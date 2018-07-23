@@ -22,12 +22,17 @@
                     @using (Html.BeginForm((Model?.LocationId != null) ? "Update" : "Add", "Location", new { LocationId = (Model?.LocationId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Province <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input id="first-name"
+                                <input id="province"
                                        name="Province"
                                        class="form-control"
                                        data-parsley-id="5" type="text"
@@ -39,7 +44,7 @@
                                 District <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input id="first-name"
+                                <input id="district"
                                        name="District"
                                        class="form-control"
                                        data-parsley-id="5" type="text"
@@ -51,7 +56,7 @@
                                 Address <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input id="first-name"
+                                <input id="address"
                                        name="Address"
                                        class="form-control"
                                        data-parsley-id="5" type="text"
@@ -96,6 +101,39 @@
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <!--End Sweet alert-->
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#province').val() == '') {
+                stringError.push("Please input province.");
+            }
+            if ($('#district').val() == '') {
+                stringError.push("Please input district.");
+            }
+            if ($('#address').val() == '') {
+                stringError.push("Please input address.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_mediaSrc").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
 }
 @section styles{
     <!--Sweet alert-->

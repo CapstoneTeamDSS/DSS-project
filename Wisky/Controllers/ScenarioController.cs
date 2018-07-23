@@ -95,6 +95,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     LayoutID = model.LayoutId,
                     BrandID = user.BrandID,
+                    isPublic = model.IsPublic,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
