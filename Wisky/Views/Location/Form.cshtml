@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DSS.Models.LocationDetailVM
+@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
@@ -22,7 +23,7 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">                           
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Province <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">

@@ -216,7 +216,10 @@ namespace DSS.Controllers
                     url = "/Playlist/Index",
                 }, JsonRequestBehavior.AllowGet);
             }
-            return View("Form", model);
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         private static string GetVideoDuration(string filePath)
@@ -261,9 +264,16 @@ namespace DSS.Controllers
                     playlist.isPublic = model.isPublic;
                 }
                 await this.playlistService.UpdateAsync(playlist);
-                return this.RedirectToAction("Index");
+                return Json(new
+                {
+                    success = true,
+                    url = "/Playlist/Index",
+                }, JsonRequestBehavior.AllowGet);
             }
-            return View("Form", model);
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Playlist/Delete/:id
