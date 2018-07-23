@@ -1917,6 +1917,7 @@
     <Content Include="Views\BrandUserMng\Form.cshtml" />
     <Content Include="Views\FileStack\Index.cshtml" />
     <Content Include="Views\Layout\Index.cshtml" />
+    <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
