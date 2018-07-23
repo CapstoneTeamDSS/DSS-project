@@ -175,13 +175,6 @@ namespace DSS.Controllers
                     TypeID = typeCheck,
                     URL = model.URL,
                     Description = model.Description,
-                    CreateDatetime = time.ToShortTimeString(),
-                    UpdateDatetime = time.ToShortTimeString(),
-
-                };
-                await this.mediaSrcService.CreateAsync(media);
-                ViewBag.Name = "Add successful!";
-                return this.RedirectToAction("Index");
                     Extension = ext,
                     CreateDatetime = time,
                 };
@@ -192,10 +185,7 @@ namespace DSS.Controllers
                     ContentType = "text/html"
                 };
             }
-            ViewBag.Name = "Add Fail!!!";
             return View("Form", model);
-
-        }   
         }
 
         /*Check mime type*/

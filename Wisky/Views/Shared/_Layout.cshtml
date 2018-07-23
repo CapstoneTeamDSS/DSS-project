@@ -64,39 +64,6 @@
                                             <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="menu_section">
-                            <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
-                            <ul class="nav side-menu">
-                                <li>
-                                    <a><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "MediaSrc")">@DSS.ResourcesLanguage.MenuText.AddNew </a></li>
-                                        <li><a href="@Url.Action("Index", "MediaSrc")">@DSS.ResourcesLanguage.MenuText.ViewListMng </a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Playlist")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Playlist")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Scenario")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index","Scenario")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
-
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
                                 </div>
                             }
                         }
@@ -154,11 +121,8 @@
                                     <h3>@DSS.ResourcesLanguage.MenuText.SystemSection</h3>
                                     <ul class="nav side-menu">
                                         <li>
-                                            <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
-                                            
-                                                    
-                                
-                                            
+                                            <a><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+
                                         </li>
                                         <li>
                                             <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>

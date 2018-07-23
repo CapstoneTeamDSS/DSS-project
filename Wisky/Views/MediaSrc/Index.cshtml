@@ -2,17 +2,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{ 
-    // reconfiguring the toasts as sticky
-$().toastmessage({ sticky: true});
-
-// saving the newly created toast into a variable
-var myToast =  $().toastmessage('showNoticeToast', 'some message here');
-
-// removing the toast
-$().toastmessage('removeToast', myToast);
-}
-
 <div class="">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
@@ -51,7 +40,7 @@ $().toastmessage('removeToast', myToast);
                         <li role="presentation" class="">
                             <a href="#tab_audio" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Audio</a>
                         </li>
-                        <li role="presentation" class="">               
+                        <li role="presentation" class="">
                             <a href="#tab_otherfile" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Other File</a>
                         </li>
                     </ul>
@@ -84,11 +73,6 @@ $().toastmessage('removeToast', myToast);
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++i)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                            <td><img src="@(item.URL)" style="max-width: 200px;"></td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td><img src="@(item.URL)" style="max-width: 200px;"></td>
                                                             <td>@(item.Description)</td>
@@ -131,12 +115,6 @@ $().toastmessage('removeToast', myToast);
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++j)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:300px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                                <a class="custom" data-flashy-type="video" href="https://www.youtube.com/watch?v=KfxJbYg5SXs">
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
@@ -203,7 +181,7 @@ $().toastmessage('removeToast', myToast);
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_ortherfile" aria-labelledby="profile-tab">
-                            <p>                  
+                            <p>
                                 <h2>Other File Manager</h2>
 
                                 <div class="x_content">
@@ -229,11 +207,6 @@ $().toastmessage('removeToast', myToast);
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++f)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isActive ? "Enable" : "Disable")</td>
-                                                            <td>@(item.Description)</td>
-                                                            <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
@@ -285,11 +258,6 @@ $().toastmessage('removeToast', myToast);
     <script type="text/javascript" src="~/Content/index-media-preview-video/src/jquery.flashy.min.js"></script>
     <script type="text/javascript" src="~/Content/index-media-preview-video/js/main.js"></script>
     <!-- /end scripts-section -->
-    <!-- kendo scripts-section -->
-    <script src="@Url.Content("~/Scripts/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo.web.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo.aspnetmvc.min.js")"></script>
-    <!-- /end kendo-section -->
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
@@ -357,10 +325,6 @@ $().toastmessage('removeToast', myToast);
     <!-- preview button css -->
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/css/effect.css">
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/src/flashy.min.css">
-    <!-- /end css -->
-    <!-- kendo css -->
-    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.common.min.css")">
-    <link rel="stylesheet" href="@Url.Content("~/Content/kendo.default.min.css")">
     <!-- /end css -->
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
