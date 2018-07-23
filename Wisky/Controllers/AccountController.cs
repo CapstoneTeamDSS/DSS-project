@@ -17,10 +17,8 @@ using Wisky.Data.Utility;
 
 namespace Wisky.Controllers
 {
-    //[Authorize]
-    //[Authorize(Roles = "ActiveUser")]  
-
-
+    [Authorize]
+    //[Authorize(Roles = "System Admin")]
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
@@ -83,6 +81,9 @@ namespace Wisky.Controllers
                 var user = System.Web.HttpContext.Current.User;
                 if (user != null)
                 {
+                    //Put current user to Session
+                    //DSS.Models.CurrentUserVM currentUser = this.GetCurrentUser();
+                    //Session["currentUser"] = currentUser;
                     returnUrl = this.Url.Action("Index", "Home");
                 }
                 else
@@ -92,6 +93,32 @@ namespace Wisky.Controllers
                 return this.Redirect(returnUrl);
             }
         }
+
+        //TrinhNNP
+        //Get current user as usable VM
+        //public DSS.Models.CurrentUserVM GetCurrentUser()
+        //{
+        //    var currentUser = System.Web.HttpContext.Current.User;
+        //    if (currentUser != null)
+        //    {
+        //        var user = UserManager.FindById(currentUser.Identity.GetUserId());
+        //        var userVM = new DSS.Models.CurrentUserVM
+        //        {
+        //            UserName = user.UserName,
+        //            BrandId = user.BrandId,
+        //            FullName = user.FullName,
+        //            Id = user.Id,
+        //        };
+        //        /*Get Role*/
+        //        var userRoles = UserManager.GetRoles(user.Id).ToArray();
+        //        if (userRoles.Length > 0)
+        //        {
+        //            userVM.Role = userRoles[0];
+        //        }
+        //        return userVM;
+        //    }
+        //    return null;
+        //}
 
         //
         // POST: /Account/Login
@@ -103,6 +130,7 @@ namespace Wisky.Controllers
             ViewBag.LoginFail = "Invalid username or password";
             if (!this.ModelState.IsValid)
             {
+                //Put current user to Session
                 return this.View(model);
             }
 
@@ -118,6 +146,9 @@ namespace Wisky.Controllers
                     {
                         if (string.IsNullOrEmpty(returnUrl))
                         {
+                            //Put current user to Session
+                            //DSS.Models.CurrentUserVM currentUser = this.GetCurrentUser();
+                            //Session["currentUser"] = currentUser;
                             returnUrl = this.Url.Action("Index", "Home");
                         }
                     }

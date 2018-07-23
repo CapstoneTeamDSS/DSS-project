@@ -1,0 +1,157 @@
+﻿
+@model DSS.Models.MediaSrcUseVM
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
+}
+<style>
+    body {
+        overflow-x: hidden;
+    }
+</style>
+<div class="">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Set duration for Image</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    @using (Html.BeginForm("", "", new { ScreenId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_duration", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <input type="hidden" name="mediaSrcId" id="mediaSrcId" value="@(Model?.MediaSrcId)" />
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Title
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-9">
+                                <div id="title"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9" @*style="padding-top:1px"*@>
+                                <input type="hidden" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") />
+                                <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                Duration
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-9">
+                                <input id="imgDuration" type="text" class="time"  />
+                            </div>
+                            <!--Show validation-->
+                            <span class="field-validation-error-duration" style="padding-left:120px; color:red"></span>
+                            <!--End Show validation-->
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                Description
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <div id="description"></div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                <div type="button" onclick="checkValidation()" class="btn btn-success" id="btnSet">Set Duration</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $("#duration").change(function () {
+            var value = this.val();
+            alert(value);
+        });
+    </script>
+    <!--Validation-->
+    <script>       
+        function checkValidation() {
+            var pattern = /^[A-Za-z '.-]+$/;
+            $(".field-validation-error-duration").empty();
+            var input = $("#imgDuration");
+            if (input.val() == '') {
+                $(".field-validation-error-duration").html("Please input duration");
+            } else if (pattern.test(input.val())) {
+                $(".field-validation-error-duration").html("Please input with format 00:00:00");
+            } else {
+                $("#frm_screen").submit();
+                parent.jQuery.fn.colorbox.close();
+            }
+        }
+    </script>
+    <!-- End Validation-->
+    <!-- jQuery -->
+    <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
+    <!--Duration picker-->
+    <script type="text/javascript" src="~/Content/duration-picker/jquery.timepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('#imgDuration').timepicker({
+                'timeFormat': 'H:i:s',
+                'step': 1
+            });
+        });
+    </script>
+    <!--End Duration picker-->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#btnSet").click(function () {
+            var input = $("#imgDuration");
+            var data = {
+                'duration': input.val(),
+                'mediaSrcId': $("#mediaSrcId").val(),
+            }
+            console.log(input.val());
+            window.parent.postMessage(['data', JSON.stringify(data)], "*");
+        });
+
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- End Switchery Change Status Text-->
+    <script>
+        var title = '@(Model?.Title)';
+        var description = '@(Model?.Description)';
+        $("#title").append(title);
+        $("#description").append(description);
+    </script>
+}
+@section styles{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <!-- duration Picker -->
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/jquery.timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/site.css" />
+    <!-- End duration Picker -->
+}
+

@@ -2,10 +2,13 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
 }
-
-
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -17,126 +20,149 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Add New Playlist</h2>
+                    <h2>@((Model?.Id != null) ? "Update Playlist" : "Add New Playlist")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
                     @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
-                        @Html.ValidationSummary()
-
-                        <div style="position:relative; top: 0; left: -170px;" class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                        @*@Html.ValidationSummary()*@
+                        <input type="hidden" id="playlistId" value="@(Model?.Id)" />
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Playlist Title <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
-                                       name="Title"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.Title)">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="first-name" name="Title" class="form-control col-md-7 col-xs-12" data-parsley-id="5" type="text" value="@(Model?.Title)">
                             </div>
                         </div>
-                        <div style="position:relative; top: 0; left: -170px" class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
-                            @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
-
-
-
-                        @*<div style="margin-left: 30px">
-                                <h4  style="margin-left:120px; display: inline-block">Resource Items</h4><h4 style="display: inline-block; position: relative; left: 50%">New Playlist</h4>
-                            </div>*@
-
-
-                        <div style="position:relative; top: 0; left: -170px" class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                        <div style="position:relative" class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Resource Items <span class="required">*</span>
-
-
                             </label>
-                            <div class="file-type text-navy">
-                                <small style="font-size:15px" class="text-navy">File type:</small>
-                                <br />
-                                <input style="display:inline-block" type="checkbox" name="mp4" checked value="mp4">Video
-                                &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="img" value="png">Image
-                                &nbsp;&nbsp;<br />
-                                <input style="display:inline-block" type="checkbox" name="jpg" value="ss">Other
-                            </div>
-                            <div style="margin-left: 0px" class="col-sm-3">
-                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
-                                    <option value="1" data-position="1">Atem 1</option>
-                                    <option value="2" data-position="2">Item 5</option>
-                                    <option value="2" data-position="3">Stem 2</option>
-                                    <option value="2" data-position="4">Item 4</option>
-                                    <option value="3" data-position="5">Ktem 3</option>
+                            <div style="margin-left: 0px" class="col-md-3 col-sm-3 col-xs-3">
+                                <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                                    @{
+                                        var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcUseVM>;
+                                        var itemList = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
+                                        var i = 0;
+                                        foreach (var item in mediaSrcList)
+                                        {
+                                            if (!itemList.Exists(e => e.mediaSrcId == item.MediaSrcId))
+                                            {
+                                                <option value="@(item.MediaSrcId)" data-type="@(item.TypeId)" data-position="@(++i)" data-url="@(item.URL)">@(item.Title)</option>
+                                            }
+                                        }
+                                    }
                                 </select>
                             </div>
-
-                            <div class="col-sm-2">
+                            <div class=" col-md-2 col-sm-2 col-xs-2">
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
                             </div>
                             <div style=" display: inline-block"></div>
-
-
-                            <div class="col-sm-3" id="selectedFiles">
-                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
-                            </div>
-                        </div>
-                        @*<div  style=" display: inline-block" ><h4 style=" display: inline-block">Resource Items</h4></div>
-                            <div style="margin-left: 130px" class="col-sm-3">
-                                <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
-                                    <option value="1" data-position="1">Atem 1</option>
-                                    <option value="2" data-position="2">Item 5</option>
-                                    <option value="2" data-position="3">Stem 2</option>
-                                    <option value="2" data-position="4">Item 4</option>
-                                    <option value="3" data-position="5">Ktem 3</option>
+                            <div class=" col-md-3 col-sm-3 col-xs-3" id="selectedFiles">
+                                <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
+                                    @{
+                                        var itemListTo = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
+                                        foreach (var item in itemListTo)
+                                        {
+                                            <option value="@(item.mediaSrcId)" data-position="@(++i)">@(item.mediaSrcTitle)</option>
+                                        }
+                                    }
                                 </select>
                             </div>
-
-
-                            <div class="col-sm-2">
-                                <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
-                                <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
-                                <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
-                                <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
-                            </div>
-                            <div  style=" display: inline-block"></div>
-
-
-                            <div class="col-sm-3" id="selectedFiles">
-                                <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
-                            </div>*@
-
-
-
-
-
-
-                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 30px; width: 800px ">
-                            <button style="margin-left:16.5%" type="reset" class="btn btn-primary">Reset</button>
-                            <button style="margin-left: 0" type="submit" class="btn btn-success">Submit</button>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Video
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Image
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
 @section scripts{
-
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            var SelectedOptions = $("#multiselect1_to > option");
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input title.");
+            }
+            if (SelectedOptions.length === 0) {
+                stringError.push("Please select at least 1 item.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                submitFunction();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
@@ -152,12 +178,10 @@
         ga('create', 'UA-39934286-1', 'github.com');
         ga('send', 'pageview');
     </script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             // make code pretty
             window.prettyPrint && prettyPrint();
-
             // hack for iPhone 7.0.3 multiselects bug
             if (navigator.userAgent.match(/iPhone/i)) {
                 $('select[multiple]').each(function () {
@@ -176,41 +200,160 @@
                     select.prepend(firstOption);
                 });
             }
-
             $('#multiselect1').multiselect();
             $('#multiselect2').multiselect();
-
         });
     </script>
-
+    <script>
+        var AddedElements = {};
+        //Get duration value from iframe
+        window.addEventListener('message', function (e) {
+            var $iframe = $('.iframe');
+            var eventName = e.data[0];
+            var data = JSON.parse(e.data[1]);
+            var mediaSrcId = data.mediaSrcId;
+            var duration = data.duration;
+            AddedElements[mediaSrcId] = duration;
+        }, false);
+        console.log(AddedElements);
+        function submitFunction() {
+            console.log(AddedElements);
+            var SelectedOptions = $("#multiselect1_to > option");
+            for (var i = 0; i < SelectedOptions.length; i++) {
+                var Obj = SelectedOptions[i];
+                var type = $(Obj).attr("data-type");
+                var ItemId = $(Obj).attr('value');
+                if (AddedElements[ItemId] == null) {
+                    AddedElements[ItemId] = 0;
+                }
+            }
+            var other_data = $('#frm_playlist').serializeArray();
+            var data = {
+                AddedElements: [],
+            };
+            $.each(other_data, function (key, input) {
+                data[input.name] = input.value;
+            });
+            $.each(AddedElements, function (index, value) {
+                var obj = {
+                    "ItemId": index,
+                    "ItemDuration": value,
+                };
+                data["AddedElements"].push(obj);
+            });
+            var url = "/Playlist/" + $("#playlistId").val() != "" ? "Update" : "Add";
+            alert(url);
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    if (res.success) {
+                        location.href = res.url;
+                    } else {
+                        alert("500: Server error!");
+                    }
+                },
+                error: function () {
+                    alert("Can not send request!");
+                }
+            });
+        }
+    </script>
     <script>
         var selDiv = "";
-
         document.addEventListener("DOMContentLoaded", init, false);
-
         function init() {
             document.querySelector('#files').addEventListener('change', handleFileSelect, false);
             selDiv = document.querySelector("#selectedFiles");
         }
-
         function handleFileSelect(e) {
-
             if (!e.target.files) return;
-
             selDiv.innerHTML = "";
-
             var files = e.target.files;
             for (var i = 0; i < files.length; i++) {
                 var f = files[i];
-
                 selDiv.innerHTML += f.name + "<br/>";
-
             }
-
         }
-
-
     </script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "90%", height: "90%",
+                //refresh page when summit
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <script>
+        /*Get file list base on file type*/
+        $("input:checkbox[name='fileType']").change(function () {
+            var values = [];
+            $("input:checkbox[name='fileType']:checked").each(function () {
+                values.push($(this).val());
+            });
+            $("#multiselect1").find("option").each(function () {
+                var type = $(this).attr("data-type");
+                if ($.inArray(type, values) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    </script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Private";
+            if (this.checked) {
+                text = "Public";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- End Switchery Change Status Text-->
+    <!--Check typeId, if Image == 1 show colorbox-->
+    <script>
+        $("#multiselect1").change(function () {
+            var optionSelected = $(this).find('option:selected').attr('data-type');
+            var selectedImageId = $(this).val();
+            if (optionSelected == 1) {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block iframe';
+                $("#multiselect1_rightSelected").click(function () {
+                    $(this).attr("href", "/Playlist/ImageDuration?imageId=" + selectedImageId);
+                })
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "40%", height: "60%",
+                        //refresh page when summit
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                    // send image id to controller
+                });
+            } else {
+                document.getElementById("multiselect1_rightSelected").className = 'btn btn-block';
+            }
+        });
+    </script>
+    <!--End Check typeId, if Image == 1 show colorbox-->
 }
 @section styles{
     <style>
@@ -220,4 +363,11 @@
             left: 200px;
         }
     </style>
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
 }
+

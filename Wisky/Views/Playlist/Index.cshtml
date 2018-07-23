@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -11,13 +10,21 @@
         </div>
     </div>
     <div class="clearfix"></div>
-
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Playlist list</h2>
                     <div class="clearfix"></div>
+                </div>
+                <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
+                    <a href="/Playlist/Form">
+                        <ul class="bs-glyphicons-list">
+                            <li>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
+                            </li>
+                        </ul>
+                    </a>
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
@@ -34,10 +41,11 @@
                                     Title
                                 </th>
                                 <th>Duration</th>
+                                <th>Status</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
-                        </thead>    
+                        </thead>
                         <tbody>
                             @{
                                 var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
@@ -47,11 +55,12 @@
                                     <tr>
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
-                                        <td>Duration</td>
+                                        <td>@(item.Duration)</td>
+                                        <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? "Public" : "Private")</a></td>
                                         <td>@(item.Description)</td>
-                                        <td  style="width:300px; text-align:center">
-                                            <a href="/Playlist/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                        <td style="width:200px; text-align:center">
+                                            <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
                                             <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
                                         </td>
                                     </tr>
@@ -82,6 +91,92 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!--Change status enable disable-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Playlist/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this location!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var locationIdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/Location/Delete?Id=" + locationIdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your location has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your location file is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 
 @section styles{
@@ -91,4 +186,13 @@
     <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--Button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }

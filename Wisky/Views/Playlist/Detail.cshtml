@@ -1,10 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -24,159 +21,35 @@
                     <p class="text-muted font-13 m-b-30">
                         DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p>
-
-                    <div class="stepContainer">
-
-
-                        <ul id="namelist">
-                            <li id='i_1' class="i-old" onclick="swapVideo('i_1',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger">Delete</button>
-                            </li>
-                            <li id='i_2' class="i-old" onclick="swapVideo('i_2',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger">Delete</button>
-                            </li>
-                            <li id='i_3' class="i-old" onclick="swapVideo('i_3',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger">Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-                            <li id='i_4' class="i-old" onclick="swapVideo('i_4',this)">
-
-                                <span id="title">Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 Image 1 </span>
-                                <span id="duration"> 7:40 </span>
-
-                                @*<i class="fa fa-play fa-2x" style="position:relative; top: -15px; left:0; margin-left:15%; cursor:pointer " data-video-url="/Content/videos/video1.mp4" aria-hidden="true"></i>*@
-
-                                <button style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="/Content/videos/video1.mp4">Play</button>
-                                <button style="position:relative; top: -15px; left:0; margin-left:5%" type="submit" class="fa fa-trash btn btn-danger"> Delete</button>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
-
-                    <hr />
-                    <div style="position:sticky; top:0; left:0 ">
-                        @*<div id="deleteArea">
-                                <img style="width:60px; height:60px" src="~/Content/images/trashDelete.png">
-                            </div>*@
-                        <input class="btn btn-primary" style="margin-left:35%" type="button" value="Reset" onClick="window.location.href=window.location.href">
-                        <input class="btn btn-success" style="margin-left:0" type="button" value="Submit" />
-                        @*<button style="margin-left:2%" type="submit" class="btn btn-success">Submit</button>*@
-                    </div>
+                    @using (Html.BeginForm("UpdateDetail", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        <div class="stepContainer">
+                            <ul id="namelist">
+                                @{
+                                    var playlistItemList = ViewBag.playlistItemList as List<DSS.Models.PlaylistItemVM>;
+                                    var i = 0;
+                                    foreach (var item in playlistItemList)
+                                    {
+                                        <li id='i_@(++i)' class="i-old" onclick="swapVideo('i_@(i)', this)">
+                                            <span id="title">@(item.mediaSrcTitle)</span>
+                                            <span id="duration">@(item.duration)</span>
+                                            <input type="hidden" name="playlistItemIds[]" value="@(item.playlistItemId)" />
+                                            <input type="hidden" class="prePos" value="@(i)" />
+                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="@(item.URL)" value="Play"/>
+                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:5%" class="btn btn-danger" value="Delete"/>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <hr />
+                        <div style="position:sticky; top:0; left:0 ">
+                            <input class="btn btn-primary" style="margin-left:35%" type="button" value="Reset" onClick="window.location.href=window.location.href">
+                            <input class="btn btn-success" style="margin-left:0" type="submit" value="Save Change" />
+                            @*<button style="margin-left:2%" type="submit" class="btn btn-success">Submit</button>*@
+                        </div>
+                    }
                 </div>
-
             </div>
         </div>
 
@@ -192,21 +65,10 @@
                     </p>
 
                     <div id="preview-warapper" style="display:inline-block">
-
-                        @*<video controls poster="/Content/images/city.jpg">
-                                <source src="~/Content/videos/Yoona (SNSD) FMV - Prettier Than Flowers.mp4" type="video/mp4">
-                                <source src="~/Content/videos/Yoona (SNSD) FMV - Prettier Than Flowers.mp4" type="video/mp4">
-                                <source src="~/Content/images/trashDelete.png" type="image/png">
-
-                            </video>*@
-
                         <video id="player" src="~/Content/videos/video1.mp4" controls></video>
                     </div>
-
                     <hr />
-
                 </div>
-
             </div>
         </div>
     </div>
@@ -237,10 +99,8 @@
         });
     </script>
     <script>
-
         function swapVideo(id, el) {
             var allListItem = document.querySelectorAll('#namelist li');
-
             for (var item of allListItem) {
                 if (item.getAttribute('id') == id) {
                     item.classList.add('i-new');
@@ -250,8 +110,6 @@
                     item.classList.remove('i-new');
                 }
             }
-
-
             var firstBtn = document.querySelector(`#${id} .btn-success`);
             player.src = firstBtn.getAttribute("data-video-url");
             player.load();
@@ -261,37 +119,10 @@
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
-                                //for (var i = 0; i < videoPlayButtons.length; i++) {
-                                //    videoPlayButtons[i].addEventListener('click', swapVideo);
-                                //}
+                                                                        //for (var i = 0; i < videoPlayButtons.length; i++) {
+                                                                        //    videoPlayButtons[i].addEventListener('click', swapVideo);
+                                                                        //}
     </script>
-
-
-    @*<script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-            <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-            <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
-            <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
-            <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
-            <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
-
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script>
-            $(function () {
-                $("#sortable").sortable();
-                $("#sortable").disableSelection();
-            });
-        </script>*@
 }
 
 @section styles{

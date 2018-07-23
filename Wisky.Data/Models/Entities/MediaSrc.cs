@@ -23,12 +23,13 @@ namespace DSS.Data.Models.Entities
         public int MediaSrcID { get; set; }
         public int BrandID { get; set; }
         public string Title { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public Nullable<bool> isPublic { get; set; }
         public int TypeID { get; set; }
         public string URL { get; set; }
-        public string UpdateDatetime { get; set; }
-        public string CreateDatetime { get; set; }
+        public Nullable<System.DateTime> UpdateDatetime { get; set; }
+        public Nullable<System.DateTime> CreateDatetime { get; set; }
         public string Description { get; set; }
+        public string Extension { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual MediaType MediaType { get; set; }

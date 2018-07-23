@@ -1,0 +1,144 @@
+﻿@model DSS.Models.BrandUserDetailVM
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    bool status = false;
+    if (Model != null)
+    {
+        status = Model.isActive;
+    }
+    <!--hide over flow x-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    <!-- End hide over flow x-->
+}
+<div class="">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@((Model?.Id != null) ? "Update User information" : "Add new User")</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "BrandUserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_box", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Full Name <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone Number</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="PhoneNumber" value="@(Model?.PhoneNumber)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Username <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
+                            </div>
+                        </div>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Password <span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" class="form-control" name="Password">
+                                </div>
+                                <div class="col-md-2 col-sm-3 col-xs-3">
+                                    <input type="button" class="form-control btn btn-success" value="Auto Generate">
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Role <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-3 col-xs-10">
+                                <select class="select2_multiple form-control" name="Role" multiple="multiple" id="Role">
+                                    <option value="0">--- Select Role ---</option>
+                                    @{
+                                        var roleList = ViewBag.roleList as List<DSS.Models.RoleVM>;
+                                        foreach (var item in roleList)
+                                        {
+                                            <option value="@(item.RoleName)" @((Model?.Role)?.CompareTo(item.RoleName) == 0 ? "selected" : "")>@(item.RoleName)</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">
+                                Account Status
+                                <br>
+                                <small class="text-navy">Disabled user can not log in anymnore</small>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section styles {
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
+}
+@section scripts {
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+}

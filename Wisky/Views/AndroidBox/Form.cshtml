@@ -1,15 +1,15 @@
-﻿
+﻿@model DSS.Models.AndroidBoxVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 }
 
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Box Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -23,51 +23,116 @@
                     @using (Html.BeginForm((Model?.BoxId != null) ? "Update" : "Add", "AndroidBox", new { BoxId = (Model?.BoxId) }, FormMethod.Post, new { @id = "frm_box", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Box Name <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
                                        name="Name"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Name)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                Location ID <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Location  <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="Location-Id"
-                                       name="LocationId"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.LocationId)">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <select class="select2_group form-control" name="LocationId" id="location-list">
+                                    <option value="-1">--- Select Location ---</option>
+                                    @{
+                                        var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
+                                        if (locationList != null)
+                                        {
+                                            foreach (var item in locationList)
+                                            {
+                                                <option value="@(item.LocationId)" @(Model?.LocationId == item.LocationId ? "selected" : "")>@(item.Address),Quan @(item.District),@(item.Province)</option>
+                                            }
+                                        }
+
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
                         <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                        if (Model?.BoxId == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
+@section scripts{
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#first-name').val() == '') {
+                stringError.push("Please input box name.");
+            }
+            if ($("#location-list").prop("selectedIndex") === 0) {
+                stringError.push("Please choose location.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_box").submit();
+            }
+        }
+    </script>
+    <!--End Validation-->
+}
+@section styles{
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
+}

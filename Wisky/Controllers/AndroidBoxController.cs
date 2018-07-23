@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AndroidBoxController : Controller
     {
         IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
@@ -17,23 +17,45 @@ namespace DSS.Controllers
         // GET: AndroidBox
         public ActionResult Index()
         {
-            var boxs = this.boxService.Get().ToList();
-            var boxVMs = new List<Models.AndroidBoxVM>();
+            //var boxs = this.boxService.Get().ToList();
+            //var boxVMs = new List<Models.AndroidBoxVM>();
 
-            foreach (var item in boxs)
+            //foreach (var item in boxs)
+            //{
+            //    var b = new Models.AndroidBoxVM
+            //    {
+            //        Name = item.BoxName,
+            //        Description = item.Description,
+            //        BoxId = item.BoxID,
+            //        LocationId = item.LocationID
+
+            //    };
+            //    boxVMs.Add(b);
+            //}
+            ViewBag.boxsList = GetBoxIdByBrandId();
+            return View();
+        }
+        //ToanTXSE
+        //Get box List by location ID
+        public static List<Models.AndroidBoxVM> GetBoxIdByBrandId()
+        {
+            IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+            var AndroidBoxVM = new List<Models.AndroidBoxVM>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var user = Helper.GetCurrentUser();
+            var boxList = boxService.GetBoxIdByBrandId(user.BrandID);
+            foreach (var item in boxList)
             {
-                var b = new Models.AndroidBoxVM
+                var m = new Models.AndroidBoxVM
                 {
                     Name = item.BoxName,
                     Description = item.Description,
                     BoxId = item.BoxID,
                     LocationId = item.LocationID
-
                 };
-                boxVMs.Add(b);
+                AndroidBoxVM.Add(m);
             }
-            ViewBag.boxsList = boxVMs;
-            return View();
+            return AndroidBoxVM;
         }
         // GET: AndroidBox/Delete/:id
         public ActionResult Delete(int id)
@@ -64,6 +86,7 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationIdByBrandId();
             return View(model);
         }
         // POST: AndroidBox/Add
@@ -79,7 +102,12 @@ namespace DSS.Controllers
                     LocationID = model.LocationId
                 };
                 await this.boxService.CreateAsync(box);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
@@ -98,7 +126,11 @@ namespace DSS.Controllers
                     
                 }
                 await this.boxService.UpdateAsync(box);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

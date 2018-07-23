@@ -1,20 +1,20 @@
 ﻿@model DSS.Models.LocationDetailVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 }
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Location Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.LocationId != null) ? "Update Location information" : "Add new Location")</h2>
+                    <h2>@((Model?.LocationId != null) ? "Update Location information" : "Add New Location")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -22,75 +22,128 @@
                     @using (Html.BeginForm((Model?.LocationId != null) ? "Update" : "Add", "Location", new { LocationId = (Model?.LocationId) }, FormMethod.Post, new { @id = "frm_location", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                Brand ID <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
-                                       name="BrandId"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.BrandId)">
-                            </div>
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
                         </div>
+                        //end show error - validation
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Province <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="province"
                                        name="Province"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Province)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 District <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="district"
                                        name="District"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.District)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 Address <span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="first-name"
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="address"
                                        name="Address"
-                                       class="form-control col-md-7 col-xs-12"
+                                       class="form-control"
                                        data-parsley-id="5" type="text"
                                        value="@(Model?.Address)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
                         </div>
                         <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                        if (Model?.LocationId == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-
+@section scripts{
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <!--End Sweet alert-->
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($('#province').val() == '') {
+                stringError.push("Please input province.");
+            }
+            if ($('#district').val() == '') {
+                stringError.push("Please input district.");
+            }
+            if ($('#address').val() == '') {
+                stringError.push("Please input address.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_mediaSrc").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
+}
+@section styles{
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
+}

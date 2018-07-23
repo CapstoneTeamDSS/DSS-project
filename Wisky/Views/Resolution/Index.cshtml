@@ -18,6 +18,15 @@
                 <div class="x_title">
                     <h2>Resolution list</h2>
                     <div class="clearfix"></div>
+                    <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
+                        <a href="/Resolution/Form" class="iframe">
+                            <ul class="bs-glyphicons-list">
+                                <li>
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
+                                </li>
+                            </ul>
+                        </a>
+                    </div>
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
@@ -40,7 +49,7 @@
                         </thead>
                         <tbody>
                             @{
-                                var resolutionsList = ViewBag.brandList as List<DSS.Models.ResolutionDetailVM>;
+                                var resolutionsList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
                                 var i = 0;
                                 foreach (var item in resolutionsList)
                                 {
@@ -50,8 +59,8 @@
                                         <td>@(item.Height)</td>
                                         <td>@(item.Note)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Resolution/Form/@(item.Id) "><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Resolution/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Resolution/Form/@(item.Id)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -81,6 +90,68 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "65%", height: "65%",
+                //refresh page when summit
+                onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this resolution!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var IdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/Resolution/Delete?Id=" + IdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/Resolution/Delete?Id=" + IdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your resolution has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your resolution is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
+}
 }
 
 @section styles{
@@ -90,4 +161,13 @@
     <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }

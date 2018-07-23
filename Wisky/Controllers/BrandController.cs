@@ -8,7 +8,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "System Admin")]
     public class BrandController : Controller
     {
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
@@ -17,23 +17,30 @@ namespace DSS.Controllers
         //GET: Brand/Index
         public ActionResult Index()
         {
-            //var brands = this.brandService.Get().ToList();
-            //var brandVMs = new List<Models.BrandDetailVM>();
-
-            //foreach (var item in brands)
-            //{
-            //    var b = new Models.BrandDetailVM
-            //    {
-            //        Name = item.BrandName,
-            //        Description = item.Description,
-            //        Id = item.BrandID,
-            //    };
-            //    brandVMs.Add(b);
-            //}
             var brandVMs = new List<Models.BrandDetailVM>();
             brandVMs = BrandController.GetBrandList();
             ViewBag.brandList = brandVMs;
             return View();
+        }
+
+        //GET: Brand/Index
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var brand = this.brandService
+                .Get(a => a.BrandID == dataId)
+                .FirstOrDefault();
+            if (brand != null)
+            {
+                brand.isActive = !brand.isActive;
+                this.brandService.Update(brand);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
         }
 
         public static List<Models.BrandDetailVM> GetBrandList()
@@ -41,7 +48,6 @@ namespace DSS.Controllers
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var brands = brandService.Get().ToList();
             var brandVMs = new List<Models.BrandDetailVM>();
-
             foreach (var item in brands)
             {
                 var b = new Models.BrandDetailVM
@@ -49,6 +55,7 @@ namespace DSS.Controllers
                     Name = item.BrandName,
                     Description = item.Description,
                     Id = item.BrandID,
+                    isActive = item.isActive ?? true,
                 };
                 brandVMs.Add(b);
             }
@@ -69,6 +76,7 @@ namespace DSS.Controllers
                         Name = brand.BrandName,
                         Description = brand.Description,
                         Id = brand.BrandID,
+                        isActive = brand.isActive ?? true,
                     };
                 }
             }
@@ -85,9 +93,15 @@ namespace DSS.Controllers
                 {
                     BrandName = model.Name,
                     Description = model.Description,
+                    isActive = model.isActive
                 };
                 await this.brandService.CreateAsync(brand);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Brand")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
@@ -103,9 +117,14 @@ namespace DSS.Controllers
                 {
                     brand.BrandName = model.Name;
                     brand.Description = model.Description;
+                    brand.isActive = model.isActive;
                 }
                 await this.brandService.UpdateAsync(brand);
-                return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Brand")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

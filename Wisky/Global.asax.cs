@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DSS.Data.Models.Entities;
+using DSS.Models;
 using SkyWeb.DatVM.Data;
 using SkyWeb.DatVM.Mvc.Autofac;
 using System;
@@ -64,7 +65,8 @@ namespace Wisky
 
             //config.CreateMap<UserAccountCreateViewModel, UserAccount>();
 
-            //config.CreateMap<UserAccount, UserAccountCreateViewModel>();
+            config.CreateMap<Playlist, PlaylistDetailVM>()
+                .ForMember(a=>a.Duration,opt=>opt.MapFrom(a=> "00:00:00"));
 
         }
         protected void Application_DesignRequest(object sender, EventArgs e)

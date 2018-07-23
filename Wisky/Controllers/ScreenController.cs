@@ -9,7 +9,7 @@ using DSS.Data.Models.Entities.Services;
 
 namespace DSS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ScreenController : Controller
     {
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
@@ -17,24 +17,31 @@ namespace DSS.Controllers
         // GET: Screen
         public ActionResult Index()
         {
-            var screens = this.screenService.Get().ToList();
-            var screenVMs = new List<Models.ScreenVM>();
-
-            foreach (var item in screens)
+            ViewBag.screensList = GetScreenIdByBrandId();
+            return View();
+        }
+        //ToanTXSE
+        //Get screen List by location ID
+        public static List<Models.ScreenVM> GetScreenIdByBrandId()
+        {
+            IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+            var ScreenVM = new List<Models.ScreenVM>();
+            var user = Helper.GetCurrentUser();
+            var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
+            foreach (var item in screenList)
             {
-                var b = new Models.ScreenVM
+                var m = new Models.ScreenVM
                 {
                     Name = item.ScreenName,
-                    Description =item.Description,                  
+                    Description = item.Description,
                     ResolutionId = item.ResolutionID,
                     ScreenId = item.ScreenID,
+                    isHorizontal = item.isHorizontal,
                     LocationId = item.LocationID,
-
                 };
-                screenVMs.Add(b);
+                ScreenVM.Add(m);
             }
-            ViewBag.screensList = screenVMs;
-            return View();
+            return ScreenVM;
         }
         // GET: Screen/Delete/:id
         public ActionResult Delete(int id)
@@ -45,6 +52,15 @@ namespace DSS.Controllers
                 this.screenService.Delete(screen);
             }
             return this.RedirectToAction("Index");
+        }
+        // GET: Screen/GetValueRadioButton
+        public bool GetValueRadioButton(string name)
+        {
+            if (name.ToString().Equals("Landscape"))
+            {
+                return true;
+            }
+            return false;
         }
         // GET: Screen/Form/:id
         public ActionResult Form(int? id)
@@ -63,9 +79,12 @@ namespace DSS.Controllers
                         Description = screen.Description,
                         ResolutionId = screen.ResolutionID,
                         LocationId = screen.LocationID,
+                        isHorizontal = screen.isHorizontal,
                     };
                 }
             }
+            ViewBag.locationList = LocationController.GetLocationIdByBrandId();
+            ViewBag.resolutionList = ResolutionController.GetResolutionListByBrandID();
             return View(model);
         }
         // POST: Screen/Add
@@ -80,13 +99,20 @@ namespace DSS.Controllers
                     Description = model.Description,
                     LocationID = model.LocationId,
                     ResolutionID= model.ResolutionId,
+                    isHorizontal = model.isHorizontal,
+
                 };
                 await this.screenService.CreateAsync(screen);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }
-        // POST: Brand/Update
+        // POST: Screen/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScreenVM model)
         {
@@ -101,7 +127,12 @@ namespace DSS.Controllers
                     screen.ResolutionID = model.ResolutionId;
                 }
                 await this.screenService.UpdateAsync(screen);
-                return this.RedirectToAction("Index");
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

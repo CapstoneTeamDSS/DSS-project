@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using AutoMapper;
 using DSS.Data.Models.Entities.Services;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "Admin, Active User")]
     public class MediaSrcController : Controller
     {
         IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
@@ -18,30 +20,10 @@ namespace DSS.Controllers
         // GET: Media/Index
         public ActionResult Index()
         {
-            DateTime dateCreate = DateTime.Now;
-            DateTime dateUpdate = DateTime.Now;
-            var mediaSrcs = this.mediaSrcService.Get().ToList();
-            var mediaSrcVMs = new List<Models.MediaSrcVM>();
-
-            foreach (var item in mediaSrcs)
-            {
-                var b = new Models.MediaSrcVM
-                {
-                    MediaSrcId = item.MediaSrcID,
-                    Description = item.Description,
-                    Title = item.Title,
-                    isActive = (bool)item.Status,
-                    TypeId = item.TypeID,
-                    URL = item.URL,
-                    CreateDatetime = dateCreate,
-                    UpdateDatetime = dateUpdate,
-                };
-                mediaSrcVMs.Add(b);
-            }
-            ViewBag.mediaSrcList = mediaSrcVMs;
+            ViewBag.mediaSrcList = GetMediaSrcListByBrandId();
             return View();
-
         }
+
         // Media/Form
         public ActionResult Form(int? id)
         {
@@ -58,7 +40,7 @@ namespace DSS.Controllers
                         MediaSrcId = mediaSrc.MediaSrcID,
                         BrandId = mediaSrc.BrandID,
                         Title = mediaSrc.Title,
-                        isActive = (bool)mediaSrc.Status,
+                        isPublic = (bool)mediaSrc.isPublic,
                         URL = mediaSrc.URL,
                         Description = mediaSrc.Description,
                         UpdateDatetime = aDateTime
@@ -67,52 +49,131 @@ namespace DSS.Controllers
             }
             return View(model);
         }
-        // Media/Add resource
-        [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
+        //TOANTXSE62006
+        //GET: MediaSrc/UpdateStatus
+        public ActionResult UpdateStatus(int dataId)
         {
-            if (file != null && file.ContentLength > 0 && ModelState.IsValid)
+            bool result = false;
+            var mediasrc = this.mediaSrcService
+                .Get(a => a.MediaSrcID == dataId)
+                .FirstOrDefault();
+            if (mediasrc != null)
             {
-                var urlCheck = "";
-                var tyleIdCheck = 0;
-                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
-                var resultCheck = CheckFileType(fileName);
-                if (resultCheck == 1)
+                mediasrc.isPublic = !mediasrc.isPublic;
+                this.mediaSrcService.Update(mediasrc);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
+        }
+        //TrinhNNP
+        //Get media Src List by Brand ID
+        public static List<Models.MediaSrcUseVM> GetMediaSrcListByBrandId()
+        {
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var mediaSrcUseVMs = new List<Models.MediaSrcUseVM>();
+            var user = Helper.GetCurrentUser();
+            var mediaSrcList = mediaSrcService.GetMediaSrcByBrand(user.BrandID);
+            foreach (var item in mediaSrcList)
+            {
+                var m = new Models.MediaSrcUseVM
                 {
-                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Image/";
-                    tyleIdCheck = 1;
-                }
-                else if (resultCheck == 2)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Video/";
-                    tyleIdCheck = 2;
-                }
-                else if (resultCheck == 3)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Audio/";
-                    tyleIdCheck = 3;
-                }
-                else if (resultCheck == 4)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/OrtherFile/";
-                    tyleIdCheck = 4;
-                }
+                    Title = item.Title,
+                    Description = item.Description,
+                    URL = item.URL,
+                    isPublic = (bool)item.isPublic,
+                    MediaSrcId = item.MediaSrcID,
+                    TypeId = item.TypeID,
+                };
+                mediaSrcUseVMs.Add(m);
+            }
+            return mediaSrcUseVMs;
+        }
+
+        // Media/Add resource
+        //[HttpPost]
+        //public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
+        //{
+        //    if (file != null && file.ContentLength > 0 && ModelState.IsValid)
+        //    {
+        //        var urlCheck = "";
+        //        var tyleIdCheck = 0;
+        //        var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
+        //        var resultCheck = CheckFileType(fileName);
+        //        // checkt entension file
+        //        string ext = Path.GetExtension(fileName);
+        //        if (resultCheck == 1)
+        //        {
+        //            var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
+        //            file.SaveAs(path); //Save file to project folder
+        //            urlCheck = "/Resource/Image/";
+        //            tyleIdCheck = 1;
+        //        }
+        //        else if (resultCheck == 2)
+        //        {
+        //            var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
+        //            file.SaveAs(path); //Save file to project folder
+        //            urlCheck = "/Resource/Video/";
+        //            tyleIdCheck = 2;
+        //        }
+        //        else if (resultCheck == 3)
+        //        {
+        //            var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
+        //            file.SaveAs(path); //Save file to project folder
+        //            urlCheck = "/Resource/Audio/";
+        //            tyleIdCheck = 3;
+        //        }
+        //        else if (resultCheck == 4)
+        //        {
+        //            var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
+        //            file.SaveAs(path); //Save file to project folder
+        //            urlCheck = "/Resource/OrtherFile/";
+        //            tyleIdCheck = 4;
+        //        }
+        //        DateTime time = DateTime.Now;
+        //        var media = new Data.Models.Entities.MediaSrc
+        //        {
+        //            BrandID = 1,
+        //            Title = model.Title,
+        //            isPublic = model.isActive,
+        //            TypeID = tyleIdCheck,
+        //            URL = urlCheck + fileName,
+        //            Description = model.Description,
+        //            Extension = ext,
+        //            CreateDatetime = time,
+        //        };
+        //        await this.mediaSrcService.CreateAsync(media);
+        //        //return this.RedirectToAction("Index");
+        //        return new ContentResult
+        //        {
+        //            Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+        //            ContentType = "text/html"
+        //        };
+        //    }
+        //    return View("Form", model);
+        //}
+
+        //Media/Add resource
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                string ext = Path.GetExtension(model.Filename);
+                int typeCheck = this.CheckFileType(ext);
                 DateTime time = DateTime.Now;
+                var user = Helper.GetCurrentUser();
+                var currUser = Helper.GetCurrentUser();
                 var media = new Data.Models.Entities.MediaSrc
                 {
-                    BrandID = 1,
+                    BrandID = currUser.BrandID,
                     Title = model.Title,
-                    Status = model.isActive,
-                    TypeID = tyleIdCheck,
-                    URL = urlCheck + fileName,
+                    isPublic = model.isPublic,
+                    TypeID = typeCheck,
+                    URL = model.URL,
                     Description = model.Description,
                     CreateDatetime = time.ToShortTimeString(),
                     UpdateDatetime = time.ToShortTimeString(),
@@ -121,17 +182,49 @@ namespace DSS.Controllers
                 await this.mediaSrcService.CreateAsync(media);
                 ViewBag.Name = "Add successful!";
                 return this.RedirectToAction("Index");
-                
+                    Extension = ext,
+                    CreateDatetime = time,
+                };
+                await this.mediaSrcService.CreateAsync(media);
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+                    ContentType = "text/html"
+                };
             }
             ViewBag.Name = "Add Fail!!!";
             return View("Form", model);
 
         }   
+        }
+
+        /*Check mime type*/
+        //private int CheckMimetype(string ext)
+        //{
+        //    if (ext.Equals("image/png") || ext.Equals("image/jpeg") || ext.Equals("image/bmp"))
+        //    {
+        //        return 1;
+        //    }
+        //    else if (ext.Equals("video/mp4") || ext.Equals("video/mov") || ext.Equals("video/mkv"))
+        //    {
+        //        return 2;
+        //    }
+        //    else if (ext.Equals("audio/mpeg") || ext.Equals("audio/wav"))
+        //    {
+        //        return 3;
+        //    }
+        //    else if (ext.Equals("text/plain"))
+        //    {
+        //        return 4;
+        //    }
+        //    return 0;
+        //}
+
         // Check type file
         private int CheckFileType(string FileName)
         {
             string ext = Path.GetExtension(FileName);
-            if (ext.Equals(".png") || ext.Equals(".jpg"))
+            if (ext.Equals(".png") || ext.Equals(".jpg") || ext.Equals(".jpeg"))
             {
                 return 1;
             }
@@ -148,9 +241,9 @@ namespace DSS.Controllers
                 return 4;
             }
             return 0;
-
         }
-      
+
+
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -163,56 +256,27 @@ namespace DSS.Controllers
         }
         // Media/Update resource
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MediaSrcVM model, HttpPostedFileBase file)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.MediaSrcVM model)
         {
-            if (file != null && file.ContentLength > 0 && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var urlCheck = "";
-                var tyleIdCheck = 0;
-                var fileName = Path.GetFileName(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-FFF") + "-File-" + file.FileName);
-                var resultCheck = CheckFileType(fileName);
-                if (resultCheck == 1)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Image/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Image/";
-                    tyleIdCheck = 1;
-                }
-                else if (resultCheck == 2)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Video/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Video/";
-                    tyleIdCheck = 2;
-                }
-                else if (resultCheck == 3)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/Audio/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/Audio/";
-                    tyleIdCheck = 3;
-                }
-                else if (resultCheck == 4)
-                {
-                    var path = Path.Combine(Server.MapPath("/Resource/OrtherFile/"), fileName);
-                    file.SaveAs(path); //Save file to project folder
-                    urlCheck = "/Resource/OrtherFile/";
-                    tyleIdCheck = 4;
-                }
                 DateTime time = DateTime.Now;
-                var mediaSrc = this.mediaSrcService.Get(model.MediaSrcId);
+                var mediaSrc = this.mediaSrcService.GetById((int)model.MediaSrcId);
                 if (mediaSrc != null)
                 {
+                    mediaSrc.MediaSrcID = (int)model.MediaSrcId;
                     mediaSrc.Title = model.Title;
-                    mediaSrc.Status = model.isActive;
-                    mediaSrc.TypeID = tyleIdCheck;
-                    mediaSrc.URL = urlCheck + fileName;
+                    mediaSrc.isPublic = model.isPublic;
                     mediaSrc.Description = model.Description;
-                    mediaSrc.UpdateDatetime = time.ToShortTimeString();
+                    mediaSrc.UpdateDatetime = time;
                 };
-                await this.mediaSrcService.CreateAsync(mediaSrc);
-                return this.RedirectToAction("Index");
-
+                await this.mediaSrcService.UpdateAsync(mediaSrc);
+                //return this.RedirectToAction("Index");
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+                    ContentType = "text/html"
+                };
             }
             return View("Form", model);
         }

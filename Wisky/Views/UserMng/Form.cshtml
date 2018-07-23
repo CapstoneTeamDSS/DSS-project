@@ -1,28 +1,21 @@
 ﻿@model DSS.Models.UserDetailVM
 @{
     ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     bool status = false;
     if (Model != null)
     {
         status = Model.isActive;
     }
+    <!--hide over flow x-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    <!-- End hide over flow x-->
 }
-@if (TempData["UserMessage"] != null)
-{
-    var message = (MessageVM)TempData["UserMessage"];
-    <div class="alert @message.CssClassName">
-        <strong>@message.Title</strong>
-        @message.Message
-    </div>
-}
-@RenderBody()
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>User Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -37,44 +30,44 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Full Name <span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Full Name <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone Number</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="PhoneNumber" value="@(Model?.PhoneNumber)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Username <span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Username <span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
                         </div>
                         if (Model?.Id == null)
                         {
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Password <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-9 col-xs-12">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Password <span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
                                     <input type="text" class="form-control" name="Password">
                                 </div>
-                                <div class="col-md-2 col-sm-9 col-xs-12">
+                                <div class="col-md-2 col-sm-3 col-xs-3">
                                     <input type="button" class="form-control btn btn-success" value="Auto Generate">
                                 </div>
                             </div>
                         }
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Role <span class="required">*</span></label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Role <span class="required">*</span></label>
+                            <div class="col-md-3 col-sm-6 col-xs-10">
                                 <select class="select2_multiple form-control" name="Role" multiple="multiple">
                                     <option value="0">--- Select Role ---</option>
                                     @{
@@ -88,7 +81,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Brand Name <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                Brand Name <span class="required">*</span>
+                            </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_group form-control" name="BrandId">
                                     <option value="0">--- Select Brand name ---</option>
@@ -103,24 +98,35 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">
                                 Account Status
                                 <br>
                                 <small class="text-navy">Disabled user can not log in anymnore</small>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <td style="width: 120px">
-                                    <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
-                                </td>
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+
                             </div>
                         </div>
                         <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                        if (Model?.Id == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <title>@ViewBag.Title | </title>
@@ -29,8 +30,6 @@
 
     <!-- Custom Theme Style -->
     <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
-
-
     @RenderSection("styles", false)
 </head>
 
@@ -46,44 +45,23 @@
                     <br />
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section">
-                            <h3>@DSS.ResourcesLanguage.MenuText.GeneralSection</h3>
-                            <ul class="nav side-menu">
-                                <li>
-                                    <a><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "UserMng")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "UserMng")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Location")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Location")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-cogs"></i>@DSS.ResourcesLanguage.MenuText.DeviceMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
+                        @{
+                            if (User.IsInRole("Admin") || User.IsInRole("Active User"))
+                            {
+                                <div class="menu_section">
+                                    <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
+                                    <ul class="nav side-menu">
                                         <li>
-                                            <a>@DSS.ResourcesLanguage.MenuText.ScreenMng <span class="fa fa-chevron-down"></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Form", "Screen")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                                <li><a href="@Url.Action("Index", "Screen")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                            </ul>
+                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
                                         </li>
                                         <li>
-                                            <a>@DSS.ResourcesLanguage.MenuText.BoxMng <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Form", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                                <li><a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
-                                            </ul>
+                                            <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
                                         </li>
                                         <li>
-                                            <a>@DSS.ResourcesLanguage.MenuText.Matching <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a></li>
+                                            <a href="@Url.Action("Index", "Scenario")"><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -119,34 +97,79 @@
                                 </li>
                                 <li>
                                     <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                </div>
+                            }
+                        }
+                        @{
+                            if (User.IsInRole("Admin") || User.IsInRole("System Admin"))
+                            {
+                                <div class="menu_section">
+                                    <h3>@DSS.ResourcesLanguage.MenuText.GeneralSection</h3>
+                                    <ul class="nav side-menu">
+                                        <li>
+                                            @{
 
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="menu_section">
-                            <h3>@DSS.ResourcesLanguage.MenuText.SystemSection</h3>
-                            <ul class="nav side-menu">
-                                <li>
-                                    <a><i class="fa fa-flag"></i> @DSS.ResourcesLanguage.MenuText.BrandMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Brand")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Brand")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                                string userMngUrl = User.IsInRole("System Admin") ? Url.Action("Index", "UserMng") : Url.Action("Index", "BrandUserMng");
+                                            }
+                                            <a href="@userMngUrl"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>
+                                        </li>
+                                        @{
+                                            if (User.IsInRole("System Admin"))
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Index", "Brand")"><i class="fa fa-flag"></i> @DSS.ResourcesLanguage.MenuText.BrandMng </a>
+                                                </li>
+                                            }
+                                        }
+                                        @{
+                                            if (User.IsInRole("Admin"))
+                                            {
+                                                <li>
+                                                    <a><i class="fa fa-cogs"></i>@DSS.ResourcesLanguage.MenuText.DeviceMng <span class="fa fa-chevron-down"></span></a>
+                                                    <ul class="nav child_menu">
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "Screen")">@DSS.ResourcesLanguage.MenuText.ScreenMng</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "AndroidBox")">@DSS.ResourcesLanguage.MenuText.BoxMng</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "MatchingDevice")">@DSS.ResourcesLanguage.MenuText.Matching</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Index", "Location")"><i class="fa fa-map-marker"></i>@DSS.ResourcesLanguage.MenuText.LocationMng</a>
+                                                </li>
+                                            }
+                                        }
                                     </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Form", "Resolution")">@DSS.ResourcesLanguage.MenuText.AddNew</a></li>
-                                        <li><a href="@Url.Action("Index", "Resolution")">@DSS.ResourcesLanguage.MenuText.ViewList</a></li>
+                                </div>
+                            }
+                        }
+                        @{
+                            if (User.IsInRole("Admin") || User.IsInRole("System Admin"))
+                            {
+                                <div class="menu_section">
+                                    <h3>@DSS.ResourcesLanguage.MenuText.SystemSection</h3>
+                                    <ul class="nav side-menu">
+                                        <li>
+                                            <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
+                                            
+                                                    
+                                
+                                            
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
+                                        </li>
+                                        <li>
+                                            <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                        </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
-
-                                </li>
-                            </ul>
-                        </div>
-
+                                </div>
+                            }
+                        }
                     </div>
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
@@ -175,7 +198,6 @@
                         <div class="nav toggle">
                             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                         </div>
-
                         <ul class="nav navbar-nav navbar-right">
                             @*<li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -191,7 +213,7 @@
                                 <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> Log Out </a>
                             </li>
                             <li><a href="javascript:;"><i class="fa fa-5x fa-user"></i> My account </a></li>
-                            <li><a>Welcome, <b>@Session["username"]</b>!</a></li>
+                            <li><a>Welcome, <b>@User.Identity.Name</b>!</a></li>
                         </ul>
                     </nav>
                 </div>

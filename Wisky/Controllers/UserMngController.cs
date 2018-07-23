@@ -15,6 +15,7 @@ using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class UserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
@@ -22,13 +23,18 @@ namespace DSS.Controllers
         IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
-        //
+        [Authorize(Roles = "System Admin")]
         // GET: UserMng/Index
         public ActionResult Index()
+        {  
+            ViewBag.userList = GetAllUser();
+            return View();
+        }
+
+        public List<Models.UserMngVM> GetAllUser()
         {
             var users = aspNetUserService.Get().ToList();
             var userVMs = new List<Models.UserMngVM>();
-
             foreach (var item in users)
             {
                 var u = new Models.UserMngVM
@@ -42,11 +48,9 @@ namespace DSS.Controllers
                 };
                 userVMs.Add(u);
             }
-            ViewBag.userList = userVMs;
-            return View();
+            return userVMs;
         }
-
-        //
+       
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -56,8 +60,6 @@ namespace DSS.Controllers
                 var user = this.aspNetUserService.Get(id);
                 if (user != null)
                 {
-                    var userRoles = UserManager.GetRoles(user.Id).ToArray();
-                    ViewBag.userRoles = userRoles;
                     model = new Models.UserDetailVM
                     {
                         UserName = user.UserName,
@@ -68,6 +70,8 @@ namespace DSS.Controllers
                         BrandId = user.BrandID,
                         Id = user.Id,
                     };
+                    var userRoles = UserManager.GetRoles(user.Id).ToArray();
+                    ViewBag.userRoles = userRoles;
                     if (userRoles.Length > 0)
                     {
                         model.Role = userRoles[0];
@@ -102,6 +106,10 @@ namespace DSS.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.Role.CompareTo("System Admin") == 0)
+                {
+                    model.BrandId = 39;
+                }
                 var user = new Wisky.Models.ApplicationUser
                 {
                     UserName = model.UserName,
@@ -111,12 +119,17 @@ namespace DSS.Controllers
                     BrandId = model.BrandId,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user, model.Password);                 
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 }
+                
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();
@@ -134,6 +147,10 @@ namespace DSS.Controllers
                 var user = aspNetUserService
                 .Get(a => a.Id == model.Id)
                 .FirstOrDefault();
+                if (model.Role.CompareTo("System Admin") == 0)
+                {
+                    model.BrandId = 39;
+                }
                 if (user != null)
                 {
                     user.BrandID = model.BrandId;
@@ -150,7 +167,11 @@ namespace DSS.Controllers
                     }
                     //Add to new Role
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
-                    return RedirectToAction("Index", "UserMng");
+                    return new ContentResult
+                    {
+                        Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "UserMng")),
+                        ContentType = "text/html"
+                    };
                 };
             }
             // If we got this far, something failed, redisplay form

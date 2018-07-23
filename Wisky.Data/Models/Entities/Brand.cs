@@ -18,20 +18,33 @@ namespace DSS.Data.Models.Entities
         public Brand()
         {
             this.Accounts = new HashSet<Account>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
+            this.Devices = new HashSet<Device>();
             this.Locations = new HashSet<Location>();
             this.MediaSrcs = new HashSet<MediaSrc>();
+            this.Resolutions = new HashSet<Resolution>();
+            this.Scenarios = new HashSet<Scenario>();
         }
     
         public int BrandID { get; set; }
         public string BrandName { get; set; }
         public string CreateDateTime { get; set; }
         public string Description { get; set; }
+        public Nullable<bool> isActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Device> Devices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Locations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MediaSrc> MediaSrcs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Resolution> Resolutions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Scenario> Scenarios { get; set; }
     }
 }

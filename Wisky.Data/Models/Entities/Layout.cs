@@ -23,7 +23,11 @@ namespace DSS.Data.Models.Entities
     
         public int LayoutID { get; set; }
         public string Title { get; set; }
-        public int AreasNum { get; set; }
+        public string Description { get; set; }
+        public string URL { get; set; }
+        public bool isHorizontal { get; set; }
+        public string LayoutSrc { get; set; }
+        public Nullable<bool> isPublic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Area> Areas { get; set; }

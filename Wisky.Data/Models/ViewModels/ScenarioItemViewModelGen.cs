@@ -15,10 +15,10 @@ namespace DSS.Data.Models.ViewModels
     public partial class ScenarioItemViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.ScenarioItem>
     {
     	
-    			public virtual int ScenarioItemID { get; set; }
     			public virtual int PlaylistID { get; set; }
     			public virtual int ScenarioID { get; set; }
     			public virtual int AreaID { get; set; }
+    			public virtual int LayoutID { get; set; }
     			public virtual int DisplayOrder { get; set; }
     			public virtual string Note { get; set; }
     	
