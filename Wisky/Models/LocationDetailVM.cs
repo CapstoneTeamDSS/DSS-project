@@ -8,7 +8,7 @@ namespace DSS.Models
 {
     public class LocationDetailVM
     {
-        public int LocationId { get; set; }
+        public int? LocationId { get; set; }
         public int BrandId { get; set; }
         [Required(ErrorMessage = "Please input province.")]
         public string Province { get; set; }
