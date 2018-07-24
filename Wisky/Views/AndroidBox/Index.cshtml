@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -111,41 +110,54 @@
     <script>
         $(".btnDelete").click(function () {
             var btnDel = $(this);
-            var boxNum = 0;
+            var IdBox = $(btnDel).attr("data-id");
+            var data = {
+                id: IdBox,
+            };
             $.ajax({
-
-            });
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this android box!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var IdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/AndroidBox/Delete?Id=" + IdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/AndroidBox/Delete?Id=" + IdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                swal("Deleted!", "Your android box has been deleted!", "success");
-                                location.reload();
-                            },
-                            error: function () {
-                                alert("Error occured!!")
-                            }
-                        });
+                type: "POST",
+                url: "/AndroidBox/CheckAndroidBoxIdIsMatching",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    console.log(data);
+                    if (data.isUsing) {
+                        swal("This Box is being used.", "Please unmatch device " + data.deviceVM.Title + " If you want to delete it.", "error");
                     } else {
-                        swal("Cancelled", "Your android box is safe :)", "error");
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this Box!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/AndroidBox/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/AndroidBox/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your Box has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your box is safe :)", "error");
+                                }
+                            });
                     }
-                });
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         });
     </script>
     <!--End Sweet alert-->

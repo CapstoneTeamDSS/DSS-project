@@ -110,7 +110,7 @@
     <script>
         $(".btnDelete").click(function () {
             var btnDel = $(this);
-            var i = 0;
+
             var IdScreen = $(btnDel).attr("data-id");
             var data = {
                 id: IdScreen,
@@ -123,8 +123,8 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     console.log(data);
-                    if (data.isUsing) {
-                        swal("Oops", "Please delete " + data.deviceVM.Title + " before delete this screen!", "error");
+                    if (data.isUsing) {                       
+                        swal("This screen is being used.", "Please unmatch device " + data.deviceVM.Title +  " If you want to delete it.", "error");
                     } else {
                         swal({
                             title: "Are you sure?",
