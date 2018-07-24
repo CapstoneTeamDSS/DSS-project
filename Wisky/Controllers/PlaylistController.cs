@@ -88,6 +88,7 @@ namespace DSS.Controllers
                         Title = playlist.Title,
                         Description = playlist.Description,
                         Id = playlist.PlaylistID,
+                        isPublic = (bool)playlist.isPublic,
                     };
                 }
             }
