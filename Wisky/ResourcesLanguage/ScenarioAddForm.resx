@@ -117,82 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountMng" xml:space="preserve">
-    <value>Accounts</value>
+  <data name="LblDescription" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="AddNew" xml:space="preserve">
-    <value>Add new</value>
+  <data name="LblTitle" xml:space="preserve">
+    <value>Title*</value>
   </data>
-  <data name="BoxMng" xml:space="preserve">
-    <value>Android Box</value>
+  <data name="PageHeader" xml:space="preserve">
+    <value>Create Scenario</value>
   </data>
-  <data name="BrandMng" xml:space="preserve">
-    <value>Brand</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Create Scenario</value>
   </data>
-  <data name="Coming" xml:space="preserve">
-    <value>Coming soon</value>
+  <data name="TxtAreaListPlaylist" xml:space="preserve">
+    <value>Area's List Playlist</value>
   </data>
-  <data name="DeviceMng" xml:space="preserve">
-    <value>Device</value>
+  <data name="TxtChooseScreenLayout" xml:space="preserve">
+    <value>Choose Screen Layout</value>
   </data>
-  <data name="GeneralSection" xml:space="preserve">
-    <value>General</value>
+  <data name="TxtChooseScreenType" xml:space="preserve">
+    <value>Choose Screen Type</value>
   </data>
-  <data name="LayoutMng" xml:space="preserve">
-    <value>Layout</value>
+  <data name="TxtEnterScenarioInfo" xml:space="preserve">
+    <value>Enter Scenario Info</value>
   </data>
-  <data name="LocationMng" xml:space="preserve">
-    <value>Location</value>
+  <data name="TxtInfo" xml:space="preserve">
+    <value>You can create a new scenario just following these simple steps</value>
   </data>
-  <data name="Matching" xml:space="preserve">
-    <value>Device Matching</value>
+  <data name="TxtLandscape" xml:space="preserve">
+    <value>Landscape</value>
   </data>
-  <data name="MediaResourceMng" xml:space="preserve">
-    <value>Media Resource</value>
+  <data name="TxtNavigateScenarioDetails" xml:space="preserve">
+    <value>Navigate Scenario Details</value>
   </data>
-  <data name="MediaSection" xml:space="preserve">
-    <value>Media Management</value>
+  <data name="TxtNext" xml:space="preserve">
+    <value>Next</value>
   </data>
-  <data name="PlaylistMng" xml:space="preserve">
-    <value>Playlist</value>
+  <data name="TxtPlaylistInfo" xml:space="preserve">
+    <value>Playlist Information</value>
   </data>
-  <data name="ReferenceMng" xml:space="preserve">
-    <value>Reference</value>
+  <data name="TxtPortrait" xml:space="preserve">
+    <value>Portrait</value>
   </data>
-  <data name="Report" xml:space="preserve">
-    <value>Report</value>
+  <data name="TxtPreview" xml:space="preserve">
+    <value>Preview</value>
   </data>
-  <data name="ResolutionMng" xml:space="preserve">
-    <value>Resolution</value>
+  <data name="TxtPrevious" xml:space="preserve">
+    <value>Previous</value>
   </data>
-  <data name="ScenarioMng" xml:space="preserve">
-    <value>Scenario</value>
+  <data name="TxtStep1" xml:space="preserve">
+    <value>Step 1</value>
   </data>
-  <data name="Scheduling" xml:space="preserve">
-    <value>Scheduling</value>
+  <data name="TxtStep2" xml:space="preserve">
+    <value>Step 2</value>
   </data>
-  <data name="ScreenMng" xml:space="preserve">
-    <value>Screen</value>
+  <data name="TxtStep3" xml:space="preserve">
+    <value>Step 3</value>
   </data>
-  <data name="SystemSection" xml:space="preserve">
-    <value>System Magement</value>
+  <data name="TxtStep4" xml:space="preserve">
+    <value>Step 4</value>
   </data>
-  <data name="TypeAudio" xml:space="preserve">
-    <value>Audio</value>
+  <data name="TxtStepbyStep" xml:space="preserve">
+    <value>Step by Step</value>
   </data>
-  <data name="TypeImg" xml:space="preserve">
-    <value>Image</value>
+  <data name="TxtSubmit" xml:space="preserve">
+    <value>Submit</value>
   </data>
-  <data name="TypeOther" xml:space="preserve">
-    <value>Other</value>
-  </data>
-  <data name="TypeVideo" xml:space="preserve">
-    <value>Video</value>
-  </data>
-  <data name="ViewList" xml:space="preserve">
-    <value>View list</value>
-  </data>
-  <data name="ViewListMng" xml:space="preserve">
-    <value>View list</value>
+  <data name="TxtYourPlaylist" xml:space="preserve">
+    <value>Your Playlist</value>
   </data>
 </root>

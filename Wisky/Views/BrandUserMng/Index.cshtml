@@ -63,7 +63,7 @@
                                         <td>@(item.UserName)</td>
                                         <td>@(item.FullName)</td>
                                         <td>@(item.Email)</td>
-                                        <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsActive)" data-id="@(item.UserName)">@( (bool)item.IsActive ? "Enable" : "Disable")</a></td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                             <a href="/BrandUserMng/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
@@ -112,6 +112,29 @@
                 return false;
             });
         });
+    </script>
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/BrandUserMng/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
     </script>
     <!-- end iframe button matching-->
 }

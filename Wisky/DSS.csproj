@@ -334,25 +334,35 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
-    <Compile Include="ResourcesLanguage\DisplayAdmin.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.Designer.cs">
+      <DependentUpon>BrandUserMngUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DisplayAdmin.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\DisplayAdmin.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.Designer.cs">
+      <DependentUpon>BrandUserMngUpdateForm.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DisplayAdmin.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\Campaign.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngAddForm.vi.Designer.cs">
+      <DependentUpon>BrandUserMngAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\Campaign.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.vi.resx</DependentUpon>
+      <DependentUpon>BrandUserMngAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngIndex .vi.Designer.cs">
+      <DependentUpon>BrandUserMngIndex .vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandUserMngIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\LayoutManage.vi.Designer.cs">
       <DependentUpon>LayoutManage.vi.resx</DependentUpon>
@@ -364,60 +374,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LayoutManage.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcAddForm.vi.Designer.cs">
+      <DependentUpon>MediaSrcAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaSrcAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcIndex.vi.Designer.cs">
+      <DependentUpon>MediaSrcIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcUpdateForm.vi.Designer.cs">
+      <DependentUpon>MediaSrcUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaSrcUpdateForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\MenuText.Designer.cs">
       <DependentUpon>MenuText.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\RadiusServerAdmin.vi.Designer.cs">
-      <DependentUpon>RadiusServerAdmin.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\RadiusServerAdmin.Designer.cs">
-      <DependentUpon>RadiusServerAdmin.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AccessPointAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccessPointAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AccessPointAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccessPointAdmin.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AddAccessPointWithLocationForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddAccessPointWithLocationForm.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AddAccessPointWithLocationForm.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddAccessPointWithLocationForm.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\BrandManagerPublisher.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrandManagerPublisher.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\BrandManagerPublisher.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrandManagerPublisher.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ChooseLocationInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ChooseLocationInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ChooseLocationInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ChooseLocationInteractionPage.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\CreateAccountAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -429,36 +414,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateAccountAdmin.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\CreateCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateInteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CustomerList.vi.Designer.cs">
-      <DependentUpon>CustomerList.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerList.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\DateTimePicker.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,26 +423,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DateTimePicker.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\DetailCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DetailCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\DetailCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DetailCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditAccessPointForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditAccessPointForm.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditAccessPointForm.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditAccessPointForm.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\EditAccountAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -499,36 +434,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditAccountAdmin.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EditCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditInteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditPublisherAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditPublisherAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditPublisherAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditPublisherAdmin.vi.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\Image.vi.Designer.cs">
       <DependentUpon>Image.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -538,46 +443,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Image.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexAccountAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexAccountAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexAccountAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexAccountAdmin.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexNormalCustomer.vi.Designer.cs">
-      <DependentUpon>IndexNormalCustomer.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexNormalCustomer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexNormalCustomer.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPageSchedule.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPageSchedule.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPageSchedule.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPageSchedule.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\LocationManagement.vi.Designer.cs">
       <DependentUpon>LocationManagement.vi.resx</DependentUpon>
@@ -599,75 +464,130 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginPage.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ManagerPubliser.vi.Designer.cs">
-      <DependentUpon>ManagerPubliser.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ManagerPubliser.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerPubliser.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\MenuText.vi.Designer.cs">
       <DependentUpon>MenuText.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="ResourcesLanguage\PresenseAnalysis.Designer.cs">
+    <Compile Include="ResourcesLanguage\MediaSrcIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PresenseAnalysis.resx</DependentUpon>
+      <DependentUpon>MediaSrcIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\PresenseAnalysis.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistAddForm.vi.Designer.cs">
+      <DependentUpon>PlaylistAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PresenseAnalysis.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\RecentCustomer.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecentCustomer.resx</DependentUpon>
+      <DependentUpon>PlaylistAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\RecentCustomer.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistIndex.vi.Designer.cs">
+      <DependentUpon>PlaylistIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecentCustomer.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ReportInteractionPage.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportInteractionPage.resx</DependentUpon>
+      <DependentUpon>PlaylistIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ReportInteractionPage.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistUpdateForm .vi.Designer.cs">
+      <DependentUpon>PlaylistUpdateForm .vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportInteractionPage.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EmailMarketing.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistUpdateForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmailMarketing.resx</DependentUpon>
+      <DependentUpon>PlaylistUpdateForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EmailMarketing.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioAddForm.vi.Designer.cs">
+      <DependentUpon>ScenarioAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmailMarketing.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserBehaviour.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserBehaviour.resx</DependentUpon>
+      <DependentUpon>ScenarioAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserBehaviour.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioIndex .vi.Designer.cs">
+      <DependentUpon>ScenarioIndex .vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserBehaviour.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserStatistic.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserStatistic.resx</DependentUpon>
+      <DependentUpon>ScenarioIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateDetails.vi.Designer.cs">
+      <DependentUpon>ScenarioUpdateDetails.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioUpdateDetails.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateForm.vi.Designer.cs">
+      <DependentUpon>ScenarioUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingAddForm .vi.Designer.cs">
+      <DependentUpon>SchedulingAddForm .vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingIndex.vi.Designer.cs">
+      <DependentUpon>SchedulingIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingUpdateForm.vi.Designer.cs">
+      <DependentUpon>SchedulingUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScreenAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenIndex.vi.Designer.cs">
+      <DependentUpon>ScreenIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScreenIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\UserDetails.vi.Designer.cs">
       <DependentUpon>UserDetails.vi.resx</DependentUpon>
@@ -678,41 +598,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDetails.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\UserStatistic.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserStatistic.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ViewAllAccessPoints.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewAllAccessPoints.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ViewAllAccessPoints.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewAllAccessPoints.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkCategory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkCategory.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkCategory.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkCategory.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkingHistory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkingHistory.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkingHistory.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkingHistory.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\GenerateLoginMenu.cs" />
@@ -1725,21 +1610,29 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
-    <EmbeddedResource Include="ResourcesLanguage\DisplayAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DisplayAdmin.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DisplayAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DisplayAdmin.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\Campaign.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Campaign.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\Campaign.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Campaign.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngIndex .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LayoutManage.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1750,22 +1643,30 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LayoutManage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuText.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EmailMarketing.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmailMarketing.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkingHistory.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkingHistory.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkingHistory.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkingHistory.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Content Include="Content\plugins\ckeditor\CHANGES.md" />
     <Content Include="Content\plugins\ckeditor\LICENSE.md" />
@@ -1782,10 +1683,6 @@
     <Content Include="Content\plugins\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\plugins\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\plugins\ckeditor\skins\moono-lisa\readme.md" />
-    <EmbeddedResource Include="ResourcesLanguage\EmailMarketing.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmailMarketing.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Content Include="Content\index-media-preview-video\src\flashy.less" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
@@ -1808,10 +1705,6 @@
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy.pubxml" />
-    <EmbeddedResource Include="ResourcesLanguage\WorkCategory.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkCategory.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Content Include="Resource\Layout\Layout_2.cshtml" />
     <Content Include="Resource\Layout\Layout_3.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -1956,46 +1849,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ResourcesLanguage\RadiusServerAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RadiusServerAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RadiusServerAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RadiusServerAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AccessPointAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AccessPointAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AccessPointAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AccessPointAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AddAccessPointWithLocationForm.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddAccessPointWithLocationForm.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AddAccessPointWithLocationForm.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddAccessPointWithLocationForm.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\BrandManagerPublisher.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>BrandManagerPublisher.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\BrandManagerPublisher.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>BrandManagerPublisher.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ChooseLocationInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ChooseLocationInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ChooseLocationInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ChooseLocationInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\CreateAccountAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CreateAccountAdmin.Designer.cs</LastGenOutput>
@@ -2003,30 +1856,6 @@
     <EmbeddedResource Include="ResourcesLanguage\CreateAccountAdmin.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CreateAccountAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerList.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\DateTimePicker.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2036,22 +1865,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DateTimePicker.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DetailCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DetailCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DetailCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DetailCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditAccessPointForm.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditAccessPointForm.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditAccessPointForm.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditAccessPointForm.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\EditAccountAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditAccountAdmin.Designer.cs</LastGenOutput>
@@ -2060,31 +1873,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditAccountAdmin.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <!--<EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.vi.resx">-->
-    <EmbeddedResource Include="ResourcesLanguage\EditInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditPublisherAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditPublisherAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditPublisherAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditPublisherAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\Image.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Image.vi.Designer.cs</LastGenOutput>
@@ -2092,38 +1881,6 @@
     <EmbeddedResource Include="ResourcesLanguage\Image.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Image.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexAccountAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexAccountAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexAccountAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexAccountAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexNormalCustomer.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexNormalCustomer.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPageSchedule.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPageSchedule.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPageSchedule.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPageSchedule.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LocationManagement.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2141,54 +1898,106 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LoginPage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ManagerPubliser.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagerPubliser.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ManagerPubliser.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagerPubliser.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuText.vi.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\PresenseAnalysis.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PresenseAnalysis.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\PresenseAnalysis.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PresenseAnalysis.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RecentCustomer.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RecentCustomer.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RecentCustomer.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RecentCustomer.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ReportInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ReportInteractionPage.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ReportInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ReportInteractionPage.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistUpdateForm .vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserBehaviour.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserBehaviour.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserBehaviour.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserBehaviour.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserStatistic.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserStatistic.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioIndex .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateDetails.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateDetails.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingAddForm .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\UserDetails.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2197,22 +2006,6 @@
     <EmbeddedResource Include="ResourcesLanguage\UserDetails.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserDetails.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserStatistic.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserStatistic.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ViewAllAccessPoints.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ViewAllAccessPoints.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ViewAllAccessPoints.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ViewAllAccessPoints.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkCategory.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkCategory.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
