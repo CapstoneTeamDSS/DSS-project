@@ -334,6 +334,16 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
+    <Compile Include="ResourcesLanguage\AndroidBoxIndex.vi.Designer.cs">
+      <DependentUpon>AndroidBoxIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AndroidBoxIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AndroidBoxIndex.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.Designer.cs">
       <DependentUpon>BrandUserMngUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -573,6 +583,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SchedulingUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenUpdateForm.vi.Designer.cs">
+      <DependentUpon>ScreenUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenUpdateForm.Designer.cs">
+      <DependentUpon>ScreenUpdateForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenAddForm.vi.Designer.cs">
+      <DependentUpon>ScreenAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ResourcesLanguage\ScreenAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1610,6 +1635,14 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngUpdateForm.vi.Designer.cs</LastGenOutput>
@@ -1986,6 +2019,18 @@
     <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.resx">
       <Generator>ResXFileCodeGenerator</Generator>

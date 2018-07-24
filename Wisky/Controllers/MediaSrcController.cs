@@ -49,8 +49,26 @@ namespace DSS.Controllers
             }
             return View(model);
         }
+        //TOANTXSE62006
+        //GET: MediaSrc/UpdateStatus
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var mediasrc = this.mediaSrcService
+                .Get(a => a.MediaSrcID == dataId)
+                .FirstOrDefault();
+            if (mediasrc != null)
+            {
+                mediasrc.isPublic = !mediasrc.isPublic;
+                this.mediaSrcService.Update(mediasrc);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
-
+        }
         //TrinhNNP
         //Get media Src List by Brand ID
         public static List<Models.MediaSrcUseVM> GetMediaSrcListByBrandId()
