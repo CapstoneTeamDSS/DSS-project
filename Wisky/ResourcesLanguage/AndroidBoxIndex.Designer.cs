@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ScreenAddForm {
+    internal class AndroidBoxIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ScreenAddForm() {
+        internal AndroidBoxIndex() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.ScreenAddForm", typeof(ScreenAddForm).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.AndroidBoxIndex", typeof(AndroidBoxIndex).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,61 +61,61 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
-        internal static string BtnReset {
+        internal static string BtnDelete {
             get {
-                return ResourceManager.GetString("BtnReset", resourceCulture);
+                return ResourceManager.GetString("BtnDelete", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
-        internal static string BtnSubmit {
+        internal static string BtnEdit {
             get {
-                return ResourceManager.GetString("BtnSubmit", resourceCulture);
+                return ResourceManager.GetString("BtnEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        internal static string ColAction {
+            get {
+                return ResourceManager.GetString("ColAction", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        internal static string LblDescription {
+        internal static string ColDescription {
             get {
-                return ResourceManager.GetString("LblDescription", resourceCulture);
+                return ResourceManager.GetString("ColDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location*.
+        ///   Looks up a localized string similar to Box Name.
         /// </summary>
-        internal static string LblLocation {
+        internal static string ColName {
             get {
-                return ResourceManager.GetString("LblLocation", resourceCulture);
+                return ResourceManager.GetString("ColName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resolution*.
+        ///   Looks up a localized string similar to No.
         /// </summary>
-        internal static string LblResolution {
+        internal static string ColNo {
             get {
-                return ResourceManager.GetString("LblResolution", resourceCulture);
+                return ResourceManager.GetString("ColNo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Screen Name*.
-        /// </summary>
-        internal static string LblScreenName {
-            get {
-                return ResourceManager.GetString("LblScreenName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add New Screen.
+        ///   Looks up a localized string similar to Box Management.
         /// </summary>
         internal static string PageHeader {
             get {
@@ -124,47 +124,20 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Landscape.
+        ///   Looks up a localized string similar to Box List.
         /// </summary>
-        internal static string TxtLandscape {
+        internal static string PageTitle {
             get {
-                return ResourceManager.GetString("TxtLandscape", resourceCulture);
+                return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Location.
+        ///   Looks up a localized string similar to Search.
         /// </summary>
-        internal static string txtLocationDefault {
+        internal static string TxtSearch {
             get {
-                return ResourceManager.GetString("txtLocationDefault", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Portrait.
-        /// </summary>
-        internal static string TxtPortrait {
-            get {
-                return ResourceManager.GetString("TxtPortrait", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select Resolution.
-        /// </summary>
-        internal static string txtResolutionDefault {
-            get {
-                return ResourceManager.GetString("txtResolutionDefault", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Type*.
-        /// </summary>
-        internal static string Type {
-            get {
-                return ResourceManager.GetString("Type", resourceCulture);
+                return ResourceManager.GetString("TxtSearch", resourceCulture);
             }
         }
     }

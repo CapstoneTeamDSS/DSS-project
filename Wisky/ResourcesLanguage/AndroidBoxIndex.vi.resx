@@ -117,40 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnReset" xml:space="preserve">
-    <value>Reset</value>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Xóa</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Submit</value>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Description</value>
+  <data name="ColAction" xml:space="preserve">
+    <value>Thao tác</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Location*</value>
+  <data name="ColDescription" xml:space="preserve">
+    <value>Mô tả</value>
   </data>
-  <data name="LblResolution" xml:space="preserve">
-    <value>Resolution*</value>
+  <data name="ColName" xml:space="preserve">
+    <value>Tên Box</value>
   </data>
-  <data name="LblScreenName" xml:space="preserve">
-    <value>Screen Name*</value>
+  <data name="ColNo" xml:space="preserve">
+    <value>STT</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Add New Screen</value>
+    <value>Quản lý Android box</value>
   </data>
-  <data name="TxtLandscape" xml:space="preserve">
-    <value>Landscape</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Danh sách box</value>
   </data>
-  <data name="txtLocationDefault" xml:space="preserve">
-    <value>Select Location</value>
-  </data>
-  <data name="TxtPortrait" xml:space="preserve">
-    <value>Portrait</value>
-  </data>
-  <data name="txtResolutionDefault" xml:space="preserve">
-    <value>Select Resolution</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type*</value>
+  <data name="TxtSearch" xml:space="preserve">
+    <value>Tìm kiếm</value>
   </data>
 </root>

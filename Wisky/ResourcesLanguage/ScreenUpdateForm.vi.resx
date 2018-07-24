@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BtnReset" xml:space="preserve">
-    <value>Reset</value>
+    <value>Làm lại</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
-    <value>Submit</value>
+    <value>Đăng</value>
   </data>
   <data name="LblDescription" xml:space="preserve">
-    <value>Description</value>
+    <value>Mô tả</value>
   </data>
   <data name="LblLocation" xml:space="preserve">
-    <value>Location*</value>
+    <value>Địa điểm*</value>
   </data>
   <data name="LblResolution" xml:space="preserve">
-    <value>Resolution*</value>
+    <value>Độ Phân giải*</value>
   </data>
   <data name="LblScreenName" xml:space="preserve">
-    <value>Screen Name*</value>
+    <value>Tên Màn hình*</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Add New Screen</value>
+    <value>Thêm Màn hình mới</value>
   </data>
   <data name="TxtLandscape" xml:space="preserve">
-    <value>Landscape</value>
+    <value>Màn hình ngang</value>
   </data>
   <data name="txtLocationDefault" xml:space="preserve">
-    <value>Select Location</value>
+    <value>Chọn Địa điểm</value>
   </data>
   <data name="TxtPortrait" xml:space="preserve">
-    <value>Portrait</value>
+    <value>Màn Hình đứng</value>
   </data>
   <data name="txtResolutionDefault" xml:space="preserve">
-    <value>Select Resolution</value>
+    <value>Chọn Độ phân giải</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type*</value>
+    <value>Loại*</value>
   </data>
 </root>
