@@ -12,10 +12,8 @@ namespace DSS.Controllers
     public class LayoutController : Controller
     {
         //[Authorize]
-
         ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
-
         //GET: Layout/Index
         public ActionResult Index()
         {
