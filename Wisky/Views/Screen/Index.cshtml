@@ -55,7 +55,6 @@
                                         <td>@(item.Name)</td>
                                         <td>@(item.isHorizontal ? "Landscape" : "Portraint")</td>
                                         <td>@(item.Description)</td>
-
                                         <td style="width:180px; text-align:center">
                                             <a href="/Screen/Form/@(item.ScreenId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                             <a class="btnDelete" data-id="@item.ScreenId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
@@ -96,7 +95,7 @@
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "80%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -111,41 +110,55 @@
     <script>
         $(".btnDelete").click(function () {
             var btnDel = $(this);
-            var boxNum = 0;
-            $.ajax({
 
-            });
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this screen!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var IdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/Screen/Delete?Id=" + IdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/Screen/Delete?Id=" + IdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                swal("Deleted!", "Your Screen has been deleted!", "success");
-                                location.reload();
-                            },
-                            error: function () {
-                                alert("Error occured!!")
-                            }
-                        });
+            var IdScreen = $(btnDel).attr("data-id");
+            var data = {
+                id: IdScreen,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Screen/CheckScreenIdIsMatching",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    console.log(data);
+                    if (data.isUsing) {                       
+                        swal("This screen is being used.", "Please unmatch device " + data.deviceVM.Title +  " If you want to delete it.", "error");
                     } else {
-                        swal("Cancelled", "Your screen is safe :)", "error");
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this screen!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Screen/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Screen/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your Screen has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your screen is safe :)", "error");
+                                }
+                            });
                     }
-                });
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         });
     </script>
     <!--End Sweet alert-->

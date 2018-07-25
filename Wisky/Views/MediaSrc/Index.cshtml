@@ -40,7 +40,7 @@
                         <li role="presentation" class="">
                             <a href="#tab_audio" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Audio</a>
                         </li>
-                        <li role="presentation" class="">               
+                        <li role="presentation" class="">
                             <a href="#tab_otherfile" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Other File</a>
                         </li>
                     </ul>
@@ -120,7 +120,7 @@
                                                             <td style="width:300px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                                <a class="custom" data-flashy-type="video" href="@(item.URL)">
+                                                                <a class="preview" target="_blank" data-flashy-type="video" href="@(item.URL)">
                                                                     <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
                                                                 </a>
                                                             </td>
@@ -181,7 +181,7 @@
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_ortherfile" aria-labelledby="profile-tab">
-                            <p>                  
+                            <p>
                                 <h2>Other File Manager</h2>
 
                                 <div class="x_content">
@@ -266,7 +266,11 @@
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "70%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
+            });
+            $(".preview").colorbox({
+                iframe: true, width: "55%", height: "60%",
+                //refresh page when summit             
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
