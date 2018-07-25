@@ -23,7 +23,7 @@ namespace DSS.Models
         public string FullName { get; set; }
         [Required(ErrorMessage = "Please enter phone number.")]
         public int BrandID { get; set; }
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
         public string BrandName { get; set; }
     }
 

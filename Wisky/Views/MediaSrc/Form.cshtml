@@ -64,9 +64,9 @@
                                     Select file to upload <span class="required">*</span>
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
-                                    <input type="hidden" name="URL" id="txtMediaURL" />
-                                    <input type="hidden" name="Filename" id="txtFilename" />
-                                    <input type="hidden" name="Duration" id="txtDuration" />
+                                    <input type="hidden" name="URL" id="txtMediaURL" value="@(Model?.URL)"/>
+                                    <input type="hidden" name="Filename" id="txtFilename"/>
+                                    <input type="hidden" name="Duration" id="txtDuration"/>
                                     <input type="button" id="btnChange" value="Upload media" />
                                     @*<input type="button" id="btnClose" value="Close" />*@
                                     <div id="review_container"></div>
@@ -172,11 +172,12 @@
             var picker = client.picker(options);
             //picker.open();
             function uploadDoneCallBack(res) {
+                var oldUrl = $("#txtMediaURL").val();
+                var oldHandle = oldUrl.replace("https://cdn.filestackcontent.com/","");
                 var url = res.filesUploaded[0].url;
                 var filename = res.filesUploaded[0].filename;
                 var mimetype = res.filesUploaded[0].mimetype;
                 var handle = res.filesUploaded[0].handle;
-                //console.log(res.filesUploaded[0]);
                 $("#txtMediaURL").val(url);
                 $("#txtFilename").val(filename);
                 $("#btnChange").val("Change media");
@@ -192,6 +193,20 @@
                     });
                     console.log($("#reviewVideo")[0].duration);
                 }
+                if (oldHandle != "") {
+                    /*Delete previous uploaded file*/
+                    var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";                    
+                    var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
+                    var delUrl = "https://www.filestackapi.com/api/file/" + oldHandle + "?key=" + apikey + "&policy=" + policy + "&signature=" + signature;
+                    console.log(delUrl);
+                    $.ajax({
+                        type: "DELETE",
+                        url: delUrl,
+                        success: function (res) {
+                            console.log(res);
+                        }
+                    });
+                }                
             }
             btnChange.addEventListener('click', () => picker.open());
             //btnClose.addEventListener('click', () => picker.close());
