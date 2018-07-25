@@ -52,7 +52,10 @@
                                     <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
                                     <ul class="nav side-menu">
                                         <li>
-                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
+                                            @Html.ActionLink(DSS.ResourcesLanguage.Layout.BtnLanguage,"Index","Language")
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>                                          
                                         </li>
                                         <li>
                                             <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
@@ -167,15 +170,21 @@
                         </div>
                         <ul class="nav navbar-nav navbar-right">
                             @*<li class="">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
-                                        <span class=" fa fa-angle-down"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                        <li><a href="javascript:;"> Profile</a></li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                                    </ul>
-                                </li>*@
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
+                <span class=" fa fa-angle-down"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="javascript:;"> Profile</a></li>
+                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+            </ul>
+        </li>*@
+
+                            <li>@Html.ActionLink("Tiếng Việt", "Change", "Language", new { LanguageAbbrevation = "vi" }, null)</li>
+
+                            
+                            <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbrevation = "en" }, null)</li>
+                            
                             <li>
                                 <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> Log Out </a>
                             </li>
