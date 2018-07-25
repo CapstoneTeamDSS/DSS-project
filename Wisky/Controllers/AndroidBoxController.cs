@@ -58,6 +58,7 @@ namespace DSS.Controllers
             return AndroidBoxVM;
         }
         // GET: AndroidBox/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var box = this.boxService.Get(id);

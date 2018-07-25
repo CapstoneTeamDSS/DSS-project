@@ -43,6 +43,7 @@ namespace DSS.Controllers
             }
             return ScreenVM;
         }
+        [Authorize(Roles = "Admin")]
         // GET: Screen/Delete/:id
         public ActionResult Delete(int id)
         {

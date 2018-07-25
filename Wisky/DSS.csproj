@@ -253,6 +253,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotaion\UniqueEmailAttribute.cs" />
     <Compile Include="App_GlobalResources\MenuItem_EN_Resources1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
