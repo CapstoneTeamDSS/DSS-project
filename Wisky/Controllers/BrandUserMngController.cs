@@ -42,7 +42,7 @@ namespace DSS.Controllers
                     Id = item.Id,
                     Email = item.Email,
                     FullName = item.FullName,
-                    isActive = item.isActive,
+                    IsActive = item.isActive,
                     BrandName = brandService.GetBrandNameByID(item.BrandID),
                 };
                 userVMs.Add(u);
@@ -179,6 +179,24 @@ namespace DSS.Controllers
             {
                 _userManager = value;
             }
+        }
+        public ActionResult UpdateStatus(string dataId)
+        {
+            bool result = false;
+            var user = this.aspNetUserService
+                .Get(a => a.UserName.Equals(dataId))
+                .FirstOrDefault();
+            if (user != null)
+            {
+                user.isActive = !user.isActive;
+                this.aspNetUserService.Update(user);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }
