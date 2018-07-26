@@ -12,8 +12,6 @@ namespace DSS.Controllers
     [Authorize(Roles = "System Admin")]
     public class LayoutController : Controller
     {
-        //[Authorize]
-
         ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
 
