@@ -366,10 +366,16 @@ namespace DSS.Controllers
         // GET: Playlist/Delete/:id
         public ActionResult Delete(int id)
         {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
             var user = Helper.GetCurrentUser();
             var playlist = this.playlistService.Get(id);
-            if (playlist != null && playlist.BrandID == user.BrandID)
+            var playlistItem = playlistItemService.GetPlaylistItemByPlaylistId(id);
+            if (playlistItem != null && playlist != null && playlist.BrandID == user.BrandID)
             {
+                foreach(var i in playlistItem)
+                {
+                    playlistItemService.Delete(i);
+                }
                 this.playlistService.Delete(playlist);
             }
             return this.RedirectToAction("Index");

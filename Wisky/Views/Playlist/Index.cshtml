@@ -172,7 +172,7 @@
                                     $(btnDel).attr("href", "/Playlist/Delete?Id=" + IdDelete);
                                     $.ajax({
                                         type: "GET",
-                                        url: "/Playlist/Delete?Id=" + locationIdDelete,
+                                        url: "/Playlist/Delete?Id=" + IdDelete,
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
                                             swal("Deleted!", "Your playlist has been deleted!", "success");
