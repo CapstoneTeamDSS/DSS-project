@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DSS.Models.AndroidBoxVM
+@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
@@ -61,10 +62,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Description
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
@@ -134,3 +135,4 @@
         }
     </style>
     <!--End Set color is red when show error validation-->
+}

@@ -229,6 +229,7 @@ namespace DSS.Controllers
         }
 
         // GET: MatchingDevice/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var device = this.deviceService.Get(id);

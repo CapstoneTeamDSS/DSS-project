@@ -115,6 +115,7 @@
                             }
                         }
                         @{
+<<<<<<< HEAD
                             if (User.IsInRole("Admin") || User.IsInRole("System Admin"))
                             {
                                 <div class="menu_section">
@@ -132,6 +133,29 @@
                                     </ul>
                                 </div>
                             }
+=======
+                            <div class="menu_section">
+                                <h3>@DSS.ResourcesLanguage.MenuText.SystemSection</h3>
+                                <ul class="nav side-menu">
+                                    @if (User.IsInRole("System Admin"))
+                                    {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
+
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
+                                    </li>
+                                    }
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                    <li>
+                                        <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                    </li>
+                                    }
+                                </ul>
+                            </div>
+>>>>>>> 3a68435b27eadb89f1c780f10bcfdabb42c29628
                         }
                     </div>
                     <!-- /sidebar menu -->

@@ -40,7 +40,7 @@
                         <li role="presentation" class="">
                             <a href="#tab_audio" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Audio</a>
                         </li>
-                        <li role="presentation" class="">               
+                        <li role="presentation" class="">
                             <a href="#tab_otherfile" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Other File</a>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++i)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
+                                                            <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td><img src="@(item.URL)" style="max-width: 200px;"></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
@@ -115,12 +115,12 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++j)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
+                                                            <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                                                 <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
-                                                                <a class="custom" data-flashy-type="video" href="@(item.URL)">
+                                                                <a class="preview" target="_blank" data-flashy-type="video" href="@(item.URL)">
                                                                     <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
                                                                 </a>
                                                             </td>
@@ -160,7 +160,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++k)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
+                                                            <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td>
                                                                 <audio controls>
@@ -181,7 +181,7 @@
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_ortherfile" aria-labelledby="profile-tab">
-                            <p>                  
+                            <p>
                                 <h2>Other File Manager</h2>
 
                                 <div class="x_content">
@@ -207,7 +207,7 @@
                                                             <td><input type="checkbox" id="check-all" class="flat"></td>
                                                             <td>@(++f)</td>
                                                             <td>@(item.Title)</td>
-                                                            <td>@(item.isPublic ? "Enable" : "Disable")</td>
+                                                            <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
@@ -229,6 +229,31 @@
     </div>
 </div>
 @section scripts{
+    <!--Change status enable disable-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/MediaSrc/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
     <!-- preview button scripts-section -->
     <script type="text/javascript" src="~/Content/index-media-preview-video/src/jquery.flashy.min.js"></script>
     <script type="text/javascript" src="~/Content/index-media-preview-video/js/main.js"></script>
@@ -241,7 +266,11 @@
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "70%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
+            });
+            $(".preview").colorbox({
+                iframe: true, width: "55%", height: "60%",
+                //refresh page when summit             
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {

@@ -15,11 +15,6 @@
     }
 }
 <div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Media Resource Management</h3>
-        </div>
-    </div>
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -51,7 +46,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -69,9 +64,9 @@
                                     Select file to upload <span class="required">*</span>
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
-                                    <input type="hidden" name="URL" id="txtMediaURL" />
-                                    <input type="hidden" name="Filename" id="txtFilename" />
-                                    <input type="hidden" name="Duration" id="txtDuration" />
+                                    <input type="hidden" name="URL" id="txtMediaURL" value="@(Model?.URL)"/>
+                                    <input type="hidden" name="Filename" id="txtFilename"/>
+                                    <input type="hidden" name="Duration" id="txtDuration"/>
                                     <input type="button" id="btnChange" value="Upload media" />
                                     @*<input type="button" id="btnClose" value="Close" />*@
                                     <div id="review_container"></div>
@@ -115,7 +110,7 @@
             }
             if ($('#txtMediaURL').val() == '') {
                 stringError.push("Please choose file to upload.");
-            }          
+            }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
                 $.each(stringError, function (i) {
@@ -154,9 +149,9 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "Disable";
+            var text = "Private";
             if (this.checked) {
-                text = "Enable";
+                text = "Public";
             }
             $('#spStatus').text(text);
         });
@@ -177,11 +172,12 @@
             var picker = client.picker(options);
             //picker.open();
             function uploadDoneCallBack(res) {
+                var oldUrl = $("#txtMediaURL").val();
+                var oldHandle = oldUrl.replace("https://cdn.filestackcontent.com/","");
                 var url = res.filesUploaded[0].url;
                 var filename = res.filesUploaded[0].filename;
                 var mimetype = res.filesUploaded[0].mimetype;
                 var handle = res.filesUploaded[0].handle;
-                //console.log(res.filesUploaded[0]);
                 $("#txtMediaURL").val(url);
                 $("#txtFilename").val(filename);
                 $("#btnChange").val("Change media");
@@ -196,6 +192,20 @@
                     $("#reviewVideo")[0].onloadedmetadata(function () {
                     });
                     console.log($("#reviewVideo")[0].duration);
+                }
+                if (oldHandle != "") {
+                    /*Delete previous uploaded file*/
+                    var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";                    
+                    var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
+                    var delUrl = "https://www.filestackapi.com/api/file/" + oldHandle + "?key=" + apikey + "&policy=" + policy + "&signature=" + signature;
+                    console.log(delUrl);
+                    $.ajax({
+                        type: "DELETE",
+                        url: delUrl,
+                        success: function (res) {
+                            console.log(res);
+                        }
+                    });
                 }                
             }
             btnChange.addEventListener('click', () => picker.open());

@@ -1,6 +1,13 @@
-﻿@{
+﻿@model DSS.Models.ScenarioDetailVM
+@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.IsPublic;
+    }
 }
 <div class="" role="main" style="min-height: 1207px;width:inherit">
     <div style="width:1230px;margin-right:1000px">
@@ -105,11 +112,19 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                                Status <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-3">
                                                 Description
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <input id="txtDescription" value="@(Model?.Description)" class="form-control col-md-7 col-xs-12" type="text" name="Description">
+                                                <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -132,33 +147,33 @@
                                     <div id="step-3" class="content" style="display: none;">
                                         @*@{
                                             var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;*@
-                                            @*if (layoutList != null)
-                                                {
-                                                    for (int i = 0; i < layoutList.Count; i += 3)
+                                        @*if (layoutList != null)
                                                     {
-                                                        <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                <img src="@(layoutList[i].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
+                                                        for (int i = 0; i < layoutList.Count; i += 3)
+                                                        {
+                                                            <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <img src="@(layoutList[i].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                    <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
+                                                                </div>
+                                                                @if (i + 1 < layoutList.Count)
+                                                                {
+                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                        <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                        <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                                    </div>
+                                                                }
+                                                                @if (i + 2 < layoutList.Count)
+                                                                {
+                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                        <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
+                                                                        <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
+                                                                    </div>
+                                                                }
                                                             </div>
-                                                            @if (i + 1 < layoutList.Count)
-                                                            {
-                                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                    <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                    <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                                </div>
-                                                            }
-                                                            @if (i + 2 < layoutList.Count)
-                                                            {
-                                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                    <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                    <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                                </div>
-                                                            }
-                                                        </div>
+                                                        }
                                                     }
-                                                }
-                                        }*@
+                                            }*@
                                     </div>
                                     <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -239,6 +254,9 @@
     </div>
 </div>
 @section scripts{
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -328,7 +346,7 @@
             } else {
                 $("#divLayout").css("height", "533px");
                 $("#divLayout").css("width", "300px");
-            }            
+            }
             loadLayoutList(isLandscape);
         });
         function loadLayoutList(isHorizontal) {
@@ -345,7 +363,7 @@
                     var layoutList = data.LayoutVMs;
                     if (layoutList != null) {
                         $("#step-3").find('div').remove().end();
-                        for (var i = 0; i < layoutList.length; i+=3) {
+                        for (var i = 0; i < layoutList.length; i += 3) {
                             var style = isHorizontal == "true" ? "width: 250px; height: 140px" : "width: 140px; height: 250px";
                             $("#step-3").append('<div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">');
                             $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
@@ -354,14 +372,14 @@
                                 + '</div>');
                             if (i + 1 < layoutList.length) {
                                 $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
-                                    + '<img src="' + layoutList[i+1].URL + '" style="display:block; margin:auto;' + style + '" />'
-                                    + '<input type="radio" value="' + layoutList[i + 1].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i+1].LayoutID + ')"/>'
+                                    + '<img src="' + layoutList[i + 1].URL + '" style="display:block; margin:auto;' + style + '" />'
+                                    + '<input type="radio" value="' + layoutList[i + 1].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i + 1].LayoutID + ')"/>'
                                     + '</div>');
                             }
                             if (i + 2 < layoutList.length) {
                                 $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
-                                    + '<img src="' + layoutList[i+2].URL + '" style="display:block; margin:auto;' + style + '" />'
-                                    + '<input type="radio" value="' + layoutList[i + 2].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i+2].LayoutID + ')"/>'
+                                    + '<img src="' + layoutList[i + 2].URL + '" style="display:block; margin:auto;' + style + '" />'
+                                    + '<input type="radio" value="' + layoutList[i + 2].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i + 2].LayoutID + ')"/>'
                                     + '</div>');
                             }
                             $("#step-3").append('</div');
@@ -621,6 +639,9 @@
     </script>
 }
 @section styles{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
     <style>
         .select-layout {
             border-style: dashed;

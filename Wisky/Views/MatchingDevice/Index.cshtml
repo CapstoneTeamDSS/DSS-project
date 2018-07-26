@@ -174,11 +174,11 @@
             var btnMatch = $('#btnMatch');
             if (box.val() == 0 || screen.val() == 0) {
                 //console.log(box);
-                btnMatch.attr("disabled", true);               
+                btnMatch.attr("disabled", true);
                 btnMatch.attr("class", "btn btn-success");
-                //btnMatch.click(true);     
+                //btnMatch.click(true);
             } else {
-                btnMatch.attr("disabled", false);              
+                btnMatch.attr("disabled", false);
                 btnMatch.attr("class", "iframe btn btn-success");
                 //show iframe
                 $(document).ready(function () {
@@ -186,7 +186,7 @@
                     $(".iframe").colorbox({
                         iframe: true, width: "65%", height: "70%",
                         //refresh page when summit
-                        onClosed: function () { location.reload(true); },
+                        //onClosed: function () { location.reload(true); },
                     });
                     //Example of preserving a JavaScript event for inline calls.
                     $("#click").click(function () {
@@ -221,12 +221,9 @@
         $(".btnDelete").click(function () {
             var btnDel = $(this);
             var boxNum = 0;
-            $.ajax({
-
-            });
             swal({
                 title: "Are you sure?",
-                text: "You will not be able to recover this device!",
+                text: "You can not control the content on the device if you delete the device!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
@@ -273,4 +270,9 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <style>
+        .sweet-alert p {
+            font-size: 14px;
+        }
+    </style>
 }

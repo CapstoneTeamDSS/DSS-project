@@ -253,6 +253,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotaion\UniqueEmailAttribute.cs" />
     <Compile Include="App_GlobalResources\MenuItem_EN_Resources1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -334,25 +335,45 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
-    <Compile Include="ResourcesLanguage\DisplayAdmin.Designer.cs">
+    <Compile Include="ResourcesLanguage\AndroidBoxIndex.vi.Designer.cs">
+      <DependentUpon>AndroidBoxIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DisplayAdmin.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\DisplayAdmin.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\AndroidBoxIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DisplayAdmin.vi.resx</DependentUpon>
+      <DependentUpon>AndroidBoxIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\Campaign.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.Designer.cs">
+      <DependentUpon>BrandUserMngUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\Campaign.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.Designer.cs">
+      <DependentUpon>BrandUserMngUpdateForm.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.vi.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngAddForm.vi.Designer.cs">
+      <DependentUpon>BrandUserMngAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandUserMngAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngIndex .vi.Designer.cs">
+      <DependentUpon>BrandUserMngIndex .vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandUserMngIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandUserMngIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\LayoutManage.vi.Designer.cs">
       <DependentUpon>LayoutManage.vi.resx</DependentUpon>
@@ -364,60 +385,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LayoutManage.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcAddForm.vi.Designer.cs">
+      <DependentUpon>MediaSrcAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaSrcAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcIndex.vi.Designer.cs">
+      <DependentUpon>MediaSrcIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcUpdateForm.vi.Designer.cs">
+      <DependentUpon>MediaSrcUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaSrcUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaSrcUpdateForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\MenuText.Designer.cs">
       <DependentUpon>MenuText.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\RadiusServerAdmin.vi.Designer.cs">
-      <DependentUpon>RadiusServerAdmin.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\RadiusServerAdmin.Designer.cs">
-      <DependentUpon>RadiusServerAdmin.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AccessPointAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccessPointAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AccessPointAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccessPointAdmin.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AddAccessPointWithLocationForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddAccessPointWithLocationForm.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\AddAccessPointWithLocationForm.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddAccessPointWithLocationForm.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\BrandManagerPublisher.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrandManagerPublisher.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\BrandManagerPublisher.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrandManagerPublisher.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ChooseLocationInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ChooseLocationInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ChooseLocationInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ChooseLocationInteractionPage.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\CreateAccountAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -429,36 +425,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateAccountAdmin.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\CreateCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CreateInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CreateInteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CustomerList.vi.Designer.cs">
-      <DependentUpon>CustomerList.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\CustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerList.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\DateTimePicker.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,26 +434,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DateTimePicker.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\DetailCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DetailCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\DetailCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DetailCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditAccessPointForm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditAccessPointForm.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditAccessPointForm.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditAccessPointForm.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\EditAccountAdmin.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -499,36 +445,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditAccountAdmin.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EditCustomerList.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditCustomerList.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditCustomerList.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditCustomerList.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditInteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditInteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditInteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditInteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditPublisherAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditPublisherAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\EditPublisherAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EditPublisherAdmin.vi.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\Image.vi.Designer.cs">
       <DependentUpon>Image.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -538,46 +454,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Image.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexAccountAdmin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexAccountAdmin.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexAccountAdmin.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexAccountAdmin.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexNormalCustomer.vi.Designer.cs">
-      <DependentUpon>IndexNormalCustomer.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\IndexNormalCustomer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>IndexNormalCustomer.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPage.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPage.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPageSchedule.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPageSchedule.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\InteractionPageSchedule.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InteractionPageSchedule.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\LocationManagement.vi.Designer.cs">
       <DependentUpon>LocationManagement.vi.resx</DependentUpon>
@@ -599,75 +475,145 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginPage.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ManagerPubliser.vi.Designer.cs">
-      <DependentUpon>ManagerPubliser.vi.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ManagerPubliser.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerPubliser.resx</DependentUpon>
-    </Compile>
     <Compile Include="ResourcesLanguage\MenuText.vi.Designer.cs">
       <DependentUpon>MenuText.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="ResourcesLanguage\PresenseAnalysis.Designer.cs">
+    <Compile Include="ResourcesLanguage\MediaSrcIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PresenseAnalysis.resx</DependentUpon>
+      <DependentUpon>MediaSrcIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\PresenseAnalysis.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistAddForm.vi.Designer.cs">
+      <DependentUpon>PlaylistAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PresenseAnalysis.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\RecentCustomer.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecentCustomer.resx</DependentUpon>
+      <DependentUpon>PlaylistAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\RecentCustomer.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistIndex.vi.Designer.cs">
+      <DependentUpon>PlaylistIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RecentCustomer.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ReportInteractionPage.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportInteractionPage.resx</DependentUpon>
+      <DependentUpon>PlaylistIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ReportInteractionPage.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistUpdateForm .vi.Designer.cs">
+      <DependentUpon>PlaylistUpdateForm .vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportInteractionPage.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EmailMarketing.Designer.cs">
+    <Compile Include="ResourcesLanguage\PlaylistUpdateForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmailMarketing.resx</DependentUpon>
+      <DependentUpon>PlaylistUpdateForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\EmailMarketing.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioAddForm.vi.Designer.cs">
+      <DependentUpon>ScenarioAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmailMarketing.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserBehaviour.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioAddForm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserBehaviour.resx</DependentUpon>
+      <DependentUpon>ScenarioAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserBehaviour.vi.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioIndex .vi.Designer.cs">
+      <DependentUpon>ScenarioIndex .vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserBehaviour.vi.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\UserStatistic.Designer.cs">
+    <Compile Include="ResourcesLanguage\ScenarioIndex.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserStatistic.resx</DependentUpon>
+      <DependentUpon>ScenarioIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateDetails.vi.Designer.cs">
+      <DependentUpon>ScenarioUpdateDetails.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioUpdateDetails.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateForm.vi.Designer.cs">
+      <DependentUpon>ScenarioUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScenarioUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingAddForm .vi.Designer.cs">
+      <DependentUpon>SchedulingAddForm .vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingIndex.vi.Designer.cs">
+      <DependentUpon>SchedulingIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingUpdateForm.vi.Designer.cs">
+      <DependentUpon>SchedulingUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\SchedulingUpdateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchedulingUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenUpdateForm.vi.Designer.cs">
+      <DependentUpon>ScreenUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenUpdateForm.Designer.cs">
+      <DependentUpon>ScreenUpdateForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenAddForm.vi.Designer.cs">
+      <DependentUpon>ScreenAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScreenAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenIndex.vi.Designer.cs">
+      <DependentUpon>ScreenIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ScreenIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScreenIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\UserDetails.vi.Designer.cs">
       <DependentUpon>UserDetails.vi.resx</DependentUpon>
@@ -678,41 +624,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDetails.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\UserStatistic.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserStatistic.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ViewAllAccessPoints.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewAllAccessPoints.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\ViewAllAccessPoints.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewAllAccessPoints.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkCategory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkCategory.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkCategory.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkCategory.vi.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkingHistory.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkingHistory.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourcesLanguage\WorkingHistory.vi.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WorkingHistory.vi.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\GenerateLoginMenu.cs" />
@@ -1006,6 +917,173 @@
     <Content Include="Content\js\wisky-advertising.js" />
     <Content Include="Content\js\wisky-landing.js" />
     <Content Include="Content\js\wisky.js" />
+    <Content Include="Content\kendo\2014.1.318\Black\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Black\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Black\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Black\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Black\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\BlueOpal\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Default\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Default\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Flat\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Flat\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Flat\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Flat\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Flat\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\HighContrast\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\kendo.black.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.black.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.blueopal.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.common.core.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.common.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.default.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.flat.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.flat.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.highcontrast.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.highcontrast.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.metro.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.metro.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.metroblack.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.metroblack.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.moonlight.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.moonlight.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.silver.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.silver.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.uniform.min.css" />
+    <Content Include="Content\kendo\2014.1.318\kendo.uniform.mobile.min.css" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\MetroBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Metro\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Metro\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Metro\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Metro\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Metro\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Moonlight\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\Silver\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Silver\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Silver\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Silver\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Silver\sprite_2x.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots1.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots10.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots11.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots12.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots13.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots2.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots3.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots4.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots5.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots6.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots7.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots8.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\dots9.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\glass.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\highlight.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\hue.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\leather1.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\leather2.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\noise.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe1.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe2.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe3.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe4.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe5.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\stripe6.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\transparency.png" />
+    <Content Include="Content\kendo\2014.1.318\textures\transtexture.png" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\editor.png" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\indeterminate.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\loading-image.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\loading.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\slider-h.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\slider-v.gif" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\sprite.png" />
+    <Content Include="Content\kendo\2014.1.318\Uniform\sprite_2x.png" />
     <Content Include="Content\plugins\ckeditor\adapters\jquery.js" />
     <Content Include="Content\plugins\ckeditor\build-config.js" />
     <Content Include="Content\plugins\ckeditor\ckeditor.js" />
@@ -1405,6 +1483,13 @@
     <Content Include="Content\plugins\swal\sweetalert.min.js" />
     <Content Include="Content\pnotify\pnotify.css" />
     <Content Include="Content\pnotify\pnotify.js" />
+    <Content Include="Content\show-notification\css\jquery.toastmessage.css" />
+    <Content Include="Content\show-notification\images\close.gif" />
+    <Content Include="Content\show-notification\images\error.png" />
+    <Content Include="Content\show-notification\images\notice.png" />
+    <Content Include="Content\show-notification\images\success.png" />
+    <Content Include="Content\show-notification\images\warning.png" />
+    <Content Include="Content\show-notification\jquery\jquery.toastmessage.js" />
     <Content Include="Content\sweetalert\sweetalert.css" />
     <Content Include="Content\sweetalert\sweetalert.min.js" />
     <Content Include="Content\TabPane.css" />
@@ -1624,6 +1709,8 @@
     <Content Include="Content\template-material\vendors\socicon\fonts\socicon-webfont.svg" />
     <Content Include="Content\template-material\vendors\socicon\socicon.min.css" />
     <Content Include="Content\template-material\vendors\sparklines\jquery.sparkline.min.js" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Content\videos\Relax.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1725,21 +1812,37 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
-    <EmbeddedResource Include="ResourcesLanguage\DisplayAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DisplayAdmin.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DisplayAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DisplayAdmin.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\Campaign.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Campaign.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\Campaign.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Campaign.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngIndex .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LayoutManage.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1750,22 +1853,30 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LayoutManage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuText.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EmailMarketing.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmailMarketing.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkingHistory.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkingHistory.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkingHistory.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkingHistory.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Content Include="Content\plugins\ckeditor\CHANGES.md" />
     <Content Include="Content\plugins\ckeditor\LICENSE.md" />
@@ -1782,11 +1893,11 @@
     <Content Include="Content\plugins\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\plugins\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\plugins\ckeditor\skins\moono-lisa\readme.md" />
-    <EmbeddedResource Include="ResourcesLanguage\EmailMarketing.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EmailMarketing.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Content Include="Content\index-media-preview-video\src\flashy.less" />
+    <Content Include="Content\kendo\2014.1.318\images\kendoui.woff" />
+    <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %284%29.pubxml" />
@@ -1808,10 +1919,6 @@
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycmspage - Web Deploy.pubxml" />
-    <EmbeddedResource Include="ResourcesLanguage\WorkCategory.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkCategory.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Content Include="Resource\Layout\Layout_2.cshtml" />
     <Content Include="Resource\Layout\Layout_3.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -1835,6 +1942,427 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.af-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.af.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.am-ET.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.am.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-AE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-BH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-DZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-EG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-IQ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-JO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-KW.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-LB.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-LY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-MA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-OM.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-QA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-SA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-SY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-TN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar-YE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.arn-CL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.arn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.as-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.as.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.az-Cyrl-AZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.az-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.az-Latn-AZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.az-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.az.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ba-RU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ba.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.be-BY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.be.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bg-BG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bg.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bn-BD.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bn-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bo-CN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bo.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.br-FR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.br.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bs-Cyrl-BA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bs-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bs-Latn-BA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bs-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.bs.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ca-ES.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ca.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.co-FR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.co.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.cs-CZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.cs.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.cy-GB.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.cy.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.da-DK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.da.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de-AT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de-CH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de-DE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de-LI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de-LU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.de.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.dsb-DE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.dsb.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.dv-MV.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.dv.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.el-GR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.el.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-029.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-AU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-BZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-CA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-GB.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-IE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-JM.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-MY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-NZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-PH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-SG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-TT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-US.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en-ZW.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.en.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-AR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-BO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-CL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-CO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-CR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-DO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-EC.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-ES.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-GT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-HN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-MX.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-NI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-PA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-PE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-PR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-PY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-SV.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-US.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-UY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es-VE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.es.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.et-EE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.et.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.eu-ES.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.eu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fa-IR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fa.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fi-FI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fi.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fil-PH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fil.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fo-FO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fo.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-BE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-CA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-CH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-FR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-LU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr-MC.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fy-NL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.fy.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ga-IE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ga.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gd-GB.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gd.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gl-ES.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gsw-FR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gsw.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gu-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.gu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ha-Latn-NG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ha-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ha.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.he-IL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.he.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hi-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hi.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hr-BA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hr-HR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hsb-DE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hsb.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hu-HU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hy-AM.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.hy.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.id-ID.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.id.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ig-NG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ig.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ii-CN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ii.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.is-IS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.is.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.it-CH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.it-IT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.it.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.iu-Cans-CA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.iu-Cans.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.iu-Latn-CA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.iu-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.iu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ja-JP.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ja.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ka-GE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ka.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kk-KZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kk.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kl-GL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.km-KH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.km.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kn-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ko-KR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ko.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kok-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.kok.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ky-KG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ky.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lb-LU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lb.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lo-LA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lo.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lt-LT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lt.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lv-LV.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.lv.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mi-NZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mi.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mk-MK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mk.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ml-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ml.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mn-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mn-MN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mn-Mong-CN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mn-Mong.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.moh-CA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.moh.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mr-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ms-BN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ms-MY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ms.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mt-MT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.mt.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nb-NO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nb.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ne-NP.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ne.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nl-BE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nl-NL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nn-NO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.no.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nso-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.nso.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.oc-FR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.oc.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.or-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.or.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pa-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pa.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pl-PL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.prs-AF.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.prs.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ps-AF.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ps.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pt-BR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pt-PT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.pt.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.qut-GT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.qut.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.quz-BO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.quz-EC.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.quz-PE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.quz.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.rm-CH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.rm.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ro-RO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ro.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ru-RU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ru-UA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ru.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.rw-RW.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.rw.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sa-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sa.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sah-RU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sah.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.se-FI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.se-NO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.se-SE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.se.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.si-LK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.si.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sk-SK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sk.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sl-SI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sma-NO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sma-SE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sma.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.smj-NO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.smj-SE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.smj.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.smn-FI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.smn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sms-FI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sms.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sq-AL.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sq.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Cyrl-BA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Cyrl-CS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Cyrl-ME.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Cyrl-RS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Latn-BA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Latn-CS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Latn-ME.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Latn-RS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sv-FI.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sv-SE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sv.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sw-KE.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.sw.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.syr-SY.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.syr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ta-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ta.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.te-IN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.te.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tg-Cyrl-TJ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tg-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tg.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.th-TH.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.th.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tk-TM.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tk.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tn-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tr-TR.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tt-RU.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tt.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tzm-Latn-DZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tzm-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.tzm.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ug-CN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ug.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uk-UA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uk.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ur-PK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.ur.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uz-Cyrl-UZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uz-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uz-Latn-UZ.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uz-Latn.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.uz.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.vi-VN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.vi.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.wo-SN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.wo.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.xh-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.xh.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.yo-NG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.yo.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-CHS.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-CHT.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-CN.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-Hans.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-Hant.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-HK.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-MO.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-SG.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh-TW.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zh.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zu-ZA.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\cultures\kendo.culture.zu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\jquery.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.xml.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.menu.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.loader.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js" />
     <Content Include="Scripts\knotify.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -1842,6 +2370,8 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1908,6 +2438,72 @@
     <Content Include="Views\Scenario\Form.cshtml" />
     <Content Include="Views\Scenario\UpdateForm.cshtml" />
     <Content Include="Views\Scenario\UpdateDetails.cshtml" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2014.1.318\jquery.min.map" />
     <Content Include="Views\MatchingDevice\Form.cshtml" />
     <Content Include="Views\Scheduling\Index.cshtml" />
     <Content Include="Views\Scheduling\Form.cshtml" />
@@ -1917,6 +2513,7 @@
     <Content Include="Views\BrandUserMng\Form.cshtml" />
     <Content Include="Views\FileStack\Index.cshtml" />
     <Content Include="Views\Layout\Index.cshtml" />
+    <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1956,46 +2553,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ResourcesLanguage\RadiusServerAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RadiusServerAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RadiusServerAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RadiusServerAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AccessPointAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AccessPointAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AccessPointAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AccessPointAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AddAccessPointWithLocationForm.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddAccessPointWithLocationForm.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\AddAccessPointWithLocationForm.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AddAccessPointWithLocationForm.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\BrandManagerPublisher.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>BrandManagerPublisher.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\BrandManagerPublisher.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>BrandManagerPublisher.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ChooseLocationInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ChooseLocationInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ChooseLocationInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ChooseLocationInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\CreateAccountAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CreateAccountAdmin.Designer.cs</LastGenOutput>
@@ -2003,30 +2560,6 @@
     <EmbeddedResource Include="ResourcesLanguage\CreateAccountAdmin.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CreateAccountAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CreateInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CreateInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\CustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CustomerList.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\DateTimePicker.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2036,22 +2569,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DateTimePicker.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DetailCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DetailCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\DetailCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DetailCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditAccessPointForm.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditAccessPointForm.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditAccessPointForm.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditAccessPointForm.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\EditAccountAdmin.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditAccountAdmin.Designer.cs</LastGenOutput>
@@ -2060,31 +2577,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditAccountAdmin.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditCustomerList.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditCustomerList.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditCustomerList.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditCustomerList.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <!--<EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.vi.resx">-->
-    <EmbeddedResource Include="ResourcesLanguage\EditInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditInteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditInteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditPublisherAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditPublisherAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\EditPublisherAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EditPublisherAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\Image.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Image.vi.Designer.cs</LastGenOutput>
@@ -2092,38 +2585,6 @@
     <EmbeddedResource Include="ResourcesLanguage\Image.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Image.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexAccountAdmin.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexAccountAdmin.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexAccountAdmin.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexAccountAdmin.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexNormalCustomer.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\IndexNormalCustomer.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>IndexNormalCustomer.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPage.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPage.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPageSchedule.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPageSchedule.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\InteractionPageSchedule.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>InteractionPageSchedule.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LocationManagement.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2141,54 +2602,118 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LoginPage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ManagerPubliser.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagerPubliser.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ManagerPubliser.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ManagerPubliser.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuText.vi.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\PresenseAnalysis.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PresenseAnalysis.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaSrcIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\PresenseAnalysis.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>PresenseAnalysis.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RecentCustomer.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RecentCustomer.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\RecentCustomer.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>RecentCustomer.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ReportInteractionPage.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ReportInteractionPage.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ReportInteractionPage.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ReportInteractionPage.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistUpdateForm .vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserBehaviour.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserBehaviour.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserBehaviour.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserBehaviour.vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserStatistic.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserStatistic.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioIndex .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateDetails.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateDetails.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm .vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingAddForm .vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.vi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScreenIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\UserDetails.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2197,22 +2722,6 @@
     <EmbeddedResource Include="ResourcesLanguage\UserDetails.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserDetails.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\UserStatistic.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserStatistic.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ViewAllAccessPoints.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ViewAllAccessPoints.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ViewAllAccessPoints.vi.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ViewAllAccessPoints.vi.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\WorkCategory.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>WorkCategory.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

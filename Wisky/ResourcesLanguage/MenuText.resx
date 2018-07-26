@@ -174,9 +174,6 @@
   <data name="ScreenMng" xml:space="preserve">
     <value>Screen</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-  </data>
   <data name="SystemSection" xml:space="preserve">
     <value>System Magement</value>
   </data>
