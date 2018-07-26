@@ -255,7 +255,7 @@ namespace DSS.Controllers
         {
             IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
-            var PlaylistList = PlaylistController.GetPlaylistIdByBrandId() as List<Models.PlaylistDetailVM>;
+            var PlaylistList = PlaylistController.GetPlaylistIdByBrandIdAndStatus() as List<Models.PlaylistDetailVM>;
             return Json(new
             {
                 PlaylistList = PlaylistList,

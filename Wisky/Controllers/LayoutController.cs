@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DSS.Controllers
 {
+    [Authorize(Roles = "System Admin")]
     public class LayoutController : Controller
     {
         //[Authorize]

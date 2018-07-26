@@ -27,18 +27,18 @@ namespace DSS.Controllers
             return View("Index");
         }
         //ToanTXSE
-        //Get location List by location ID
+        //Get playlist List by location ID
         public static List<Models.PlaylistDetailVM> GetPlaylistIdByBrandId()
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
-            var mapper= DependencyUtils.Resolve<IMapper>();
+            var mapper = DependencyUtils.Resolve<IMapper>();
             var user = Helper.GetCurrentUser();
             var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
             var playlistDetailVM = new List<Models.PlaylistDetailVM>();
             foreach (var item in playlistList)
-            {                
+            {
                 var m = new Models.PlaylistDetailVM
                 {
                     Title = item.Title,
@@ -52,7 +52,92 @@ namespace DSS.Controllers
             //playlistDetailVM = playlistList.Select(mapper.Map<Playlist, Models.PlaylistDetailVM>).ToList();
             return playlistDetailVM;
         }
+        //ToanTXSE
+        //Get playlist List by location ID
+        public static List<Models.PlaylistDetailVM> GetPlaylistIdByBrandIdAndStatus()
+        {
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
+            var mapper = DependencyUtils.Resolve<IMapper>();
+            var user = Helper.GetCurrentUser();
+            var playlistList = playlistService.GetPlaylistIdByBrandId(user.BrandID);
+            var playlistDetailVM = new List<Models.PlaylistDetailVM>();
+            foreach (var item in playlistList)
+            {
+                if (item.isPublic == true)
+                {
+                    var m = new Models.PlaylistDetailVM
+                    {
+                        Title = item.Title,
+                        Description = item.Description,
+                        Id = item.PlaylistID,
+                        isPublic = (bool)item.isPublic,
+                        Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
+                    };
+                    playlistDetailVM.Add(m);
+                }
 
+            }
+            //playlistDetailVM = playlistList.Select(mapper.Map<Playlist, Models.PlaylistDetailVM>).ToList();
+            return playlistDetailVM;
+        }
+        //TOANTXSE
+        // POST: Media/CheckMediaIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckPlaylistIdIsUsed(int id)
+        {
+            try
+            {
+                //Get device by screen Id
+                IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+                IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
+                var scenarioItem = scenarioItemService.Get().ToList();
+                var scenario = scenarioService.Get().ToList();
+                var scenarioItemVMs = new List<Models.ScenarioItemVM>();
+                var scenarioVMs = new List<Models.ScenarioDetailVM>();
+                //check playlistId have in playlistItem
+                foreach (var item in scenarioItem)
+                {
+                    if (item.PlaylistID == id)
+                    {
+                        var b = new Models.ScenarioItemVM
+                        {
+                            ScenarioId = item.ScenarioID,
+
+                        };
+                        scenarioItemVMs.Add(b);
+                    }
+                }
+                // if scenarioItemVMs != null, get Scenario Title by ScenarioId
+                if (scenarioItemVMs.Count != 0)
+                {
+                    foreach (var item in scenarioItemVMs)
+                    {
+                        foreach (var itemScenario in scenario)
+                        {
+                            if (item.ScenarioId == itemScenario.ScenarioID)
+                            {
+                                var b = new Models.ScenarioDetailVM
+                                {
+                                    Title = itemScenario.Title,
+                                };
+                                scenarioVMs.Add(b);
+                            }
+                        }
+                    }
+                }
+                return Json(new
+                {
+                    isUsing = scenarioItemVMs.Count != 0,
+                    scenarioVMlist = scenarioVMs,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //Update Playlist Item
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
         {
@@ -92,7 +177,7 @@ namespace DSS.Controllers
                     };
                 }
             }
-            ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandId();
+            ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandIdAndStatus();
             ViewBag.itemList = GetMediaSrcListByPlaylistId(id ?? default(int));
             return View("Form", model);
         }
@@ -203,14 +288,15 @@ namespace DSS.Controllers
                         {
                             //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
                             playlistItem.Duration = 0;
-                        } else
+                        }
+                        else
                         {
                             var duration = TimeSpan.Parse(item.ItemDuration);
                             playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
                     }
-                }    
+                }
                 return Json(new
                 {
                     success = true,
@@ -246,7 +332,7 @@ namespace DSS.Controllers
                     Description = mediaSrc.Description,
                     MediaSrcId = mediaSrc.MediaSrcID,
                     isPublic = (bool)mediaSrc.isPublic,
-                    
+
                 };
             }
             return View(model);
@@ -280,8 +366,9 @@ namespace DSS.Controllers
         // GET: Playlist/Delete/:id
         public ActionResult Delete(int id)
         {
+            var user = Helper.GetCurrentUser();
             var playlist = this.playlistService.Get(id);
-            if (playlist != null)
+            if (playlist != null && playlist.BrandID == user.BrandID)
             {
                 this.playlistService.Delete(playlist);
             }
