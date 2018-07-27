@@ -18,6 +18,7 @@ namespace DSS.Data.Models.Entities
         public Device()
         {
             this.DeviceScenarios = new HashSet<DeviceScenario>();
+            this.Schedules = new HashSet<Schedule>();
         }
     
         public int DeviceID { get; set; }
@@ -33,5 +34,7 @@ namespace DSS.Data.Models.Entities
         public virtual Screen Screen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceScenario> DeviceScenarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

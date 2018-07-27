@@ -12,7 +12,17 @@ namespace DSS.Data.Models.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Account : SkyWeb.DatVM.Data.IEntity
+    public partial class Schedule
     {
+        public int DeviceID { get; set; }
+        public int ScenarioID { get; set; }
+        public int TimeFilter { get; set; }
+        public int LayoutID { get; set; }
+        public int ScheduleID { get; set; }
+        public int Priority { get; set; }
+        public int DayFilter { get; set; }
+    
+        public virtual Device Device { get; set; }
+        public virtual Scenario Scenario { get; set; }
     }
 }

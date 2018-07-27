@@ -12,18 +12,7 @@ namespace DSS.Data.Models.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Schedule : SkyWeb.DatVM.Data.IEntity
     {
-        public int AccountID { get; set; }
-        public int BrandID { get; set; }
-        public Nullable<bool> isActive { get; set; }
-        public Nullable<int> RoleID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Fullname { get; set; }
-        public string CreateDatetime { get; set; }
-    
-        public virtual Brand Brand { get; set; }
-        public virtual Role Role { get; set; }
     }
 }

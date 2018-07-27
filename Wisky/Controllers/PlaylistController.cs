@@ -265,6 +265,34 @@ namespace DSS.Controllers
                     playlist.isPublic = model.isPublic;
                 }
                 await this.playlistService.UpdateAsync(playlist);
+                /* Add item to playlist*/
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                if (model.AddedElements.Length > 0)
+                {
+                    var i = 0;
+                    foreach (var item in model.AddedElements)
+                    {
+                        var playlistItem = new Data.Models.Entities.PlaylistItem
+                        {
+                            PlaylistID = playlist.PlaylistID,
+                            MediaSrcID = item.ItemId,
+                            DisplayOrder = i++,
+                        };
+                        var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
+                        if (mediaSrcType != 1)
+                        {
+                            //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                            playlistItem.Duration = 0;
+                        }
+                        else
+                        {
+                            var duration = TimeSpan.Parse(item.ItemDuration);
+                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
+                        }
+                        await playlistItemService.CreateAsync(playlistItem);
+                    }
+                }
                 return Json(new
                 {
                     success = true,

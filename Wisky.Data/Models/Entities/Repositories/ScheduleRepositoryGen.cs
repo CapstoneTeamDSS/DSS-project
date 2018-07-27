@@ -13,13 +13,13 @@ namespace DSS.Data.Models.Entities.Repositories
     using System.Collections.Generic;
     
     
-    public partial interface IAccountRepository : SkyWeb.DatVM.Data.IBaseRepository<Account>
+    public partial interface IScheduleRepository : SkyWeb.DatVM.Data.IBaseRepository<Schedule>
     {
     }
     
-    public partial class AccountRepository : SkyWeb.DatVM.Data.BaseRepository<Account>, IAccountRepository
+    public partial class ScheduleRepository : SkyWeb.DatVM.Data.BaseRepository<Schedule>, IScheduleRepository
     {
-    	public AccountRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
+    	public ScheduleRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
         {
         }
     }

@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.ViewModels
+namespace DSS.Data.Models.Entities.Services
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.Role>
-    {
-    	
-    			public virtual int RoleID { get; set; }
-    			public virtual string RoleName { get; set; }
-    			public virtual string Description { get; set; }
-    	
-    	public RoleViewModel() : base() { }
-    	public RoleViewModel(DSS.Data.Models.Entities.Role entity) : base(entity) { }
     
+    public partial interface ITimeSlotService : SkyWeb.DatVM.Data.IBaseService<TimeSlot>
+    {
+    }
+    
+    public partial class TimeSlotService : SkyWeb.DatVM.Data.BaseService<TimeSlot>, ITimeSlotService
+    {
+        public TimeSlotService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.ITimeSlotRepository repository) : base(unitOfWork, repository)
+        {
+        }
     }
 }

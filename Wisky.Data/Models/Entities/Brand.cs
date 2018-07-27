@@ -17,7 +17,6 @@ namespace DSS.Data.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Brand()
         {
-            this.Accounts = new HashSet<Account>();
             this.AspNetUsers = new HashSet<AspNetUser>();
             this.Devices = new HashSet<Device>();
             this.Locations = new HashSet<Location>();
@@ -32,8 +31,6 @@ namespace DSS.Data.Models.Entities
         public string Description { get; set; }
         public Nullable<bool> isActive { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
