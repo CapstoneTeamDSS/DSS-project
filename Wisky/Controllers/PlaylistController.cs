@@ -83,13 +83,12 @@ namespace DSS.Controllers
             return playlistDetailVM;
         }
         //TOANTXSE
-        // POST: Media/CheckMediaIdIsUsed  
+        // POST: Media/CheckPlaylistIdIsUsed  
         [HttpPost]
         public JsonResult CheckPlaylistIdIsUsed(int id)
         {
             try
             {
-                //Get device by screen Id
                 IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
                 IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
                 var scenarioItem = scenarioItemService.Get().ToList();

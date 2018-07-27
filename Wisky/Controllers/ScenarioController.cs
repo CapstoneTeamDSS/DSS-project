@@ -64,21 +64,81 @@ namespace DSS.Controllers
         // GET: Scenario/Delete/:id
         public ActionResult Delete(int id)
         {
+            IScenarioItemService scerarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
             var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
-            if (scenario != null)
+            var user = Helper.GetCurrentUser();
+            var scenarioItem = scerarioItemService.GetItemListByScenarioId(id);
+            if (scenarioItem != null && scenario != null && scenario.BrandID == user.BrandID)
             {
+                foreach (var i in scenarioItem)
+                {
+                    scerarioItemService.Delete(i);
+                }
                 this.scenarioService.Delete(scenario);
             }
             return this.RedirectToAction("Index");
         }
 
-        // GET: AndroidBox/Form/:id
+        // GET: Scenario/Form/:id
         public ActionResult Form()
         {
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
             return View();
         }
+        //TOANTXSE
+        //// POST: Scenario/CheckScenarioIdIsUsed  
+        //[HttpPost]
+        //public JsonResult CheckScenarioIdIsUsed(int id)
+        //{
+        //    try
+        //    {
+        //        IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
+        //        IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
+        //        var deviceScenario = deviceScenarioService.Get().ToList();
+        //        var scenario = scenarioService.Get(a => a.ScenarioID == id);
+        //        var schedule = new List<Models.ScheduleVM>();
+        //        //check playlistId have in playlistItem
+        //        foreach (var item in deviceScenario)
+        //        {
+        //            if (item.ScenarioID == id)
+        //            {
+        //                var b = new Models.ScenarioItemVM
+        //                {
+        //                    ScenarioId = item.ScenarioID,
 
+        //                };
+        //                scenarioItemVMs.Add(b);
+        //            }
+        //        }
+        //        // if scenarioItemVMs != null, get Scenario Title by ScenarioId
+        //        if (scenarioItemVMs.Count != 0)
+        //        {
+        //            foreach (var item in scenarioItemVMs)
+        //            {
+        //                foreach (var itemScenario in scenario)
+        //                {
+        //                    if (item.ScenarioId == itemScenario.ScenarioID)
+        //                    {
+        //                        var b = new Models.ScenarioDetailVM
+        //                        {
+        //                            Title = itemScenario.Title,
+        //                        };
+        //                        scenarioVMs.Add(b);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        return Json(new
+        //        {
+        //            isUsing = scenarioItemVMs.Count != 0,
+        //            scenarioVMlist = scenarioVMs,
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         //POST: Scenario/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioDetailVM model)
