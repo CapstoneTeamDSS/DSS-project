@@ -86,59 +86,24 @@ namespace DSS.Controllers
             return View();
         }
         //TOANTXSE
-        //// POST: Scenario/CheckScenarioIdIsUsed  
-        //[HttpPost]
-        //public JsonResult CheckScenarioIdIsUsed(int id)
-        //{
-        //    try
-        //    {
-        //        IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
-        //        IScenarioService scenarioService = DependencyUtils.Resolve<IScenarioService>();
-        //        var deviceScenario = deviceScenarioService.Get().ToList();
-        //        var scenario = scenarioService.Get(a => a.ScenarioID == id);
-        //        var schedule = new List<Models.ScheduleVM>();
-        //        //check playlistId have in playlistItem
-        //        foreach (var item in deviceScenario)
-        //        {
-        //            if (item.ScenarioID == id)
-        //            {
-        //                var b = new Models.ScenarioItemVM
-        //                {
-        //                    ScenarioId = item.ScenarioID,
-
-        //                };
-        //                scenarioItemVMs.Add(b);
-        //            }
-        //        }
-        //        // if scenarioItemVMs != null, get Scenario Title by ScenarioId
-        //        if (scenarioItemVMs.Count != 0)
-        //        {
-        //            foreach (var item in scenarioItemVMs)
-        //            {
-        //                foreach (var itemScenario in scenario)
-        //                {
-        //                    if (item.ScenarioId == itemScenario.ScenarioID)
-        //                    {
-        //                        var b = new Models.ScenarioDetailVM
-        //                        {
-        //                            Title = itemScenario.Title,
-        //                        };
-        //                        scenarioVMs.Add(b);
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        return Json(new
-        //        {
-        //            isUsing = scenarioItemVMs.Count != 0,
-        //            scenarioVMlist = scenarioVMs,
-        //        }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        // POST: Scenario/CheckScenarioIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckScenarioIdIsUsed(int id)
+        {
+            try
+            {
+                IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
+                var deviceScenario = deviceScenarioService.Get(a => a.ScenarioID == id).FirstOrDefault();
+                return Json(new
+                {
+                    isUsing = deviceScenario != null,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //POST: Scenario/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioDetailVM model)

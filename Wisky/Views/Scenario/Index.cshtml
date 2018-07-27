@@ -120,42 +120,24 @@
     <script>
         $(".btnDelete").click(function () {
             var btnDel = $(this);
-            var IdPlaylist = $(btnDel).attr("data-id");
+            var idScenario = $(btnDel).attr("data-id");
             var data = {
-                id: IdPlaylist,
+                id: idScenario,
             };
             $.ajax({
                 type: "POST",
-                url: "/Playlist/CheckPlaylistIdIsUsed",
+                url: "/Scenario/CheckScenarioIdIsUsed",
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    //set title warming when scenarioVMlist.length <= 3
-                    var title = "";
-                    if (data.scenarioVMlist.length <= 3) {
-                        for (var i = 0; i < data.scenarioVMlist.length; i++) {
-                            title += data.scenarioVMlist[i].Title;
-                            if (i < data.scenarioVMlist.length - 1) {
-                                title += ", ";
-                            }
-                        }
-                    } else {//set title warming when scenarioVMlist.length > 3 show ...
-                        for (var i = 0; i < 3; i++) {
-                            title += data.scenarioVMlist[i].Title;
-                            if (i < data.scenarioVMlist.length - 1) {
-                                title += ", ";
-                            }
-                        }
-                        title += "...";
-                    }
                     //show sweerAlert warming
                     if (data.isUsing) {
-                        swal("This playlist is being used.", "Please delete scenario " + title + " if you want to delete it.", "error");
+                        swal("Oops...","This scenario is being used.", "error");
                     } else {
                         swal({
                             title: "Are you sure?",
-                            text: "You will not be able to recover this playlist!",
+                            text: "You will not be able to recover this scenario!",
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
@@ -167,13 +149,13 @@
                             function (isConfirm) {
                                 if (isConfirm) {
                                     var IdDelete = $(btnDel).attr("data-id");
-                                    $(btnDel).attr("href", "/Playlist/Delete?Id=" + IdDelete);
+                                    $(btnDel).attr("href", "/Scenario/Delete?Id=" + IdDelete);
                                     $.ajax({
                                         type: "GET",
-                                        url: "/Playlist/Delete?Id=" + IdDelete,
+                                        url: "/Scenario/Delete?Id=" + IdDelete,
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
-                                            swal("Deleted!", "Your playlist has been deleted!", "success");
+                                            swal("Deleted!", "Your scenario has been deleted!", "success");
                                             location.reload();
                                         },
                                         error: function () {
@@ -181,7 +163,7 @@
                                         }
                                     });
                                 } else {
-                                    swal("Cancelled", "Your Playlist file is safe :)", "error");
+                                    swal("Cancelled", "Your scenario is safe :)", "error");
                                 }
                             });
                     }
