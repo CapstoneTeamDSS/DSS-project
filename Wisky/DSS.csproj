@@ -2705,12 +2705,9 @@
     <Content Include="Views\BrandUserMng\Index.cshtml" />
     <Content Include="Views\BrandUserMng\Form.cshtml" />
     <Content Include="Views\FileStack\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Language\Index.cshtml" />
-=======
     <Content Include="Views\Layout\Index.cshtml" />
     <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
->>>>>>> 3a68435b27eadb89f1c780f10bcfdabb42c29628
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
