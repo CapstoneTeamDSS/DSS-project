@@ -241,8 +241,8 @@
                 };
                 data["AddedElements"].push(obj);
             });
-            var url = "/Playlist/" + $("#playlistId").val() != "" ? "Update" : "Add";
-            alert(url);
+            var url = "/Playlist/Add";
+            //alert(url);
             $.ajax({
                 url: url,
                 method: 'POST',

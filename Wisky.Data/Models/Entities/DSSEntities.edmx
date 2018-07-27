@@ -5,19 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DSSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="AccountID" />
-          </Key>
-          <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BrandID" Type="int" Nullable="false" />
-          <Property Name="isActive" Type="bit" />
-          <Property Name="RoleID" Type="int" />
-          <Property Name="Username" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Password" Type="nchar" MaxLength="10" />
-          <Property Name="Fullname" Type="nchar" MaxLength="10" />
-          <Property Name="CreateDatetime" Type="varchar" MaxLength="30" Nullable="false" />
-        </EntityType>
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
@@ -202,14 +189,6 @@
           <Property Name="Note" Type="text" />
           <Property Name="BrandID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="RoleID" />
-          </Key>
-          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoleName" Type="varchar" MaxLength="20" />
-          <Property Name="Description" Type="text" />
-        </EntityType>
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
@@ -257,30 +236,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Account_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Account_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="RoleID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Area_Layout">
           <End Role="Layout" Type="Self.Layout" Multiplicity="1" />
           <End Role="Area" Type="Self.Area" Multiplicity="*" />
@@ -596,7 +551,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DSSModelStoreContainer">
-          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -614,19 +568,10 @@
           <EntitySet Name="Playlist" EntityType="Self.Playlist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlaylistItem" EntityType="Self.PlaylistItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resolution" EntityType="Self.Resolution" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scenario" EntityType="Self.Scenario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ScenarioItem" EntityType="Self.ScenarioItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Account_Brand" Association="Self.FK_Account_Brand">
-            <End Role="Brand" EntitySet="Brand" />
-            <End Role="Account" EntitySet="Account" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Account_Role" Association="Self.FK_Account_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Account" EntitySet="Account" />
-          </AssociationSet>
           <AssociationSet Name="FK_Area_Layout" Association="Self.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layout" />
             <End Role="Area" EntitySet="Area" />
@@ -733,7 +678,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DSSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DSSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="DSSModel.Account" />
           <EntitySet Name="Areas" EntityType="DSSModel.Area" />
           <EntitySet Name="AspNetRoles" EntityType="DSSModel.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="DSSModel.AspNetUserClaim" />
@@ -750,19 +694,10 @@
           <EntitySet Name="Playlists" EntityType="DSSModel.Playlist" />
           <EntitySet Name="PlaylistItems" EntityType="DSSModel.PlaylistItem" />
           <EntitySet Name="Resolutions" EntityType="DSSModel.Resolution" />
-          <EntitySet Name="Roles" EntityType="DSSModel.Role" />
           <EntitySet Name="Scenarios" EntityType="DSSModel.Scenario" />
           <EntitySet Name="ScenarioItems" EntityType="DSSModel.ScenarioItem" />
           <EntitySet Name="Screens" EntityType="DSSModel.Screen" />
           <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
-          <AssociationSet Name="FK_Account_Brand" Association="DSSModel.FK_Account_Brand">
-            <End Role="Brand" EntitySet="Brands" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Account_Role" Association="DSSModel.FK_Account_Role">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Area_Layout" Association="DSSModel.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layouts" />
             <End Role="Area" EntitySet="Areas" />
@@ -860,21 +795,6 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="AccountID" />
-          </Key>
-          <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BrandID" Type="Int32" Nullable="false" />
-          <Property Name="isActive" Type="Boolean" />
-          <Property Name="RoleID" Type="Int32" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Fullname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreateDatetime" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Account_Brand" FromRole="Account" ToRole="Brand" />
-          <NavigationProperty Name="Role" Relationship="DSSModel.FK_Account_Role" FromRole="Account" ToRole="Role" />
-        </EntityType>
         <EntityType Name="Area">
           <Key>
             <PropertyRef Name="AreaID" />
@@ -960,7 +880,6 @@
           <Property Name="CreateDateTime" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="isActive" Type="Boolean" />
-          <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Brand" FromRole="Brand" ToRole="Account" />
           <NavigationProperty Name="AspNetUsers" Relationship="DSSModel.FK_AspNetUsers_Brand" FromRole="Brand" ToRole="AspNetUser" />
           <NavigationProperty Name="Devices" Relationship="DSSModel.FK_Device_Brand" FromRole="Brand" ToRole="Device" />
           <NavigationProperty Name="Locations" Relationship="DSSModel.FK_Location_Brand" FromRole="Brand" ToRole="Location" />
@@ -1090,15 +1009,6 @@
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Resolution_Brand" FromRole="Resolution" ToRole="Brand" />
           <NavigationProperty Name="Screens" Relationship="DSSModel.FK_Screen_Resolution" FromRole="Resolution" ToRole="Screen" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="RoleID" />
-          </Key>
-          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Accounts" Relationship="DSSModel.FK_Account_Role" FromRole="Role" ToRole="Account" />
-        </EntityType>
         <EntityType Name="Scenario">
           <Key>
             <PropertyRef Name="ScenarioID" />
@@ -1156,30 +1066,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Account_Brand">
-          <End Type="DSSModel.Brand" Role="Brand" Multiplicity="1" />
-          <End Type="DSSModel.Account" Role="Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Brand">
-              <PropertyRef Name="BrandID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="BrandID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Account_Role">
-          <End Type="DSSModel.Role" Role="Role" Multiplicity="0..1" />
-          <End Type="DSSModel.Account" Role="Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="RoleID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="RoleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Area_Layout">
           <End Type="DSSModel.Layout" Role="Layout" Multiplicity="1" />
           <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />
@@ -1476,20 +1362,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DSSModelStoreContainer" CdmEntityContainer="DSSEntities">
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="DSSModel.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
-                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Areas">
             <EntityTypeMapping TypeName="DSSModel.Area">
               <MappingFragment StoreEntitySet="Area">
@@ -1676,15 +1548,6 @@
                 <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="Width" ColumnName="Width" />
                 <ScalarProperty Name="ResolutionID" ColumnName="ResolutionID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="DSSModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

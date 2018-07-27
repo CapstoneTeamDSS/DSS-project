@@ -25,7 +25,6 @@ namespace DSS.Data.Models.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Area> Areas { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
@@ -42,7 +41,6 @@ namespace DSS.Data.Models.Entities
         public virtual DbSet<Playlist> Playlists { get; set; }
         public virtual DbSet<PlaylistItem> PlaylistItems { get; set; }
         public virtual DbSet<Resolution> Resolutions { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Scenario> Scenarios { get; set; }
         public virtual DbSet<ScenarioItem> ScenarioItems { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
