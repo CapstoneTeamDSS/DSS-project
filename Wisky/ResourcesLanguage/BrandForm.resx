@@ -117,43 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountMng" xml:space="preserve">
-    <value>Quản lý người dùng</value>
+  <data name="AddPageHeader" xml:space="preserve">
+    <value>Add New Brand</value>
   </data>
-  <data name="BoxMng" xml:space="preserve">
-    <value>Android Box</value>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="BrandMng" xml:space="preserve">
-    <value>Quản lý thương hiệu</value>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Reset</value>
   </data>
-  <data name="DeviceMng" xml:space="preserve">
-    <value>Thiết bị</value>
+  <data name="BtnSubmit" xml:space="preserve">
+    <value>Submit</value>
   </data>
-  <data name="LayoutMng" xml:space="preserve">
-    <value>Cách bố trí</value>
+  <data name="LblBrand" xml:space="preserve">
+    <value>Brand Name</value>
   </data>
-  <data name="LocationMng" xml:space="preserve">
-    <value>Địa điểm</value>
+  <data name="LblDescription" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="MediaResourceMng" xml:space="preserve">
-    <value>Tài nguyên</value>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="PlaylistMng" xml:space="preserve">
-    <value>Chương trình</value>
-  </data>
-  <data name="Report" xml:space="preserve">
-    <value>Báo cáo</value>
-  </data>
-  <data name="ResolutionMng" xml:space="preserve">
-    <value>Độ phân giải</value>
-  </data>
-  <data name="ScenarioMng" xml:space="preserve">
-    <value>Kịch bản</value>
-  </data>
-  <data name="Scheduling" xml:space="preserve">
-    <value>Xếp lịch</value>
-  </data>
-  <data name="ScreenMng" xml:space="preserve">
-    <value>Màn hình</value>
+  <data name="UpdatePageHeader" xml:space="preserve">
+    <value>Update Brand Information</value>
   </data>
 </root>

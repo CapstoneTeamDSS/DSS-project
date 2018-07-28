@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LayoutIndex {
+    public class UserMngIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LayoutIndex() {
+        internal UserMngIndex() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.LayoutIndex", typeof(LayoutIndex).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.UserMngIndex", typeof(UserMngIndex).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,65 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string ColDescription {
+        public static string BtnCancel {
             get {
-                return ResourceManager.GetString("ColDescription", resourceCulture);
+                return ResourceManager.GetString("BtnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string BtnDelete {
+            get {
+                return ResourceManager.GetString("BtnDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string BtnEdit {
+            get {
+                return ResourceManager.GetString("BtnEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string ColAction {
+            get {
+                return ResourceManager.GetString("ColAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand.
+        /// </summary>
+        public static string ColBrand {
+            get {
+                return ResourceManager.GetString("ColBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string ColEmail {
+            get {
+                return ResourceManager.GetString("ColEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fullname.
+        /// </summary>
+        public static string ColFullname {
+            get {
+                return ResourceManager.GetString("ColFullname", resourceCulture);
             }
         }
         
@@ -79,15 +133,6 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preview.
-        /// </summary>
-        public static string ColPreview {
-            get {
-                return ResourceManager.GetString("ColPreview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string ColStatus {
@@ -97,25 +142,16 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
+        ///   Looks up a localized string similar to Username.
         /// </summary>
-        public static string ColTitle {
+        public static string ColUsername {
             get {
-                return ResourceManager.GetString("ColTitle", resourceCulture);
+                return ResourceManager.GetString("ColUsername", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
-        /// </summary>
-        public static string ColType {
-            get {
-                return ResourceManager.GetString("ColType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Layout Management.
+        ///   Looks up a localized string similar to User Management.
         /// </summary>
         public static string PageHeader {
             get {
@@ -124,7 +160,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Layout List.
+        ///   Looks up a localized string similar to User List.
         /// </summary>
         public static string PageTitle {
             get {

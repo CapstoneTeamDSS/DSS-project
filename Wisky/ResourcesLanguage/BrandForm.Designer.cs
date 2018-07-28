@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LayoutIndex {
+    public class BrandForm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LayoutIndex() {
+        internal BrandForm() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.LayoutIndex", typeof(LayoutIndex).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.BrandForm", typeof(BrandForm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,74 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Brand.
+        /// </summary>
+        public static string AddPageHeader {
+            get {
+                return ResourceManager.GetString("AddPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string BtnCancel {
+            get {
+                return ResourceManager.GetString("BtnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string BtnReset {
+            get {
+                return ResourceManager.GetString("BtnReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string BtnSubmit {
+            get {
+                return ResourceManager.GetString("BtnSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brand Name.
+        /// </summary>
+        public static string LblBrand {
+            get {
+                return ResourceManager.GetString("LblBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        public static string ColDescription {
+        public static string LblDescription {
             get {
-                return ResourceManager.GetString("ColDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No.
-        /// </summary>
-        public static string ColNo {
-            get {
-                return ResourceManager.GetString("ColNo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Preview.
-        /// </summary>
-        public static string ColPreview {
-            get {
-                return ResourceManager.GetString("ColPreview", resourceCulture);
+                return ResourceManager.GetString("LblDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
-        public static string ColStatus {
+        public static string LblStatus {
             get {
-                return ResourceManager.GetString("ColStatus", resourceCulture);
+                return ResourceManager.GetString("LblStatus", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
+        ///   Looks up a localized string similar to Update Brand Information.
         /// </summary>
-        public static string ColTitle {
+        public static string UpdatePageHeader {
             get {
-                return ResourceManager.GetString("ColTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Type.
-        /// </summary>
-        public static string ColType {
-            get {
-                return ResourceManager.GetString("ColType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Layout Management.
-        /// </summary>
-        public static string PageHeader {
-            get {
-                return ResourceManager.GetString("PageHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Layout List.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
+                return ResourceManager.GetString("UpdatePageHeader", resourceCulture);
             }
         }
     }

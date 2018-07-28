@@ -366,6 +366,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AndroidBoxIndex.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\BrandForm.vi.Designer.cs">
+      <DependentUpon>BrandForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandIndex.vi.Designer.cs">
+      <DependentUpon>BrandIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandIndex.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.Designer.cs">
       <DependentUpon>BrandUserMngUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -755,6 +775,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDetails.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngForm.vi.Designer.cs">
+      <DependentUpon>UserMngForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMngForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngIndex.vi.Designer.cs">
+      <DependentUpon>UserMngIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMngIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\GenerateLoginMenu.cs" />
@@ -1967,6 +2007,22 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AndroidBoxIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngUpdateForm.vi.Designer.cs</LastGenOutput>
@@ -2000,11 +2056,11 @@
       <LastGenOutput>Layout.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LayoutIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LayoutIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LayoutIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LayoutIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LocationUpdateForm.vi.resx">
@@ -2101,6 +2157,22 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <EmbeddedResource Include="ResourcesLanguage\UserMngForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %284%29.pubxml" />
