@@ -56,7 +56,7 @@
                                         <td>@(item.EndTime)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/Scheduling/Form/@(item.DeviceScenarioId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Scheduling/Delete/@(item.DeviceScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a class="btnDelete" data-id="@item.DeviceScenarioId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -104,6 +104,66 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var idScenario = $(btnDel).attr("data-id");
+            var data = {
+                id: idScenario,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scheduling/CheckStartTimeAndEndTime",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //show sweerAlert warming
+                    if (data.isRight) {
+                        swal("Oops...", data.title, "error");
+                    } else {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this scheduling!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: "No, cancel!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Scheduling/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Scheduling/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your scheduling has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your scheduling is safe :)", "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 @section styles{
     <!-- Datatables -->
@@ -118,5 +178,8 @@
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
 
