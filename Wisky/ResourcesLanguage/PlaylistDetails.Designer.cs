@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ScreenUpdateForm {
+    public class PlaylistDetails {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ScreenUpdateForm() {
+        internal PlaylistDetails() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.ScreenUpdateForm", typeof(ScreenUpdateForm).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.PlaylistDetails", typeof(PlaylistDetails).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,61 +61,43 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string BtnCancel {
+        public static string BtnDelete {
             get {
-                return ResourceManager.GetString("BtnCancel", resourceCulture);
+                return ResourceManager.GetString("BtnDelete", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to Play.
         /// </summary>
-        public static string BtnSubmit {
+        public static string BtnPlay {
             get {
-                return ResourceManager.GetString("BtnSubmit", resourceCulture);
+                return ResourceManager.GetString("BtnPlay", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Reset.
         /// </summary>
-        public static string LblDescription {
+        public static string BtnReset {
             get {
-                return ResourceManager.GetString("LblDescription", resourceCulture);
+                return ResourceManager.GetString("BtnReset", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
-        public static string LblLocation {
+        public static string BtnSave {
             get {
-                return ResourceManager.GetString("LblLocation", resourceCulture);
+                return ResourceManager.GetString("BtnSave", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resolution.
-        /// </summary>
-        public static string LblResolution {
-            get {
-                return ResourceManager.GetString("LblResolution", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Screen Name.
-        /// </summary>
-        public static string LblScreenName {
-            get {
-                return ResourceManager.GetString("LblScreenName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add New Screen.
+        ///   Looks up a localized string similar to Playlist Management.
         /// </summary>
         public static string PageHeader {
             get {
@@ -124,47 +106,20 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Landscape.
+        ///   Looks up a localized string similar to Playlist Detail.
         /// </summary>
-        public static string TxtLandscape {
+        public static string PageTitleDetail {
             get {
-                return ResourceManager.GetString("TxtLandscape", resourceCulture);
+                return ResourceManager.GetString("PageTitleDetail", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Location.
+        ///   Looks up a localized string similar to Preview.
         /// </summary>
-        public static string txtLocationDefault {
+        public static string PageTitlePreview {
             get {
-                return ResourceManager.GetString("txtLocationDefault", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Portrait.
-        /// </summary>
-        public static string TxtPortrait {
-            get {
-                return ResourceManager.GetString("TxtPortrait", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select Resolution.
-        /// </summary>
-        public static string txtResolutionDefault {
-            get {
-                return ResourceManager.GetString("txtResolutionDefault", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Type.
-        /// </summary>
-        public static string Type {
-            get {
-                return ResourceManager.GetString("Type", resourceCulture);
+                return ResourceManager.GetString("PageTitlePreview", resourceCulture);
             }
         }
     }

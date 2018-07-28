@@ -117,40 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Xóa</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="BtnPlay" xml:space="preserve">
+    <value>Phát</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Làm lại</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm</value>
-  </data>
-  <data name="LblResolution" xml:space="preserve">
-    <value>Độ Phân giải</value>
-  </data>
-  <data name="LblScreenName" xml:space="preserve">
-    <value>Tên Màn hình</value>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Lưu thay đổi</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Thêm Màn hình mới</value>
+    <value>Quản lý Danh sách phát</value>
   </data>
-  <data name="TxtLandscape" xml:space="preserve">
-    <value>Màn hình ngang</value>
+  <data name="PageTitleDetail" xml:space="preserve">
+    <value>Chi tiết Danh sách phát</value>
   </data>
-  <data name="txtLocationDefault" xml:space="preserve">
-    <value>Chọn Địa điểm</value>
-  </data>
-  <data name="TxtPortrait" xml:space="preserve">
-    <value>Màn Hình đứng</value>
-  </data>
-  <data name="txtResolutionDefault" xml:space="preserve">
-    <value>Chọn Độ phân giải</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Loại</value>
+  <data name="PageTitlePreview" xml:space="preserve">
+    <value>Xem trước</value>
   </data>
 </root>

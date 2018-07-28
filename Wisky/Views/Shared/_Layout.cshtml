@@ -10,7 +10,6 @@
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <title>@ViewBag.Title | </title>
-
     <!-- Bootstrap -->
     <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -20,19 +19,16 @@
     <link href="~/Content/template-material/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="~/Content/template-material/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link href="~/Content/template-material/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="~/Content/template-material/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/template-material/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
     @RenderSection("styles", false)
 </head>
-
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -51,9 +47,6 @@
                                 <div class="menu_section">
                                     <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
                                     <ul class="nav side-menu">
-                                        <li>
-                                            @Html.ActionLink(DSS.ResourcesLanguage.Layout.BtnLanguage,"Index","Language")
-                                        </li>
                                         <li>
                                             <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>                                          
                                         </li>
@@ -78,7 +71,6 @@
                                     <ul class="nav side-menu">
                                         <li>
                                             @{
-
                                                 string userMngUrl = User.IsInRole("System Admin") ? Url.Action("Index", "UserMng") : Url.Action("Index", "BrandUserMng");
                                             }
                                             <a href="@userMngUrl"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>

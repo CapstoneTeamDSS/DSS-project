@@ -117,22 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="BtnPlay" xml:space="preserve">
+    <value>Play</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Reset</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm*</value>
-  </data>
-  <data name="LblName" xml:space="preserve">
-    <value>Tên Box*</value>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Thông tin Box</value>
+    <value>Playlist Management</value>
+  </data>
+  <data name="PageTitleDetail" xml:space="preserve">
+    <value>Playlist Detail</value>
+  </data>
+  <data name="PageTitlePreview" xml:space="preserve">
+    <value>Preview</value>
   </data>
 </root>

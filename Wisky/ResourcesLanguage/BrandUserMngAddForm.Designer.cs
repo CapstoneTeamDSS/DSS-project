@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BrandUserMngAddForm {
+    public class BrandUserMngAddForm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.BrandUserMngAddForm", typeof(BrandUserMngAddForm).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Auto Generate.
         /// </summary>
-        internal static string BtnAutoGenerate {
+        public static string BtnAutoGenerate {
             get {
                 return ResourceManager.GetString("BtnAutoGenerate", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
-        internal static string BtnReset {
+        public static string BtnReset {
             get {
                 return ResourceManager.GetString("BtnReset", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
-        internal static string BtnSubmit {
+        public static string BtnSubmit {
             get {
                 return ResourceManager.GetString("BtnSubmit", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string LblEmail {
+        public static string LblEmail {
             get {
                 return ResourceManager.GetString("LblEmail", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
-        internal static string LblFullname {
+        public static string LblFullname {
             get {
                 return ResourceManager.GetString("LblFullname", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string LblPassword {
+        public static string LblPassword {
             get {
                 return ResourceManager.GetString("LblPassword", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
-        internal static string LblPhone {
+        public static string LblPhone {
             get {
                 return ResourceManager.GetString("LblPhone", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
-        internal static string LblRole {
+        public static string LblRole {
             get {
                 return ResourceManager.GetString("LblRole", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Account Status.
         /// </summary>
-        internal static string LblStatus {
+        public static string LblStatus {
             get {
                 return ResourceManager.GetString("LblStatus", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Disabled user can not log in anymnore.
         /// </summary>
-        internal static string LblStatusDescription {
+        public static string LblStatusDescription {
             get {
                 return ResourceManager.GetString("LblStatusDescription", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
-        internal static string LblUsername {
+        public static string LblUsername {
             get {
                 return ResourceManager.GetString("LblUsername", resourceCulture);
             }
@@ -162,9 +162,36 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Add New User.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable.
+        /// </summary>
+        public static string TxtDisable {
+            get {
+                return ResourceManager.GetString("TxtDisable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        public static string TxtEnable {
+            get {
+                return ResourceManager.GetString("TxtEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Role.
+        /// </summary>
+        public static string TxtRoleDefault {
+            get {
+                return ResourceManager.GetString("TxtRoleDefault", resourceCulture);
             }
         }
     }

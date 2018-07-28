@@ -110,12 +110,6 @@
   <ItemGroup>
     <Compile Include="ApiEndpoint.cs" />
     <Compile Include="Models\ConstantManager.cs" />
-    <Compile Include="Models\Entities\Account.cs">
-      <DependentUpon>DSSEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entities\AccountRefined.cs">
-      <DependentUpon>EntityRefinery.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entities\Area.cs">
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
@@ -231,9 +225,6 @@
     <Compile Include="Models\Entities\PlaylistRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Repositories\AccountRepositoryGen.cs">
-      <DependentUpon>Repositories.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entities\Repositories\AreaRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
@@ -287,9 +278,6 @@
     <Compile Include="Models\Entities\Repositories\ResolutionRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Repositories\RoleRepositoryGen.cs">
-      <DependentUpon>Repositories.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entities\Repositories\ScenarioItemRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
@@ -306,12 +294,6 @@
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\ResolutionRefined.cs">
-      <DependentUpon>EntityRefinery.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entities\Role.cs">
-      <DependentUpon>DSSEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entities\RoleRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Scenario.cs">
@@ -331,9 +313,6 @@
     </Compile>
     <Compile Include="Models\Entities\ScreenRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entities\Services\AccountServiceGen.cs">
-      <DependentUpon>Services.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Services\AreaServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
@@ -393,9 +372,6 @@
     <Compile Include="Models\Entities\Services\ResolutionServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Services\RoleServiceGen.cs">
-      <DependentUpon>Services.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entities\Services\ScenarioItemService.cs" />
     <Compile Include="Models\Entities\Services\ScenarioItemServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
@@ -421,9 +397,6 @@
     </Compile>
     <Compile Include="Models\Entities\sysdiagramRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViewModels\AccountViewModelGen.cs">
-      <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\AreaViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
@@ -471,9 +444,6 @@
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ResolutionViewModelGen.cs">
-      <DependentUpon>ViewModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViewModels\RoleViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ScenarioItemViewModelGen.cs">

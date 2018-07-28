@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnReset" xml:space="preserve">
+  <data name="BtnCancel" xml:space="preserve">
     <value>Reset</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">

@@ -127,12 +127,12 @@
     <value>Mô tả</value>
   </data>
   <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm*</value>
+    <value>Địa điểm</value>
   </data>
   <data name="LblName" xml:space="preserve">
-    <value>Tên Box*</value>
+    <value>Tên Box</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Thêm Box mới</value>
+    <value>Cập nhật Thông tin Box</value>
   </data>
 </root>

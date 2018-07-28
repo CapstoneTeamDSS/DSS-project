@@ -126,31 +126,22 @@
   <data name="LblDescription" xml:space="preserve">
     <value>Mô tả</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm</value>
+  <data name="LblPrivate" xml:space="preserve">
+    <value>Cá nhân</value>
   </data>
-  <data name="LblResolution" xml:space="preserve">
-    <value>Độ Phân giải</value>
+  <data name="LblPublic" xml:space="preserve">
+    <value>Công khai</value>
   </data>
-  <data name="LblScreenName" xml:space="preserve">
-    <value>Tên Màn hình</value>
+  <data name="LblResource" xml:space="preserve">
+    <value>Các Mục Tài nguyên</value>
+  </data>
+  <data name="LblTitle" xml:space="preserve">
+    <value>Nhãn dán danh sách phát</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Thêm Màn hình mới</value>
+    <value>Quản lý Danh sách phát</value>
   </data>
-  <data name="TxtLandscape" xml:space="preserve">
-    <value>Màn hình ngang</value>
-  </data>
-  <data name="txtLocationDefault" xml:space="preserve">
-    <value>Chọn Địa điểm</value>
-  </data>
-  <data name="TxtPortrait" xml:space="preserve">
-    <value>Màn Hình đứng</value>
-  </data>
-  <data name="txtResolutionDefault" xml:space="preserve">
-    <value>Chọn Độ phân giải</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Loại</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Cập nhật Danh sách phát</value>
   </data>
 </root>

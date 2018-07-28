@@ -18,7 +18,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.ScreenId != null) ? "Update Screen information" : "Add new Screen")</h2>
+                    <h2>@((Model?.ScreenId != null) ? @DSS.ResourcesLanguage.ScreenUpdateForm.PageHeader : @DSS.ResourcesLanguage.ScreenAddForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -33,7 +33,7 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Screen Name <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScreenAddForm.LblScreenName <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -45,11 +45,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Location  <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScreenAddForm.LblLocation  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="select2_group form-control" name="LocationId" id="location-list">
-                                    <option value="-1">--- Select Location ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.ScreenAddForm.txtLocationDefault ---</option>
                                     @{
                                         var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
                                         if (locationList != null)
@@ -65,20 +65,20 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Type  <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScreenAddForm.Type  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top:10px">
-                                <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
-                                <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
+                                <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; @DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait &nbsp;
+                                <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> @DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Resolution  <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScreenAddForm.LblResolution  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="select2_group form-control" name="ResolutionId" id="resolution-list">
-                                    <option value="-1">--- Select Resolution ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.ScreenAddForm.txtResolutionDefault ---</option>
                                     @{
                                         var resolutionList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
                                         if (resolutionList != null)
@@ -94,7 +94,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.ScreenAddForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -106,8 +106,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.ScreenAddForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.ScreenAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -115,8 +115,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.ScreenUpdateForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.ScreenUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }

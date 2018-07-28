@@ -123,11 +123,11 @@
   <data name="BtnFixed" xml:space="preserve">
     <value>Fixed</value>
   </data>
-  <data name="BtnReset" xml:space="preserve">
-    <value>Reset</value>
-  </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Submit</value>
+  </data>
+  <data name="BtReset" xml:space="preserve">
+    <value>Reset 123</value>
   </data>
   <data name="LblDeviceName" xml:space="preserve">
     <value>Device Name</value>
@@ -161,6 +161,12 @@
   </data>
   <data name="TxtPortrait" xml:space="preserve">
     <value>Portrait</value>
+  </data>
+  <data name="TxtPrivate" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="TxtPublic" xml:space="preserve">
+    <value>Public</value>
   </data>
   <data name="TxtScenarioTitleDefault" xml:space="preserve">
     <value>Choose Scenario</value>

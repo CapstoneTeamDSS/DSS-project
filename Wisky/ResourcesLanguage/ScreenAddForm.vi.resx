@@ -127,13 +127,13 @@
     <value>Mô tả</value>
   </data>
   <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm*</value>
+    <value>Địa điểm</value>
   </data>
   <data name="LblResolution" xml:space="preserve">
-    <value>Độ Phân giải*</value>
+    <value>Độ Phân giải</value>
   </data>
   <data name="LblScreenName" xml:space="preserve">
-    <value>Tên Màn hình*</value>
+    <value>Tên Màn hình</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Thêm Màn hình mới</value>
@@ -151,6 +151,6 @@
     <value>Chọn Độ phân giải</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Loại*</value>
+    <value>Loại</value>
   </data>
 </root>

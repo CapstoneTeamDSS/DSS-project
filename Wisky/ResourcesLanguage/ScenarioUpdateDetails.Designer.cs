@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ScenarioUpdateDetails {
+    public class ScenarioUpdateDetails {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.ScenarioUpdateDetails", typeof(ScenarioUpdateDetails).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        internal static string LblDescription {
+        public static string LblDescription {
             get {
                 return ResourceManager.GetString("LblDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Duration.
         /// </summary>
-        internal static string LblDuration {
+        public static string LblDuration {
             get {
                 return ResourceManager.GetString("LblDuration", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string LblTitle {
+        public static string LblTitle {
             get {
                 return ResourceManager.GetString("LblTitle", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Update Scenario Details.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
             }
@@ -99,16 +99,25 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Update Details.
         /// </summary>
-        internal static string PageTitle {
+        public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Area&apos;s List Playlist.
         /// </summary>
-        internal static string TxtAreaListPlaylist {
+        public static string TxtAreaListPlaylist {
             get {
                 return ResourceManager.GetString("TxtAreaListPlaylist", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Playlist Information.
         /// </summary>
-        internal static string TxtInformation {
+        public static string TxtInformation {
             get {
                 return ResourceManager.GetString("TxtInformation", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Navigate Scenario Details.
         /// </summary>
-        internal static string TxtNavigateScenarioDetails {
+        public static string TxtNavigateScenarioDetails {
             get {
                 return ResourceManager.GetString("TxtNavigateScenarioDetails", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Your Playlist.
         /// </summary>
-        internal static string TxtPlaylist {
+        public static string TxtPlaylist {
             get {
                 return ResourceManager.GetString("TxtPlaylist", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
-        internal static string TxtPreview {
+        public static string TxtPreview {
             get {
                 return ResourceManager.GetString("TxtPreview", resourceCulture);
             }
@@ -153,7 +162,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Step 4.
         /// </summary>
-        internal static string TxtStep4 {
+        public static string TxtStep4 {
             get {
                 return ResourceManager.GetString("TxtStep4", resourceCulture);
             }
@@ -162,7 +171,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Step by Step.
         /// </summary>
-        internal static string TxtStepbyStep {
+        public static string TxtStepbyStep {
             get {
                 return ResourceManager.GetString("TxtStepbyStep", resourceCulture);
             }

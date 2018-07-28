@@ -117,52 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnAuto" xml:space="preserve">
-    <value>Tự động</value>
-  </data>
-  <data name="BtnFixed" xml:space="preserve">
-    <value>Đặt cứng</value>
-  </data>
-  <data name="BtnReset" xml:space="preserve">
-    <value>Làm lại</value>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Đăng</value>
   </data>
-  <data name="LblDeviceName" xml:space="preserve">
-    <value>Tên thiết bị</value>
+  <data name="LblDescription" xml:space="preserve">
+    <value>Mô tả</value>
   </data>
-  <data name="LblEndtime" xml:space="preserve">
-    <value>Thời gian Kết thúc</value>
+  <data name="LblLocation" xml:space="preserve">
+    <value>Địa điểm</value>
   </data>
-  <data name="LblPlaymode" xml:space="preserve">
-    <value>Chế độ chạy</value>
-  </data>
-  <data name="LblScenarioTitle" xml:space="preserve">
-    <value>Nhãn dán Kịch bản</value>
-  </data>
-  <data name="LblScreenOrentation" xml:space="preserve">
-    <value>Hướng Màn hình</value>
-  </data>
-  <data name="LblStarttime" xml:space="preserve">
-    <value>Thời gian bắt đầu</value>
-  </data>
-  <data name="LblTimetoPlay" xml:space="preserve">
-    <value>Số lần chạy</value>
+  <data name="LblName" xml:space="preserve">
+    <value>Tên Box</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Tạo Kịch bản mới</value>
+    <value>Thêm Box mới</value>
   </data>
-  <data name="TxtDeviceNameDefault" xml:space="preserve">
-    <value>Chọn Thiết bị</value>
-  </data>
-  <data name="TxtLandscape" xml:space="preserve">
-    <value>Màn hình Ngang</value>
-  </data>
-  <data name="TxtPortrait" xml:space="preserve">
-    <value>Màn hình Đứng</value>
-  </data>
-  <data name="TxtScenarioTitleDefault" xml:space="preserve">
-    <value>Chọn Kịch bản</value>
+  <data name="TxtLocationDefault" xml:space="preserve">
+    <value>Chọn Địa điểm</value>
   </data>
 </root>

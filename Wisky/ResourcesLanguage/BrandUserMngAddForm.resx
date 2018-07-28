@@ -153,4 +153,13 @@
   <data name="PageHeader" xml:space="preserve">
     <value>Add New User</value>
   </data>
+  <data name="TxtDisable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="TxtEnable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="TxtRoleDefault" xml:space="preserve">
+    <value>Select Role</value>
+  </data>
 </root>

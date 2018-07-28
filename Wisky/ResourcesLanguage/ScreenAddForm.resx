@@ -127,13 +127,13 @@
     <value>Description</value>
   </data>
   <data name="LblLocation" xml:space="preserve">
-    <value>Location*</value>
+    <value>Location</value>
   </data>
   <data name="LblResolution" xml:space="preserve">
-    <value>Resolution*</value>
+    <value>Resolution</value>
   </data>
   <data name="LblScreenName" xml:space="preserve">
-    <value>Screen Name*</value>
+    <value>Screen Name</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Add New Screen</value>
@@ -151,6 +151,6 @@
     <value>Select Resolution</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type*</value>
+    <value>Type</value>
   </data>
 </root>
