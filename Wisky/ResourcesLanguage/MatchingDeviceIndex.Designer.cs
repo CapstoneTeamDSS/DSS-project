@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MatchingDeviceIndex {
+    public class MatchingDeviceIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.MatchingDeviceIndex", typeof(MatchingDeviceIndex).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        internal static string BtnDelete {
+        public static string BtnDelete {
             get {
                 return ResourceManager.GetString("BtnDelete", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
-        internal static string BtnEdit {
+        public static string BtnEdit {
             get {
                 return ResourceManager.GetString("BtnEdit", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Match.
         /// </summary>
-        internal static string BtnMatch {
+        public static string BtnMatch {
             get {
                 return ResourceManager.GetString("BtnMatch", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
-        internal static string ColAction {
+        public static string ColAction {
             get {
                 return ResourceManager.GetString("ColAction", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Box Name.
         /// </summary>
-        internal static string ColBox {
+        public static string ColBox {
             get {
                 return ResourceManager.GetString("ColBox", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        internal static string ColDescription {
+        public static string ColDescription {
             get {
                 return ResourceManager.GetString("ColDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
-        internal static string ColNo {
+        public static string ColNo {
             get {
                 return ResourceManager.GetString("ColNo", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Screen Name.
         /// </summary>
-        internal static string ColScreen {
+        public static string ColScreen {
             get {
                 return ResourceManager.GetString("ColScreen", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string ColTitle {
+        public static string ColTitle {
             get {
                 return ResourceManager.GetString("ColTitle", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Box Name.
         /// </summary>
-        internal static string LblBox {
+        public static string LblBox {
             get {
                 return ResourceManager.GetString("LblBox", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
-        internal static string LblLocation {
+        public static string LblLocation {
             get {
                 return ResourceManager.GetString("LblLocation", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Screen.
         /// </summary>
-        internal static string LblScreen {
+        public static string LblScreen {
             get {
                 return ResourceManager.GetString("LblScreen", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
-        internal static string LblSearch {
+        public static string LblSearch {
             get {
                 return ResourceManager.GetString("LblSearch", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Matching Your Device.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Match Panel.
         /// </summary>
-        internal static string PageTitle {
+        public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Choose Box.
         /// </summary>
-        internal static string TxtBoxDefault {
+        public static string TxtBoxDefault {
             get {
                 return ResourceManager.GetString("TxtBoxDefault", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Please select screen and android box you wish to match..
         /// </summary>
-        internal static string TxtInstruction {
+        public static string TxtInstruction {
             get {
                 return ResourceManager.GetString("TxtInstruction", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Select Location.
         /// </summary>
-        internal static string TxtLocationDefault {
+        public static string TxtLocationDefault {
             get {
                 return ResourceManager.GetString("TxtLocationDefault", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Choose Screen.
         /// </summary>
-        internal static string TxtScreenDefault {
+        public static string TxtScreenDefault {
             get {
                 return ResourceManager.GetString("TxtScreenDefault", resourceCulture);
             }
