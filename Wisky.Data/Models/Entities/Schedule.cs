@@ -14,11 +14,11 @@ namespace DSS.Data.Models.Entities
     
     public partial class Schedule
     {
+        public int ScheduleID { get; set; }
         public int DeviceID { get; set; }
         public int ScenarioID { get; set; }
         public int TimeFilter { get; set; }
         public int LayoutID { get; set; }
-        public int ScheduleID { get; set; }
         public int Priority { get; set; }
         public int DayFilter { get; set; }
     

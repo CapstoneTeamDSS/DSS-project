@@ -219,11 +219,11 @@
           <Key>
             <PropertyRef Name="ScheduleID" />
           </Key>
+          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DeviceID" Type="int" Nullable="false" />
           <Property Name="ScenarioID" Type="int" Nullable="false" />
           <Property Name="TimeFilter" Type="int" Nullable="false" />
           <Property Name="LayoutID" Type="int" Nullable="false" />
-          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Priority" Type="int" Nullable="false" />
           <Property Name="DayFilter" Type="int" Nullable="false" />
         </EntityType>
@@ -1121,11 +1121,11 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <Key>
             <PropertyRef Name="ScheduleID" />
           </Key>
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DeviceID" Type="Int32" Nullable="false" />
           <Property Name="ScenarioID" Type="Int32" Nullable="false" />
           <Property Name="TimeFilter" Type="Int32" Nullable="false" />
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
-          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
           <Property Name="DayFilter" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Device" Relationship="DSSModel.FK_Schedule_Device" FromRole="Schedule" ToRole="Device" />
@@ -1703,11 +1703,11 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
               <MappingFragment StoreEntitySet="Schedule">
                 <ScalarProperty Name="DayFilter" ColumnName="DayFilter" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
                 <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
                 <ScalarProperty Name="TimeFilter" ColumnName="TimeFilter" />
                 <ScalarProperty Name="ScenarioID" ColumnName="ScenarioID" />
                 <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

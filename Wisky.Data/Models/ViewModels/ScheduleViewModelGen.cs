@@ -15,11 +15,11 @@ namespace DSS.Data.Models.ViewModels
     public partial class ScheduleViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.Schedule>
     {
     	
+    			public virtual int ScheduleID { get; set; }
     			public virtual int DeviceID { get; set; }
     			public virtual int ScenarioID { get; set; }
     			public virtual int TimeFilter { get; set; }
     			public virtual int LayoutID { get; set; }
-    			public virtual int ScheduleID { get; set; }
     			public virtual int Priority { get; set; }
     			public virtual int DayFilter { get; set; }
     	

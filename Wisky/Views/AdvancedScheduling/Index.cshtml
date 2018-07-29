@@ -35,15 +35,12 @@
                                 <th>No</th>
                                 <th>Scenario Title</th>
                                 <th>Device Name</th>
-                                <th>Times to play</th>
-                                <th>Start time</th>
-                                <th>End time</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @*@{
-                                var scheduleList = ViewBag.ScheduleList as List<DSS.Models.ScheduleVM>;
+                            @{
+                                var scheduleList = ViewBag.ScheduleList as List<DSS.Models.AdvancedScheduleVM>;
                                 var i = 0;
                                 foreach (var item in scheduleList)
                                 {
@@ -51,16 +48,13 @@
                                         <td>@(++i)</td>
                                         <td>@(item.ScenarioTitle)</td>
                                         <td>@(item.DeviceName)</td>
-                                        <td>@(item.TimeToPlay)</td>
-                                        <td>@(item.StartTime)</td>
-                                        <td>@(item.EndTime)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/AdvancedScheduling/Form/@(item.DeviceScenarioId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/AdvancedScheduling/Delete/@(item.DeviceScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/AdvancedScheduling/Delete/@(item.ScheduleID) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
-                            }*@
+                            }
                         </tbody>
                     </table>
                 </div>

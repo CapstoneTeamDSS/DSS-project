@@ -19,12 +19,12 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.DeviceScenarioId != null) ? "Update Schedule" : "Make new Schedule")</h2>
+                    <h2>@((Model?.ScheduleID != null) ? "Update Schedule" : "Make new Schedule")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.DeviceScenarioId != null) ? "Update" : "Add", "AdvancedScheduling", new { DeviceScenarioId = (Model?.DeviceScenarioId) }, FormMethod.Post, new { @id = "frm_scheduling", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.ScheduleID != null) ? "Update" : "Add", "AdvancedScheduling", new { ScheduleID = (Model?.ScheduleID) }, FormMethod.Post, new { @id = "frm_scheduling", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         //show error - validation
@@ -71,42 +71,42 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" checked name="iCheck"> Low
+                                    <input type="radio" checked name="Priority" value="1"> Low
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" name="iCheck"> Medium
+                                    <input type="radio" @(Model?.Priority==2?"checked":"") name="Priority" value="2"> Medium
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" name="iCheck"> High
+                                    <input type="radio" @(Model?.Priority==3?"checked":"") name="Priority" value="3"> High
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 Day<span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Monday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ?"checked":"") value="64"/> Monday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Tuesday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ?"checked":"") value="32"/> Tuesday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Wednesday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ?"checked":"") value="16"/> Wednesday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3"></div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Thursday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ?"checked":"") value="8"/> Thursday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Friday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ?"checked":"") value="4"/> Friday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Saturday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ?"checked":"") value="2"/> Saturday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" /> Sunday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ?"checked":"") value="1"/> Sunday
                                 </div>
                             </div>
                         </div>
@@ -117,6 +117,7 @@
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 @{
                                     var i = 0;
+                                    var val = 1;
                                     var timeSlotList = ViewBag.TimeSlotList as List<DSS.Models.TimeSlotVM>;
                                     if (timeSlotList != null)
                                     {
@@ -124,8 +125,9 @@
                                         {
                                             i++;
                                             <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <input type="checkbox" value="@(item.SlotID)" /> @(item.SlotDetail)
+                                                <input type="checkbox" name="TimeFilter"  @((Model?.TimeFilterPoint & val) == val ?"checked":"")  value="@(val)" /> @(item.SlotDetail)
                                             </div>
+                                            val *= 2;
                                             if (i % 3 == 0)
                                             {
                                                 <br />
@@ -136,12 +138,12 @@
                             </div>
                         </div>
                         <div class="ln_solid"></div>
-                        if (Model?.DeviceScenarioId == null)
+                        if (Model?.ScheduleID == null)
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
@@ -150,7 +152,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
                         }
