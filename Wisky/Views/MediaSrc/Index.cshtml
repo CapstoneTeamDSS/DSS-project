@@ -52,7 +52,7 @@
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="check-all" class="flat"></th>
+                                                @*<th><input type="checkbox" id="check-all" class="flat"></th>*@
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Status</th>
@@ -70,7 +70,7 @@
                                                     if (item.TypeId == 1)
                                                     {
                                                         <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            @*<td><input type="checkbox" id="check-all" class="flat"></td>*@
                                                             <td>@(++i)</td>
                                                             <td>@(item.Title)</td>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
@@ -78,7 +78,7 @@
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                                <a class="btnDelete" data-id="@item.MediaSrcId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
                                                     }
@@ -96,7 +96,7 @@
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="check-all" class="flat"></th>
+                                                @*<th><input type="checkbox" id="check-all" class="flat"></th>*@
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Status</th>
@@ -112,14 +112,14 @@
                                                     if (item.TypeId == 2)
                                                     {
                                                         <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            @*<td><input type="checkbox" id="check-all" class="flat"></td>*@
                                                             <td>@(++j)</td>
                                                             <td>@(item.Title)</td>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:300px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                                <a class="btnDelete" data-id="@item.MediaSrcId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                                 <a class="preview" target="_blank" data-flashy-type="video" href="@(item.URL)">
                                                                     <i class="fa fa-caret-square-o-right btn btn-success"> Preview</i>
                                                                 </a>
@@ -140,7 +140,7 @@
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="check-all" class="flat"></th>
+                                                @*<th><input type="checkbox" id="check-all" class="flat"></th>*@
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Status</th>
@@ -157,7 +157,7 @@
                                                     if (item.TypeId == 3)
                                                     {
                                                         <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            @*<td><input type="checkbox" id="check-all" class="flat"></td>*@
                                                             <td>@(++k)</td>
                                                             <td>@(item.Title)</td>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
@@ -169,7 +169,7 @@
                                                             </td>
                                                             <td style="width:180px; text-align:center">
                                                                 <a href="/MediaSrc/Form/@(item.MediaSrcId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                                                <a href="/MediaSrc/Delete/@(item.MediaSrcId)"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                                                <a class="btnDelete" data-id="@item.MediaSrcId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                                             </td>
                                                         </tr>
                                                     }
@@ -188,7 +188,7 @@
                                     <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action">
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" id="check-all" class="flat"></th>
+                                                @*<th><input type="checkbox" id="check-all" class="flat"></th>*@
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Status</th>
@@ -204,7 +204,7 @@
                                                     if (item.TypeId == 4)
                                                     {
                                                         <tr>
-                                                            <td><input type="checkbox" id="check-all" class="flat"></td>
+                                                            @*<td><input type="checkbox" id="check-all" class="flat"></td>*@
                                                             <td>@(++f)</td>
                                                             <td>@(item.Title)</td>
                                                             <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.MediaSrcId)">@(item.isPublic ? "Public" : "Private")</a></td>
@@ -270,7 +270,7 @@
             });
             $(".preview").colorbox({
                 iframe: true, width: "55%", height: "60%",
-                //refresh page when summit             
+                //refresh page when summit
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -285,41 +285,72 @@
     <script>
         $(".btnDelete").click(function () {
             var btnDel = $(this);
-            var boxNum = 0;
+            var IdMediaSrc = $(btnDel).attr("data-id");
+            var data = {
+                id: IdMediaSrc,
+            };
             $.ajax({
-
-            });
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this file!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var IdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/MediaSrc/Delete?Id=" + IdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/MediaSrc/Delete?Id=" + locationIdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                swal("Deleted!", "Your file has been deleted!", "success");
-                                location.reload();
-                            },
-                            error: function () {
-                                alert("Error occured!!")
+                type: "POST",
+                url: "/MediaSrc/CheckMediaIdIsUsed",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //set title warming when playlistVMlist.length <= 3
+                    var title = "";
+                    if (data.playlistVMlist.length <= 3) {
+                        for (var i = 0; i < data.playlistVMlist.length; i++) {
+                            title += data.playlistVMlist[i].Title;
+                            if (i < data.playlistVMlist.length - 1) {
+                                title += ", ";
                             }
-                        });
-                    } else {
-                        swal("Cancelled", "Your file is safe :)", "error");
+                        }
+                    } else {//set title warming when playlistVMlist.length > 3 show ...
+                        for (var i = 0; i < 3; i++) {
+                            title += data.playlistVMlist[i].Title;
+                            if (i < data.playlistVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                        title += "...";
                     }
-                });
+                    //show sweerAlert warming
+                    if (data.isUsing) {
+                        swal("This file is being used.", "Please delete playlist " + title + " if you want to delete it.", "error");
+                    } else {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this file!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/MediaSrc/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/MediaSrc/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your File has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your File is safe :)", "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
         });
     </script>
     <!--End Sweet alert-->
