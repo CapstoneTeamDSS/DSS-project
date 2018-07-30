@@ -58,10 +58,11 @@
                                         <td>@(item.Duration)</td>
                                         <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? "Public" : "Private")</a></td>
                                         <td>@(item.Description)</td>
-                                        <td style="width:200px; text-align:center">
+                                        <td style="width:300px; text-align:center">
                                             <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                             @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
                                             <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -116,6 +117,84 @@
         }
     </script>
     <!--End Change status enable disable-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var IdPlaylist = $(btnDel).attr("data-id");
+            var data = {
+                id: IdPlaylist,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Playlist/CheckPlaylistIdIsUsed",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //set title warming when scenarioVMlist.length <= 3
+                    var title = "";
+                    if (data.scenarioVMlist.length <= 3) {
+                        for (var i = 0; i < data.scenarioVMlist.length; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                    } else {//set title warming when scenarioVMlist.length > 3 show ...
+                        for (var i = 0; i < 3; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                        title += "...";
+                    }
+                    //show sweerAlert warming
+                    if (data.isUsing) {
+                        swal("This playlist is being used.", "Please delete scenario " + title + " if you want to delete it.", "error");
+                    } else {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this playlist!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: "No, cancel!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Playlist/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Playlist/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your playlist has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your Playlist is safe :)", "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    </script>
+    <!--End Sweet alert-->
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
@@ -134,49 +213,6 @@
         });
     </script>
     <!-- end iframe button matching-->
-    <!--Sweet alert-->
-    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
-    <script>
-        $(".btnDelete").click(function () {
-            var btnDel = $(this);
-            var boxNum = 0;
-            $.ajax({
-
-            });
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this location!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var locationIdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/Location/Delete?Id=" + locationIdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                swal("Deleted!", "Your location has been deleted!", "success");
-                                location.reload();
-                            },
-                            error: function () {
-                                alert("Error occured!!")
-                            }
-                        });
-                    } else {
-                        swal("Cancelled", "Your location file is safe :)", "error");
-                    }
-                });
-        });
-    </script>
-    <!--End Sweet alert-->
 }
 
 @section styles{
