@@ -12,7 +12,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>@DSS.ResourcesLanguage.PlaylistAddForm.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -20,7 +20,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.Id != null) ? "Update Playlist" : "Add New Playlist")</h2>
+                    <h2>@((Model?.Id != null) ? DSS.ResourcesLanguage.PlaylistUpdateForm.PageTitle : DSS.ResourcesLanguage.PlaylistAddForm.PageTitle)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -36,7 +36,7 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Playlist Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name" name="Title" class="form-control col-md-7 col-xs-12" data-parsley-id="5" type="text" value="@(Model?.Title)">
@@ -44,15 +44,15 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Status <span class="required">*</span>
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblStatus <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? @DSS.ResourcesLanguage.PlaylistAddForm.LblPublic : @DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate)</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -60,7 +60,7 @@
                         </div>
                         <div style="position:relative" class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Resource Items <span class="required">*</span>
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblResrouce <span class="required">*</span>
                             </label>
                             <div style="margin-left: 0px" class="col-md-3 col-sm-3 col-xs-3">
                                 <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
@@ -99,10 +99,10 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Video
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Image
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtVideo
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtImage
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtAudio
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtText
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -110,8 +110,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.PlaylistAddForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.PlaylistAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -119,8 +119,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.PlaylistUpdateForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.PlaylistUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -317,9 +317,9 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "Private";
+            var text = @DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate;
             if (this.checked) {
-                text = "Public";
+                text = @DSS.ResourcesLanguage.PlaylistAddForm.LblPublic;
             }
             $('#spStatus').text(text);
         });

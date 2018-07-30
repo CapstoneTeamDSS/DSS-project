@@ -120,8 +120,14 @@
   <data name="LblDescription" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="LblDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
   <data name="LblTitle" xml:space="preserve">
-    <value>Title*</value>
+    <value>Title</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Create Scenario</value>
@@ -164,6 +170,12 @@
   </data>
   <data name="TxtPrevious" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="TxtPrivate" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="TxtPublic" xml:space="preserve">
+    <value>Public</value>
   </data>
   <data name="TxtStep1" xml:space="preserve">
     <value>Step 1</value>

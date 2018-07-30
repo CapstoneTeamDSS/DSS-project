@@ -10,7 +10,6 @@
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <title>@ViewBag.Title | </title>
-
     <!-- Bootstrap -->
     <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -20,19 +19,16 @@
     <link href="~/Content/template-material/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="~/Content/template-material/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link href="~/Content/template-material/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="~/Content/template-material/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/template-material/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="~/Content/template-material/build/css/custom.min.css" rel="stylesheet">
     @RenderSection("styles", false)
 </head>
-
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -52,7 +48,7 @@
                                     <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
                                     <ul class="nav side-menu">
                                         <li>
-                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
+                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>                                          
                                         </li>
                                         <li>
                                             <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
@@ -75,7 +71,6 @@
                                     <ul class="nav side-menu">
                                         <li>
                                             @{
-
                                                 string userMngUrl = User.IsInRole("System Admin") ? Url.Action("Index", "UserMng") : Url.Action("Index", "BrandUserMng");
                                             }
                                             <a href="@userMngUrl"><i class="fa fa-users"></i>@DSS.ResourcesLanguage.MenuText.AccountMng @*<span class="fa fa-chevron-down"></span>*@</a>
@@ -167,15 +162,18 @@
                         </div>
                         <ul class="nav navbar-nav navbar-right">
                             @*<li class="">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
-                                        <span class=" fa fa-angle-down"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                        <li><a href="javascript:;"> Profile</a></li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                                    </ul>
-                                </li>*@
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
+                <span class=" fa fa-angle-down"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="javascript:;"> Profile</a></li>
+                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+            </ul>
+        </li>*@
+                            <li>@Html.ActionLink("Tiếng Việt", "Change", "Language", new { LanguageAbbrevation = "vi" }, null)</li>
+                            
+                            <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbrevation = "en" }, null)</li>                           
                             <li>
                                 <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> Log Out </a>
                             </li>
@@ -240,7 +238,6 @@
     <!-- bootstrap-daterangepicker -->
     <script src="~/Content/template-material/vendors/moment/min/moment.min.js"></script>
     <script src="~/Content/template-material/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="~/Content/template-material/build/js/custom.min.js"></script>
     @RenderSection("scripts", false)

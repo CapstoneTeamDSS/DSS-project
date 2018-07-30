@@ -151,12 +151,15 @@
     <value>Tên Người dùng</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Thêm Người dung mới</value>
+    <value>Thêm Người dùng mới</value>
   </data>
   <data name="TxtDisable" xml:space="preserve">
     <value>Vô hiệu hóa</value>
   </data>
   <data name="TxtEnable" xml:space="preserve">
     <value>Kích hoạt</value>
+  </data>
+  <data name="TxtRoleDefault" xml:space="preserve">
+    <value>Vai trò</value>
   </data>
 </root>

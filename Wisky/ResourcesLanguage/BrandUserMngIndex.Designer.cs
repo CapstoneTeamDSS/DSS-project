@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BrandUserMngIndex {
+    public class BrandUserMngIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.BrandUserMngIndex", typeof(BrandUserMngIndex).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        internal static string BtnDelete {
+        public static string BtnDelete {
             get {
                 return ResourceManager.GetString("BtnDelete", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
-        internal static string BtnEdit {
+        public static string BtnEdit {
             get {
                 return ResourceManager.GetString("BtnEdit", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
-        internal static string ColAction {
+        public static string ColAction {
             get {
                 return ResourceManager.GetString("ColAction", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string ColEmail {
+        public static string ColEmail {
             get {
                 return ResourceManager.GetString("ColEmail", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
-        internal static string ColFullName {
+        public static string ColFullName {
             get {
                 return ResourceManager.GetString("ColFullName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
-        internal static string ColNo {
+        public static string ColNo {
             get {
                 return ResourceManager.GetString("ColNo", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
-        internal static string ColStatus {
+        public static string ColStatus {
             get {
                 return ResourceManager.GetString("ColStatus", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to User Name.
         /// </summary>
-        internal static string ColUserName {
+        public static string ColUserName {
             get {
                 return ResourceManager.GetString("ColUserName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to User Management.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
             }
@@ -144,16 +144,25 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to User List.
         /// </summary>
-        internal static string PageTitle {
+        public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Role.
+        /// </summary>
+        public static string TxtRoleDefault {
+            get {
+                return ResourceManager.GetString("TxtRoleDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
-        internal static string TxtSearch {
+        public static string TxtSearch {
             get {
                 return ResourceManager.GetString("TxtSearch", resourceCulture);
             }

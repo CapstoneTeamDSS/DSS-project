@@ -132,6 +132,9 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Update Details</value>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
   <data name="TxtAreaListPlaylist" xml:space="preserve">
     <value>Area's List Playlist</value>
   </data>
