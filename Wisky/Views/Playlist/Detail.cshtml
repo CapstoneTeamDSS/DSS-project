@@ -18,9 +18,6 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
                     @using (Html.BeginForm("UpdateDetail", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         <div class="stepContainer">
@@ -30,12 +27,12 @@
                                     var i = 0;
                                     foreach (var item in playlistItemList)
                                     {
-                                        <li id='i_@(++i)' class="i-old" onclick="swapVideo('i_@(i)', this)">
+                                        <li id='i_@(++i)' class="i-old" data-value="@(item.playlistItemId)" @*onclick="swapVideo('i_@(i)', this)"*@>
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
                                             <input type="hidden" name="playlistItemIds[]" value="@(item.playlistItemId)" />
                                             <input type="hidden" class="prePos" value="@(i)" />
-                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="@(item.URL)" value="Play"/>
+                                            @*<input type="button" style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="@(item.URL)" value="Play"/>*@
                                             <input type="button" style="position:relative; top: -15px; left:0; margin-left:5%" class="btn btn-danger" value="Delete"/>
                                         </li>
                                     }
@@ -60,12 +57,8 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-
                     <div id="preview-warapper" style="display:inline-block">
-                        <video id="player" src="~/Content/videos/video1.mp4" controls></video>
+                        @*<video id="player" src="~/Content/videos/video1.mp4" controls></video>*@
                     </div>
                     <hr />
                 </div>
@@ -122,6 +115,41 @@
                                                                         //for (var i = 0; i < videoPlayButtons.length; i++) {
                                                                         //    videoPlayButtons[i].addEventListener('click', swapVideo);
                                                                         //}
+    </script>
+    <script>
+        $("#namelist li").click(function () {
+            $('#preview-warapper').empty();
+            var data = {
+                id: $(this).attr('data-value'),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Playlist/CheckTypeMediaSrcInPlaylist",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.mediaType == 1) {
+                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: data.mediaURL }));
+                        $("#theImg").css('height', '350px');
+                        $("#theImg").css('width', '350px');
+                    } else if (data.mediaType == 2) {
+                        //$('#preview-warapper').append($("<video id='myVideo' src='video1.mp4'  />"));
+                        var video = $('<video />', {
+                            id: 'video',
+                            src: data.mediaURL,
+                            type: 'video/mp4',
+                            controls: true
+                        });
+                        video.appendTo($('#preview-warapper'));
+                        video[0].play();
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        });
     </script>
 }
 

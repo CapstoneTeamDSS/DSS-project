@@ -83,7 +83,7 @@ namespace DSS.Controllers
             return playlistDetailVM;
         }
         //TOANTXSE
-        // POST: Media/CheckPlaylistIdIsUsed  
+        // POST: Playlist/CheckPlaylistIdIsUsed  
         [HttpPost]
         public JsonResult CheckPlaylistIdIsUsed(int id)
         {
@@ -130,6 +130,29 @@ namespace DSS.Controllers
                 {
                     isUsing = scenarioItemVMs.Count != 0,
                     scenarioVMlist = scenarioVMs,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //TOANTXSE
+        // POST: Playlist/CheckTypeMediaSrcInPlaylist  
+        [HttpPost]
+        public JsonResult CheckTypeMediaSrcInPlaylist(int id)
+        {
+            try
+            {
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                var playlistItem = playlistItemService.Get(id).MediaSrcID;
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                var mediaType = mediaSrcService.Get(playlistItem).TypeID;
+                var mediaURL = mediaSrcService.Get(playlistItem).URL;
+                return Json(new
+                {
+                    mediaURL = mediaURL,
+                    mediaType = mediaType,
                 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
