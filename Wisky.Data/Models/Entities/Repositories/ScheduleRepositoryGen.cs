@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.ViewModels
+namespace DSS.Data.Models.Entities.Repositories
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.Role>
-    {
-    	
-    			public virtual int RoleID { get; set; }
-    			public virtual string RoleName { get; set; }
-    			public virtual string Description { get; set; }
-    	
-    	public RoleViewModel() : base() { }
-    	public RoleViewModel(DSS.Data.Models.Entities.Role entity) : base(entity) { }
     
+    public partial interface IScheduleRepository : SkyWeb.DatVM.Data.IBaseRepository<Schedule>
+    {
+    }
+    
+    public partial class ScheduleRepository : SkyWeb.DatVM.Data.BaseRepository<Schedule>, IScheduleRepository
+    {
+    	public ScheduleRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }

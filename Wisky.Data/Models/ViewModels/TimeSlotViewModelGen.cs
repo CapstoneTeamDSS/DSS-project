@@ -7,12 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities
+namespace DSS.Data.Models.ViewModels
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Role : SkyWeb.DatVM.Data.IEntity
+    public partial class TimeSlotViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.TimeSlot>
     {
+    	
+    			public virtual int SlotID { get; set; }
+    			public virtual string SlotDetail { get; set; }
+    	
+    	public TimeSlotViewModel() : base() { }
+    	public TimeSlotViewModel(DSS.Data.Models.Entities.TimeSlot entity) : base(entity) { }
+    
     }
 }

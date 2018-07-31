@@ -13,13 +13,13 @@ namespace DSS.Data.Models.Entities.Repositories
     using System.Collections.Generic;
     
     
-    public partial interface IRoleRepository : SkyWeb.DatVM.Data.IBaseRepository<Role>
+    public partial interface ITimeSlotRepository : SkyWeb.DatVM.Data.IBaseRepository<TimeSlot>
     {
     }
     
-    public partial class RoleRepository : SkyWeb.DatVM.Data.BaseRepository<Role>, IRoleRepository
+    public partial class TimeSlotRepository : SkyWeb.DatVM.Data.BaseRepository<TimeSlot>, ITimeSlotRepository
     {
-    	public RoleRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
+    	public TimeSlotRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
         {
         }
     }

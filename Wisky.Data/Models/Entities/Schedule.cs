@@ -7,20 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities.Services
+namespace DSS.Data.Models.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    
-    public partial interface IRoleService : SkyWeb.DatVM.Data.IBaseService<Role>
+    public partial class Schedule
     {
-    }
+        public int ScheduleID { get; set; }
+        public int DeviceID { get; set; }
+        public int ScenarioID { get; set; }
+        public int LayoutID { get; set; }
+        public int TimeFilter { get; set; }
+        public int DayFilter { get; set; }
+        public int Priority { get; set; }
     
-    public partial class RoleService : SkyWeb.DatVM.Data.BaseService<Role>, IRoleService
-    {
-        public RoleService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.IRoleRepository repository) : base(unitOfWork, repository)
-        {
-        }
+        public virtual Device Device { get; set; }
+        public virtual Scenario Scenario { get; set; }
     }
 }

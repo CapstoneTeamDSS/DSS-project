@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities.Repositories
+namespace DSS.Data.Models.Entities.Services
 {
     using System;
     using System.Collections.Generic;
     
     
-    public partial interface IAccountRepository : SkyWeb.DatVM.Data.IBaseRepository<Account>
+    public partial interface IScheduleService : SkyWeb.DatVM.Data.IBaseService<Schedule>
     {
     }
     
-    public partial class AccountRepository : SkyWeb.DatVM.Data.BaseRepository<Account>, IAccountRepository
+    public partial class ScheduleService : SkyWeb.DatVM.Data.BaseService<Schedule>, IScheduleService
     {
-    	public AccountRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
+        public ScheduleService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.IScheduleRepository repository) : base(unitOfWork, repository)
         {
         }
     }

@@ -7,12 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities
+namespace DSS.Data.Models.Entities.Services
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Account : SkyWeb.DatVM.Data.IEntity
+    
+    public partial interface ITimeSlotService : SkyWeb.DatVM.Data.IBaseService<TimeSlot>
     {
+    }
+    
+    public partial class TimeSlotService : SkyWeb.DatVM.Data.BaseService<TimeSlot>, ITimeSlotService
+    {
+        public TimeSlotService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.ITimeSlotRepository repository) : base(unitOfWork, repository)
+        {
+        }
     }
 }
