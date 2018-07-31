@@ -284,10 +284,16 @@
     <Compile Include="Models\Entities\Repositories\ScenarioRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Repositories\ScheduleRepositoryGen.cs">
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\Repositories\ScreenRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Repositories\sysdiagramRepositoryGen.cs">
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Repositories\TimeSlotRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Resolution.cs">
@@ -306,6 +312,12 @@
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\ScenarioRefined.cs">
+      <DependentUpon>EntityRefinery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Schedule.cs">
+      <DependentUpon>DSSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ScheduleRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Screen.cs">
@@ -380,6 +392,9 @@
     <Compile Include="Models\Entities\Services\ScenarioServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\ScheduleServiceGen.cs">
+      <DependentUpon>Services.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\Services\ScreenService.cs" />
     <Compile Include="Models\Entities\Services\ScreenServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
@@ -392,10 +407,19 @@
     <Compile Include="Models\Entities\Services\sysdiagramServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\TimeSlotServiceGen.cs">
+      <DependentUpon>Services.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\sysdiagram.cs">
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\sysdiagramRefined.cs">
+      <DependentUpon>EntityRefinery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\TimeSlot.cs">
+      <DependentUpon>DSSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\TimeSlotRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\AreaViewModelGen.cs">
@@ -452,10 +476,16 @@
     <Compile Include="Models\ViewModels\ScenarioViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ScheduleViewModelGen.cs">
+      <DependentUpon>ViewModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\ScreenViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\sysdiagramViewModelGen.cs">
+      <DependentUpon>ViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\TimeSlotViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

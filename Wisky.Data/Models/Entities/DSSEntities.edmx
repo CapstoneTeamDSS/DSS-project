@@ -215,6 +215,18 @@
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="Note" Type="text" />
         </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeviceID" Type="int" Nullable="false" />
+          <Property Name="ScenarioID" Type="int" Nullable="false" />
+          <Property Name="LayoutID" Type="int" Nullable="false" />
+          <Property Name="TimeFilter" Type="int" Nullable="false" />
+          <Property Name="DayFilter" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Screen">
           <Key>
             <PropertyRef Name="ScreenID" />
@@ -235,6 +247,13 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SlotDetail" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Area_Layout">
           <End Role="Layout" Type="Self.Layout" Multiplicity="1" />
@@ -526,6 +545,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_Device">
+          <End Role="Device" Type="Self.Device" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="DeviceID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Scenario">
+          <End Role="Scenario" Type="Self.Scenario" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scenario">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Screen_Location">
           <End Role="Location" Type="Self.Location" Multiplicity="1" />
           <End Role="Screen" Type="Self.Screen" Multiplicity="*" />
@@ -570,8 +615,10 @@
           <EntitySet Name="Resolution" EntityType="Self.Resolution" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Scenario" EntityType="Self.Scenario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ScenarioItem" EntityType="Self.ScenarioItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Area_Layout" Association="Self.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layout" />
             <End Role="Area" EntitySet="Area" />
@@ -664,6 +711,14 @@
             <End Role="Scenario" EntitySet="Scenario" />
             <End Role="ScenarioItem" EntitySet="ScenarioItem" />
           </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Device" Association="Self.FK_Schedule_Device">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Scenario" Association="Self.FK_Schedule_Scenario">
+            <End Role="Scenario" EntitySet="Scenario" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
           <AssociationSet Name="FK_Screen_Location" Association="Self.FK_Screen_Location">
             <End Role="Location" EntitySet="Location" />
             <End Role="Screen" EntitySet="Screen" />
@@ -696,8 +751,10 @@
           <EntitySet Name="Resolutions" EntityType="DSSModel.Resolution" />
           <EntitySet Name="Scenarios" EntityType="DSSModel.Scenario" />
           <EntitySet Name="ScenarioItems" EntityType="DSSModel.ScenarioItem" />
+          <EntitySet Name="Schedules" EntityType="DSSModel.Schedule" />
           <EntitySet Name="Screens" EntityType="DSSModel.Screen" />
           <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
+          <EntitySet Name="TimeSlots" EntityType="DSSModel.TimeSlot" />
           <AssociationSet Name="FK_Area_Layout" Association="DSSModel.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layouts" />
             <End Role="Area" EntitySet="Areas" />
@@ -754,6 +811,10 @@
             <End Role="Device" EntitySet="Devices" />
             <End Role="DeviceScenario" EntitySet="DeviceScenarios" />
           </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Device" Association="DSSModel.FK_Schedule_Device">
+            <End Role="Device" EntitySet="Devices" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
           <AssociationSet Name="FK_DeviceScenario_Scenario" Association="DSSModel.FK_DeviceScenario_Scenario">
             <End Role="Scenario" EntitySet="Scenarios" />
             <End Role="DeviceScenario" EntitySet="DeviceScenarios" />
@@ -789,6 +850,10 @@
           <AssociationSet Name="FK_ScenarioItem_Scenario" Association="DSSModel.FK_ScenarioItem_Scenario">
             <End Role="Scenario" EntitySet="Scenarios" />
             <End Role="ScenarioItem" EntitySet="ScenarioItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Scenario" Association="DSSModel.FK_Schedule_Scenario">
+            <End Role="Scenario" EntitySet="Scenarios" />
+            <End Role="Schedule" EntitySet="Schedules" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="DSSModel.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
@@ -902,6 +967,7 @@
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_Device_Brand" FromRole="Device" ToRole="Brand" />
           <NavigationProperty Name="Screen" Relationship="DSSModel.FK_Device_Screen" FromRole="Device" ToRole="Screen" />
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Device" FromRole="Device" ToRole="DeviceScenario" />
+          <NavigationProperty Name="Schedules" Relationship="DSSModel.FK_Schedule_Device" FromRole="Device" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="DeviceScenario">
           <Key>
@@ -1024,6 +1090,7 @@
           <NavigationProperty Name="DeviceScenarios" Relationship="DSSModel.FK_DeviceScenario_Scenario" FromRole="Scenario" ToRole="DeviceScenario" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Scenario" ToRole="Layout" />
           <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="Scenario" ToRole="ScenarioItem" />
+          <NavigationProperty Name="Schedules" Relationship="DSSModel.FK_Schedule_Scenario" FromRole="Scenario" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="ScenarioItem">
           <Key>
@@ -1041,6 +1108,20 @@
           <NavigationProperty Name="Area" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
           <NavigationProperty Name="Playlist" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="ScenarioItem" ToRole="Playlist" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+          </Key>
+          <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceID" Type="Int32" Nullable="false" />
+          <Property Name="ScenarioID" Type="Int32" Nullable="false" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
+          <Property Name="TimeFilter" Type="Int32" Nullable="false" />
+          <Property Name="DayFilter" Type="Int32" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="DSSModel.FK_Schedule_Device" FromRole="Schedule" ToRole="Device" />
+          <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_Schedule_Scenario" FromRole="Schedule" ToRole="Scenario" />
         </EntityType>
         <EntityType Name="Screen">
           <Key>
@@ -1065,6 +1146,13 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="SlotID" />
+          </Key>
+          <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SlotDetail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Area_Layout">
           <End Type="DSSModel.Layout" Role="Layout" Multiplicity="1" />
@@ -1240,6 +1328,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_Device">
+          <End Type="DSSModel.Device" Role="Device" Multiplicity="1" />
+          <End Type="DSSModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="DeviceID" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="DeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DeviceScenario_Scenario">
           <End Type="DSSModel.Scenario" Role="Scenario" Multiplicity="1" />
           <End Type="DSSModel.DeviceScenario" Role="DeviceScenario" Multiplicity="*" />
@@ -1347,6 +1447,20 @@
               <PropertyRef Name="LayoutID" />
             </Principal>
             <Dependent Role="ScenarioItem">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Scenario">
+          <End Type="DSSModel.Scenario" Role="Scenario" Multiplicity="1" />
+          <End Type="DSSModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Scenario">
+              <PropertyRef Name="ScenarioID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="Schedule">
               <PropertyRef Name="ScenarioID" />
               <PropertyRef Name="LayoutID" />
             </Dependent>
@@ -1575,6 +1689,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="DSSModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DayFilter" ColumnName="DayFilter" />
+                <ScalarProperty Name="TimeFilter" ColumnName="TimeFilter" />
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
+                <ScalarProperty Name="ScenarioID" ColumnName="ScenarioID" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Screens">
             <EntityTypeMapping TypeName="DSSModel.Screen">
               <MappingFragment StoreEntitySet="Screen">
@@ -1595,6 +1722,14 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSlots">
+            <EntityTypeMapping TypeName="DSSModel.TimeSlot">
+              <MappingFragment StoreEntitySet="TimeSlot">
+                <ScalarProperty Name="SlotDetail" ColumnName="SlotDetail" />
+                <ScalarProperty Name="SlotID" ColumnName="SlotID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
