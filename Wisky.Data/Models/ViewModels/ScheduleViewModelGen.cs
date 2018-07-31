@@ -18,10 +18,10 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int ScheduleID { get; set; }
     			public virtual int DeviceID { get; set; }
     			public virtual int ScenarioID { get; set; }
-    			public virtual int TimeFilter { get; set; }
     			public virtual int LayoutID { get; set; }
-    			public virtual int Priority { get; set; }
+    			public virtual int TimeFilter { get; set; }
     			public virtual int DayFilter { get; set; }
+    			public virtual int Priority { get; set; }
     	
     	public ScheduleViewModel() : base() { }
     	public ScheduleViewModel(DSS.Data.Models.Entities.Schedule entity) : base(entity) { }
