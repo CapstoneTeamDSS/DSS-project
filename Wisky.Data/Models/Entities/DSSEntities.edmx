@@ -248,12 +248,9 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TimeSlot">
           <Key>
             <PropertyRef Name="SlotID" />
-            <PropertyRef Name="SlotDetail" />
           </Key>
           <Property Name="SlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SlotDetail" Type="varchar" MaxLength="50" Nullable="false" />
@@ -621,12 +618,7 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TimeSlot].[SlotID] AS [SlotID], 
-    [TimeSlot].[SlotDetail] AS [SlotDetail]
-    FROM [dbo].[TimeSlot] AS [TimeSlot]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Area_Layout" Association="Self.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layout" />
             <End Role="Area" EntitySet="Area" />
@@ -1158,7 +1150,6 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
         <EntityType Name="TimeSlot">
           <Key>
             <PropertyRef Name="SlotID" />
-            <PropertyRef Name="SlotDetail" />
           </Key>
           <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SlotDetail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
