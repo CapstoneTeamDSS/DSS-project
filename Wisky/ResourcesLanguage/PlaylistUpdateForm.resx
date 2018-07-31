@@ -126,6 +126,12 @@
   <data name="LblDescription" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="LblPrivate" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="LblPublic" xml:space="preserve">
+    <value>Public</value>
+  </data>
   <data name="LblResource" xml:space="preserve">
     <value>Resource Items</value>
   </data>
@@ -136,6 +142,6 @@
     <value>Playlist Management</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
-    <value>Add New Playlist</value>
+    <value>Update Playlist</value>
   </data>
 </root>

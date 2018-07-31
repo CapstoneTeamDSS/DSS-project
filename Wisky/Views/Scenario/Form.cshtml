@@ -13,7 +13,7 @@
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")</h3>
+                <h3>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioUpdateForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader)</h3>
             </div>
 
             <div class="title_right">
@@ -30,7 +30,7 @@
             <div class="col-md-12 col-sm-8 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>@((Model?.ScenarioId != null) ? "Update Scenario" : "Create Scenario")<small>Step by step</small></h2>
+                        <h2>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle : DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle)<small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtStepbyStep</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -54,15 +54,15 @@
                     </div>
                     <div class="x_content">
                         <!-- Smart Wizard -->
-                        <p>@((Model?.ScenarioId != null) ? "" : "You can create a new scenario just following these simple steps")</p>
+                        <p>@((Model?.ScenarioId != null) ? "" : @DSS.ResourcesLanguage.ScenarioAddForm.TxtInfo)</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps anchor">
                                 <li>
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-1" class="selected" isdone="1" rel="1">
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
-                                            @((Model?.ScenarioId != null) ? "Enter Info" : "Step 1")<br>
-                                            <small>Enter scenario info</small>
+                                            @((Model?.ScenarioId != null) ? "Enter Info" : @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep1)<br>
+                                            <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtEnterScenarioInfo</small>
                                         </span>
                                     </a>
                                 </li>
@@ -72,8 +72,8 @@
                                         <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
                                             <span class="step_no">2</span>
                                             <span class="step_descr">
-                                                Step 2<br>
-                                                <small>Choose screen type</small>
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep2<br>
+                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtChooseScreenType</small>
                                             </span>
                                         </a>
                                     </li>
@@ -81,8 +81,8 @@
                                         <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-3" class="disabled" isdone="0" rel="3">
                                             <span class="step_no">3</span>
                                             <span class="step_descr">
-                                                Step 3<br>
-                                                <small>Choose screen layout</small>
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep3<br>
+                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtChooseScreenLayout</small>
                                             </span>
                                         </a>
                                     </li>
@@ -90,8 +90,8 @@
                                         <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
                                             <span class="step_no">4</span>
                                             <span class="step_descr">
-                                                Step 4<br>
-                                                <small>Navigate scenario details</small>
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep4<br>
+                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtNavigateScenarioDetails</small>
                                             </span>
                                         </a>
                                     </li>
@@ -104,7 +104,7 @@
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                Title <span class="required">*</span> <br />
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.LblTitle <span class="required">*</span> <br />
                                                 <span id="msg_title" style="color:red"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -113,15 +113,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                Status <span class="required">*</span>
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.LblStatus <span class="required">*</span>
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-3">
-                                                Description
+                                               @DSS.ResourcesLanguage.ScenarioAddForm.LblDescription
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -132,14 +132,14 @@
                                         <div style="float:left; padding-left:250px;padding-top:30px">
                                             <img src="~/Content/images/Scenario/Landscape.png" /><br />
                                             <div style="text-align:center">
-                                                Landscape<br /><br /><br />
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtLandscape<br /><br /><br />
                                                 <div><input type="radio" checked value="true" name="Orientation"></div>
                                             </div>
                                         </div>
                                         <div style="float:right;padding-right:250px;padding-bottom:20px">
                                             <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
                                             <div style="text-align:center">
-                                                Portrait<br />
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtPortrait<br />
                                                 <div><input type="radio" value="false" name="Orientation"></div>
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel" style="height:441px">
                                                 <div class="x_title">
-                                                    <h2>Your Playlists</h2>
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtYourPlaylist</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <ul id="fromList" style="height:350px" class="stepContainer"></ul>
@@ -188,7 +188,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
-                                                    <h2>Preview </h2>
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPreview </h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
@@ -203,7 +203,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel" style="height:441px">
                                                 <div class="x_title">
-                                                    <h2>Area's list playlist</h2>
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtAreaListPlaylist</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <ul id="toList" style="height:350px" class="stepContainer"></ul>
@@ -212,13 +212,13 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
-                                                    <h2>Playlist Information</h2>
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPlaylistInfo</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                            Title:
+                                                            @DSS.ResourcesLanguage.ScenarioAddForm.LblTitle:
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12" id="titleInfo">
                                                             CoCa CoLa
@@ -226,7 +226,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                            Description:
+                                                            @DSS.ResourcesLanguage.ScenarioAddForm.LblDescription:
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12" id="descriptionInfo">
                                                             Good video
@@ -234,7 +234,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                            Duration:
+                                                            @DSS.ResourcesLanguage.ScenarioAddForm.LblDuration:
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-6" id="durationInfo">
                                                             18:00

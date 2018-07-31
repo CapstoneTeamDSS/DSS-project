@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>@DSS.ResourcesLanguage.PlaylistDetails.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,7 +14,7 @@
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Playlist Detail</h2>
+                    <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitleDetail</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -31,6 +31,10 @@
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
                                             <input type="button" style="position:relative; top: -15px; left:100px; margin-left:5%" class="btn btn-danger" value="Delete"/>
+                                            <input type="hidden" name="playlistItemIds[]" value="@(item.playlistItemId)" />
+                                            <input type="hidden" class="prePos" value="@(i)" />
+                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="@(item.URL)" value=@DSS.ResourcesLanguage.PlaylistDetails.BtnPlay />
+                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:5%" class="btn btn-danger" value=@DSS.ResourcesLanguage.PlaylistDetails.BtnDelete />
                                         </li>
                                     }
                                 }
@@ -38,8 +42,8 @@
                         </div>
                         <hr />
                         <div style="position:sticky; top:0; left:0 ">
-                            <input class="btn btn-primary" style="margin-left:35%" type="button" value="Reset" onClick="window.location.href=window.location.href">
-                            <input class="btn btn-success" style="margin-left:0" type="submit" value="Save Change" />
+                            <input class="btn btn-primary" style="margin-left:35%" type="button" value=@DSS.ResourcesLanguage.PlaylistDetails.BtnReset onClick="window.location.href=window.location.href">
+                            <input class="btn btn-success" style="margin-left:0" type="submit" value="@DSS.ResourcesLanguage.PlaylistDetails.BtnSave" />
                             @*<button style="margin-left:2%" type="submit" class="btn btn-success">Submit</button>*@
                         </div>
                     }
@@ -50,7 +54,7 @@
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Preview </h2>
+                    <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnReset" xml:space="preserve">
-    <value>Làm lại</value>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Đăng</value>
@@ -155,5 +155,8 @@
   </data>
   <data name="TxtEnable" xml:space="preserve">
     <value>Kích hoạt</value>
+  </data>
+  <data name="TxtRoleDefault" xml:space="preserve">
+    <value>Chọn vai trò</value>
   </data>
 </root>

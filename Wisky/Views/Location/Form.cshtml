@@ -14,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.LocationId != null) ? "Update Location information" : "Add New Location")</h2>
+                    <h2>@((Model?.LocationId != null) ? @DSS.ResourcesLanguage.LocationUpdateForm.PageHeader : @DSS.ResourcesLanguage.LocationAddForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -29,7 +29,7 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Province <span class="required">*</span>
+                                @DSS.ResourcesLanguage.LocationAddForm.LblProvince <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="province"
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                District <span class="required">*</span>
+                                @DSS.ResourcesLanguage.LocationAddForm.LblDistrict <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="district"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Address <span class="required">*</span>
+                                @DSS.ResourcesLanguage.LocationAddForm.LblAddress <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="address"
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.LocationAddForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -77,8 +77,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                    <button class="btn btn-primary" type="reset"> @DSS.ResourcesLanguage.LocationAddForm.BtnReset</button>
+                                    <button type="submit" class="btn btn-success" id="submit"> @DSS.ResourcesLanguage.LocationAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -86,8 +86,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();"> @DSS.ResourcesLanguage.LocationUpdateForm.BtnCancel</button>
+                                    <button type="submit" class="btn btn-success" id="submit"> @DSS.ResourcesLanguage.LocationUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }

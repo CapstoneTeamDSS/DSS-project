@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SchedulingUpdateForm {
+    public class SchedulingUpdateForm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.SchedulingUpdateForm", typeof(SchedulingUpdateForm).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Auto.
         /// </summary>
-        internal static string BtnAuto {
+        public static string BtnAuto {
             get {
                 return ResourceManager.GetString("BtnAuto", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Fixed.
         /// </summary>
-        internal static string BtnFixed {
+        public static string BtnFixed {
             get {
                 return ResourceManager.GetString("BtnFixed", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
-        internal static string BtnReset {
+        public static string BtnReset {
             get {
                 return ResourceManager.GetString("BtnReset", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
-        internal static string BtnSubmit {
+        public static string BtnSubmit {
             get {
                 return ResourceManager.GetString("BtnSubmit", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Device Name.
         /// </summary>
-        internal static string LblDeviceName {
+        public static string LblDeviceName {
             get {
                 return ResourceManager.GetString("LblDeviceName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to End Time.
         /// </summary>
-        internal static string LblEndtime {
+        public static string LblEndtime {
             get {
                 return ResourceManager.GetString("LblEndtime", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Play Mode.
         /// </summary>
-        internal static string LblPlaymode {
+        public static string LblPlaymode {
             get {
                 return ResourceManager.GetString("LblPlaymode", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Scenario Title.
         /// </summary>
-        internal static string LblScenarioTitle {
+        public static string LblScenarioTitle {
             get {
                 return ResourceManager.GetString("LblScenarioTitle", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Screen Orentation.
         /// </summary>
-        internal static string LblScreenOrentation {
+        public static string LblScreenOrentation {
             get {
                 return ResourceManager.GetString("LblScreenOrentation", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Start Time.
         /// </summary>
-        internal static string LblStarttime {
+        public static string LblStarttime {
             get {
                 return ResourceManager.GetString("LblStarttime", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Time To Play.
         /// </summary>
-        internal static string LblTimetoPlay {
+        public static string LblTimetoPlay {
             get {
                 return ResourceManager.GetString("LblTimetoPlay", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Update Schedule.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Choose Device.
         /// </summary>
-        internal static string TxtDeviceNameDefault {
+        public static string TxtDeviceNameDefault {
             get {
                 return ResourceManager.GetString("TxtDeviceNameDefault", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Landscape.
         /// </summary>
-        internal static string TxtLandscape {
+        public static string TxtLandscape {
             get {
                 return ResourceManager.GetString("TxtLandscape", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Portrait.
         /// </summary>
-        internal static string TxtPortrait {
+        public static string TxtPortrait {
             get {
                 return ResourceManager.GetString("TxtPortrait", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Choose Scenario.
         /// </summary>
-        internal static string TxtScenarioTitleDefault {
+        public static string TxtScenarioTitleDefault {
             get {
                 return ResourceManager.GetString("TxtScenarioTitleDefault", resourceCulture);
             }

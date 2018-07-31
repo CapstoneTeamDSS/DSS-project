@@ -117,22 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Xóa</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
+  <data name="ColAction" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="ColBrand" xml:space="preserve">
+    <value>Tên Thương hiệu</value>
+  </data>
+  <data name="ColDescription" xml:space="preserve">
     <value>Mô tả</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm*</value>
+  <data name="ColNo" xml:space="preserve">
+    <value>STT</value>
   </data>
-  <data name="LblName" xml:space="preserve">
-    <value>Tên Box*</value>
+  <data name="ColStatus" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Thêm Box mới</value>
+    <value>Quản lý Thương hiệu</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Danh sách Thương hiệu</value>
   </data>
 </root>

@@ -248,6 +248,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+<<<<<<< HEAD
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TimeSlot">
@@ -258,6 +259,8 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <Property Name="SlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SlotDetail" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+=======
+>>>>>>> 9f5d11d5a711664e1469eaacb7b99a8c3eb9a23d
         <Association Name="FK_Area_Layout">
           <End Role="Layout" Type="Self.Layout" Multiplicity="1" />
           <End Role="Area" Type="Self.Area" Multiplicity="*" />
@@ -621,12 +624,15 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
           <EntitySet Name="TimeSlot" EntityType="Self.TimeSlot" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [TimeSlot].[SlotID] AS [SlotID], 
     [TimeSlot].[SlotDetail] AS [SlotDetail]
     FROM [dbo].[TimeSlot] AS [TimeSlot]</DefiningQuery>
           </EntitySet>
+=======
+>>>>>>> 9f5d11d5a711664e1469eaacb7b99a8c3eb9a23d
           <AssociationSet Name="FK_Area_Layout" Association="Self.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layout" />
             <End Role="Area" EntitySet="Area" />
@@ -762,7 +768,10 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <EntitySet Name="Schedules" EntityType="DSSModel.Schedule" />
           <EntitySet Name="Screens" EntityType="DSSModel.Screen" />
           <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
+<<<<<<< HEAD
           <EntitySet Name="TimeSlots" EntityType="DSSModel.TimeSlot" />
+=======
+>>>>>>> 9f5d11d5a711664e1469eaacb7b99a8c3eb9a23d
           <AssociationSet Name="FK_Area_Layout" Association="DSSModel.FK_Area_Layout">
             <End Role="Layout" EntitySet="Layouts" />
             <End Role="Area" EntitySet="Areas" />
@@ -1155,6 +1164,7 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+<<<<<<< HEAD
         <EntityType Name="TimeSlot">
           <Key>
             <PropertyRef Name="SlotID" />
@@ -1163,6 +1173,8 @@ warning 6002: The table/view 'DSS.dbo.TimeSlot' does not have a primary key defi
           <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SlotDetail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+=======
+>>>>>>> 9f5d11d5a711664e1469eaacb7b99a8c3eb9a23d
         <Association Name="FK_Area_Layout">
           <End Type="DSSModel.Layout" Role="Layout" Multiplicity="1" />
           <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />

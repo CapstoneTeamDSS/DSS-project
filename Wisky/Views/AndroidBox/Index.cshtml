@@ -6,7 +6,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Box Management</h3>
+            <h3>@DSS.ResourcesLanguage.AndroidBoxIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -15,7 +15,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Box List</h2>
+                    <h2>@DSS.ResourcesLanguage.AndroidBoxIndex.PageTitle</h2>
                     <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
                         <a href="/AndroidBox/Form" class="iframe">
                             <ul class="bs-glyphicons-list">
@@ -36,13 +36,13 @@
                             <tr>
 
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.AndroidBoxIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Box Name
+                                    @DSS.ResourcesLanguage.AndroidBoxIndex.ColName
                                 </th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.AndroidBoxIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.AndroidBoxIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,8 +56,8 @@
                                         <td>@(item.Name)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/AndroidBox/Form/@(item.BoxId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a class="btnDelete" data-id="@item.BoxId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/AndroidBox/Form/@(item.BoxId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.AndroidBoxIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.BoxId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.AndroidBoxIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
