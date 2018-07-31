@@ -59,6 +59,9 @@
                                         <li>
                                             <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
                                         </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "AdvancedScheduling")"><i class="fa fa-calendar"></i>Advanced Scheduling</a>
+                                        </li>
                                     </ul>
                                 </div>
                             }
@@ -115,19 +118,19 @@
                                 <ul class="nav side-menu">
                                     @if (User.IsInRole("System Admin"))
                                     {
-                                    <li>
-                                        <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
 
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
-                                    </li>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
+                                        </li>
                                     }
                                     @if (User.IsInRole("Admin"))
                                     {
-                                    <li>
-                                        <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
-                                    </li>
+                                        <li>
+                                            <a><i class="fa fa-line-chart"></i>@DSS.ResourcesLanguage.MenuText.Report <span class="label label-success pull-right">@DSS.ResourcesLanguage.MenuText.Coming</span></a>
+                                        </li>
                                     }
                                 </ul>
                             </div>
