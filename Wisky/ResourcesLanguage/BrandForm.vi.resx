@@ -117,22 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddPageHeader" xml:space="preserve">
+    <value>Thêm thương hiệu mới</value>
+  </data>
   <data name="BtnCancel" xml:space="preserve">
     <value>Hủy bỏ</value>
+  </data>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Làm lại</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Đăng</value>
   </data>
+  <data name="LblBrand" xml:space="preserve">
+    <value>Tên Thương hiệu</value>
+  </data>
   <data name="LblDescription" xml:space="preserve">
     <value>Mô tả</value>
   </data>
-  <data name="LblLocation" xml:space="preserve">
-    <value>Địa điểm*</value>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
-  <data name="LblName" xml:space="preserve">
-    <value>Tên Box*</value>
-  </data>
-  <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Thông tin Box</value>
+  <data name="UpdatePageHeader" xml:space="preserve">
+    <value>Cập nhật Thông tin Thương hiệu</value>
   </data>
 </root>

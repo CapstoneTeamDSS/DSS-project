@@ -21,7 +21,7 @@
         <div class="col-md-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.Id != null) ? "Update User information" : "Add new User")</h2>
+                    <h2>@((Model?.Id != null) ? DSS.ResourcesLanguage.UserMngForm.UpdatePageHeader : DSS.ResourcesLanguage.UserMngForm.AddPageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -30,25 +30,25 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Full Name <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblFullname <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblEmail <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone Number</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblPhone</label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="PhoneNumber" value="@(Model?.PhoneNumber)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Username <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblUsername <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
@@ -61,15 +61,15 @@
                                     <input type="text" class="form-control" name="Password">
                                 </div>
                                 <div class="col-md-2 col-sm-3 col-xs-3">
-                                    <input type="button" class="form-control btn btn-success" value="Auto Generate">
+                                    <input type="button" class="form-control btn btn-success" value="@DSS.ResourcesLanguage.UserMngForm.BtnAuto">
                                 </div>
                             </div>
                         }
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Role <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblRole <span class="required">*</span></label>
                             <div class="col-md-3 col-sm-6 col-xs-10">
                                 <select class="select2_multiple form-control" name="Role" multiple="multiple">
-                                    <option value="0">--- Select Role ---</option>
+                                    <option value="0">--- @DSS.ResourcesLanguage.UserMngForm.TxtRoleDefault ---</option>
                                     @{
                                         var roleList = ViewBag.roleList as List<DSS.Models.RoleVM>;
                                         foreach (var item in roleList)
@@ -82,11 +82,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Brand Name <span class="required">*</span>
+                                @DSS.ResourcesLanguage.UserMngForm.LblBrand <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <select class="select2_group form-control" name="BrandId">
-                                    <option value="0">--- Select Brand name ---</option>
+                                    <option value="0">--- @DSS.ResourcesLanguage.UserMngForm.TxtBrandDefault ---</option>
                                     @{
                                         var brandsList = ViewBag.brandList as List<DSS.Models.BrandDetailVM>;
                                         foreach (var item in brandsList)
@@ -99,9 +99,9 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-3 control-label">
-                                Account Status
+                                @DSS.ResourcesLanguage.UserMngForm.LblStatus
                                 <br>
-                                <small class="text-navy">Disabled user can not log in anymnore</small>
+                                <small class="text-navy">@DSS.ResourcesLanguage.UserMngForm.TxtInstruction</small>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
@@ -113,8 +113,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.UserMngForm.BtnReset</button>
+                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -122,8 +122,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.UserMngForm.BtnCancel</button>
+                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }

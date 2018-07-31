@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Làm lại</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Đăng</value>
@@ -126,8 +126,17 @@
   <data name="LblDescription" xml:space="preserve">
     <value>Mô tả</value>
   </data>
+  <data name="LblPrivate" xml:space="preserve">
+    <value>Cá nhân</value>
+  </data>
+  <data name="LblPublic" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
   <data name="LblResrouce" xml:space="preserve">
     <value>Các Mục Tài nguyên</value>
+  </data>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
   <data name="LblTitle" xml:space="preserve">
     <value>Nhãn dán Danh sách phát</value>

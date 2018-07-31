@@ -87,12 +87,12 @@
     <!--Validation-->
     <script>       
         function checkValidation() {
-            var pattern = /^[A-Za-z '.-]+$/;
+            var pattern = /^\d{2}:\d{2}:\d{2}$/;
             $(".field-validation-error-duration").empty();
             var input = $("#imgDuration");
             if (input.val() == '') {
                 $(".field-validation-error-duration").html("Please input duration");
-            } else if (pattern.test(input.val())) {
+            } else if (!pattern.test(input.val())) {
                 $(".field-validation-error-duration").html("Please input with format 00:00:00");
             } else {
                 $("#frm_screen").submit();
