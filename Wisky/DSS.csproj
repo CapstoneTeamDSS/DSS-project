@@ -339,6 +339,26 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
+    <Compile Include="ResourcesLanguage\AdScheduleForm.vi.Designer.cs">
+      <DependentUpon>AdScheduleForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdScheduleForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleIndex.vi.Designer.cs">
+      <DependentUpon>AdScheduleIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdScheduleIndex.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.Designer.cs">
       <DependentUpon>AndroidBoxUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1986,6 +2006,22 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AndroidBoxUpdateForm.vi.Designer.cs</LastGenOutput>
@@ -2792,8 +2828,8 @@
     <Content Include="Views\FileStack\Index.cshtml" />
     <Content Include="Views\Layout\Index.cshtml" />
     <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
-    <Content Include="Views\AdvancedScheduling\Index.cshtml" />
     <Content Include="Views\AdvancedScheduling\Form.cshtml" />
+    <Content Include="Views\AdvancedScheduling\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

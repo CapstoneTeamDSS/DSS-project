@@ -79,6 +79,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced Scheduling.
+        /// </summary>
+        public static string AdvSchedule {
+            get {
+                return ResourceManager.GetString("AdvSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Android Box.
         /// </summary>
         public static string BoxMng {

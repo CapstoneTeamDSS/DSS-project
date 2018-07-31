@@ -117,46 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountMng" xml:space="preserve">
-    <value>Quản lý người dùng</value>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
   </data>
-  <data name="AdvSchedule" xml:space="preserve">
-    <value>Xếp lịch nâng cao</value>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Làm lại</value>
   </data>
-  <data name="BoxMng" xml:space="preserve">
-    <value>Android Box</value>
+  <data name="BtnSubmit" xml:space="preserve">
+    <value>Đăng</value>
   </data>
-  <data name="BrandMng" xml:space="preserve">
-    <value>Quản lý thương hiệu</value>
+  <data name="LblDay" xml:space="preserve">
+    <value>Ngày</value>
   </data>
-  <data name="DeviceMng" xml:space="preserve">
-    <value>Thiết bị</value>
+  <data name="LblDevice" xml:space="preserve">
+    <value>Tên thiết bị</value>
   </data>
-  <data name="LayoutMng" xml:space="preserve">
-    <value>Cách bố trí</value>
+  <data name="LblOrentation" xml:space="preserve">
+    <value>Hướng màn hình</value>
   </data>
-  <data name="LocationMng" xml:space="preserve">
-    <value>Địa điểm</value>
+  <data name="LblPriority" xml:space="preserve">
+    <value>Độ ưu tiên</value>
   </data>
-  <data name="MediaResourceMng" xml:space="preserve">
-    <value>Tài nguyên</value>
+  <data name="LblTime" xml:space="preserve">
+    <value>Thời gian</value>
   </data>
-  <data name="PlaylistMng" xml:space="preserve">
-    <value>Chương trình</value>
+  <data name="LblTitle" xml:space="preserve">
+    <value>Nhãn dán Kịch bản</value>
   </data>
-  <data name="Report" xml:space="preserve">
-    <value>Báo cáo</value>
+  <data name="PageHeaderAdd" xml:space="preserve">
+    <value>Tạo Kịch bản mới</value>
   </data>
-  <data name="ResolutionMng" xml:space="preserve">
-    <value>Độ phân giải</value>
+  <data name="PageHeaderUpdate" xml:space="preserve">
+    <value>Cập nhật Kịch bản</value>
   </data>
-  <data name="ScenarioMng" xml:space="preserve">
-    <value>Kịch bản</value>
+  <data name="TxtDeviceDefault" xml:space="preserve">
+    <value>Chọn Thiết bị</value>
   </data>
-  <data name="Scheduling" xml:space="preserve">
-    <value>Xếp lịch</value>
+  <data name="TxtFri" xml:space="preserve">
+    <value>Thứ sáu</value>
   </data>
-  <data name="ScreenMng" xml:space="preserve">
-    <value>Màn hình</value>
+  <data name="TxtHigh" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="TxtLandscape" xml:space="preserve">
+    <value>Màn hình đứng</value>
+  </data>
+  <data name="TxtLow" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="TxtMedium" xml:space="preserve">
+    <value>Trung bình</value>
+  </data>
+  <data name="TxtMon" xml:space="preserve">
+    <value>Thứ hai</value>
+  </data>
+  <data name="TxtPortrait" xml:space="preserve">
+    <value>Màn hình ngang</value>
+  </data>
+  <data name="TxtSat" xml:space="preserve">
+    <value>Thứ bảy</value>
+  </data>
+  <data name="TxtScenarioDefault" xml:space="preserve">
+    <value>Chọn Kịch bản</value>
+  </data>
+  <data name="TxtSun" xml:space="preserve">
+    <value>Chủ nhật</value>
+  </data>
+  <data name="TxtThu" xml:space="preserve">
+    <value>Thứ năm</value>
+  </data>
+  <data name="TxtTus" xml:space="preserve">
+    <value>Thứ ba</value>
+  </data>
+  <data name="TxtWed" xml:space="preserve">
+    <value>Thứ tư</value>
   </data>
 </root>
