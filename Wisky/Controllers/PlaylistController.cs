@@ -160,6 +160,29 @@ namespace DSS.Controllers
                 throw ex;
             }
         }
+        //TOANTXSE
+        // POST: Playlist/GetUrlAllMediaSrc  
+        [HttpPost]
+        public JsonResult GetUrlAllMediaSrc()
+        {
+            try
+            {
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                var playlistItem = playlistItemService.Get().ToList();
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                var mediaType = mediaSrcService.Get(playlistItem).TypeID;
+                var mediaURL = mediaSrcService.Get(playlistItem).URL;
+                return Json(new
+                {
+                    mediaURL = mediaURL,
+                    mediaType = mediaType,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //Update Playlist Item
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
         {
@@ -267,6 +290,7 @@ namespace DSS.Controllers
                     {
                         p.mediaSrcTitle = mediaSrc.Title;
                         p.URL = mediaSrc.URL;
+                        p.mediaType = mediaSrc.TypeID;
                     }
                     playlistItemVMs.Add(p);
                 }

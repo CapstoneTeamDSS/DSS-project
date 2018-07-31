@@ -38,7 +38,7 @@ namespace DSS.Models
         [EmailAddress(ErrorMessage = "Invalid email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter full name only letter.")]
+        [RegularExpression(@"^[a-zA-Z][a-zA-Z\s]+$", ErrorMessage = "Please enter full name only letter.")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
         public string FullName { get; set; }
         //[Required(ErrorMessage = "Please enter phone number.")]
