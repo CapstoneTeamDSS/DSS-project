@@ -43,7 +43,9 @@ namespace DSS.Data.Models.Entities
         public virtual DbSet<Resolution> Resolutions { get; set; }
         public virtual DbSet<Scenario> Scenarios { get; set; }
         public virtual DbSet<ScenarioItem> ScenarioItems { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TimeSlot> TimeSlots { get; set; }
     }
 }
