@@ -129,6 +129,9 @@
   <data name="DeviceMng" xml:space="preserve">
     <value>Thiết bị</value>
   </data>
+  <data name="LayoutMng" xml:space="preserve">
+    <value>Cách bố trí</value>
+  </data>
   <data name="LocationMng" xml:space="preserve">
     <value>Địa điểm</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Report" xml:space="preserve">
     <value>Báo cáo</value>
+  </data>
+  <data name="ResolutionMng" xml:space="preserve">
+    <value>Độ phân giải</value>
   </data>
   <data name="ScenarioMng" xml:space="preserve">
     <value>Kịch bản</value>

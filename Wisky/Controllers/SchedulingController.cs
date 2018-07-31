@@ -73,7 +73,38 @@ namespace DSS.Controllers
             }
             return View(model);
         }
-
+        //TOANTXSE
+        // POST: Scheduling/CheckStartTimeAndEndTime  
+        [HttpPost]
+        public JsonResult CheckStartTimeAndEndTime(int id)
+        {
+            try
+            {
+                //IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
+                //var deviceScenario = deviceScenarioService.FirstOrDefault(a => a.DeviceScenationID == id);
+                //DateTime aDateTime = DateTime.Now;
+                //var title = "";
+                bool isRight = false;
+                //if ((aDateTime - deviceScenario.StartTime).TotalMinutes > 30)
+                //{ 
+                //    title += "You only have to delete it before start time at least 30 mins. ";
+                //    isRight = true;
+                //}
+                //if ((aDateTime - (DateTime)deviceScenario.EndTime).TotalMinutes < 1)
+                //{
+                //    title += "You only have to delete it after scheduling done.";
+                //    isRight = true;
+                //}
+                return Json(new
+                {
+                    isRight = isRight,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //GET: Scheduling/LoadReference?isHorizontal=
         public ActionResult LoadReference(bool isHorizontal)
         {

@@ -279,6 +279,7 @@
     <Compile Include="Controllers\FileStackController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -338,6 +339,26 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
+    <Compile Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.Designer.cs">
+      <DependentUpon>AndroidBoxUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AndroidBoxUpdateForm.Designer.cs">
+      <DependentUpon>AndroidBoxUpdateForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AndroidBoxAddForm.vi.Designer.cs">
+      <DependentUpon>AndroidBoxAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AndroidBoxAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AndroidBoxAddForm.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\AndroidBoxIndex.vi.Designer.cs">
       <DependentUpon>AndroidBoxIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -347,6 +368,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AndroidBoxIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandForm.vi.Designer.cs">
+      <DependentUpon>BrandForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandIndex.vi.Designer.cs">
+      <DependentUpon>BrandIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\BrandIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrandIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.Designer.cs">
       <DependentUpon>BrandUserMngUpdateForm.vi.resx</DependentUpon>
@@ -368,8 +409,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BrandUserMngAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\BrandUserMngIndex .vi.Designer.cs">
-      <DependentUpon>BrandUserMngIndex .vi.resx</DependentUpon>
+    <Compile Include="ResourcesLanguage\BrandUserMngIndex.vi.Designer.cs">
+      <DependentUpon>BrandUserMngIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -377,6 +418,66 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BrandUserMngIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\Layout.vi.Designer.cs">
+      <DependentUpon>Layout.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\Layout.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Layout.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LayoutIndex.vi.Designer.cs">
+      <DependentUpon>LayoutIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LayoutIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LayoutIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationUpdateForm.vi.Designer.cs">
+      <DependentUpon>LocationUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationUpdateForm.Designer.cs">
+      <DependentUpon>LocationUpdateForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationAddForm.vi.Designer.cs">
+      <DependentUpon>LocationAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationIndex.vi.Designer.cs">
+      <DependentUpon>LocationIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\LocationIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocationIndex.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MatchingDeviceIndex.vi.Designer.cs">
+      <DependentUpon>MatchingDeviceIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MatchingDeviceIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchingDeviceIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\LayoutManage.vi.Designer.cs">
       <DependentUpon>LayoutManage.vi.resx</DependentUpon>
@@ -387,6 +488,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LayoutManage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MatchingDeviceUpateForm.vi.Designer.cs">
+      <DependentUpon>MatchingDeviceUpateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MatchingDeviceUpateForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchingDeviceUpateForm.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\MediaSrcAddForm.vi.Designer.cs">
       <DependentUpon>MediaSrcAddForm.vi.resx</DependentUpon>
@@ -498,6 +609,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlaylistAddForm.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\PlaylistDetails.vi.Designer.cs">
+      <DependentUpon>PlaylistDetails.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\PlaylistDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlaylistDetails.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\PlaylistIndex.vi.Designer.cs">
       <DependentUpon>PlaylistIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -508,8 +629,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlaylistIndex.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\PlaylistUpdateForm .vi.Designer.cs">
-      <DependentUpon>PlaylistUpdateForm .vi.resx</DependentUpon>
+    <Compile Include="ResourcesLanguage\PlaylistUpdateForm.vi.Designer.cs">
+      <DependentUpon>PlaylistUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -517,6 +638,36 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PlaylistUpdateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResoluionUpdateForm.vi.Designer.cs">
+      <DependentUpon>ResoluionUpdateForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResoluionUpdateForm.Designer.cs">
+      <DependentUpon>ResoluionUpdateForm.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResoluionAddForm.vi.Designer.cs">
+      <DependentUpon>ResoluionAddForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResoluionAddForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResoluionAddForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResolutionIndex.vi.Designer.cs">
+      <DependentUpon>ResolutionIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ResolutionIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResolutionIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\ScenarioAddForm.vi.Designer.cs">
       <DependentUpon>ScenarioAddForm.vi.resx</DependentUpon>
@@ -528,8 +679,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScenarioAddForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\ScenarioIndex .vi.Designer.cs">
-      <DependentUpon>ScenarioIndex .vi.resx</DependentUpon>
+    <Compile Include="ResourcesLanguage\ScenarioIndex.vi.Designer.cs">
+      <DependentUpon>ScenarioIndex.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -558,8 +709,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScenarioUpdateForm.resx</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesLanguage\SchedulingAddForm .vi.Designer.cs">
-      <DependentUpon>SchedulingAddForm .vi.resx</DependentUpon>
+    <Compile Include="ResourcesLanguage\SchedulingAddForm.vi.Designer.cs">
+      <DependentUpon>SchedulingAddForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -627,6 +778,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDetails.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngForm.vi.Designer.cs">
+      <DependentUpon>UserMngForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMngForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngIndex.vi.Designer.cs">
+      <DependentUpon>UserMngIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserMngIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMngIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\GenerateLoginMenu.cs" />
@@ -1815,37 +1986,117 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxUpdateForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxAddForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AndroidBoxAddForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AndroidBoxAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AndroidBoxIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\AndroidBoxIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AndroidBoxIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\BrandIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex .vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BrandUserMngIndex .vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BrandUserMngIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\Layout.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Layout.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\Layout.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Layout.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LayoutIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LayoutIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LayoutIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LayoutIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationUpdateForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationUpdateForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationAddForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationAddForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\LocationIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocationIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MatchingDeviceIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MatchingDeviceIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MatchingDeviceIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MatchingDeviceIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\LayoutManage.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -1856,6 +2107,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LayoutManage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MatchingDeviceUpateForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MatchingDeviceUpateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MatchingDeviceUpateForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MatchingDeviceUpateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcAddForm.vi.Designer.cs</LastGenOutput>
@@ -1865,7 +2124,7 @@
       <LastGenOutput>MediaSrcAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.vi.resx">
@@ -1901,6 +2160,22 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <EmbeddedResource Include="ResourcesLanguage\UserMngForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserMngIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMngIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\PublishProfiles\wiskycms - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\wiskycms - FTP %284%29.pubxml" />
@@ -2613,7 +2888,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.vi.resx">
@@ -2621,103 +2896,135 @@
       <LastGenOutput>PlaylistAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\PlaylistAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlaylistAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistDetails.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistDetails.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistDetails.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistDetails.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlaylistIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\PlaylistIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlaylistIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm .vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>PlaylistUpdateForm .vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlaylistUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\PlaylistUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlaylistUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.vi.resx">
+    <EmbeddedResource Include="ResourcesLanguage\ResoluionUpdateForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResoluionUpdateForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ResoluionUpdateForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResoluionUpdateForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ResoluionAddForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResoluionAddForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ResoluionAddForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResoluionAddForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ResolutionIndex.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResolutionIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ResolutionIndex.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResolutionIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex .vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ScenarioIndex .vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ScenarioIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioUpdateDetails.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateDetails.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioUpdateDetails.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScenarioUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScenarioUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm .vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SchedulingAddForm .vi.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SchedulingAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\SchedulingAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\SchedulingIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\SchedulingUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SchedulingUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.vi.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenIndex.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\ScreenIndex.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ScreenIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\UserDetails.vi.resx">

@@ -117,25 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddPageHeader" xml:space="preserve">
+    <value>Thêm Người dùng mới</value>
+  </data>
+  <data name="BtnAuto" xml:space="preserve">
+    <value>Sinh tự động</value>
+  </data>
   <data name="BtnCancel" xml:space="preserve">
     <value>Hủy bỏ</value>
+  </data>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Làm lại</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
     <value>Đăng</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="LblBrand" xml:space="preserve">
+    <value>Tên Thương hiệu</value>
   </data>
-  <data name="LblResource" xml:space="preserve">
-    <value>Các Mục Tài nguyên</value>
+  <data name="LblEmail" xml:space="preserve">
+    <value>Thư điện tử</value>
   </data>
-  <data name="LblTitle" xml:space="preserve">
-    <value>Nhãn dán danh sách phát</value>
+  <data name="LblFullname" xml:space="preserve">
+    <value>Tên đầy đủ</value>
   </data>
-  <data name="PageHeader" xml:space="preserve">
-    <value>Quản lý Danh sách phát</value>
+  <data name="LblPassword" xml:space="preserve">
+    <value>Mật khẩu</value>
   </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Thêm Danh sách phát mới</value>
+  <data name="LblPhone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="LblRole" xml:space="preserve">
+    <value>Vai trò</value>
+  </data>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="LblUsername" xml:space="preserve">
+    <value>Tên Người dùng</value>
+  </data>
+  <data name="TxtBrandDefault" xml:space="preserve">
+    <value>Chọn thương hiệu</value>
+  </data>
+  <data name="TxtDisable" xml:space="preserve">
+    <value>Vô hiệu hóa</value>
+  </data>
+  <data name="TxtEnable" xml:space="preserve">
+    <value>Kích hoạt</value>
+  </data>
+  <data name="TxtInstruction" xml:space="preserve">
+    <value>Người dùng bị vô hiệu hóa sẽ không thể đăng nhập</value>
+  </data>
+  <data name="TxtRoleDefault" xml:space="preserve">
+    <value>Chọn vai trò</value>
+  </data>
+  <data name="UpdatePageHeader" xml:space="preserve">
+    <value>Cập nhật Thông tin Người dùng</value>
   </data>
 </root>
