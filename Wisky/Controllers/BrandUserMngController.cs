@@ -49,7 +49,32 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
-
+        public ActionResult GetAccountInformation()
+        {
+            var user = Helper.GetCurrentUser();
+            Models.BrandUserDetailVM model = null;
+            var myuser = aspNetUserService.GetAccountsByUserName(user.UserName);
+            if(myuser != null)
+            {
+                model = new Models.BrandUserDetailVM
+                {
+                    UserName = myuser.UserName,
+                    Id = myuser.Id,
+                    Email = myuser.Email,
+                    FullName = myuser.FullName,
+                    isActive = myuser.isActive,
+                    Password = myuser.PasswordHash,
+                };
+                var userRoles = UserManager.GetRoles(myuser.Id).ToArray();
+                ViewBag.userRoles = userRoles;
+                if (userRoles.Length > 0)
+                {
+                    model.Role = userRoles[0];
+                }
+            }
+            
+            return View(model);
+        }
         // GET: BrandUserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -82,7 +107,6 @@ namespace DSS.Controllers
             ViewBag.roleList = roleList;
             return View(model);
         }
-
         // POST: BrandUserMng/Add
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.BrandUserDetailVM model)
         {

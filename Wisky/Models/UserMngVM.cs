@@ -33,7 +33,7 @@ namespace DSS.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Please enter email.")]
         [EmailAddress(ErrorMessage = "Invalid email")]
-        [UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
+        //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z\s]+$", ErrorMessage = "Please enter full name only letter.")]

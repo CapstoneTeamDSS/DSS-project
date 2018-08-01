@@ -2794,6 +2794,7 @@
     <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
     <Content Include="Views\AdvancedScheduling\Index.cshtml" />
     <Content Include="Views\AdvancedScheduling\Form.cshtml" />
+    <Content Include="Views\BrandUserMng\GetAccountInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
