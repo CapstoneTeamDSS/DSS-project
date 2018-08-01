@@ -26,9 +26,14 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "UserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_box", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "UserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_UserMng", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserMngForm.LblFullname <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -85,8 +90,8 @@
                                 @DSS.ResourcesLanguage.UserMngForm.LblBrand <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="select2_group form-control" name="BrandId">
-                                    <option value="0">--- @DSS.ResourcesLanguage.UserMngForm.TxtBrandDefault ---</option>
+                                <select class="select2_group form-control" name="BrandId" id="brand-list">
+                                    <option value="-1">--- @DSS.ResourcesLanguage.UserMngForm.TxtBrandDefault ---</option>
                                     @{
                                         var brandsList = ViewBag.brandList as List<DSS.Models.BrandDetailVM>;
                                         foreach (var item in brandsList)
@@ -114,7 +119,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.UserMngForm.BtnReset</button>
-                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -123,7 +128,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.UserMngForm.BtnCancel</button>
-                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.UserMngForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -136,6 +141,33 @@
 @section styles {
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($("#brand-list").prop("selectedIndex") === 0) {
+                stringError.push("Please choose brand.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_UserMng").submit();
+            }
+        }
+    </script>
+    <!-- End Validation-->
 }
 @section scripts {
     <!-- Switchery Change Status Text-->
@@ -150,4 +182,11 @@
     </script>
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
 }
