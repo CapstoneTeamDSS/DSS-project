@@ -158,7 +158,7 @@
     </script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            const apikey = 'AtM1mPjxxQviwhQOqcFKdz';
+            const apikey = 'Adh8ST4IaTp2r5UGckE72z';
             const client = filestack.init(apikey);
             const options = {
                 //displayMode: 'inline',
@@ -195,8 +195,8 @@
                 }
                 if (oldHandle != "") {
                     /*Delete previous uploaded file*/
-                    var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";                    
-                    var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
+                    var policy = "eyJjYWxsIjpbInJlYWQiLCJyZW1vdmUiXSwiZXhwaXJ5IjoxNTM1NjUyMDAwfQ==";                    
+                    var signature = "7084de1113fc2aad1e6736d3c3b2da841a963f123ac28b6395559307df7c38d9";
                     var delUrl = "https://www.filestackapi.com/api/file/" + oldHandle + "?key=" + apikey + "&policy=" + policy + "&signature=" + signature;
                     console.log(delUrl);
                     $.ajax({
