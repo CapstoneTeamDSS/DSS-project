@@ -12,17 +12,14 @@ namespace DSS.Data.Models.ViewModels
     using System;
     using System.Collections.Generic;
     
-    public partial class AreaViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.Area>
+    public partial class VisualTypeViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.VisualType>
     {
     	
-    			public virtual int AreaID { get; set; }
-    			public virtual int LayoutID { get; set; }
-    			public virtual string AreaCode { get; set; }
-    			public virtual string URL { get; set; }
-    			public virtual Nullable<int> VisualTypeID { get; set; }
+    			public virtual int VisualTypeID { get; set; }
+    			public virtual string TypeName { get; set; }
     	
-    	public AreaViewModel() : base() { }
-    	public AreaViewModel(DSS.Data.Models.Entities.Area entity) : base(entity) { }
+    	public VisualTypeViewModel() : base() { }
+    	public VisualTypeViewModel(DSS.Data.Models.Entities.VisualType entity) : base(entity) { }
     
     }
 }

@@ -47,5 +47,6 @@ namespace DSS.Data.Models.Entities
         public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TimeSlot> TimeSlots { get; set; }
+        public virtual DbSet<VisualType> VisualTypes { get; set; }
     }
 }
