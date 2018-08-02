@@ -10,6 +10,7 @@ namespace DSS.Data.Models.Entities.Services
     public partial interface IAspNetUserService
     {
         List<AspNetUser> GetAccountsByBrandId(int brandId);
+        AspNetUser GetAccountsByUserName(string userName);
     }
 
     public partial class AspNetUserService
@@ -24,6 +25,14 @@ namespace DSS.Data.Models.Entities.Services
             result = accountRepository
                 .Get(a => a.BrandID == brandId)
                 .ToList();
+            return result;
+        }
+        public AspNetUser GetAccountsByUserName(string userName)
+        {
+            AspNetUser result = null;
+            result = accountRepository
+                .Get(a => a.UserName.Equals(userName))
+                .FirstOrDefault();
             return result;
         }
     }

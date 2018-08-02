@@ -49,7 +49,32 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
+        public ActionResult GetAccountInformation()
+        {
+            var user = Helper.GetCurrentUser();
+            Models.BrandUserDetailVM model = null;
+            var myuser = aspNetUserService.GetAccountsByUserName(user.UserName);
+            if (myuser != null)
+            {
+                model = new Models.BrandUserDetailVM
+                {
+                    UserName = myuser.UserName,
+                    Id = myuser.Id,
+                    Email = myuser.Email,
+                    FullName = myuser.FullName,
+                    isActive = myuser.isActive,
+                    Password = myuser.PasswordHash,
+                };
+                var userRoles = UserManager.GetRoles(myuser.Id).ToArray();
+                ViewBag.userRoles = userRoles;
+                if (userRoles.Length > 0)
+                {
+                    model.Role = userRoles[0];
+                }
+            }
 
+            return View(model);
+        }
         // GET: BrandUserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -82,7 +107,6 @@ namespace DSS.Controllers
             ViewBag.roleList = roleList;
             return View(model);
         }
-
         // POST: BrandUserMng/Add
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.BrandUserDetailVM model)
         {
@@ -163,6 +187,32 @@ namespace DSS.Controllers
             return View("Form", model);
         }
 
+        // POST: BrandUserMng/Update
+        public async System.Threading.Tasks.Task<ActionResult> UpdateMyAccount(Models.BrandAccountInformation model)
+        {
+            var currUser = Helper.GetCurrentUser();
+            if (ModelState.IsValid)
+            {
+                /*Update custom fields*/
+                var user = aspNetUserService
+                .Get(a => a.Id == model.Id)
+                .FirstOrDefault();
+                if (user != null)
+                {
+                    user.BrandID = currUser.BrandID;
+                    user.FullName = model.FullName;
+                    user.AspNetRoles = currUser.AspNetRoles;
+                };
+                await this.aspNetUserService.UpdateAsync(user);
+                return new ContentResult
+                {
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Home")),
+                    ContentType = "text/html"
+                };
+
+            }
+            return View("GetAccountInformation", model);
+        }
 
         public ApplicationUserManager UserManager
         {
@@ -198,5 +248,16 @@ namespace DSS.Controllers
             }, JsonRequestBehavior.AllowGet);
 
         }
+        // GET: BrandUserMng/Delete/:id
+        public ActionResult Delete(int id)
+        {
+            var brandUserMng = this.aspNetUserService.Get(id);
+            if (brandUserMng != null)
+            {
+                this.aspNetUserService.Delete(brandUserMng);
+            }
+            return this.RedirectToAction("Index");
+        }
+
     }
 }
