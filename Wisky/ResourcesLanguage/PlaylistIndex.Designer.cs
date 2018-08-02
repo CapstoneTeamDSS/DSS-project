@@ -133,6 +133,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visual Type.
+        /// </summary>
+        public static string ColVisualType {
+            get {
+                return ResourceManager.GetString("ColVisualType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Playlist Management.
         /// </summary>
         public static string PageHeader {

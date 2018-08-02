@@ -141,6 +141,9 @@
   <data name="ColTitle" xml:space="preserve">
     <value>Nhãn dán</value>
   </data>
+  <data name="ColVisualType" xml:space="preserve">
+    <value>Loại Danh sách</value>
+  </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Quản lý Danh sách phát</value>
   </data>
