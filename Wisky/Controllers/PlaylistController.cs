@@ -32,6 +32,7 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IVisualTypeService visualTypeService = DependencyUtils.Resolve<IVisualTypeService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper = DependencyUtils.Resolve<IMapper>();
             var user = Helper.GetCurrentUser();
@@ -45,6 +46,7 @@ namespace DSS.Controllers
                     Description = item.Description,
                     Id = item.PlaylistID,
                     isPublic = (bool)item.isPublic,
+                    VisualTypeName = visualTypeService.Get(item.VisualTypeID)?.TypeName,
                     Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
                 };
                 playlistDetailVM.Add(m);
@@ -176,9 +178,31 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.visualTypeList = GetVisualTypes();
             ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandIdAndStatus();
             ViewBag.itemList = GetMediaSrcListByPlaylistId(id ?? default(int));
             return View("Form", model);
+        }
+
+
+        private List<Models.VisualTypeVM> GetVisualTypes()
+        {
+            List<Models.VisualTypeVM> visualTypeVMs = new List<Models.VisualTypeVM>();
+            IVisualTypeService visualTypeService = DependencyUtils.Resolve<IVisualTypeService>();
+            var visualTypes = visualTypeService.Get().ToList();
+            if (visualTypes != null)
+            {
+                foreach (var item in visualTypes)
+                {
+                    var v = new Models.VisualTypeVM
+                    {
+                        VisualTypeID = item.VisualTypeID,
+                        VisualTypeName = item.TypeName,
+                    };
+                    visualTypeVMs.Add(v);
+                }
+            }
+            return visualTypeVMs;
         }
         //TOANTXSE62006
         //GET: Playlist/UpdateStatus
@@ -266,6 +290,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     BrandID = user.BrandID,
                     isPublic = model.isPublic,
+                    VisualTypeID = model.VisualTypeID,
                 };
                 await this.playlistService.CreateAsync(playlist);
                 /* Add item to playlist*/

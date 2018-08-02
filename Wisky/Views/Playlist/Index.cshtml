@@ -42,6 +42,7 @@
                                 </th>
                                 <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDuration</th>
                                 <th>@DSS.ResourcesLanguage.PlaylistIndex.ColStatus</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColVisualType</th>
                                 <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDescription</th>
                                 <th>@DSS.ResourcesLanguage.PlaylistIndex.ColAction</th>
                             </tr>
@@ -57,6 +58,7 @@
                                         <td>@(item.Title)</td>
                                         <td>@(item.Duration)</td>
                                         <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? "Public" : "Private")</a></td>
+                                        <td>@(item.VisualTypeName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:200px; text-align:center">
                                             <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.PlaylistIndex.BtnEdit </i></a>
