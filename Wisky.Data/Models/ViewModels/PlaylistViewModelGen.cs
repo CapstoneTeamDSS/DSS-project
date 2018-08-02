@@ -20,6 +20,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual string Description { get; set; }
     			public virtual int BrandID { get; set; }
     			public virtual Nullable<bool> isPublic { get; set; }
+    			public virtual Nullable<int> VisualTypeID { get; set; }
     	
     	public PlaylistViewModel() : base() { }
     	public PlaylistViewModel(DSS.Data.Models.Entities.Playlist entity) : base(entity) { }

@@ -7,15 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities
+namespace DSS.Data.Models.Entities.Repositories
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TimeSlot
+    
+    public partial interface IVisualTypeRepository : SkyWeb.DatVM.Data.IBaseRepository<VisualType>
     {
-        public int SlotID { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
+    }
+    
+    public partial class VisualTypeRepository : SkyWeb.DatVM.Data.BaseRepository<VisualType>, IVisualTypeRepository
+    {
+    	public VisualTypeRepository(System.Data.Entity.DbContext dbContext) : base(dbContext)
+        {
+        }
     }
 }
