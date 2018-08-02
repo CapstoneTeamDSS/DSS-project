@@ -26,7 +26,7 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    @using (Html.BeginForm("Update", "BrandUserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_box", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.Id != null) ? "UpdateMyAccount" : "Add", "BrandUserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_GetAccountInformation", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblEmail<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Email"  placeholder="abc@email.com" value="@(Model?.Email)">
+                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Email" placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
@@ -53,33 +53,17 @@
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
                         </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblPassword<span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control" name="Password" value="@(Model?.Password)">
-                                </div>
-                            </div>
+                        <div class="ln_solid"></div>
                         <div class="form-group">
-                            <label class="col-md-3 col-sm-3 col-xs-3 control-label">
-                                @DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatus
-                                <br>
-                                <small class="text-navy">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatusDescription</small>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                <a class='btn btn-warning'
+                                   href="@Url.Action("Index", "Home")"
+                                   title="Please choose Location, Box And Screen">
+                                    Cancel
+                                </a>
+                                <button type="submit" class="btn btn-success">Update</button>
                             </div>
                         </div>
-                        <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <a class='btn btn-warning'
-                                       href="@Url.Action("Index", "Home")"
-                                       title="Please choose Location, Box And Screen">
-                                        Cancel
-                                    </a>
-                                    <button type="submit" class="btn btn-success">Update</button>
-                                </div>
-                            </div>
                     }
                 </div>
             </div>
