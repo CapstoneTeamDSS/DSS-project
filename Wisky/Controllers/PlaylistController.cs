@@ -290,6 +290,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     BrandID = user.BrandID,
                     isPublic = model.isPublic,
+                    VisualTypeID = model.VisualTypeID,
                 };
                 await this.playlistService.CreateAsync(playlist);
                 /* Add item to playlist*/
