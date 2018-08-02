@@ -22,6 +22,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int TimeFilter { get; set; }
     			public virtual int DayFilter { get; set; }
     			public virtual int Priority { get; set; }
+    			public virtual bool isEnable { get; set; }
     	
     	public ScheduleViewModel() : base() { }
     	public ScheduleViewModel(DSS.Data.Models.Entities.Schedule entity) : base(entity) { }

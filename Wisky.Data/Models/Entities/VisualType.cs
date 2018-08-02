@@ -12,23 +12,21 @@ namespace DSS.Data.Models.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Area
+    public partial class VisualType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Area()
+        public VisualType()
         {
-            this.ScenarioItems = new HashSet<ScenarioItem>();
+            this.Areas = new HashSet<Area>();
+            this.Playlists = new HashSet<Playlist>();
         }
     
-        public int AreaID { get; set; }
-        public int LayoutID { get; set; }
-        public string AreaCode { get; set; }
-        public string URL { get; set; }
-        public Nullable<int> VisualTypeID { get; set; }
+        public int VisualTypeID { get; set; }
+        public string TypeName { get; set; }
     
-        public virtual Layout Layout { get; set; }
-        public virtual VisualType VisualType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ScenarioItem> ScenarioItems { get; set; }
+        public virtual ICollection<Area> Areas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Playlist> Playlists { get; set; }
     }
 }

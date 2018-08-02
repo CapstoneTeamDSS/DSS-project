@@ -16,6 +16,7 @@ namespace DSS.Models
         public string BrandName { get; set; }
         public bool isShow { get; set; }
         public bool isPublic { get; set; }
+        public string VisualTypeName { get; set; }
     }
 
     public class PlaylistCRUDVM
@@ -26,6 +27,7 @@ namespace DSS.Models
         public string Description { get; set; }
         public AddedElement[] AddedElements { get; set; }
         public bool isPublic { get; set; }
+        public int VisualTypeID { get; set; }
     }
 
     public class AddedElement

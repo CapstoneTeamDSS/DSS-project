@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
-
     <title>@ViewBag.Title | </title>
     <!-- Bootstrap -->
     <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -182,6 +181,8 @@
                             </li>
                             <li><a href="javascript:;"><i class="fa fa-5x fa-user"></i> @DSS.ResourcesLanguage.MenuText.MyAcc </a></li>
                             <li><a>@DSS.ResourcesLanguage.MenuText.Welcome, <b>@User.Identity.Name</b>!</a></li>
+                            <li><a href="@Url.Action("GetAccountInformation", "BrandUserMng")"><i class="fa fa-5x fa-user"></i> My account </a></li>
+                            <li><a>Welcome, <b>@User.Identity.Name</b>!</a></li>
                         </ul>
                     </nav>
                 </div>

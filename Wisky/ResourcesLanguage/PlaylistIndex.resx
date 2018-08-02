@@ -141,6 +141,9 @@
   <data name="ColTitle" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="ColVisualType" xml:space="preserve">
+    <value>Visual Type</value>
+  </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Playlist Management</value>
   </data>

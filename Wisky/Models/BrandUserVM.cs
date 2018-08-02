@@ -16,7 +16,7 @@ namespace DSS.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Please enter email.")]
         [EmailAddress(ErrorMessage = "Invalid email")]
-        [UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
+        //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
@@ -26,7 +26,12 @@ namespace DSS.Models
         public bool IsActive { get; set; }
         public string BrandName { get; set; }
     }
-
+    public class BrandAccountInformation
+    {
+        public String Id { get; set; }
+        public string FullName { get; set; }
+        public string PhoneNumber { get; set; }
+    }
     public class BrandUserDetailVM
     {
         public String Id { get; set; }
@@ -36,9 +41,10 @@ namespace DSS.Models
         public string Password { get; set; }
         [Required(ErrorMessage = "Please enter email.")]
         [EmailAddress(ErrorMessage = "Invalid email")]
+        //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Please enter full name.")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter full name only letter.")]
+        [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
         public string FullName { get; set; }
         //[Required(ErrorMessage = "Please enter phone number.")]

@@ -32,6 +32,7 @@ namespace DSS.Controllers
         {
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IVisualTypeService visualTypeService = DependencyUtils.Resolve<IVisualTypeService>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var mapper = DependencyUtils.Resolve<IMapper>();
             var user = Helper.GetCurrentUser();
@@ -45,6 +46,7 @@ namespace DSS.Controllers
                     Description = item.Description,
                     Id = item.PlaylistID,
                     isPublic = (bool)item.isPublic,
+                    VisualTypeName = visualTypeService.Get(item.VisualTypeID)?.TypeName,
                     Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
                 };
                 playlistDetailVM.Add(m);
@@ -83,7 +85,7 @@ namespace DSS.Controllers
             return playlistDetailVM;
         }
         //TOANTXSE
-        // POST: Media/CheckPlaylistIdIsUsed  
+        // POST: Playlist/CheckPlaylistIdIsUsed  
         [HttpPost]
         public JsonResult CheckPlaylistIdIsUsed(int id)
         {
@@ -137,6 +139,52 @@ namespace DSS.Controllers
                 throw ex;
             }
         }
+        //TOANTXSE
+        // POST: Playlist/CheckTypeMediaSrcInPlaylist  
+        [HttpPost]
+        public JsonResult CheckTypeMediaSrcInPlaylist(int id)
+        {
+            try
+            {
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                var playlistItem = playlistItemService.Get(id).MediaSrcID;
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                var mediaType = mediaSrcService.Get(playlistItem).TypeID;
+                var mediaURL = mediaSrcService.Get(playlistItem).URL;
+                return Json(new
+                {
+                    mediaURL = mediaURL,
+                    mediaType = mediaType,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //TOANTXSE
+        // POST: Playlist/GetUrlAllMediaSrc  
+        [HttpPost]
+        public JsonResult GetUrlAllMediaSrc()
+        {
+            try
+            {
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                var playlistItem = playlistItemService.Get().ToList();
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                var mediaType = mediaSrcService.Get(playlistItem).TypeID;
+                var mediaURL = mediaSrcService.Get(playlistItem).URL;
+                return Json(new
+                {
+                    mediaURL = mediaURL,
+                    mediaType = mediaType,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //Update Playlist Item
         public async System.Threading.Tasks.Task<ActionResult> UpdateDetail(int[] playlistItemIds)
         {
@@ -176,9 +224,31 @@ namespace DSS.Controllers
                     };
                 }
             }
+            ViewBag.visualTypeList = GetVisualTypes();
             ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandIdAndStatus();
             ViewBag.itemList = GetMediaSrcListByPlaylistId(id ?? default(int));
             return View("Form", model);
+        }
+
+
+        private List<Models.VisualTypeVM> GetVisualTypes()
+        {
+            List<Models.VisualTypeVM> visualTypeVMs = new List<Models.VisualTypeVM>();
+            IVisualTypeService visualTypeService = DependencyUtils.Resolve<IVisualTypeService>();
+            var visualTypes = visualTypeService.Get().ToList();
+            if (visualTypes != null)
+            {
+                foreach (var item in visualTypes)
+                {
+                    var v = new Models.VisualTypeVM
+                    {
+                        VisualTypeID = item.VisualTypeID,
+                        VisualTypeName = item.TypeName,
+                    };
+                    visualTypeVMs.Add(v);
+                }
+            }
+            return visualTypeVMs;
         }
         //TOANTXSE62006
         //GET: Playlist/UpdateStatus
@@ -244,6 +314,7 @@ namespace DSS.Controllers
                     {
                         p.mediaSrcTitle = mediaSrc.Title;
                         p.URL = mediaSrc.URL;
+                        p.mediaType = mediaSrc.TypeID;
                     }
                     playlistItemVMs.Add(p);
                 }
@@ -266,6 +337,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     BrandID = user.BrandID,
                     isPublic = model.isPublic,
+                    VisualTypeID = model.VisualTypeID,
                 };
                 await this.playlistService.CreateAsync(playlist);
                 /* Add item to playlist*/

@@ -19,6 +19,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int LayoutID { get; set; }
     			public virtual string AreaCode { get; set; }
     			public virtual string URL { get; set; }
+    			public virtual Nullable<int> VisualTypeID { get; set; }
     	
     	public AreaViewModel() : base() { }
     	public AreaViewModel(DSS.Data.Models.Entities.Area entity) : base(entity) { }

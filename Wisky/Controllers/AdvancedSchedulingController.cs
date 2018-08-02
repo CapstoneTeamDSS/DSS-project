@@ -76,7 +76,8 @@ namespace DSS.Controllers
                     var timeSlotVM = new DSS.Models.TimeSlotVM
                     {
                         SlotID = item.SlotID,
-                        SlotDetail = item.SlotDetail,
+                        StartTime = item.StartTime.ToString(),
+                        EndTime = item.EndTime.ToString(),
                     };
                     TimeSlotVMs.Add(timeSlotVM);
                 }
