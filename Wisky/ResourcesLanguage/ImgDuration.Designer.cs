@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MediaSrcAddForm {
+    public class ImgDuration {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MediaSrcAddForm() {
+        internal ImgDuration() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.MediaSrcAddForm", typeof(MediaSrcAddForm).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.ImgDuration", typeof(ImgDuration).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,11 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Set Duration.
         /// </summary>
-        public static string BtnCancel {
+        public static string BtnSet {
             get {
-                return ResourceManager.GetString("BtnCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reset.
-        /// </summary>
-        public static string BtnReset {
-            get {
-                return ResourceManager.GetString("BtnReset", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submit.
-        /// </summary>
-        public static string BtnSubmit {
-            get {
-                return ResourceManager.GetString("BtnSubmit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Upload Media.
-        /// </summary>
-        public static string BtnUpload {
-            get {
-                return ResourceManager.GetString("BtnUpload", resourceCulture);
+                return ResourceManager.GetString("BtnSet", resourceCulture);
             }
         }
         
@@ -106,16 +79,16 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Status .
+        ///   Looks up a localized string similar to Duration.
         /// </summary>
-        public static string LblStatus {
+        public static string LblDuration {
             get {
-                return ResourceManager.GetString("LblStatus", resourceCulture);
+                return ResourceManager.GetString("LblDuration", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title .
+        ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string LblTitle {
             get {
@@ -124,16 +97,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select file to upload .
-        /// </summary>
-        public static string LblUpload {
-            get {
-                return ResourceManager.GetString("LblUpload", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Media Resource Management.
+        ///   Looks up a localized string similar to Set Duration for Image.
         /// </summary>
         public static string PageHeader {
             get {
@@ -142,29 +106,11 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new Media.
+        ///   Looks up a localized string similar to Status.
         /// </summary>
-        public static string PageTitle {
+        public static string Status {
             get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Private.
-        /// </summary>
-        public static string TxtPrivate {
-            get {
-                return ResourceManager.GetString("TxtPrivate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Public.
-        /// </summary>
-        public static string TxtPublic {
-            get {
-                return ResourceManager.GetString("TxtPublic", resourceCulture);
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
     }

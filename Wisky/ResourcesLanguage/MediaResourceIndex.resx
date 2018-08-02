@@ -117,25 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="LblAddress" xml:space="preserve">
-    <value>Địa chỉ</value>
+  <data name="ColAction" xml:space="preserve">
+    <value>Action</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="ColDescription" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="LblDistrict" xml:space="preserve">
-    <value>Quận</value>
+  <data name="ColName" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="LblProvince" xml:space="preserve">
-    <value>Khu vực</value>
+  <data name="ColNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="ColPreview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ColStatus" xml:space="preserve">
+    <value>Status</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Địa điểm</value>
+    <value>General</value>
+  </data>
+  <data name="PageTitleAudio" xml:space="preserve">
+    <value>Audio Manager</value>
+  </data>
+  <data name="PageTitleImg" xml:space="preserve">
+    <value>Image Manager</value>
+  </data>
+  <data name="PageTitleOther" xml:space="preserve">
+    <value>Other File</value>
+  </data>
+  <data name="PageTitleVid" xml:space="preserve">
+    <value>Video Manager</value>
+  </data>
+  <data name="TabAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="TabImg" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="TabOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="TabVid" xml:space="preserve">
+    <value>Video</value>
   </data>
 </root>

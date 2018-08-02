@@ -138,8 +138,14 @@
   <data name="LocationMng" xml:space="preserve">
     <value>Địa điểm</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
   <data name="MediaResourceMng" xml:space="preserve">
     <value>Tài nguyên</value>
+  </data>
+  <data name="MyAcc" xml:space="preserve">
+    <value>Tài khoản</value>
   </data>
   <data name="PlaylistMng" xml:space="preserve">
     <value>Chương trình</value>
@@ -158,5 +164,8 @@
   </data>
   <data name="ScreenMng" xml:space="preserve">
     <value>Màn hình</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Xin chào</value>
   </data>
 </root>

@@ -22,14 +22,14 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MediaSrcAddForm {
+    public class MediaResourceIndex {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MediaSrcAddForm() {
+        internal MediaResourceIndex() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace DSS.ResourcesLanguage {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.MediaSrcAddForm", typeof(MediaSrcAddForm).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.MediaResourceIndex", typeof(MediaResourceIndex).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,79 +61,79 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string BtnCancel {
+        public static string BtnDelete {
             get {
-                return ResourceManager.GetString("BtnCancel", resourceCulture);
+                return ResourceManager.GetString("BtnDelete", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
-        public static string BtnReset {
+        public static string BtnEdit {
             get {
-                return ResourceManager.GetString("BtnReset", resourceCulture);
+                return ResourceManager.GetString("BtnEdit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to Action.
         /// </summary>
-        public static string BtnSubmit {
+        public static string ColAction {
             get {
-                return ResourceManager.GetString("BtnSubmit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Upload Media.
-        /// </summary>
-        public static string BtnUpload {
-            get {
-                return ResourceManager.GetString("BtnUpload", resourceCulture);
+                return ResourceManager.GetString("ColAction", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        public static string LblDescription {
+        public static string ColDescription {
             get {
-                return ResourceManager.GetString("LblDescription", resourceCulture);
+                return ResourceManager.GetString("ColDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Status .
+        ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string LblStatus {
+        public static string ColName {
             get {
-                return ResourceManager.GetString("LblStatus", resourceCulture);
+                return ResourceManager.GetString("ColName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title .
+        ///   Looks up a localized string similar to No.
         /// </summary>
-        public static string LblTitle {
+        public static string ColNo {
             get {
-                return ResourceManager.GetString("LblTitle", resourceCulture);
+                return ResourceManager.GetString("ColNo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select file to upload .
+        ///   Looks up a localized string similar to Preview.
         /// </summary>
-        public static string LblUpload {
+        public static string ColPreview {
             get {
-                return ResourceManager.GetString("LblUpload", resourceCulture);
+                return ResourceManager.GetString("ColPreview", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Media Resource Management.
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string ColStatus {
+            get {
+                return ResourceManager.GetString("ColStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
         /// </summary>
         public static string PageHeader {
             get {
@@ -142,29 +142,74 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new Media.
+        ///   Looks up a localized string similar to Audio Manager.
         /// </summary>
-        public static string PageTitle {
+        public static string PageTitleAudio {
             get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
+                return ResourceManager.GetString("PageTitleAudio", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Private.
+        ///   Looks up a localized string similar to Image Manager.
         /// </summary>
-        public static string TxtPrivate {
+        public static string PageTitleImg {
             get {
-                return ResourceManager.GetString("TxtPrivate", resourceCulture);
+                return ResourceManager.GetString("PageTitleImg", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Public.
+        ///   Looks up a localized string similar to Other File.
         /// </summary>
-        public static string TxtPublic {
+        public static string PageTitleOther {
             get {
-                return ResourceManager.GetString("TxtPublic", resourceCulture);
+                return ResourceManager.GetString("PageTitleOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video Manager.
+        /// </summary>
+        public static string PageTitleVid {
+            get {
+                return ResourceManager.GetString("PageTitleVid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio.
+        /// </summary>
+        public static string TabAudio {
+            get {
+                return ResourceManager.GetString("TabAudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string TabImg {
+            get {
+                return ResourceManager.GetString("TabImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string TabOther {
+            get {
+                return ResourceManager.GetString("TabOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Video.
+        /// </summary>
+        public static string TabVid {
+            get {
+                return ResourceManager.GetString("TabVid", resourceCulture);
             }
         }
     }

@@ -151,6 +151,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Device Matching.
         /// </summary>
         public static string Matching {
@@ -174,6 +183,15 @@ namespace DSS.ResourcesLanguage {
         public static string MediaSection {
             get {
                 return ResourceManager.GetString("MediaSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Account.
+        /// </summary>
+        public static string MyAcc {
+            get {
+                return ResourceManager.GetString("MyAcc", resourceCulture);
             }
         }
         
@@ -300,6 +318,15 @@ namespace DSS.ResourcesLanguage {
         public static string ViewListMng {
             get {
                 return ResourceManager.GetString("ViewListMng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

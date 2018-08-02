@@ -117,25 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
-  </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
-  </data>
-  <data name="LblAddress" xml:space="preserve">
-    <value>Địa chỉ</value>
+  <data name="BtnSet" xml:space="preserve">
+    <value>Thiết lập</value>
   </data>
   <data name="LblDescription" xml:space="preserve">
     <value>Mô tả</value>
   </data>
-  <data name="LblDistrict" xml:space="preserve">
-    <value>Quận</value>
+  <data name="LblDuration" xml:space="preserve">
+    <value>Thời lượng</value>
   </data>
-  <data name="LblProvince" xml:space="preserve">
-    <value>Khu vực</value>
+  <data name="LblTitle" xml:space="preserve">
+    <value>Nhãn dán</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Địa điểm</value>
+    <value>Thiết lập Thời gian cho Hình ảnh</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
   </data>
 </root>

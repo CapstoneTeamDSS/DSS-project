@@ -117,25 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="Canceled" xml:space="preserve">
+    <value>Đã hủy !</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="Deleted" xml:space="preserve">
+    <value>Tệp tin của bạn đã được xóa</value>
   </data>
-  <data name="LblAddress" xml:space="preserve">
-    <value>Địa chỉ</value>
+  <data name="Deleted1" xml:space="preserve">
+    <value>Đã xóa !</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="error" xml:space="preserve">
+    <value>Đã có lỗi xảy ra !</value>
   </data>
-  <data name="LblDistrict" xml:space="preserve">
-    <value>Quận</value>
+  <data name="Filesafe" xml:space="preserve">
+    <value>Tệp tin của bạn vẫn an toàn :)</value>
   </data>
-  <data name="LblProvince" xml:space="preserve">
-    <value>Khu vực</value>
+  <data name="IfDelete" xml:space="preserve">
+    <value>Nếu bạn muốn xóa tệp này</value>
   </data>
-  <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Địa điểm</value>
+  <data name="InUse" xml:space="preserve">
+    <value>Tệp đang được sử dụng</value>
+  </data>
+  <data name="PlsDelete" xml:space="preserve">
+    <value>Xin hãy xóa danh sách</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Xin hãy nhập nhãn dán</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Xin hãy chọn tệp để tải lên</value>
+  </data>
+  <data name="notbeable" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi tệp tin này</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Bạn có chắc không ?</value>
+  </data>
+  <data name="CantSendReq" xml:space="preserve">
+    <value>Không thể gửi yêu cầu</value>
+  </data>
+  <data name="SelectItem" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một tài nguyên</value>
+  </data>
+  <data name="NoCancel" xml:space="preserve">
+    <value>Không, đừng xóa !</value>
+  </data>
+  <data name="PlsDeleteScen" xml:space="preserve">
+    <value>Xin hãy xóa kịch bản</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Vâng, hãy xóa !</value>
+  </data>
+  <data name="ImgDuration" xml:space="preserve">
+    <value>Xin hãy điền thời lượng</value>
+  </data>
+  <data name="ImgFormat" xml:space="preserve">
+    <value>Xin hãy điền với định dạng 00:00:00</value>
   </data>
 </root>

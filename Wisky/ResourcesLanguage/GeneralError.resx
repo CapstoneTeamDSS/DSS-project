@@ -117,25 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+  <data name="Canceled" xml:space="preserve">
+    <value>Canceled !</value>
   </data>
-  <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
+  <data name="Deleted" xml:space="preserve">
+    <value>Your file has been deleted</value>
   </data>
-  <data name="LblAddress" xml:space="preserve">
-    <value>Địa chỉ</value>
+  <data name="Deleted1" xml:space="preserve">
+    <value>Deleted !</value>
   </data>
-  <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+  <data name="error" xml:space="preserve">
+    <value>Error occured !</value>
   </data>
-  <data name="LblDistrict" xml:space="preserve">
-    <value>Quận</value>
+  <data name="Filesafe" xml:space="preserve">
+    <value>Your file is safe :)</value>
   </data>
-  <data name="LblProvince" xml:space="preserve">
-    <value>Khu vực</value>
+  <data name="IfDelete" xml:space="preserve">
+    <value>If you want to delete it</value>
   </data>
-  <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Địa điểm</value>
+  <data name="InUse" xml:space="preserve">
+    <value>This file is being used</value>
+  </data>
+  <data name="notbeable" xml:space="preserve">
+    <value>You will not be able to recover this file</value>
+  </data>
+  <data name="PlsDelete" xml:space="preserve">
+    <value>Please delete playlist</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Are you sure ?</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Please input title</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Please choose file to upload</value>
+  </data>
+  <data name="CantSentReq" xml:space="preserve">
+    <value>Can not send request</value>
+  </data>
+  <data name="SelectItem" xml:space="preserve">
+    <value>Please select at least one item</value>
+  </data>
+  <data name="NoCancel" xml:space="preserve">
+    <value>No, cancel it !</value>
+  </data>
+  <data name="PlsDeleteScen" xml:space="preserve">
+    <value>Please delete scenario</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Yes, delete it !</value>
+  </data>
+  <data name="ImgDuration" xml:space="preserve">
+    <value>Please enter duration</value>
+  </data>
+  <data name="ImgFormat" xml:space="preserve">
+    <value>Please input with format 00:00:00</value>
   </data>
 </root>

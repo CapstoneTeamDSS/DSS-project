@@ -439,6 +439,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BrandUserMngIndex.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\GeneralError.vi.Designer.cs">
+      <DependentUpon>GeneralError.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\GeneralError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ImgDuration.vi.Designer.cs">
+      <DependentUpon>ImgDuration.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ImgDuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImgDuration.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\Layout.vi.Designer.cs">
       <DependentUpon>Layout.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -518,6 +538,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MatchingDeviceUpateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaResourceForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceIndex.vi.Designer.cs">
+      <DependentUpon>MediaResourceIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaResourceIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\MediaSrcAddForm.vi.Designer.cs">
       <DependentUpon>MediaSrcAddForm.vi.resx</DependentUpon>
@@ -2086,6 +2121,22 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngIndex.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\GeneralError.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\GeneralError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ImgDuration.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImgDuration.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ImgDuration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImgDuration.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\Layout.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Layout.vi.Designer.cs</LastGenOutput>
@@ -2151,12 +2202,24 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MatchingDeviceUpateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.vi.resx">
@@ -2168,7 +2231,7 @@
       <LastGenOutput>MediaSrcUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.resx">

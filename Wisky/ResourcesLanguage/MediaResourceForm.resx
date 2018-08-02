@@ -118,24 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BtnCancel" xml:space="preserve">
-    <value>Hủy bỏ</value>
+    <value>Cancel</value>
   </data>
   <data name="BtnSubmit" xml:space="preserve">
-    <value>Đăng</value>
-  </data>
-  <data name="LblAddress" xml:space="preserve">
-    <value>Địa chỉ</value>
+    <value>Submit</value>
   </data>
   <data name="LblDescription" xml:space="preserve">
-    <value>Mô tả</value>
+    <value>Description</value>
   </data>
-  <data name="LblDistrict" xml:space="preserve">
-    <value>Quận</value>
+  <data name="LblStatus" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="LblProvince" xml:space="preserve">
-    <value>Khu vực</value>
+  <data name="LblTitle" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Cập nhật Địa điểm</value>
+    <value>Update Media Inforation</value>
+  </data>
+  <data name="TxtPrivate" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="TxtPublic" xml:space="preserve">
+    <value>Public</value>
   </data>
 </root>
