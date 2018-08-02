@@ -16,7 +16,8 @@ namespace DSS.Data.Models.ViewModels
     {
     	
     			public virtual int SlotID { get; set; }
-    			public virtual string SlotDetail { get; set; }
+    			public virtual System.TimeSpan StartTime { get; set; }
+    			public virtual System.TimeSpan EndTime { get; set; }
     	
     	public TimeSlotViewModel() : base() { }
     	public TimeSlotViewModel(DSS.Data.Models.Entities.TimeSlot entity) : base(entity) { }

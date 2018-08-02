@@ -15,6 +15,7 @@ namespace DSS.Data.Models.Entities
     public partial class TimeSlot
     {
         public int SlotID { get; set; }
-        public string SlotDetail { get; set; }
+        public System.TimeSpan StartTime { get; set; }
+        public System.TimeSpan EndTime { get; set; }
     }
 }

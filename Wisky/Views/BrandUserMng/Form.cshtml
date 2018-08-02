@@ -86,8 +86,7 @@
                                 <br>
                                 <small class="text-navy">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatusDescription</small>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                            <div class="col-md-6 col-sm-6 col-xs-6">                   
                                 <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.BrandUserMngAddForm.TxtEnable: DSS.ResourcesLanguage.BrandUserMngAddForm.TxtDisable)</span>
                             </div>
                         </div>

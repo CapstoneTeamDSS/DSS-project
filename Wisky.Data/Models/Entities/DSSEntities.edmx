@@ -228,6 +228,7 @@
           <Property Name="TimeFilter" Type="int" Nullable="false" />
           <Property Name="DayFilter" Type="int" Nullable="false" />
           <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="isEnable" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Screen">
           <Key>
@@ -255,7 +256,8 @@
             <PropertyRef Name="SlotID" />
           </Key>
           <Property Name="SlotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SlotDetail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="VisualType">
           <Key>
@@ -1175,6 +1177,7 @@
           <Property Name="TimeFilter" Type="Int32" Nullable="false" />
           <Property Name="DayFilter" Type="Int32" Nullable="false" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="isEnable" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Device" Relationship="DSSModel.FK_Schedule_Device" FromRole="Schedule" ToRole="Device" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_Schedule_Scenario" FromRole="Schedule" ToRole="Scenario" />
         </EntityType>
@@ -1207,7 +1210,8 @@
             <PropertyRef Name="SlotID" />
           </Key>
           <Property Name="SlotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SlotDetail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
         </EntityType>
         <EntityType Name="VisualType">
           <Key>
@@ -1782,6 +1786,7 @@
           <EntitySetMapping Name="Schedules">
             <EntityTypeMapping TypeName="DSSModel.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="isEnable" ColumnName="isEnable" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="DayFilter" ColumnName="DayFilter" />
                 <ScalarProperty Name="TimeFilter" ColumnName="TimeFilter" />
@@ -1818,7 +1823,8 @@
           <EntitySetMapping Name="TimeSlots">
             <EntityTypeMapping TypeName="DSSModel.TimeSlot">
               <MappingFragment StoreEntitySet="TimeSlot">
-                <ScalarProperty Name="SlotDetail" ColumnName="SlotDetail" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="SlotID" ColumnName="SlotID" />
               </MappingFragment>
             </EntityTypeMapping>
