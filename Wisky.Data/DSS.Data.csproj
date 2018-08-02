@@ -296,6 +296,9 @@
     <Compile Include="Models\Entities\Repositories\TimeSlotRepositoryGen.cs">
       <DependentUpon>Repositories.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Repositories\VisualTypeRepositoryGen.cs">
+      <DependentUpon>Repositories.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\Resolution.cs">
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
@@ -410,6 +413,9 @@
     <Compile Include="Models\Entities\Services\TimeSlotServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Services\VisualTypeServiceGen.cs">
+      <DependentUpon>Services.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\sysdiagram.cs">
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
@@ -420,6 +426,12 @@
       <DependentUpon>DSSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\TimeSlotRefined.cs">
+      <DependentUpon>EntityRefinery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\VisualType.cs">
+      <DependentUpon>DSSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\VisualTypeRefined.cs">
       <DependentUpon>EntityRefinery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\AreaViewModelGen.cs">
@@ -486,6 +498,9 @@
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\TimeSlotViewModelGen.cs">
+      <DependentUpon>ViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\VisualTypeViewModelGen.cs">
       <DependentUpon>ViewModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

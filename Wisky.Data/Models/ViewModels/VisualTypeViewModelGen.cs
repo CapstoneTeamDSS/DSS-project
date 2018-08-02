@@ -7,15 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DSS.Data.Models.Entities
+namespace DSS.Data.Models.ViewModels
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TimeSlot
+    public partial class VisualTypeViewModel : SkyWeb.DatVM.Mvc.BaseEntityViewModel<DSS.Data.Models.Entities.VisualType>
     {
-        public int SlotID { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
+    	
+    			public virtual int VisualTypeID { get; set; }
+    			public virtual string TypeName { get; set; }
+    	
+    	public VisualTypeViewModel() : base() { }
+    	public VisualTypeViewModel(DSS.Data.Models.Entities.VisualType entity) : base(entity) { }
+    
     }
 }
