@@ -132,6 +132,9 @@
   <data name="ColNo" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="ColStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
   <data name="ColTitle" xml:space="preserve">
     <value>Title</value>
   </data>
@@ -140,5 +143,11 @@
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Schedule List</value>
+  </data>
+  <data name="TxtDisable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="TxtEnable" xml:space="preserve">
+    <value>Enable</value>
   </data>
 </root>
