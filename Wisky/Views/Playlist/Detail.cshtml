@@ -209,7 +209,8 @@
             divPreview.attr({ "data-skin": "darkness", "data-width": "480", "data-height": "272", "data-resizemode": "fill" });
             if (url.length > 0) {
                 for (var i = 0; i < url.length; i++) {
-                    divPreview.append("<p><a href=" + url(i) + "></a></p>");
+                    divPreview.html('<a class="playlist"></a>');
+                    $(".playlist").attr("href", url[i]);
                 }
             }          
         });

@@ -328,12 +328,7 @@
                     }
                     //show sweerAlert warming
                     if (data.isUsing) {
-                        swal("This File is being used.", "Please delete playlist " + title + " if you want to delete it.", "error");
-                    } else {
-                        swal({
-                            title: "Are you sure?",
-                            text: "You will not be able to recover this File!",
-                        swal("@DSS.ResourcesLanguage.GeneralError.InUse", $("#text").val() + " " + title + $("#text2").val(), "error");
+                        swal($("#use").val(), $("#text").val() + title + $("#text2").val(), "error");
                     } else {
                         swal({
                             title: $("#text3").val(),
@@ -341,8 +336,8 @@
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
-                            confirmButtonText: 'Yes, delete it!',
-                            cancelButtonText: "No, cancel!",
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#no").val(),
                             closeOnConfirm: false,
                             closeOnCancel: false
                         },
@@ -355,7 +350,7 @@
                                         url: "/MediaSrc/Delete?Id=" + IdDelete,
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
-                                            swal($("#text5").val(),$("#text6").val(), "success");
+                                            swal($("#text5").val(), $("#text6").val(), "success");
                                             location.reload();
                                         },
                                         error: function () {
@@ -376,6 +371,7 @@
     </script>
     <!--End Sweet alert-->
 }
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDelete" id="text" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="text2" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="text3" />
@@ -387,7 +383,8 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="text9" />
 <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
 <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
-
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
 
 @section styles{
     <!-- preview button css -->
