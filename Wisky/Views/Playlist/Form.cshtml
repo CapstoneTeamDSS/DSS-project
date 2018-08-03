@@ -57,7 +57,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
-                                    <option value="0">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
                                     @{
                                         var visualTypeList = ViewBag.visualTypeList as List<DSS.Models.VisualTypeVM>;
                                         foreach (var item in visualTypeList)
@@ -160,7 +160,10 @@
                 stringError.push($("p").text());
                 /**/
             }
-            if (SelectedOptions.length === 0) {
+            if ($("#VisualType").prop("selectedIndex") === 0) {
+                stringError.push("Please choose Visual Type.");
+            }
+            if ($("#VisualType").prop("selectedIndex") > 0 && SelectedOptions.length === 0) {
                 stringError.push($("p1").text());
             }
             if (stringError.length > 0) {
@@ -180,6 +183,12 @@
                 submitFunction();
             }
         }
+    </script>
+    <!--Clear multiselect1 when change visual type-->
+    <script>
+        if ($("#VisualType").change(function () {
+            $("#multiselect1_to").empty();
+        }));
     </script>
     <p style="display:none">@DSS.ResourcesLanguage.GeneralError.Title</p>
     <p1 style="display:none">@DSS.ResourcesLanguage.GeneralError.SelectItem</p1>
