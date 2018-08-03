@@ -1034,6 +1034,7 @@
     <Content Include="Content\form-upload-media\themes\fa\theme.min.js" />
     <Content Include="Content\form-upload-media\themes\gly\theme.js" />
     <Content Include="Content\form-upload-media\themes\gly\theme.min.js" />
+    <Content Include="Content\HTML5Gallery\html5gallery.js" />
     <Content Include="Content\images\access-point-icon.png" />
     <Content Include="Content\images\BrandLogo\sheraton.png" />
     <Content Include="Content\images\city.jpg" />
