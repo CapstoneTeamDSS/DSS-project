@@ -54,7 +54,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.Description)</td>
-                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.ScenarioId)">@( (bool)item.IsPublic ? "Public" : "Private")</a></td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.ScenarioId)">@( (bool)item.IsPublic ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</a></td>
                                         <td style="width:300px; text-align:center">
                                             <a href="/Scenario/UpdateForm/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditInfo</i></a>
                                             <a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditDetails</i></a>
@@ -102,7 +102,7 @@
                     if (data.success) {
                         curStt = !curStt;
                         $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
-                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).html((curStt) ? $("#public").val() : $("#private").val()); //Change status text
                         $(el).css("color", curStt ? "green" : "red"); //Change status color
                     }
                 },
@@ -130,16 +130,16 @@
                 success: function (data) {
                     //show sweerAlert warming
                     if (data.isUsing) {
-                        swal("Oops...","This scenario is being used.", "error");
+                        swal("Oops...",$("#use").val(), "error");
                     } else {
                         swal({
-                            title: "Are you sure?",
-                            text: "You will not be able to recover this scenario!",
+                            title: $("#sure").val(),
+                            text: $("#able").val(),
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
-                            confirmButtonText: 'Yes, delete it!',
-                            cancelButtonText: "No, cancel!",
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#cancel").val(),
                             closeOnConfirm: false,
                             closeOnCancel: false
                         },
@@ -152,25 +152,40 @@
                                         url: "/Scenario/Delete?Id=" + IdDelete,
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
-                                            swal("Deleted!", "Your scenario has been deleted!", "success");
+                                            swal($("#deleted1").val(), $("#deleted").val(), "success");
                                             location.reload();
                                         },
                                         error: function () {
-                                            alert("Error occured!!")
+                                            alert($("#error").val())
                                         }
                                     });
                                 } else {
-                                    swal("Cancelled", "Your scenario is safe :)", "error");
+                                    swal($("#canceled").val(), $("#safe").val(), "error");
                                 }
                             });
                     }
                 },
                 error: function () {
-                    alert("error");
+                    alert($("#error").val());
                 }
             });
         });
     </script>
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDeleteScen" id="scen" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.notbeable" id="able" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted1" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted" id="deleted" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="safe" />
+
     <!--End Sweet alert-->
 }
 

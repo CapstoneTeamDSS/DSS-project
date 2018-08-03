@@ -70,6 +70,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPublic" id="public" />
 @section scripts{
 
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
@@ -77,9 +79,9 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPrivate;
+            var text = $("#private").val();
             if (this.checked) {
-                text = @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPublic;
+                text = $("#public").val();
             }
             $('#spStatus').text(text);
         });

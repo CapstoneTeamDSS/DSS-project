@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
+  </data>
   <data name="BtnReset" xml:space="preserve">
     <value>Làm lại</value>
   </data>
@@ -130,13 +133,13 @@
     <value>Mô tả</value>
   </data>
   <data name="LblStatus" xml:space="preserve">
-    <value>Trạng thái *</value>
+    <value>Trạng thái </value>
   </data>
   <data name="LblTitle" xml:space="preserve">
-    <value>Nhãn dán *</value>
+    <value>Nhãn dán </value>
   </data>
   <data name="LblUpload" xml:space="preserve">
-    <value>Chọn tệp để tải lên *</value>
+    <value>Chọn tệp để tải lên </value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Quản lý Tài nguyên Đa Phương tiện</value>
@@ -144,10 +147,10 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Thêm Nguồn Đa Phương tiện </value>
   </data>
-  <data name="TxtDisable" xml:space="preserve">
-    <value>Ngừng Kích hoạt</value>
+  <data name="TxtPrivate" xml:space="preserve">
+    <value>Cá nhân</value>
   </data>
-  <data name="TxtEnable" xml:space="preserve">
-    <value>Kích hoạt</value>
+  <data name="TxtPublic" xml:space="preserve">
+    <value>Công khai</value>
   </data>
 </root>

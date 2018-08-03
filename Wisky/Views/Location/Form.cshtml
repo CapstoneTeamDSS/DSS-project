@@ -97,6 +97,9 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Province" id="pro" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.District" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Address" id="add" />
 @section scripts{
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
@@ -107,13 +110,13 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#province').val() == '') {
-                stringError.push("Please input province.");
+                stringError.push($("#pro").val());
             }
             if ($('#district').val() == '') {
-                stringError.push("Please input district.");
+                stringError.push($("#dis").val());
             }
             if ($('#address').val() == '') {
-                stringError.push("Please input address.");
+                stringError.push($("#add").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
