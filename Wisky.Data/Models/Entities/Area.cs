@@ -22,9 +22,7 @@ namespace DSS.Data.Models.Entities
     
         public int AreaID { get; set; }
         public int LayoutID { get; set; }
-        public string AreaCode { get; set; }
-        public string URL { get; set; }
-        public Nullable<int> VisualTypeID { get; set; }
+        public int VisualTypeID { get; set; }
     
         public virtual Layout Layout { get; set; }
         public virtual VisualType VisualType { get; set; }

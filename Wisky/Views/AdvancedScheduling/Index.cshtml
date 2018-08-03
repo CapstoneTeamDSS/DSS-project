@@ -35,6 +35,7 @@
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColNo</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColTitle</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColDevice</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColStatus</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColAction</th>
                             </tr>
                         </thead>
@@ -98,7 +99,6 @@
             });
         });
     </script>
-    <!-- end iframe button matching-->
     <script>
         /*Change status enable disable*/
         function changeStatus(el) {
@@ -134,7 +134,7 @@
             });
             swal({
                 title: "Are you sure?",
-                text: "You will not be able to recover this schedule!",
+                text: "You will not be able to recover this Schedule!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
@@ -184,4 +184,3 @@
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
 }
-
