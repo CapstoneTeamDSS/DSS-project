@@ -86,8 +86,8 @@
                                 <br>
                                 <small class="text-navy">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatusDescription</small>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-6">                   
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.BrandUserMngAddForm.TxtEnable: DSS.ResourcesLanguage.BrandUserMngAddForm.TxtDisable)</span>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.BrandUserMngAddForm.TxtEnable : DSS.ResourcesLanguage.BrandUserMngAddForm.TxtDisable)</span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -131,9 +131,9 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "@DSS.ResourcesLanguage.BrandUserMngAddForm.TxtDisable";
+            var text = "Private";
             if (this.checked) {
-                text = "@DSS.ResourcesLanguage.BrandUserMngAddForm.TxtEnable";
+                text = "Public";
             }
             $('#spStatus').text(text);
         });

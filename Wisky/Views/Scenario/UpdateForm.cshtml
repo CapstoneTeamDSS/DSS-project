@@ -71,15 +71,14 @@
     </div>
 </div>
 @section scripts{
-
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPrivate;
+            var text = "Private";
             if (this.checked) {
-                text = @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPublic;
+                text = "Public";
             }
             $('#spStatus').text(text);
         });

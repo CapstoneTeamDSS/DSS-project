@@ -35,6 +35,7 @@
                                 <th>No</th>
                                 <th>Scenario Title</th>
                                 <th>Device Name</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -48,6 +49,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.ScenarioTitle)</td>
                                         <td>@(item.DeviceName)</td>
+                                        <td><a href="#" class="isEnable" style="color:@(item.isEnable?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isEnable)" data-id="@(item.ScheduleID)">@(item.isEnable ? "Enable" : "Disable")</a></td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
                                             <a href="/AdvancedScheduling/Delete/@(item.ScheduleID) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
@@ -98,6 +100,30 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/AdvancedScheduling/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
 }
 @section styles{
     <!-- Datatables -->

@@ -17,6 +17,7 @@ namespace DSS.Models
         public int Priority { get; set; }
         public int DayFilterPoint { get; set; }
         public int TimeFilterPoint { get; set; }
+        public bool isEnable { get; set; }
     }
 
     public class AdvancedScheduleAddVM
@@ -32,5 +33,6 @@ namespace DSS.Models
         public int[] TimeFilter { get; set; }
         public int DayFilterPoint { get; set; }
         public int TimeFilterPoint { get; set; }
+        public bool isEnable { get; set; }
     }
 }

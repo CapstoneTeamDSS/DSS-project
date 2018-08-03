@@ -12,6 +12,12 @@
     {
         isHorizontal = Model?.isHorizontal ?? true;
     }
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isEnable;
+    }
 }
 <div class="">
     <div class="clearfix"></div>
@@ -74,10 +80,10 @@
                                     <input type="radio" checked name="Priority" value="1"> Low
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" @(Model?.Priority==2?"checked":"") name="Priority" value="2"> Medium
+                                    <input type="radio" @(Model?.Priority == 2 ? "checked" : "") name="Priority" value="2"> Medium
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" @(Model?.Priority==3?"checked":"") name="Priority" value="3"> High
+                                    <input type="radio" @(Model?.Priority == 3 ? "checked" : "") name="Priority" value="3"> High
                                 </div>
                             </div>
                         </div>
@@ -87,26 +93,26 @@
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ?"checked":"") value="64"/> Monday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ? "checked" : "") value="64" /> Monday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ?"checked":"") value="32"/> Tuesday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ? "checked" : "") value="32" /> Tuesday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ?"checked":"") value="16"/> Wednesday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ? "checked" : "") value="16" /> Wednesday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3"></div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ?"checked":"") value="8"/> Thursday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ? "checked" : "") value="8" /> Thursday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ?"checked":"") value="4"/> Friday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ? "checked" : "") value="4" /> Friday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ?"checked":"") value="2"/> Saturday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ? "checked" : "") value="2" /> Saturday
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
-                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ?"checked":"") value="1"/> Sunday
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ? "checked" : "") value="1" /> Sunday
                                 </div>
                             </div>
                         </div>
@@ -125,7 +131,7 @@
                                         {
                                             i++;
                                             <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <input type="checkbox" name="TimeFilter"  @((Model?.TimeFilterPoint & val) == val ?"checked":"")  value="@(val)" /> @(item.StartTime)-@(item.EndTime)
+                                                <input type="checkbox" name="TimeFilter" @((Model?.TimeFilterPoint & val) == val ? "checked" : "") value="@(val)" /> @(item.StartTime)-@(item.EndTime)
                                             </div>
                                             val *= 2;
                                             if (i % 3 == 0)
@@ -135,6 +141,14 @@
                                         }
                                     }
                                 }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isEnable" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -248,8 +262,22 @@
             }
         }
     </script>
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
 }
 @section styles{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="~/Content/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
