@@ -141,6 +141,9 @@
   <data name="LblTitle" xml:space="preserve">
     <value>Playlist Title</value>
   </data>
+  <data name="LblVisualType" xml:space="preserve">
+    <value>Visual Type</value>
+  </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Playlist Management</value>
   </data>
@@ -158,5 +161,8 @@
   </data>
   <data name="TxtVideo" xml:space="preserve">
     <value>Video</value>
+  </data>
+  <data name="TxtVisualTypeDefault" xml:space="preserve">
+    <value>Please select Visual Type</value>
   </data>
 </root>

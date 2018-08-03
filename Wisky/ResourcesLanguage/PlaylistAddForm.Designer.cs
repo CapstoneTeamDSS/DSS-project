@@ -133,6 +133,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visual Type.
+        /// </summary>
+        public static string LblVisualType {
+            get {
+                return ResourceManager.GetString("LblVisualType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Playlist Management.
         /// </summary>
         public static string PageHeader {
@@ -183,6 +192,15 @@ namespace DSS.ResourcesLanguage {
         public static string TxtVideo {
             get {
                 return ResourceManager.GetString("TxtVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select Visual Type.
+        /// </summary>
+        public static string TxtVisualTypeDefault {
+            get {
+                return ResourceManager.GetString("TxtVisualTypeDefault", resourceCulture);
             }
         }
     }
