@@ -148,7 +148,7 @@
                                 Status <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isEnable" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isEnable" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable : DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable)</span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -176,6 +176,12 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable" id="enable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable" id="disable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsScen" id="scen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDev" id="dev" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PleaseTime" id="time" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PleaseDay" id="day" />
 @section scripts{
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
@@ -184,8 +190,6 @@
         $(document).ready(function () {
             var isHorizontal = $("#isHorizontal").val() == true;
             loadReference(isHorizontal);
-            var isFixed = $("#isFixed").val() == true;
-            changePlayMode(isFixed)
         });
 
         $("input:radio[name='isHorizontal']").change(function () {
@@ -233,16 +237,16 @@
             $(".mylist").empty();
             var stringError = [];
             if ($("#ScenarioList").prop("selectedIndex") === 0) {
-                stringError.push("Please choose scenario.");
+                stringError.push($("#scen").val());
             }
             if ($("#DeviceList").prop("selectedIndex") === 0) {
-                stringError.push("Please choose device.");
-            } 
+                stringError.push($("#dev").val());
+            }
             if (($("input[name*='DayFilter']:checked").length) <= 0) {
-                stringError.push("Please check at least 1 day");
+                stringError.push($("#day").val());
             }
             if (($("input[name*='TimeFilter']:checked").length) <= 0) {
-                stringError.push("Please check at least 1 time");
+                stringError.push($("#time").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
@@ -265,9 +269,9 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "Disable";
+            var text = $("#disable").val();
             if (this.checked) {
-                text = "Enable";
+                text = $("#enable").val();
             }
             $('#spStatus').text(text);
         });

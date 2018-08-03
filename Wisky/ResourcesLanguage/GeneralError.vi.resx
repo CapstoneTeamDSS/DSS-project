@@ -261,4 +261,25 @@
   <data name="DeleteBrand" xml:space="preserve">
     <value>Thương hiêu của bạn đã được xóa</value>
   </data>
+  <data name="PleaseDay" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một ngày</value>
+  </data>
+  <data name="PleaseTime" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một thời điểm</value>
+  </data>
+  <data name="PlsDev" xml:space="preserve">
+    <value>Xin hãy chọn thiết bị</value>
+  </data>
+  <data name="PlsScen" xml:space="preserve">
+    <value>Xin hãy chọn kịch bản</value>
+  </data>
+  <data name="SafeScen" xml:space="preserve">
+    <value>Lịch trình của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="ScenDelete" xml:space="preserve">
+    <value>Lịch trình của bạn đã được xóa</value>
+  </data>
+  <data name="ScenRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi lịch trình này</value>
+  </data>
 </root>
