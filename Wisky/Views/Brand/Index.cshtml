@@ -140,7 +140,7 @@
                 });
                 swal({
                     title: "Are you sure?",
-                    text: "You will not be able to recover this brand!",
+                    text: "You will not be able to recover this Brand!",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: '#DD6B55',
@@ -158,7 +158,7 @@
                                 url: "/Brand/Delete?Id=" + IdDelete,
                                 contentType: 'application/json; charset=utf-8',
                                 success: function (data) {
-                                    swal("Deleted!", "Your brand has been deleted!", "success");
+                                    swal("Deleted!", "Your Brand has been deleted!", "success");
                                     location.reload();
                                 },
                                 error: function () {
@@ -166,7 +166,7 @@
                                 }
                             });
                         } else {
-                            swal("Cancelled", "Your brand is safe :)", "error");
+                            swal("Cancelled", "Your Brand is safe :)", "error");
                         }
                     });
             });

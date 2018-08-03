@@ -155,7 +155,16 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
-
+        // GET: AdvancedScheduling/Delete/:id
+        public ActionResult Delete(int id)
+        {
+            var scheduling = this.scheduleService.Get(id);
+            if (scheduling != null)
+            {
+                this.scheduleService.Delete(scheduling);
+            }
+            return this.RedirectToAction("Index");
+        }
         //AdvancedScheduling/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.AdvancedScheduleAddVM model)
