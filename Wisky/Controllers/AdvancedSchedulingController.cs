@@ -26,6 +26,7 @@ namespace DSS.Controllers
                     ScenarioID = item.ScenarioID,
                     ScheduleID = item.ScheduleID,
                     DeviceID = item.DeviceID,
+                    isEnable = item.isEnable,
                     DeviceName = deviceService.GetDeviceNameByID(item.DeviceID),
                     ScenarioTitle = scenarioService.GetScenarioNameById(item.ScenarioID),
                 };
@@ -57,7 +58,8 @@ namespace DSS.Controllers
                         LayoutID = item.LayoutID,
                         Priority = item.Priority,
                         TimeFilterPoint = item.TimeFilter,
-                        DayFilterPoint = item.DayFilter
+                        DayFilterPoint = item.DayFilter,
+                        isEnable = item.isEnable,
                     };
                 }
             }
@@ -84,7 +86,26 @@ namespace DSS.Controllers
             }
             return TimeSlotVMs;
         }
+        //TOANTXSE62006
+        //GET: Playlist/UpdateStatus
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var schedule = this.scheduleService
+                .Get(a => a.ScheduleID == dataId)
+                .FirstOrDefault();
+            if (schedule != null)
+            {
+                schedule.isEnable = !schedule.isEnable;
+                this.scheduleService.Update(schedule);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
+        }
         //GET: Scheduling/LoadReference?isHorizontal=
         public ActionResult LoadReference(bool isHorizontal)
         {
@@ -123,6 +144,7 @@ namespace DSS.Controllers
                     DayFilter = dayFilter,
                     TimeFilter = timeFilter,
                     Priority = model.Priority,
+                    isEnable = model.isEnable,
                 };
                 await scheduleService.CreateAsync(schedule);
                 return new ContentResult
@@ -133,7 +155,16 @@ namespace DSS.Controllers
             }
             return View("Form", model);
         }
-
+        // GET: AdvancedScheduling/Delete/:id
+        public ActionResult Delete(int id)
+        {
+            var scheduling = this.scheduleService.Get(id);
+            if (scheduling != null)
+            {
+                this.scheduleService.Delete(scheduling);
+            }
+            return this.RedirectToAction("Index");
+        }
         //AdvancedScheduling/Update
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.AdvancedScheduleAddVM model)
@@ -161,6 +192,7 @@ namespace DSS.Controllers
                     schedule.DayFilter = dayFilter;
                     schedule.TimeFilter = timeFilter;
                     schedule.Priority = model.Priority;
+                    schedule.isEnable = model.isEnable;
                     await scheduleService.UpdateAsync(schedule);
                 }
                 return new ContentResult

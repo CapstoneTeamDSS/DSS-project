@@ -12,6 +12,12 @@
     {
         isHorizontal = Model?.isHorizontal ?? true;
     }
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isEnable;
+    }
 }
 <div class="">
     <div class="clearfix"></div>
@@ -24,7 +30,7 @@
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm((Model?.ScheduleID != null) ? "Update" : "Add", "AdvancedScheduling", new { ScheduleID = (Model?.ScheduleID) }, FormMethod.Post, new { @id = "frm_scheduling", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm((Model?.ScheduleID != null) ? "Update" : "Add", "AdvancedScheduling", new { ScheduleID = (Model?.ScheduleID) }, FormMethod.Post, new { @id = "frm_AdvScheduling", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         //show error - validation
@@ -87,6 +93,27 @@
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ? "checked" : "") value="64" /> Monday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ? "checked" : "") value="32" /> Tuesday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ? "checked" : "") value="16" /> Wednesday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ? "checked" : "") value="8" /> Thursday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ? "checked" : "") value="4" /> Friday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ? "checked" : "") value="2" /> Saturday
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ? "checked" : "") value="1" /> Sunday
+=======
                                     <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ? "checked" : "") value="64" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtMon
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -125,7 +152,7 @@
                                         {
                                             i++;
                                             <div class="col-md-4 col-sm-4 col-xs-4">
-                                                <input type="checkbox" name="TimeFilter"  @((Model?.TimeFilterPoint & val) == val ?"checked":"")  value="@(val)" /> @(item.StartTime)-@(item.EndTime)
+                                                <input type="checkbox" name="TimeFilter" @((Model?.TimeFilterPoint & val) == val ? "checked" : "") value="@(val)" /> @(item.StartTime)-@(item.EndTime)
                                             </div>
                                             val *= 2;
                                             if (i % 3 == 0)
@@ -137,13 +164,21 @@
                                 }
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                Status <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isEnable" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                            </div>
+                        </div>
                         <div class="ln_solid"></div>
                         if (Model?.ScheduleID == null)
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.AdScheduleForm.BtnReset</button>
-                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -152,7 +187,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                     <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.AdScheduleForm.BtnCancel</button>
-                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -189,9 +224,9 @@
                     var deviceList = data.DeviceList;
                     var scenarioList = data.ScenarioList;
                     $("#ScenarioList").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtScenarioDefault ---" + '</option>');
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtScenarioDefault ---" + '</option>');
                     $("#DeviceList").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---" + '</option>');
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---" + '</option>');
                     for (var i = 0; i < scenarioList.length; i++) {
                         var selected = $("#ScenarioID").val() == scenarioList[i].ScenarioId ? "selected" : "";
                         if (scenarioList[i] != '') {
@@ -223,12 +258,12 @@
             }
             if ($("#DeviceList").prop("selectedIndex") === 0) {
                 stringError.push("Please choose device.");
+            } 
+            if (($("input[name*='DayFilter']:checked").length) <= 0) {
+                stringError.push("Please check at least 1 day");
             }
-            if ($('#StartTime').val() == '') {
-                stringError.push("Please input start time.");
-            }
-            if (isFixed && ($('#EndTime').val() == '')) {
-                stringError.push("Please input end time.");
+            if (($("input[name*='TimeFilter']:checked").length) <= 0) {
+                stringError.push("Please check at least 1 time");
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
@@ -244,12 +279,26 @@
                         .appendTo(li);
                 });
             } else {
-                $("#frm_scheduling").submit();
+                $("#frm_AdvScheduling").submit();
             }
         }
     </script>
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Disable";
+            if (this.checked) {
+                text = "Enable";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
 }
 @section styles{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
     <!-- bootstrap-daterangepicker -->
     <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="~/Content/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">

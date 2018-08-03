@@ -16,11 +16,11 @@
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                         @*<div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                        </div>*@
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                            </div>*@
                     </div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
@@ -328,6 +328,11 @@
                     }
                     //show sweerAlert warming
                     if (data.isUsing) {
+                        swal("This File is being used.", "Please delete playlist " + title + " if you want to delete it.", "error");
+                    } else {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this File!",
                         swal("@DSS.ResourcesLanguage.GeneralError.InUse", $("#text").val() + " " + title + $("#text2").val(), "error");
                     } else {
                         swal({
@@ -336,6 +341,10 @@
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: "No, cancel!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
                         },
                             function (isConfirm) {
                                 if (isConfirm) {

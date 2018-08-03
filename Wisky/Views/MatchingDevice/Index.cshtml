@@ -187,11 +187,13 @@
             var btnMatch = $('#btnMatch');
             if (box.val() == 0 || screen.val() == 0) {
                 //console.log(box);
-                btnMatch.attr("disabled", true);
+                btnMatch.attr("disabled", "disabled");
+                btnMatch.bind('click', false);
                 btnMatch.attr("class", "btn btn-success");
                 //btnMatch.click(true);
             } else {
                 btnMatch.attr("disabled", false);
+                btnMatch.unbind('click', false);
                 btnMatch.attr("class", "iframe btn btn-success");
                 //show iframe
                 $(document).ready(function () {

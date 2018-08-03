@@ -48,9 +48,10 @@
                                         <td>@(++i)</td>
                                         <td>@(item.ScenarioTitle)</td>
                                         <td>@(item.DeviceName)</td>
+                                        <td><a href="#" class="isEnable" style="color:@(item.isEnable?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isEnable)" data-id="@(item.ScheduleID)">@(item.isEnable ? "Enable" : "Disable")</a></td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnEdit</i></a>
-                                            <a href="/AdvancedScheduling/Delete/@(item.ScheduleID) "><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnDelete</i></a>
+                                            <a class="btnDelete" data-id="@item.ScheduleID"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -98,6 +99,73 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/AdvancedScheduling/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this schedule!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: "No, cancel!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var IdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/AdvancedScheduling/Delete?Id=" + IdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/AdvancedScheduling/Delete?Id=" + IdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal("Deleted!", "Your Schedule has been deleted!", "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert("Error occured!!")
+                            }
+                        });
+                    } else {
+                        swal("Cancelled", "Your Schedule is safe :)", "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 @section styles{
     <!-- Datatables -->
@@ -112,4 +180,8 @@
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
+
