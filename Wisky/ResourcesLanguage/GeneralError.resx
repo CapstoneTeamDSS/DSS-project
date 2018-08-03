@@ -258,4 +258,25 @@
   <data name="DeleteBrand" xml:space="preserve">
     <value>Your brand has been deleted</value>
   </data>
+  <data name="PleaseDay" xml:space="preserve">
+    <value>Please check at least 1 day</value>
+  </data>
+  <data name="PleaseTime" xml:space="preserve">
+    <value>Please check at least 1 time</value>
+  </data>
+  <data name="PlsDev" xml:space="preserve">
+    <value>Please choose scenario</value>
+  </data>
+  <data name="PlsScen" xml:space="preserve">
+    <value>Please choose scenario</value>
+  </data>
+  <data name="SafeScen" xml:space="preserve">
+    <value>Your scenario is safe :)</value>
+  </data>
+  <data name="ScenDelete" xml:space="preserve">
+    <value>Your schedule has been deleted</value>
+  </data>
+  <data name="ScenRecover" xml:space="preserve">
+    <value>You will not be able to recover this scenario</value>
+  </data>
 </root>

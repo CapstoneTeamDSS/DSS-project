@@ -322,6 +322,24 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check at least 1 day.
+        /// </summary>
+        public static string PleaseDay {
+            get {
+                return ResourceManager.GetString("PleaseDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check at least 1 time.
+        /// </summary>
+        public static string PleaseTime {
+            get {
+                return ResourceManager.GetString("PleaseTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select area !.
         /// </summary>
         public static string PlsArea {
@@ -354,6 +372,24 @@ namespace DSS.ResourcesLanguage {
         public static string PlsDeleteScen {
             get {
                 return ResourceManager.GetString("PlsDeleteScen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose scenario.
+        /// </summary>
+        public static string PlsDev {
+            get {
+                return ResourceManager.GetString("PlsDev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose scenario.
+        /// </summary>
+        public static string PlsScen {
+            get {
+                return ResourceManager.GetString("PlsScen", resourceCulture);
             }
         }
         
@@ -403,11 +439,38 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your scenario is safe :).
+        /// </summary>
+        public static string SafeScen {
+            get {
+                return ResourceManager.GetString("SafeScen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your screen is safe :).
         /// </summary>
         public static string SafeScreen {
             get {
                 return ResourceManager.GetString("SafeScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your schedule has been deleted.
+        /// </summary>
+        public static string ScenDelete {
+            get {
+                return ResourceManager.GetString("ScenDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this scenario.
+        /// </summary>
+        public static string ScenRecover {
+            get {
+                return ResourceManager.GetString("ScenRecover", resourceCulture);
             }
         }
         

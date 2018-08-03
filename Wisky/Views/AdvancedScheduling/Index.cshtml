@@ -35,6 +35,7 @@
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColNo</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColTitle</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColDevice</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColStatus</th>
                                 <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColAction</th>
                             </tr>
                         </thead>
@@ -48,7 +49,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.ScenarioTitle)</td>
                                         <td>@(item.DeviceName)</td>
-                                        <td><a href="#" class="isEnable" style="color:@(item.isEnable?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isEnable)" data-id="@(item.ScheduleID)">@(item.isEnable ? "Enable" : "Disable")</a></td>
+                                        <td><a href="#" class="isEnable" style="color:@(item.isEnable?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isEnable)" data-id="@(item.ScheduleID)">@(item.isEnable ? DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable : DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable)</a></td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnEdit</i></a>
                                             <a class="btnDelete" data-id="@item.ScheduleID"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnDelete</i></a>
@@ -63,6 +64,17 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable" id="enable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable" id="disable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ScenRecover" id="recover" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.SafeScen" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ScenDelete" id="del" />
+
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -98,7 +110,6 @@
             });
         });
     </script>
-    <!-- end iframe button matching-->
     <script>
         /*Change status enable disable*/
         function changeStatus(el) {
@@ -112,7 +123,7 @@
                     if (data.success) {
                         curStt = !curStt;
                         $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
-                        $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                        $(el).html((curStt) ? $("#enable").val() : $("#disable").val()); //Change status text
                         $(el).css("color", curStt ? "green" : "red"); //Change status color
                     }
                 },
@@ -133,13 +144,13 @@
 
             });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this schedule!",
+                title: $("#sure").val(),
+                text: $("#recover").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#cancel").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -152,7 +163,7 @@
                             url: "/AdvancedScheduling/Delete?Id=" + IdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your Schedule has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
@@ -160,7 +171,7 @@
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your Schedule is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });
