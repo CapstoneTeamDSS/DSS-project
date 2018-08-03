@@ -340,6 +340,36 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
+    <Compile Include="ResourcesLanguage\AccountError.vi.Designer.cs">
+      <DependentUpon>AccountError.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AccountError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleForm.vi.Designer.cs">
+      <DependentUpon>AdScheduleForm.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdScheduleForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleIndex.vi.Designer.cs">
+      <DependentUpon>AdScheduleIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AdScheduleIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdScheduleIndex.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.Designer.cs">
       <DependentUpon>AndroidBoxUpdateForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -420,6 +450,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BrandUserMngIndex.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\GeneralError.vi.Designer.cs">
+      <DependentUpon>GeneralError.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\GeneralError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralError.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ImgDuration.vi.Designer.cs">
+      <DependentUpon>ImgDuration.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\ImgDuration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImgDuration.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\Layout.vi.Designer.cs">
       <DependentUpon>Layout.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -499,6 +549,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MatchingDeviceUpateForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceForm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaResourceForm.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceIndex.vi.Designer.cs">
+      <DependentUpon>MediaResourceIndex.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\MediaResourceIndex.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaResourceIndex.resx</DependentUpon>
     </Compile>
     <Compile Include="ResourcesLanguage\MediaSrcAddForm.vi.Designer.cs">
       <DependentUpon>MediaSrcAddForm.vi.resx</DependentUpon>
@@ -1988,6 +2053,30 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
+    <EmbeddedResource Include="ResourcesLanguage\AccountError.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountError.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AccountError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleForm.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleForm.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleForm.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AdScheduleIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AdScheduleIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\AndroidBoxUpdateForm.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AndroidBoxUpdateForm.vi.Designer.cs</LastGenOutput>
@@ -2051,6 +2140,22 @@
     <EmbeddedResource Include="ResourcesLanguage\BrandUserMngIndex.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BrandUserMngIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\GeneralError.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\GeneralError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeneralError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ImgDuration.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImgDuration.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\ImgDuration.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImgDuration.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\Layout.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -2117,12 +2222,24 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MatchingDeviceUpateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceForm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceForm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceIndex.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceIndex.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\MediaResourceIndex.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaResourceIndex.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.vi.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcAddForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcAddForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcAddForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcIndex.vi.resx">
@@ -2134,7 +2251,7 @@
       <LastGenOutput>MediaSrcUpdateForm.vi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MediaSrcUpdateForm.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MediaSrcUpdateForm.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\MenuText.resx">
@@ -2794,8 +2911,8 @@
     <Content Include="Views\FileStack\Index.cshtml" />
     <Content Include="Views\Layout\Index.cshtml" />
     <Content Include="Views\MediaSrc\PreviewVideo.cshtml" />
-    <Content Include="Views\AdvancedScheduling\Index.cshtml" />
     <Content Include="Views\AdvancedScheduling\Form.cshtml" />
+    <Content Include="Views\AdvancedScheduling\Index.cshtml" />
     <Content Include="Views\BrandUserMng\GetAccountInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>

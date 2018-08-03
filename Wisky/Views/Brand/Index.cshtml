@@ -54,7 +54,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Name)</td>
                                         <td>
-                                            <a href="#" class="isActive" style="color:@(item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@(item.isActive?"Enable":"Disable")</a>
+                                            <a href="#" class="isActive" style="color: @( (bool) item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@((bool) item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a>
                                         </td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
@@ -70,6 +70,18 @@
             </div>
         </div>
     </div>
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandRecover" id="recover"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandSafe" id="safe"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBrand" id="del"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err"/>
+
+
     @section scripts{
         <!-- Datatables -->
         <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -118,13 +130,13 @@
                     success: function (data) {
                         if (data.success) {
                             curStt = !curStt;
-                            $(el).attr("data-stt", curStt ? "true":"false"); //Change status
-                            $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                            $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                            $(el).html((curStt) ? $("#active").val() : $("#disable").val()); //Change status text
                             $(el).css("color", curStt ? "green" : "red"); //Change status color
-                        }                        
+                        }
                     },
                     error: function () {
-                        alert("Error occured!!")
+                        alert($("#err").val())
                     }
                 });
             }
@@ -139,13 +151,13 @@
 
                 });
                 swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this Brand!",
+                    title: $("#sure").val(),
+                    text: $("#recover").val(),
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: '#DD6B55',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: "No, cancel!",
+                    confirmButtonText: $("#yes").val(),
+                    cancelButtonText: $("#no").val(),
                     closeOnConfirm: false,
                     closeOnCancel: false
                 },
@@ -158,15 +170,15 @@
                                 url: "/Brand/Delete?Id=" + IdDelete,
                                 contentType: 'application/json; charset=utf-8',
                                 success: function (data) {
-                                    swal("Deleted!", "Your Brand has been deleted!", "success");
+                                    swal($("#deleted").val(), $("#del").val(), "success");
                                     location.reload();
                                 },
                                 error: function () {
-                                    alert("Error occured!!")
+                                    alert($("#err").val())
                                 }
                             });
                         } else {
-                            swal("Cancelled", "Your Brand is safe :)", "error");
+                            swal($("#cancel").val(), $("#safe").val(), "error");
                         }
                     });
             });

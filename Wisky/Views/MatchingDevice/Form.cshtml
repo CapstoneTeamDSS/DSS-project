@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="tit" />
 @section scripts{
     <!--Validation-->
     <script>
@@ -104,7 +105,7 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input title.");
+                stringError.push($("#tit").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')

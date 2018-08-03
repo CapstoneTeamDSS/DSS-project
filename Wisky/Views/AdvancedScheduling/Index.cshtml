@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Scheduling</h3>
+            <h3>@DSS.ResourcesLanguage.AdScheduleIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -13,7 +13,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Schedule list</h2>
+                    <h2>@DSS.ResourcesLanguage.AdScheduleIndex.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
@@ -32,11 +32,10 @@
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Scenario Title</th>
-                                <th>Device Name</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColNo</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColTitle</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColDevice</th>
+                                <th>@DSS.ResourcesLanguage.AdScheduleIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,8 +50,8 @@
                                         <td>@(item.DeviceName)</td>
                                         <td><a href="#" class="isEnable" style="color:@(item.isEnable?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isEnable)" data-id="@(item.ScheduleID)">@(item.isEnable ? "Enable" : "Disable")</a></td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a class="btnDelete" data-id="@item.ScheduleID"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/AdvancedScheduling/Form/@(item.ScheduleID)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.ScheduleID"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.AdScheduleIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }

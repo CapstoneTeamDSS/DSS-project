@@ -97,6 +97,19 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="screen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="screen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteDevice" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.SafeDevice" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteNotif" id="notif" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -151,7 +164,7 @@
                     }
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#err").val())
                 }
             });
         });
@@ -224,13 +237,13 @@
             var btnDel = $(this);
             var boxNum = 0;
             swal({
-                title: "Are you sure?",
-                text: "You can not control the content on the device if you delete the device!",
+                title: $("#sure").val(),
+                text: $("#notif").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -243,15 +256,15 @@
                             url: "/MatchingDevice/Delete?Id=" + IdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your device has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your device is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });

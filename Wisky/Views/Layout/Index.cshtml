@@ -45,12 +45,10 @@
                                 <tr>
                                     <td>@(++i)</td>
                                     <td>@(item.Title)</td>
-                                    <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool)item.IsPublic ? "Public" : "Private")</a></td>
+                                    <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.Id)">@( (bool)item.IsPublic ? DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic : DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate)</a></td>
                                     <td><img src="@(item.Url)" style="max-width: 200px;"></td>
-                                    <td>@(item.IsHorizontal ? "Landscape" : "Portrait")</td>
+                                    <td>@(item.IsHorizontal ? DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape : DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait)</td>
                                     <td>@(item.Description)</td>
-
-
                                 </tr>
                             }
                         }
@@ -60,22 +58,10 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait" id="port" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic" id="public" />
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -109,7 +95,7 @@
                     if (data.success) {
                         curStt = !curStt;
                         $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
-                        $(el).html((curStt) ? "Public" : "Private"); //Change status text
+                        $(el).html((curStt) ? $("#public").val() : $("#private").val()); //Change status text
                         $(el).css("color", curStt ? "green" : "red"); //Change status color
                     }
                 },

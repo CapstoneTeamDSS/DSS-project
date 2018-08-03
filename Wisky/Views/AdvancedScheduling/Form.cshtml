@@ -25,7 +25,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.ScheduleID != null) ? "Update Schedule" : "Make new Schedule")</h2>
+                    <h2>@((Model?.ScheduleID != null) ? @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderUpdate : @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderAdd)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -40,19 +40,19 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Screen orientation <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblOrentation <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top: 8px;">
                                 <div id="orientaion" class="btn-group" data-toggle="buttons">
                                     <input type="hidden" id="isHorizontal" value="@(isHorizontal?1:0)" />
-                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
-                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
+                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; @DSS.ResourcesLanguage.AdScheduleForm.TxtPortrait &nbsp;
+                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> @DSS.ResourcesLanguage.AdScheduleForm.TxtLandscape
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Scenario Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="ScenarioID" value="@(Model?.ScenarioID)" />
@@ -62,34 +62,34 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Device Name <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblDevice <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="DeviceID" value="@(Model?.DeviceID)" />
                                 <select class="select2_group form-control" name="DeviceID" id="DeviceList">
-                                    <option value="-1">--- Select Device ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Priority <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblPriority <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" checked name="Priority" value="1"> Low
+                                    <input type="radio" checked name="Priority" value="1"> @DSS.ResourcesLanguage.AdScheduleForm.TxtLow
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" @(Model?.Priority == 2 ? "checked" : "") name="Priority" value="2"> Medium
+                                    <input type="radio" @(Model?.Priority == 2 ? "checked" : "") name="Priority" value="2"> @DSS.ResourcesLanguage.AdScheduleForm.TxtMedium
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
-                                    <input type="radio" @(Model?.Priority == 3 ? "checked" : "") name="Priority" value="3"> High
+                                    <input type="radio" @(Model?.Priority == 3 ? "checked" : "") name="Priority" value="3"> @DSS.ResourcesLanguage.AdScheduleForm.TxtHigh
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Day<span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblDay<span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <div class="col-md-3 col-sm-3 col-xs-3">
@@ -113,12 +113,33 @@
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-3">
                                     <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ? "checked" : "") value="1" /> Sunday
+=======
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ? "checked" : "") value="64" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtMon
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ? "checked" : "") value="32" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtTus
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ? "checked" : "") value="16" />@DSS.ResourcesLanguage.AdScheduleForm.TxtWed
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ? "checked" : "") value="8" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtThu
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ? "checked" : "") value="4" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtFri
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ? "checked" : "") value="2" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtSat
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ? "checked" : "") value="1" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtSun
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Time <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblTime <span class="required">*</span>
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 @{
@@ -156,8 +177,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.AdScheduleForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -165,8 +186,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.AdScheduleForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -203,9 +224,9 @@
                     var deviceList = data.DeviceList;
                     var scenarioList = data.ScenarioList;
                     $("#ScenarioList").find('option').remove().end()
-                        .append('<option value="' + -1 + '">' + "--- Choose Scenario ---" + '</option>');
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtScenarioDefault ---" + '</option>');
                     $("#DeviceList").find('option').remove().end()
-                        .append('<option value="' + -1 + '">' + "--- Choose Device ---" + '</option>');
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---" + '</option>');
                     for (var i = 0; i < scenarioList.length; i++) {
                         var selected = $("#ScenarioID").val() == scenarioList[i].ScenarioId ? "selected" : "";
                         if (scenarioList[i] != '') {

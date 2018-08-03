@@ -63,7 +63,7 @@
                                         <td>@(item.UserName)</td>
                                         <td>@(item.FullName)</td>
                                         <td>@(item.Email)</td>
-                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsActive)" data-id="@(item.UserName)">@( (bool)item.IsActive ? "Enable" : "Disable")</a></td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsActive)" data-id="@(item.UserName)">@( (bool)item.IsActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a></td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnEdit</i></a>
                                             <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnDelete</i></a>
@@ -78,6 +78,20 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.DelSucc" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.Notable" id="able" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.AccSafe" id="safe" />
+
+
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -126,12 +140,12 @@
                     if (data.success) {
                         curStt = !curStt;
                         $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
-                        $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                        $(el).html((curStt) ? $("#act").val() : $("#dis").val()); //Change status text
                         $(el).css("color", curStt ? "green" : "red"); //Change status color
                     }
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#err").val())
                 }
             });
         }
@@ -147,13 +161,13 @@
 
             });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this Account!",
+                title: $("#sure").val(),
+                text: $("#able").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -166,15 +180,15 @@
                             url: "/BrandUserMng/Delete?Id=" + IdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your Account has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your Account is safe :)", "error");
+                        swal($("#canceled").val(), $("#safe").val(), "error");
                     }
                 });
         });

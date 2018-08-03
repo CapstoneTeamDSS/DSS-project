@@ -15,7 +15,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.BoxId != null) ? @DSS.ResourcesLanguage.AndroidBoxUpdateForm.PageHeader : @DSS.ResourcesLanguage.AndroidBoxAddForm.PageHeader)</h2>
+                    <h2>@((Model?.BoxId != null) ? @DSS.ResourcesLanguage.AndroidBoxAddForm.PageHeader : @DSS.ResourcesLanguage.AndroidBoxUpdateForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -95,6 +95,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BoxName" id="bname" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Location" id="loc" />
 @section scripts{
     <!--Validation-->
     <script>
@@ -102,10 +104,10 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input box name.");
+                stringError.push($("#bname").val());
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
-                stringError.push("Please choose location.");
+                stringError.push($("#loc").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
