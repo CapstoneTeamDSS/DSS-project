@@ -61,6 +61,42 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter address.
+        /// </summary>
+        public static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This box is being in used.
+        /// </summary>
+        public static string BoxInUse {
+            get {
+                return ResourceManager.GetString("BoxInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter box name.
+        /// </summary>
+        public static string BoxName {
+            get {
+                return ResourceManager.GetString("BoxName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this box.
+        /// </summary>
+        public static string BoxRecover {
+            get {
+                return ResourceManager.GetString("BoxRecover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Canceled !.
         /// </summary>
         public static string Canceled {
@@ -79,6 +115,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your box has been deleted.
+        /// </summary>
+        public static string DeleteBox {
+            get {
+                return ResourceManager.GetString("DeleteBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your file has been deleted.
         /// </summary>
         public static string Deleted {
@@ -93,6 +138,51 @@ namespace DSS.ResourcesLanguage {
         public static string Deleted1 {
             get {
                 return ResourceManager.GetString("Deleted1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your device has been deleted .
+        /// </summary>
+        public static string DeleteDevice {
+            get {
+                return ResourceManager.GetString("DeleteDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your location has been deleted.
+        /// </summary>
+        public static string DeleteLocation {
+            get {
+                return ResourceManager.GetString("DeleteLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to manage content on this device.
+        /// </summary>
+        public static string DeleteNotif {
+            get {
+                return ResourceManager.GetString("DeleteNotif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your screen has been deleted.
+        /// </summary>
+        public static string DeleteScreen {
+            get {
+                return ResourceManager.GetString("DeleteScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter district.
+        /// </summary>
+        public static string District {
+            get {
+                return ResourceManager.GetString("District", resourceCulture);
             }
         }
         
@@ -151,6 +241,42 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please choose location.
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this location.
+        /// </summary>
+        public static string LocationRecover {
+            get {
+                return ResourceManager.GetString("LocationRecover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your location is safe :).
+        /// </summary>
+        public static string LocationSafe {
+            get {
+                return ResourceManager.GetString("LocationSafe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to và nhấp tiếp theo.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No, cancel it !.
         /// </summary>
         public static string NoCancel {
@@ -169,6 +295,24 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select area !.
+        /// </summary>
+        public static string PlsArea {
+            get {
+                return ResourceManager.GetString("PlsArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please correct error in step.
+        /// </summary>
+        public static string PlsCorrect {
+            get {
+                return ResourceManager.GetString("PlsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please delete playlist.
         /// </summary>
         public static string PlsDelete {
@@ -183,6 +327,87 @@ namespace DSS.ResourcesLanguage {
         public static string PlsDeleteScen {
             get {
                 return ResourceManager.GetString("PlsDeleteScen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please detatch device.
+        /// </summary>
+        public static string PlsUnmatch {
+            get {
+                return ResourceManager.GetString("PlsUnmatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter province.
+        /// </summary>
+        public static string Province {
+            get {
+                return ResourceManager.GetString("Province", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please choose resolution.
+        /// </summary>
+        public static string Resolution {
+            get {
+                return ResourceManager.GetString("Resolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your box is safe :).
+        /// </summary>
+        public static string SafeBox {
+            get {
+                return ResourceManager.GetString("SafeBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your device is safe.
+        /// </summary>
+        public static string SafeDevice {
+            get {
+                return ResourceManager.GetString("SafeDevice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your screen is safe :).
+        /// </summary>
+        public static string SafeScreen {
+            get {
+                return ResourceManager.GetString("SafeScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen is being used.
+        /// </summary>
+        public static string ScreenInUse {
+            get {
+                return ResourceManager.GetString("ScreenInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter screen name.
+        /// </summary>
+        public static string ScreenName {
+            get {
+                return ResourceManager.GetString("ScreenName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this screen.
+        /// </summary>
+        public static string ScreenRecover {
+            get {
+                return ResourceManager.GetString("ScreenRecover", resourceCulture);
             }
         }
         

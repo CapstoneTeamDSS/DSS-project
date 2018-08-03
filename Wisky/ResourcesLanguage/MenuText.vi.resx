@@ -141,6 +141,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
+  <data name="Matching" xml:space="preserve">
+    <value>Ghép thiết bị</value>
+  </data>
   <data name="MediaResourceMng" xml:space="preserve">
     <value>Tài nguyên</value>
   </data>

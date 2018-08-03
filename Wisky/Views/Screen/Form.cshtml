@@ -126,6 +126,9 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ScreenName" id="screen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Location" id="locate" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Resolution" id="err" />
 @section scripts{
     <!--Radio Button Check Type Value-->
     <script>
@@ -141,13 +144,13 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input screen name.");
+                stringError.push($("#screen").val());
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
-                stringError.push("Please choose location.");
+                stringError.push($("#locate").val());
             }
             if ($("#resolution-list").prop("selectedIndex") === 0) {
-                stringError.push("Please choose resolution.");
+                stringError.push($("#err").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')

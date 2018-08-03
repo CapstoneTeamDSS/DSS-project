@@ -73,6 +73,22 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBox" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.LocationSafe" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteLocation" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.LocationRecover" id="able" />
+
+
+
+
+
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -124,22 +140,22 @@
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
-                success: function (data) {                   
+                success: function (data) {
                     location = data.locationIdDelete.Province;
                     console.log(location);
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#err").val())
                 }
             });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this!" + location,
+                title: $("#sure").val(),
+                text: $("#able").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -152,15 +168,15 @@
                             url: "/Location/Delete?Id=" + locationIdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your location has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your location is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });

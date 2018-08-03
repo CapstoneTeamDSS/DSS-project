@@ -142,6 +142,11 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsArea" id="area" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsCorrect" id="corr" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.CantSentReq" id="req" />
 @section scripts{
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
@@ -179,7 +184,7 @@
                     }
                 },
                 error: function () {
-                    alert("Can not send request!");
+                    alert($("req").val());
                 }
             });
         };
@@ -220,7 +225,7 @@
         var areaId;
         $(document).ready(function () {
             var layoutId = $("#txtLayoutId").val();
-            if (layoutId == null){
+            if (layoutId == null) {
                 layoutId = 1;
             }
             loadLayout(layoutId);
@@ -350,7 +355,7 @@
         /*Add playlist to area*/
         function addToArea(el) {
             if (!areaId) {
-                alert("Please select area!");
+                alert($("#area").val());
             } else {
                 var liObjOrigin = $(el).parent()[0];
                 var liObj = $(liObjOrigin).clone().appendTo("#toList");

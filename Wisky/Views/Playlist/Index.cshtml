@@ -58,7 +58,6 @@
                                         <td>@(item.Title)</td>
                                         <td>@(item.Duration)</td>
                                         <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic : @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate)</a></td>
-                                        <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? "Public" : "Private")</a></td>
                                         <td>@(item.VisualTypeName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:300px; text-align:center">

@@ -117,136 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Canceled" xml:space="preserve">
-    <value>Canceled !</value>
+  <data name="AccSafe" xml:space="preserve">
+    <value>Your account is safe :)</value>
   </data>
-  <data name="Deleted" xml:space="preserve">
-    <value>Your file has been deleted</value>
+  <data name="Brand" xml:space="preserve">
+    <value>Please enter brand name</value>
   </data>
-  <data name="Deleted1" xml:space="preserve">
-    <value>Deleted !</value>
+  <data name="DelSucc" xml:space="preserve">
+    <value>Your account has been deleted</value>
   </data>
-  <data name="error" xml:space="preserve">
-    <value>Error occured !</value>
+  <data name="Email" xml:space="preserve">
+    <value>Please enter email</value>
   </data>
-  <data name="Filesafe" xml:space="preserve">
-    <value>Your file is safe :)</value>
+  <data name="Fullname" xml:space="preserve">
+    <value>Please enter full name</value>
   </data>
-  <data name="IfDelete" xml:space="preserve">
-    <value>If you want to delete it</value>
+  <data name="InEmail" xml:space="preserve">
+    <value>Invalid Email</value>
   </data>
-  <data name="InUse" xml:space="preserve">
-    <value>This file is being used</value>
+  <data name="InName" xml:space="preserve">
+    <value>FullName's length should be between 8 and 50</value>
   </data>
-  <data name="notbeable" xml:space="preserve">
-    <value>You will not be able to recover this file</value>
+  <data name="InPhone" xml:space="preserve">
+    <value>Invalid Phone number</value>
   </data>
-  <data name="PlsDelete" xml:space="preserve">
-    <value>Please delete playlist</value>
+  <data name="NameLetter" xml:space="preserve">
+    <value>Please enter fullname with letter only</value>
   </data>
-  <data name="Sure" xml:space="preserve">
-    <value>Are you sure ?</value>
+  <data name="Notable" xml:space="preserve">
+    <value>You will not be able to recover this account</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Please input title</value>
+  <data name="Password" xml:space="preserve">
+    <value>Please enter password</value>
   </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Please choose file to upload</value>
+  <data name="Role" xml:space="preserve">
+    <value>Please select role</value>
   </data>
-  <data name="CantSentReq" xml:space="preserve">
-    <value>Can not send request</value>
+  <data name="TxtActive" xml:space="preserve">
+    <value>Active</value>
   </data>
-  <data name="SelectItem" xml:space="preserve">
-    <value>Please select at least one item</value>
+  <data name="TxtDisable" xml:space="preserve">
+    <value>Disable</value>
   </data>
-  <data name="NoCancel" xml:space="preserve">
-    <value>No, cancel it !</value>
-  </data>
-  <data name="PlsDeleteScen" xml:space="preserve">
-    <value>Please delete scenario</value>
-  </data>
-  <data name="YesDelete" xml:space="preserve">
-    <value>Yes, delete it !</value>
-  </data>
-  <data name="ImgDuration" xml:space="preserve">
-    <value>Please enter duration</value>
-  </data>
-  <data name="ImgFormat" xml:space="preserve">
-    <value>Please input with format 00:00:00</value>
-  </data>
-  <data name="Next" xml:space="preserve">
-    <value>và nhấp tiếp theo</value>
-  </data>
-  <data name="PlsArea" xml:space="preserve">
-    <value>Please select area !</value>
-  </data>
-  <data name="PlsCorrect" xml:space="preserve">
-    <value>Please correct error in step</value>
-  </data>
-  <data name="DeleteScreen" xml:space="preserve">
-    <value>Your screen has been deleted</value>
-  </data>
-  <data name="PlsUnmatch" xml:space="preserve">
-    <value>Please detatch device</value>
-  </data>
-  <data name="SafeScreen" xml:space="preserve">
-    <value>Your screen is safe :)</value>
-  </data>
-  <data name="ScreenInUse" xml:space="preserve">
-    <value>Screen is being used</value>
-  </data>
-  <data name="ScreenRecover" xml:space="preserve">
-    <value>You will not be able to recover this screen</value>
-  </data>
-  <data name="Location" xml:space="preserve">
-    <value>Please choose location</value>
-  </data>
-  <data name="Resolution" xml:space="preserve">
-    <value>Please choose resolution</value>
-  </data>
-  <data name="ScreenName" xml:space="preserve">
-    <value>Please enter screen name</value>
-  </data>
-  <data name="BoxInUse" xml:space="preserve">
-    <value>This box is being in used</value>
-  </data>
-  <data name="BoxRecover" xml:space="preserve">
-    <value>You will not be able to recover this box</value>
-  </data>
-  <data name="DeleteBox" xml:space="preserve">
-    <value>Your box has been deleted</value>
-  </data>
-  <data name="SafeBox" xml:space="preserve">
-    <value>Your box is safe :)</value>
-  </data>
-  <data name="BoxName" xml:space="preserve">
-    <value>Please enter box name</value>
-  </data>
-  <data name="DeleteDevice" xml:space="preserve">
-    <value>Your device has been deleted </value>
-  </data>
-  <data name="DeleteNotif" xml:space="preserve">
-    <value>You will not be able to manage content on this device</value>
-  </data>
-  <data name="SafeDevice" xml:space="preserve">
-    <value>Your device is safe</value>
-  </data>
-  <data name="Address" xml:space="preserve">
-    <value>Please enter address</value>
-  </data>
-  <data name="DeleteLocation" xml:space="preserve">
-    <value>Your location has been deleted</value>
-  </data>
-  <data name="District" xml:space="preserve">
-    <value>Please enter district</value>
-  </data>
-  <data name="LocationRecover" xml:space="preserve">
-    <value>You will not be able to recover this location</value>
-  </data>
-  <data name="LocationSafe" xml:space="preserve">
-    <value>Your location is safe :)</value>
-  </data>
-  <data name="Province" xml:space="preserve">
-    <value>Please enter province</value>
+  <data name="Username" xml:space="preserve">
+    <value>Please enter user name</value>
   </data>
 </root>

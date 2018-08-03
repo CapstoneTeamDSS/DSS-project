@@ -340,6 +340,16 @@
     <Compile Include="Redis\RedisMessageEnum.cs" />
     <Compile Include="Redis\RedisObjectStore.cs" />
     <Compile Include="Redis\VoteMessage.cs" />
+    <Compile Include="ResourcesLanguage\AccountError.vi.Designer.cs">
+      <DependentUpon>AccountError.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\AccountError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccountError.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\AdScheduleForm.vi.Designer.cs">
       <DependentUpon>AdScheduleForm.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2042,6 +2052,14 @@
     <Content Include="Content\template-material\vendors\bower_components\material-design-iconic-font\fonts\Material-Design-Iconic-Fontf700.woff" />
     <Content Include="Content\assets\bootstrap-select\css\bootstrap-select.css.map" />
     <Content Include="Content\assets\bootstrap-select\js\bootstrap-select.js.map" />
+    <EmbeddedResource Include="ResourcesLanguage\AccountError.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountError.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\AccountError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AccountError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\AdScheduleForm.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AdScheduleForm.vi.Designer.cs</LastGenOutput>
