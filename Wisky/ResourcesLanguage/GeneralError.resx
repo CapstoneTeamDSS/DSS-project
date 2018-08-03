@@ -249,4 +249,13 @@
   <data name="Province" xml:space="preserve">
     <value>Please enter province</value>
   </data>
+  <data name="BrandRecover" xml:space="preserve">
+    <value>You will not be able to recover this brand</value>
+  </data>
+  <data name="BrandSafe" xml:space="preserve">
+    <value>Your brand is safe :)</value>
+  </data>
+  <data name="DeleteBrand" xml:space="preserve">
+    <value>Your brand has been deleted</value>
+  </data>
 </root>

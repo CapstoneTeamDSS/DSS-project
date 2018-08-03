@@ -97,6 +97,24 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You will not be able to recover this brand.
+        /// </summary>
+        public static string BrandRecover {
+            get {
+                return ResourceManager.GetString("BrandRecover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your brand is safe :).
+        /// </summary>
+        public static string BrandSafe {
+            get {
+                return ResourceManager.GetString("BrandSafe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Canceled !.
         /// </summary>
         public static string Canceled {
@@ -120,6 +138,15 @@ namespace DSS.ResourcesLanguage {
         public static string DeleteBox {
             get {
                 return ResourceManager.GetString("DeleteBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your brand has been deleted.
+        /// </summary>
+        public static string DeleteBrand {
+            get {
+                return ResourceManager.GetString("DeleteBrand", resourceCulture);
             }
         }
         

@@ -252,4 +252,13 @@
   <data name="NameLetter" xml:space="preserve">
     <value>Xin hãy điền tên đủ chỉ với kí tự</value>
   </data>
+  <data name="BrandRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể khôi phục thương hiệu này</value>
+  </data>
+  <data name="BrandSafe" xml:space="preserve">
+    <value>Thương hiêu của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="DeleteBrand" xml:space="preserve">
+    <value>Thương hiêu của bạn đã được xóa</value>
+  </data>
 </root>
