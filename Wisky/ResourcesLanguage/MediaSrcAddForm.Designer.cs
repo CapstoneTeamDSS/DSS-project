@@ -22,7 +22,7 @@ namespace DSS.ResourcesLanguage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MediaSrcAddForm {
+    public class MediaSrcAddForm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DSS.ResourcesLanguage {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DSS.ResourcesLanguage.MediaSrcAddForm", typeof(MediaSrcAddForm).Assembly);
@@ -51,7 +51,7 @@ namespace DSS.ResourcesLanguage {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,18 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string BtnCancel {
+            get {
+                return ResourceManager.GetString("BtnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
-        internal static string BtnReset {
+        public static string BtnReset {
             get {
                 return ResourceManager.GetString("BtnReset", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
-        internal static string BtnSubmit {
+        public static string BtnSubmit {
             get {
                 return ResourceManager.GetString("BtnSubmit", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Upload Media.
         /// </summary>
-        internal static string BtnUpload {
+        public static string BtnUpload {
             get {
                 return ResourceManager.GetString("BtnUpload", resourceCulture);
             }
@@ -90,34 +99,34 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
-        internal static string LblDescription {
+        public static string LblDescription {
             get {
                 return ResourceManager.GetString("LblDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Status *.
+        ///   Looks up a localized string similar to Status .
         /// </summary>
-        internal static string LblStatus {
+        public static string LblStatus {
             get {
                 return ResourceManager.GetString("LblStatus", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title *.
+        ///   Looks up a localized string similar to Title .
         /// </summary>
-        internal static string LblTitle {
+        public static string LblTitle {
             get {
                 return ResourceManager.GetString("LblTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select file to upload *.
+        ///   Looks up a localized string similar to Select file to upload .
         /// </summary>
-        internal static string LblUpload {
+        public static string LblUpload {
             get {
                 return ResourceManager.GetString("LblUpload", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Media Resource Management.
         /// </summary>
-        internal static string PageHeader {
+        public static string PageHeader {
             get {
                 return ResourceManager.GetString("PageHeader", resourceCulture);
             }
@@ -135,27 +144,27 @@ namespace DSS.ResourcesLanguage {
         /// <summary>
         ///   Looks up a localized string similar to Add new Media.
         /// </summary>
-        internal static string PageTitle {
+        public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disable.
+        ///   Looks up a localized string similar to Private.
         /// </summary>
-        internal static string TxtDisable {
+        public static string TxtPrivate {
             get {
-                return ResourceManager.GetString("TxtDisable", resourceCulture);
+                return ResourceManager.GetString("TxtPrivate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable.
+        ///   Looks up a localized string similar to Public.
         /// </summary>
-        internal static string TxtEnable {
+        public static string TxtPublic {
             get {
-                return ResourceManager.GetString("TxtEnable", resourceCulture);
+                return ResourceManager.GetString("TxtPublic", resourceCulture);
             }
         }
     }

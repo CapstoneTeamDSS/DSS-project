@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="BtnReset" xml:space="preserve">
     <value>Reset</value>
   </data>
@@ -130,13 +133,13 @@
     <value>Description</value>
   </data>
   <data name="LblStatus" xml:space="preserve">
-    <value>Status *</value>
+    <value>Status </value>
   </data>
   <data name="LblTitle" xml:space="preserve">
-    <value>Title *</value>
+    <value>Title </value>
   </data>
   <data name="LblUpload" xml:space="preserve">
-    <value>Select file to upload *</value>
+    <value>Select file to upload </value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Media Resource Management</value>
@@ -144,10 +147,10 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Add new Media</value>
   </data>
-  <data name="TxtDisable" xml:space="preserve">
-    <value>Disable</value>
+  <data name="TxtPrivate" xml:space="preserve">
+    <value>Private</value>
   </data>
-  <data name="TxtEnable" xml:space="preserve">
-    <value>Enable</value>
+  <data name="TxtPublic" xml:space="preserve">
+    <value>Public</value>
   </data>
 </root>

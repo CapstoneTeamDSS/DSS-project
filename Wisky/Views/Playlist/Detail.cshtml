@@ -1,6 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Detail";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Detail";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
     <div class="page-title">
@@ -115,7 +117,7 @@
                             src: data.mediaURL,
                             type: 'video/mp4',
                             controls: true
-                        }); 
+                        });
                         console.log(video);
                         console.log(video.duration);
                         video.appendTo($('#preview-warapper'));
@@ -147,49 +149,70 @@
         });
     </script>
     <!--End Show preview-->
-    <!--Show all preview-->
-    <script>      
-        $("#playAll").on('click', function () {
-            var time = 0;
-            $('.media-datas').each(function () {
-                $('#preview-warapper').empty();
-                var type = $(this).attr('data-type');
-                var url = $(this).attr('data-url');
-                if (type == 1) {
-                    $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
-                    $("#theImg").css('height', '350px');
-                    $("#theImg").css('width', '350px');
-                    $("#preview-warapper").css('margin-left', '100px');    
-                } else if (type == 2) {
-                    $("#preview-warapper").css('margin-left', '100px');
-                    var video = $('<video />', {
-                        id: 'video',
-                        src: url,
-                        type: 'video/mp4',
-                        controls: true
-                    });
-                    video.appendTo($('#preview-warapper'));
-                    video[0].play();
-                } else if (type == 3) {
-                    $("#preview-warapper").css('margin-left', '100px');
-                    var audio = $('<audio />', {
-                        id: 'audio',
-                        src: url,
-                        type: 'audio/mp3',
-                        controls: true
-                    });
-                    audio.appendTo($('#preview-warapper'));
-                    audio[0].play();
-                } else if (type == 4) {
-                    $.get(url, function (data) {
-                        var lines = data.split("\n");
-                        $.each(lines, function (n, elem) {
-                            $('#preview-warapper').append('<div>' + elem + '</div>');
+    @*<!--Show all preview-->
+        <script>
+            $("#playAll").on('click', function () {
+                var time = 0;
+                $('.media-datas').each(function () {
+                    $('#preview-warapper').empty();
+                    var type = $(this).attr('data-type');
+                    var url = $(this).attr('data-url');
+                    if (type == 1) {
+                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
+                        $("#theImg").css('height', '350px');
+                        $("#theImg").css('width', '350px');
+                        $("#preview-warapper").css('margin-left', '100px');
+                    } else if (type == 2) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var video = $('<video />', {
+                            id: 'video',
+                            src: url,
+                            type: 'video/mp4',
+                            controls: true
                         });
-                    });
-                    $("#preview-warapper").css('margin-left', '10px');
+                        video.appendTo($('#preview-warapper'));
+                        video[0].play();
+                    } else if (type == 3) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var audio = $('<audio />', {
+                            id: 'audio',
+                            src: url,
+                            type: 'audio/mp3',
+                            controls: true
+                        });
+                        audio.appendTo($('#preview-warapper'));
+                        audio[0].play();
+                    } else if (type == 4) {
+                        $.get(url, function (data) {
+                            var lines = data.split("\n");
+                            $.each(lines, function (n, elem) {
+                                $('#preview-warapper').append('<div>' + elem + '</div>');
+                            });
+                        });
+                        $("#preview-warapper").css('margin-left', '10px');
+                    }
+                });
+            });
+        </script>
+        <!--End Show all preview-->*@
+    <!--Show all preview-->
+    <script type="text/javascript" src="~/Content/HTML5Gallery/html5gallery.js"></script>
+    <script>
+        $("#playAll").on('click', function () {
+            var divPreview = $('#preview-warapper');
+            divPreview.empty();
+            var url = [];
+            $('.media-datas').each(function () {
+                url.push($(this).attr('data-url'));
+            });
+            divPreview.addClass("html5gallery");
+            divPreview.attr({ "data-skin": "darkness", "data-width": "480", "data-height": "272", "data-resizemode": "fill" });
+            if (url.length > 0) {
+                for (var i = 0; i < url.length; i++) {
+                    divPreview.html('<a class="playlist"></a>');
+                    $(".playlist").attr("href", url[i]);
                 }
-            });            
+            }          
         });
     </script>
     <!--End Show all preview-->

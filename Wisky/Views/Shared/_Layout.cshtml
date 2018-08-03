@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
-
     <title>@ViewBag.Title | </title>
     <!-- Bootstrap -->
     <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +59,7 @@
                                             <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
                                         </li>
                                         <li>
-                                            <a href="@Url.Action("Index", "AdvancedScheduling")"><i class="fa fa-calendar"></i>Advanced Scheduling</a>
+                                            <a href="@Url.Action("Index", "AdvancedScheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.AdvSchedule</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,10 +177,12 @@
                             
                             <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbrevation = "en" }, null)</li>                           
                             <li>
-                                <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> Log Out </a>
+                                <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> @DSS.ResourcesLanguage.MenuText.Logout </a>
                             </li>
                             <li><a href="@Url.Action("GetAccountInformation", "BrandUserMng")"><i class="fa fa-5x fa-user"></i> My account </a></li>
-                            <li><a>Welcome, <b>@User.Identity.Name</b>!</a></li>
+                            <li><a>@DSS.ResourcesLanguage.MenuText.Welcome, <b>@User.Identity.Name</b>!</a></li>
+                            
+                            
                         </ul>
                     </nav>
                 </div>

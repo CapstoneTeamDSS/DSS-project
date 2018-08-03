@@ -238,7 +238,7 @@ namespace DSS.Controllers
         // Check type file
         private int CheckFileType(string FileName)
         {
-            string ext = Path.GetExtension(FileName);
+            string ext = Path.GetExtension(FileName.ToLower());
             if (ext.Equals(".png") || ext.Equals(".jpg") || ext.Equals(".jpeg"))
             {
                 return 1;

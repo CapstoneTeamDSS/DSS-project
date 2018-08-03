@@ -13,7 +13,7 @@
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioUpdateForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader)</h3>
+                <h3>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader)</h3>
             </div>
 
             <div class="title_right">
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-3">
-                                               @DSS.ResourcesLanguage.ScenarioAddForm.LblDescription
+                                                @DSS.ResourcesLanguage.ScenarioAddForm.LblDescription
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -253,10 +253,50 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.CantSentReq" id="req" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.notbeable" id="able" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted1" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsArea" id="area" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsCorrect" id="corr" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
 @section scripts{
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = $("#private").val();
+            if (this.checked) {
+                text = $("#public").val();
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- End Switchery Change Status Text-->
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = "Private";
+            if (this.checked) {
+                text = "Public";
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -301,7 +341,7 @@
                     }
                 },
                 error: function () {
-                    alert("Can not send request!");
+                    alert($("#req").val());
                 }
             });
         };
@@ -388,7 +428,7 @@
                     }
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#error").val())
                 }
             });
         }
@@ -420,7 +460,7 @@
                     $("#divLayout").html(data);
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#error").val())
                 }
             });
         }
@@ -438,7 +478,7 @@
                     showAllPlaylist();
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#error").val())
                 }
             });
         }
@@ -484,7 +524,7 @@
                         renderPlaylistList(data.ScenarioItemIds, areaVisualTypeID);
                     },
                     error: function () {
-                        alert("Error occured!!")
+                        alert($("#error").val())
                     }
                 });
             }
@@ -528,7 +568,7 @@
         /*Add playlist to area*/
         function addToArea(el) {
             if (!areaId) {
-                alert("Please select area!");
+                alert($("#area").val());
             } else {
                 var liObjOrigin = $(el).parent()[0];
                 var liObj = $(liObjOrigin).clone().appendTo("#toList");
@@ -604,7 +644,7 @@
             if (stepnumber == 1) {
                 if (validateStep1() == false) {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', 'Please correct the errors in step' + step + ' and click next.');
+                    $('#wizard').smartWizard('showMessage', $("#corr").val() + step + $("#next").val());
                     $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
                 } else {
                     $('#wizard').smartWizard('hideMessage');
@@ -620,7 +660,7 @@
             var title = $("#txtTitle").val();
             if (!title.trim()) {
                 isValid = false;
-                $('#msg_title').html('Please fill in Title').show();
+                $('#msg_title').html($("#title").val()).show();
             } else {
                 $('#msg_title').html('').hide();
             }
@@ -636,7 +676,7 @@
                 $('#wizard').smartWizard('setError', { stepnum: 1, iserror: false });
             }
             if (!isStepValid) {
-                $('#wizard').smartWizard('showMessage', 'Please correct the errors in the steps and continue');
+                $('#wizard').smartWizard('showMessage', $("#corr").val());
             }
             return isStepValid;
         }

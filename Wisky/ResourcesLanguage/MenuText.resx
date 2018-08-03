@@ -123,6 +123,9 @@
   <data name="AddNew" xml:space="preserve">
     <value>Add new</value>
   </data>
+  <data name="AdvSchedule" xml:space="preserve">
+    <value>Advanced Scheduling</value>
+  </data>
   <data name="BoxMng" xml:space="preserve">
     <value>Android Box</value>
   </data>
@@ -144,6 +147,9 @@
   <data name="LocationMng" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="Matching" xml:space="preserve">
     <value>Device Matching</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="MediaSection" xml:space="preserve">
     <value>Media Management</value>
+  </data>
+  <data name="MyAcc" xml:space="preserve">
+    <value>My Account</value>
   </data>
   <data name="PlaylistMng" xml:space="preserve">
     <value>Playlist</value>
@@ -194,5 +203,8 @@
   </data>
   <data name="ViewListMng" xml:space="preserve">
     <value>View list</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
   </data>
 </root>

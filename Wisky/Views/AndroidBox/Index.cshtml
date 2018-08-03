@@ -69,6 +69,16 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BoxInUse" id="use" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsUnmatch" id="detacth" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BoxRecover  " id="recover" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.SafeBox" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBox" id="deleted" />
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -123,11 +133,11 @@
                 success: function (data) {
                     console.log(data);
                     if (data.isUsing) {
-                        swal("This Box is being used.", "Please unmatch device " + data.deviceVM.Title + " If you want to delete it.", "error");
+                        swal($("#use").val(), $("#detacth").val() +" "+ data.deviceVM.Title +" "+$("#if").val(), "error");
                     } else {
                         swal({
-                            title: "Are you sure?",
-                            text: "You will not be able to recover this Box!",
+                            title: $("#sure").val(),
+                            text: $("#recover").val(),
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
@@ -141,21 +151,21 @@
                                         url: "/AndroidBox/Delete?Id=" + IdDelete,
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
-                                            swal("Deleted!", "Your Box has been deleted!", "success");
+                                            swal($("#del").val(), $("#deleted").val(), "success");
                                             location.reload();
                                         },
                                         error: function () {
-                                            alert("Error occured!!")
+                                            alert($("#err").val())
                                         }
                                     });
                                 } else {
-                                    swal("Cancelled", "Your box is safe :)", "error");
+                                    swal($("#cancel").val(), $("#safe").val(), "error");
                                 }
                             });
                     }
                 },
                 error: function () {
-                    alert("error");
+                    alert($("#err").val());
                 }
             });
         });

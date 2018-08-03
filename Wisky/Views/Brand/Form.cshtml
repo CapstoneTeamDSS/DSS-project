@@ -44,7 +44,7 @@
                                 @DSS.ResourcesLanguage.BrandForm.LblStatus <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,7 +80,8 @@
         </div>
     </div>
 </div>
-
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
 @section styles{
     <!--Set color is red when show error validation-->
     <style>
@@ -94,9 +95,9 @@
 @section scripts{
     <script>
         $("#cbStatus").change(function () {
-            var text = "Disable";
+            var text = $("#dis").val();
             if (this.checked) {
-                text = "Enable";
+                text = $("#act").val()
             }
             $('#spStatus').text(text);
         });
