@@ -76,6 +76,7 @@ namespace DSS.Controllers
                         Id = item.PlaylistID,
                         isPublic = (bool)item.isPublic,
                         Duration = playlistItemService.GetTotalDuration(item.PlaylistID),
+                        VisualTypeID = item.VisualTypeID??1,
                     };
                     playlistDetailVM.Add(m);
                 }
