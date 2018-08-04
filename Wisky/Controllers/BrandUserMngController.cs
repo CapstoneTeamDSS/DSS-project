@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -259,5 +260,47 @@ namespace DSS.Controllers
             return this.RedirectToAction("Index");
         }
 
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<JsonResult> ChangePassword(Models.ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Change password fail"
+                });
+            }
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return Json(new
+                {
+                    success = true,
+                    message = "Your password has been changed"
+                });
+                //                return RedirectToAction("ChangePassword", new { Message = "Change Password Success" });
+            }
+            return Json(new
+            {
+                success = false,
+                message = "Change password fail"
+            });
+            //            AddErrors(result);
+            //            return View(model);
+        }
+
     }
+
 }
