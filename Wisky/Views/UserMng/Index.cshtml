@@ -90,6 +90,17 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.Notable" id="recover" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.AccSafe" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.DelSucc" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
 
 @section scripts{
     <!-- Datatables -->
@@ -137,13 +148,13 @@
 
             });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this Account!",
+                title: $("#sure").val(),
+                text: $("#recover").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -156,20 +167,56 @@
                             url: "/UserMng/Delete?Id=" + IdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your Account has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your Account is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });
     </script>
     <!--End Sweet alert-->
+    <script>
+        // Generate a password string
+        function randString(id) {
+            var dataSet = $(id).attr('data-character-set').split(',');
+            var possible = '';
+            if ($.inArray('a-z', dataSet) >= 0) {
+                possible += 'abcdefghijklmnopqrstuvwxyz';
+            }
+            if ($.inArray('A-Z', dataSet) >= 0) {
+                possible += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            }
+            if ($.inArray('0-9', dataSet) >= 0) {
+                possible += '0123456789';
+            }
+            if ($.inArray('#', dataSet) >= 0) {
+                possible += '![]{}()%&*$#^<>~|';
+            }
+            var text = '';
+            for (var i = 0; i < $(id).attr('data-size'); i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            return text;
+        }
+
+        // Create a new password
+        $(".getNewPass").click(function () {
+            var field = $(this).closest('div').find('input[rel="gp"]');
+            field.val(randString(field));
+        });
+
+        // Auto Select Pass On Focus
+        $('input[rel="gp"]').on("click", function () {
+            $(this).select();
+        });
+
+    </script>
 }
 
 @section styles{

@@ -54,7 +54,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Name)</td>
                                         <td>
-                                            <a href="#" class="isActive" style="color: @( (bool) item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@((bool) item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a>
+                                            <a href="#" class="isActive" style="color: @( (bool) item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@((bool)item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a>
                                         </td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
@@ -70,16 +70,18 @@
             </div>
         </div>
     </div>
-    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandRecover" id="recover"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandSafe" id="safe"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBrand" id="del"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure"/>
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err"/>
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandRecover" id="recover" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandSafe" id="safe" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBrand" id="del" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+
 
 
     @section scripts{
