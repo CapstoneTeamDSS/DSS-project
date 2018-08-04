@@ -291,6 +291,8 @@
             $(el).css("border", "thick solid");
             var scenarioId = $("#txtScenarioId").val();
             console.log(scenarioId);
+            /* Render Playlist List for current selected area */
+            var areaVisualTypeID = $(el).attr("visual-type");
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,
