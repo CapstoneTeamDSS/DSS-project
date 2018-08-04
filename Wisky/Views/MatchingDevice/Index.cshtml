@@ -66,6 +66,7 @@
                                     @DSS.ResourcesLanguage.MatchingDeviceIndex.ColTitle
                                 </th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColScreen</th>
+                                <th>@DSS.ResourcesLanguage.ScreenIndex.ColType</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColBox</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColDescription</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColAction</th>
@@ -81,6 +82,7 @@
                                         <td>@(++j)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.ScreenName)</td>
+                                        <td>@(item.IsHorizontal ? DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape : DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait)</td>
                                         <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
@@ -159,7 +161,7 @@
                     }
                     for (var i = 0; i < data.screenListByLocationId.length; i++) {
                         if (data.screenListByLocationId[i] != '') {
-                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + '</option>');
+                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name +" "+ "("+ (data.screenListByLocationId[i].isHorizontal ? "Landscape":"Portrait") +")"+ '</option>');
                         }
                     }
                 },
