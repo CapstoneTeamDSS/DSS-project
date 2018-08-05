@@ -23,6 +23,7 @@ namespace DSS.Models
         public bool IsActive { get; set; }
         public string BrandName { get; set; }
     }
+
     public class BrandAccountInformation
     {
         public String Id { get; set; }

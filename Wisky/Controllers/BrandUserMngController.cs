@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -15,20 +16,22 @@ using Wisky.Data.Utility;
 
 namespace DSS.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Active User")]
     public class BrandUserMngController : Controller
     {
         Wisky.ApplicationUserManager _userManager;
+        private ApplicationSignInManager _signInManager;
         IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
         IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
 
         // GET: BrandUserMng
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             ViewBag.userList = GetBrandAccounts();
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public List<Models.BrandUserMngVM> GetBrandAccounts()
         {
             var user = Helper.GetCurrentUser();
@@ -49,6 +52,7 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
+
         public ActionResult GetAccountInformation()
         {
             var user = Helper.GetCurrentUser();
@@ -76,6 +80,7 @@ namespace DSS.Controllers
             return View(model);
         }
         // GET: BrandUserMng/Form/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Form(string id)
         {
             Models.BrandUserDetailVM model = null;
@@ -108,6 +113,7 @@ namespace DSS.Controllers
             return View(model);
         }
         // POST: BrandUserMng/Add
+        [Authorize(Roles = "Admin")]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.BrandUserDetailVM model)
         {
             if (ModelState.IsValid)
@@ -145,6 +151,7 @@ namespace DSS.Controllers
         }
 
         // POST: BrandUserMng/Update
+        [Authorize(Roles = "Admin")]
         public async System.Threading.Tasks.Task<ActionResult> Update(Models.BrandUserDetailVM model)
         {
             if (ModelState.IsValid)
@@ -230,6 +237,7 @@ namespace DSS.Controllers
                 _userManager = value;
             }
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult UpdateStatus(string dataId)
         {
             bool result = false;
@@ -248,7 +256,9 @@ namespace DSS.Controllers
             }, JsonRequestBehavior.AllowGet);
 
         }
+
         // GET: BrandUserMng/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var brandUserMng = this.aspNetUserService.Get(id);
@@ -258,6 +268,60 @@ namespace DSS.Controllers
             }
             return this.RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin, Active User")]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Active User")]
+        public async Task<ActionResult> ChangePassword(Models.ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = "Change password fail"
+                });
+                //            AddErrors(result);
+                //return View(model);
+            }
+            var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return Json(new
+                {
+                    success = true,
+                    message = "Your password has been changed"
+                });
+                //return RedirectToAction("ChangePassword", new { Message = "Change Password Success" });
+            }
+            return Json(new
+            {
+                success = false,
+                message = "Change password fail"
+            });
+            //            AddErrors(result);
+            //            return View(model);
+        }
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
     }
 }
