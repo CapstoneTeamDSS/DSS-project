@@ -1,8 +1,8 @@
 ﻿@{
-                /**/
+    /**/
 
-                ViewBag.Title = "Detail";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
     <div class="page-title">
@@ -29,7 +29,7 @@
                                     var i = 0;
                                     foreach (var item in playlistItemList)
                                     {
-                                        <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)"></span>
+                                        <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)" data-name="@(item.mediaSrcTitle)" data-duration="@(item.duration)"></span>
                                         <li id='i_@(++i)' class="i-old" data-value="@(item.playlistItemId)">
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
@@ -55,16 +55,20 @@
                 <div class="x_title">
                     <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
                     <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
+                    <div id="hideMsg" style="display:none">
+                        <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div id="preview-warapper" style="display:inline-block">
                     </div>
-                    <hr />
                 </div>
+                <hr />
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -118,10 +122,11 @@
                             type: 'video/mp4',
                             controls: true
                         });
-                        console.log(video);
-                        console.log(video.duration);
                         video.appendTo($('#preview-warapper'));
                         video[0].play();
+                        video.bind("ended", function () {
+                            alert("I'm done!");
+                        });
                     } else if (data.mediaType == 3) {
                         $("#preview-warapper").css('margin-left', '100px');
                         var audio = $('<audio />', {
@@ -149,73 +154,66 @@
         });
     </script>
     <!--End Show preview-->
-    @*<!--Show all preview-->
-        <script>
-            $("#playAll").on('click', function () {
-                var time = 0;
-                $('.media-datas').each(function () {
-                    $('#preview-warapper').empty();
-                    var type = $(this).attr('data-type');
-                    var url = $(this).attr('data-url');
-                    if (type == 1) {
-                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
-                        $("#theImg").css('height', '350px');
-                        $("#theImg").css('width', '350px');
-                        $("#preview-warapper").css('margin-left', '100px');
-                    } else if (type == 2) {
-                        $("#preview-warapper").css('margin-left', '100px');
-                        var video = $('<video />', {
-                            id: 'video',
-                            src: url,
-                            type: 'video/mp4',
-                            controls: true
-                        });
-                        video.appendTo($('#preview-warapper'));
-                        video[0].play();
-                    } else if (type == 3) {
-                        $("#preview-warapper").css('margin-left', '100px');
-                        var audio = $('<audio />', {
-                            id: 'audio',
-                            src: url,
-                            type: 'audio/mp3',
-                            controls: true
-                        });
-                        audio.appendTo($('#preview-warapper'));
-                        audio[0].play();
-                    } else if (type == 4) {
-                        $.get(url, function (data) {
-                            var lines = data.split("\n");
-                            $.each(lines, function (n, elem) {
-                                $('#preview-warapper').append('<div>' + elem + '</div>');
-                            });
-                        });
-                        $("#preview-warapper").css('margin-left', '10px');
-                    }
-                });
-            });
-        </script>
-        <!--End Show all preview-->*@
     <!--Show all preview-->
-    <script type="text/javascript" src="~/Content/HTML5Gallery/html5gallery.js"></script>
     <script>
         $("#playAll").on('click', function () {
-            var divPreview = $('#preview-warapper');
-            divPreview.empty();
-            var url = [];
-            $('.media-datas').each(function () {
-                url.push($(this).attr('data-url'));
-            });
-            divPreview.addClass("html5gallery");
-            divPreview.attr({ "data-skin": "darkness", "data-width": "480", "data-height": "272", "data-resizemode": "fill" });
-            if (url.length > 0) {
-                for (var i = 0; i < url.length; i++) {
-                    divPreview.html('<a class="playlist"></a>');
-                    $(".playlist").attr("href", url[i]);
+            var durationTimer = 0;
+            $('#preview-warapper').empty();
+            $('.media-datas').each(function (i) {
+                var type = pa rseInt($(this).attr('data-type'));
+                var url = $(this).attr('data-url');
+                var title = $(this).attr('data-name');
+                var duration = parseInt($(this).attr('data-duration'));
+                var durationShow = 0;
+                if (duration == 0) {
+                    durationShow = 10000;
+                } else {
+                    durationShow = duration * 1000;
                 }
-            }          
+                if (i == 0) {
+                    show();
+                } else {
+                    setTimeout(function () {
+                        $('#preview-warapper').empty();
+                        show();
+                    }, durationTimer + 1000);
+                }
+                function show() {
+                    $('#hideMsg').show();
+                    switch (type) {
+                        case 1:
+                            var sec = $('#hideMsg span').text() || 0;
+                            var sec = durationShow / 1000;
+                            var timer = setInterval(function () {
+                                $('#name').text(title);
+                                $('#timer').text(sec--);
+                                if (sec == 0) {
+                                    clearInterval(timer);
+                                }
+                            }, 1000);
+                            durationTimer = durationShow;
+                            $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
+                            $("#theImg").css('height', '350px');
+                            $("#theImg").css('width', '350px');
+                            $("#preview-warapper").css('margin-left', '100px');
+                            //$(".timer").attr("data-seconds-left", durationTimer);
+                            //$('.timer').startTimer();
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            alert('3');
+                    }
+                }
+                //$('video').on('ended', function () {
+                //    console.log('Video has ended!');
+                //});
+                
+            });
         });
     </script>
     <!--End Show all preview-->
+
 }
 
 @section styles{
@@ -297,6 +295,37 @@
 
         .dropAreaHover {
             background-color: #f00;
+        }
+    </style>
+    <style>
+        .timer, .timer-done, .timer-loop {
+            font-size: 30px;
+            color: black;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        // These are the default CSS classes
+        // used by this plugin. Use these values
+        // for a basic style to get started.
+        .jst-hours {
+            float: left;
+        }
+
+        .jst-minutes {
+            float: left;
+        }
+
+        .jst-seconds {
+            float: left;
+        }
+
+        .jst-clearDiv {
+            clear: both;
+        }
+
+        .jst-timeout {
+            color: red;
         }
     </style>
 }
