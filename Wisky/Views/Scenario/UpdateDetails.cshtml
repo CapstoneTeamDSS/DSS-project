@@ -289,19 +289,16 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
-            //$.each($(".vdReview"), function (index, value) {
-            //    console.log(value);
-            //    value.pause();
-            //    $(el).play();
-            //});
             var scenarioId = $("#txtScenarioId").val();
             console.log(scenarioId);
+            /* Render Playlist List for current selected area */
+            var areaVisualTypeID = $(el).attr("visual-type");
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,
             };
             if (!scenarioId) {
-                renderPlaylistList([]);
+                renderPlaylistList([], areaVisualTypeID);
             } else {
                 $.ajax({
                     type: "POST",
@@ -310,7 +307,7 @@
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
-                        renderPlaylistList(data.ScenarioItemIds);
+                        renderPlaylistList(data.ScenarioItemIds, areaVisualTypeID);
                     },
                     error: function () {
                         alert("Error occured!!")
@@ -319,15 +316,17 @@
             }
         }
 
-        function renderPlaylistList(ScenarioItemIds) {
+        function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
             /*Remove data when change location*/
             $("#fromList").find('li').remove().end();
             $("#toList").find('li').remove().end();
             /*Load playlist list*/
             for (var i = 0; i < playlistList.length; i++) {
                 if (playlistList[i] != '') {
+                    var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
+                    console.log(isMatchVisualType);
                     var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
-                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
                     $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
                         + style
                         + ">"
@@ -335,7 +334,7 @@
                         + "<span id='duration'>" + playlistList[i].Duration + "</span>"
                         + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
-                    if (!isShow) {
+                    if (!isShow && isMatchVisualType) {
                         PlaylistAreaObj[areaId].push(playlistList[i].Id);
                         $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
                             + ">"

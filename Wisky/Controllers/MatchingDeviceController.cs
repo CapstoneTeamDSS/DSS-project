@@ -160,6 +160,8 @@ namespace DSS.Controllers
                             ResolutionId = item.ResolutionID,
                             ScreenId = item.ScreenID,
                             LocationId = item.LocationID,
+                            isHorizontal = item.isHorizontal,
+                            
                         };
                         screenVMs.Add(b);
                     }

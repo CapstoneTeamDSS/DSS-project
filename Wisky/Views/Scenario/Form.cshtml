@@ -145,35 +145,6 @@
                                         </div>
                                     </div>
                                     <div id="step-3" class="content" style="display: none;">
-                                        @*@{
-                                            var layoutList = ViewBag.layoutList as List<DSS.Models.LayoutVM>;*@
-                                        @*if (layoutList != null)
-                                                    {
-                                                        for (int i = 0; i < layoutList.Count; i += 3)
-                                                        {
-                                                            <div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">
-                                                                <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                    <img src="@(layoutList[i].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                    <input type="radio" value="@(layoutList[i].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" checked />
-                                                                </div>
-                                                                @if (i + 1 < layoutList.Count)
-                                                                {
-                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                        <img src="@(layoutList[i + 1].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                        <input type="radio" value="@(layoutList[i + 1].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                                    </div>
-                                                                }
-                                                                @if (i + 2 < layoutList.Count)
-                                                                {
-                                                                    <div class="col-md-4 col-sm-4 col-xs-4">
-                                                                        <img src="@(layoutList[i + 2].URL)" style="display:block; margin:auto; width: 250px; height: 140px" />
-                                                                        <input type="radio" value="@(layoutList[i + 2].LayoutID)" name="LayoutId" style="display:block; margin:auto; margin-top:20px" />
-                                                                    </div>
-                                                                }
-                                                            </div>
-                                                        }
-                                                    }
-                                            }*@
                                     </div>
                                     <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -528,7 +499,7 @@
                     }
                 });
             }
-        }
+        }        
 
         function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
             /*Remove data when change location*/
@@ -620,7 +591,7 @@
         };
 
         $('#wizard').smartWizard({
-            onLeaveStep: leaveAStepCallback,
+            //onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
             onFinish: onFinishCallback
         });
 

@@ -17,6 +17,7 @@ namespace DSS.Models
         public string BoxName { get; set; }
         public string ScreenName { get; set; }
         public DateTime CreateTime { get; set; }
+        public bool IsHorizontal { get; set; }
     }
 
     public class DeviceRefVM
