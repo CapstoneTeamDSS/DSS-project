@@ -19,6 +19,7 @@ namespace DSS.Data.Models.Entities
         {
             this.DeviceScenarios = new HashSet<DeviceScenario>();
             this.ScenarioItems = new HashSet<ScenarioItem>();
+            this.Schedules = new HashSet<Schedule>();
         }
     
         public int ScenarioID { get; set; }
@@ -34,5 +35,7 @@ namespace DSS.Data.Models.Entities
         public virtual Layout Layout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScenarioItem> ScenarioItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

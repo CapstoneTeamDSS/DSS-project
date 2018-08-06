@@ -6,7 +6,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>@DSS.ResourcesLanguage.PlaylistIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Playlist list</h2>
+                    <h2>@DSS.ResourcesLanguage.PlaylistIndex.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
@@ -35,14 +35,16 @@
                             <tr>
 
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.PlaylistIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Title
+                                    @DSS.ResourcesLanguage.PlaylistIndex.ColTitle
                                 </th>
-                                <th>Duration</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDuration</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColStatus</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColVisualType</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,11 +57,14 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.Duration)</td>
+                                        <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic : @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate)</a></td>
+                                        <td>@(item.VisualTypeName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:300px; text-align:center">
-                                            <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
+                                            <a href="/Playlist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.PlaylistIndex.BtnEdit </i></a>
                                             @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
-                                            <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success"> Detail</i></a>
+                                            <a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success">@DSS.ResourcesLanguage.PlaylistIndex.BtnDetail </i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -71,6 +76,20 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDeleteScen" id="scen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.notbeable" id="able" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted1" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="safe" />
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -89,6 +108,109 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!--Change status enable disable-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Playlist/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? $("#public").val() : $("#private").val()); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert($("#error").val())
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var IdPlaylist = $(btnDel).attr("data-id");
+            var data = {
+                id: IdPlaylist,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Playlist/CheckPlaylistIdIsUsed",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //set title warming when scenarioVMlist.length <= 3
+                    var title = "";
+                    if (data.scenarioVMlist.length <= 3) {
+                        for (var i = 0; i < data.scenarioVMlist.length; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                    } else {//set title warming when scenarioVMlist.length > 3 show ...
+                        for (var i = 0; i < 3; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                        title += "...";
+                    }
+                    //show sweerAlert warming
+                    if (data.isUsing) {
+                        swal($("#use").val(), $("#scen").val() + " " + title + $("#if").val(), "error");
+                    } else {
+                        swal({
+                            title: $("#sure").val(),
+                            text: $("#able").val(),
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#cancel").val(),
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Playlist/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Playlist/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal($("#deleted1").val(), $("#deleted").val(), "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert($("#error").val())
+                                        }
+                                    });
+                                } else {
+                                    swal($("#canceled").val(), $("#safe").val(), "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert($("#error").val());
+                }
+            });
+        });
+    </script>
+    <!--End Sweet alert-->
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
@@ -97,7 +219,7 @@
             $(".iframe").colorbox({
                 iframe: true, width: "80%", height: "80%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -107,49 +229,6 @@
         });
     </script>
     <!-- end iframe button matching-->
-    <!--Sweet alert-->
-    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
-    <script>
-        $(".btnDelete").click(function () {
-            var btnDel = $(this);
-            var boxNum = 0;
-            $.ajax({
-
-            });
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this location!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var locationIdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/Location/Delete?Id=" + locationIdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                swal("Deleted!", "Your location has been deleted!", "success");
-                                location.reload();
-                            },
-                            error: function () {
-                                alert("Error occured!!")
-                            }
-                        });
-                    } else {
-                        swal("Cancelled", "Your location file is safe :)", "error");
-                    }
-                });
-        });
-    </script>
-    <!--End Sweet alert-->
 }
 
 @section styles{

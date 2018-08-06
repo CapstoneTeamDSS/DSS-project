@@ -6,7 +6,7 @@
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>Update Scenario Details</h3>
+                <h3>@DSS.ResourcesLanguage.ScenarioUpdateDetails.PageHeader</h3>
             </div>
 
             <div class="title_right">
@@ -25,7 +25,7 @@
             <div class="col-md-12 col-sm-8 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Update details<small>Step by step</small></h2>
+                        <h2>@DSS.ResourcesLanguage.ScenarioUpdateDetails.PageTitle<small>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtStepbyStep</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -55,8 +55,8 @@
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
                                         <span class="step_no">4</span>
                                         <span class="step_descr">
-                                            Step 4<br>
-                                            <small>Navigate scenario details</small>
+                                            @DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtStep4<br>
+                                            <small>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtNavigateScenarioDetails</small>
                                         </span>
                                     </a>
                                 </li>
@@ -69,7 +69,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel" style="height:441px">
                                             <div class="x_title">
-                                                <h2>Your Playlists</h2>
+                                                <h2>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtPlaylist</h2>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <ul id="fromList" style="height:350px" class="stepContainer"></ul>
@@ -78,7 +78,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel">
                                             <div class="x_title">
-                                                <h2>Preview </h2>
+                                                <h2>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtPreview</h2>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="x_content">
@@ -93,7 +93,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel" style="height:441px">
                                             <div class="x_title">
-                                                <h2>Area's list playlist</h2>
+                                                <h2>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtAreaListPlaylist</h2>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <ul id="toList" style="height:350px" class="stepContainer"></ul>
@@ -102,13 +102,13 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6">
                                         <div class="x_panel">
                                             <div class="x_title">
-                                                <h2>Playlist Information</h2>
+                                                <h2>@DSS.ResourcesLanguage.ScenarioUpdateDetails.TxtInformation</h2>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="x_content">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Title:
+                                                        @DSS.ResourcesLanguage.ScenarioUpdateDetails.LblTitle:
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12" id="titleInfo">
                                                         CoCa CoLa
@@ -116,7 +116,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Description:
+                                                        @DSS.ResourcesLanguage.ScenarioUpdateDetails.LblDescription:
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12" id="descriptionInfo">
                                                         Good video
@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                        Duration:
+                                                        @DSS.ResourcesLanguage.ScenarioUpdateDetails.LblDuration:
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12" id="durationInfo">
                                                         18:00
@@ -142,6 +142,11 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsArea" id="area" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsCorrect" id="corr" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.CantSentReq" id="req" />
 @section scripts{
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
@@ -179,7 +184,7 @@
                     }
                 },
                 error: function () {
-                    alert("Can not send request!");
+                    alert($("req").val());
                 }
             });
         };
@@ -220,7 +225,7 @@
         var areaId;
         $(document).ready(function () {
             var layoutId = $("#txtLayoutId").val();
-            if (layoutId == null){
+            if (layoutId == null) {
                 layoutId = 1;
             }
             loadLayout(layoutId);
@@ -284,19 +289,16 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
-            //$.each($(".vdReview"), function (index, value) {
-            //    console.log(value);
-            //    value.pause();
-            //    $(el).play();
-            //});
             var scenarioId = $("#txtScenarioId").val();
             console.log(scenarioId);
+            /* Render Playlist List for current selected area */
+            var areaVisualTypeID = $(el).attr("visual-type");
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,
             };
             if (!scenarioId) {
-                renderPlaylistList([]);
+                renderPlaylistList([], areaVisualTypeID);
             } else {
                 $.ajax({
                     type: "POST",
@@ -305,7 +307,7 @@
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
-                        renderPlaylistList(data.ScenarioItemIds);
+                        renderPlaylistList(data.ScenarioItemIds, areaVisualTypeID);
                     },
                     error: function () {
                         alert("Error occured!!")
@@ -314,15 +316,17 @@
             }
         }
 
-        function renderPlaylistList(ScenarioItemIds) {
+        function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
             /*Remove data when change location*/
             $("#fromList").find('li').remove().end();
             $("#toList").find('li').remove().end();
             /*Load playlist list*/
             for (var i = 0; i < playlistList.length; i++) {
                 if (playlistList[i] != '') {
+                    var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
+                    console.log(isMatchVisualType);
                     var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
-                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
                     $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
                         + style
                         + ">"
@@ -330,7 +334,7 @@
                         + "<span id='duration'>" + playlistList[i].Duration + "</span>"
                         + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
-                    if (!isShow) {
+                    if (!isShow && isMatchVisualType) {
                         PlaylistAreaObj[areaId].push(playlistList[i].Id);
                         $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
                             + ">"
@@ -350,7 +354,7 @@
         /*Add playlist to area*/
         function addToArea(el) {
             if (!areaId) {
-                alert("Please select area!");
+                alert($("#area").val());
             } else {
                 var liObjOrigin = $(el).parent()[0];
                 var liObj = $(liObjOrigin).clone().appendTo("#toList");

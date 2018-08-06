@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -26,7 +27,7 @@ namespace DSS.Controllers
         [Authorize(Roles = "System Admin")]
         // GET: UserMng/Index
         public ActionResult Index()
-        {  
+        {
             ViewBag.userList = GetAllUser();
             return View();
         }
@@ -50,7 +51,7 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
-       
+
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -119,7 +120,7 @@ namespace DSS.Controllers
                     BrandId = model.BrandId,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);                 
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
@@ -129,7 +130,7 @@ namespace DSS.Controllers
                         ContentType = "text/html"
                     };
                 }
-                
+
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();

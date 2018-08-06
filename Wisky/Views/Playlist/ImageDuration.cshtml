@@ -6,7 +6,7 @@
     bool status = true;
     if (Model != null)
     {
-        status = Model.isActive;
+        status = Model.isPublic;
     }
 }
 <style>
@@ -20,18 +20,18 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Set duration for Image</h2>
+                    <h2>@DSS.ResourcesLanguage.ImgDuration.PageHeader</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
-                    @using (Html.BeginForm("", "", new { ScreenId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_screen", @class = "form-horizontal form-label-left", role = "form" }))
+                    @using (Html.BeginForm("", "", new { ScreenId = (Model?.MediaSrcId) }, FormMethod.Post, new { @id = "frm_duration", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
                             <input type="hidden" name="mediaSrcId" id="mediaSrcId" value="@(Model?.MediaSrcId)" />
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Title
+                                @DSS.ResourcesLanguage.ImgDuration.LblTitle
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
                                 <div id="title"></div>
@@ -39,24 +39,27 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Status
+                                @DSS.ResourcesLanguage.ImgDuration.Status
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9" @*style="padding-top:1px"*@>
                                 <input type="hidden" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") />
-                                <span id="spStatus">@(status ? "Enable" : "Disable")</span>
+                                <span id="spStatus">@(status ? DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic : DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate)</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Duration
+                                @DSS.ResourcesLanguage.ImgDuration.LblDuration
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
                                 <input id="imgDuration" type="text" class="time" />
                             </div>
+                            <!--Show validation-->
+                            <span class="field-validation-error-duration" style="padding-left:120px; color:red"></span>
+                            <!--End Show validation-->
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.ImgDuration.LblDescription
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
                                 <div id="description"></div>
@@ -65,7 +68,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                <div type="submit" class="btn btn-success" id="btnSet">Set Duration</div>
+                                <div type="button" onclick="checkValidation()" class="btn btn-success" id="btnSet">@DSS.ResourcesLanguage.ImgDuration.BtnSet</div>
                             </div>
                         </div>
                     }
@@ -81,6 +84,23 @@
             alert(value);
         });
     </script>
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            var pattern = /^\d{2}:\d{2}:\d{2}$/;
+            $(".field-validation-error-duration").empty();
+            var input = $("#imgDuration");
+            if (input.val() == '') {
+                $(".field-validation-error-duration").html($("#du").val());
+            } else if (!pattern.test(input.val())) {
+                $(".field-validation-error-duration").html($("#format").val());
+            } else {
+                $("#frm_screen").submit();
+                parent.jQuery.fn.colorbox.close();
+            }
+        }
+    </script>
+    <!-- End Validation-->
     <!-- jQuery -->
     <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Switchery -->
@@ -110,9 +130,9 @@
         });
 
         $("#cbStatus").change(function () {
-            var text = "Disable";
+            var text = $("#private").val();
             if (this.checked) {
-                text = "Enable";
+                text = $("#public").val();
             }
             $('#spStatus').text(text);
         });
@@ -124,6 +144,10 @@
         $("#title").append(title);
         $("#description").append(description);
     </script>
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ImgDuration" id="du" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ImgFormat" id="format" />
 }
 @section styles{
     <!-- Switchery -->

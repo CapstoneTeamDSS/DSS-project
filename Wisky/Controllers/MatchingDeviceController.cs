@@ -22,7 +22,7 @@ namespace DSS.Controllers
 
         // GET: MatchingDevice/index
         public ActionResult Index()
-        {           
+        {
             var devices = this.deviceService.Get().ToList();
             var deviceVMs = new List<Models.MatchingDeviceVM>();
             foreach (var item in devices)
@@ -63,7 +63,7 @@ namespace DSS.Controllers
 
         // GET: Matching/Form/:id
         public ActionResult Form(int? id, string boxId, string screenId)
-        { 
+        {
             Models.MatchingDeviceVM model = null;
             if (id != null)
             {
@@ -160,6 +160,8 @@ namespace DSS.Controllers
                             ResolutionId = item.ResolutionID,
                             ScreenId = item.ScreenID,
                             LocationId = item.LocationID,
+                            isHorizontal = item.isHorizontal,
+                            
                         };
                         screenVMs.Add(b);
                     }
@@ -229,6 +231,7 @@ namespace DSS.Controllers
         }
 
         // GET: MatchingDevice/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var device = this.deviceService.Get(id);

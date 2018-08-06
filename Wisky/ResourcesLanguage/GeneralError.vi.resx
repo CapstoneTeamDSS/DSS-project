@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Canceled" xml:space="preserve">
+    <value>Đã hủy !</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Tệp tin của bạn đã được xóa</value>
+  </data>
+  <data name="Deleted1" xml:space="preserve">
+    <value>Đã xóa !</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Đã có lỗi xảy ra !</value>
+  </data>
+  <data name="Filesafe" xml:space="preserve">
+    <value>Tệp tin của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="IfDelete" xml:space="preserve">
+    <value>Nếu bạn muốn xóa nó </value>
+  </data>
+  <data name="InUse" xml:space="preserve">
+    <value>Tệp đang được sử dụng</value>
+  </data>
+  <data name="PlsDelete" xml:space="preserve">
+    <value>Xin hãy xóa danh sách</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Xin hãy nhập nhãn dán</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Xin hãy chọn tệp để tải lên</value>
+  </data>
+  <data name="notbeable" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi tệp tin này</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Bạn có chắc không ?</value>
+  </data>
+  <data name="CantSendReq" xml:space="preserve">
+    <value>Không thể gửi yêu cầu</value>
+  </data>
+  <data name="SelectItem" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một tài nguyên</value>
+  </data>
+  <data name="NoCancel" xml:space="preserve">
+    <value>Không, đừng xóa !</value>
+  </data>
+  <data name="PlsDeleteScen" xml:space="preserve">
+    <value>Xin hãy xóa kịch bản</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Vâng, hãy xóa !</value>
+  </data>
+  <data name="ImgDuration" xml:space="preserve">
+    <value>Xin hãy điền thời lượng</value>
+  </data>
+  <data name="ImgFormat" xml:space="preserve">
+    <value>Xin hãy điền với định dạng 00:00:00</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>and click next</value>
+  </data>
+  <data name="PlsArea" xml:space="preserve">
+    <value>Xin hãy chọn vị trí khung</value>
+  </data>
+  <data name="PlsCorrect" xml:space="preserve">
+    <value>Xin hãy sửa thông tin ở bước</value>
+  </data>
+  <data name="DeleteScreen" xml:space="preserve">
+    <value>Màn hình của bạn đã được xóa</value>
+  </data>
+  <data name="PlsUnmatch" xml:space="preserve">
+    <value>Xin hãy tách rời thiết bị</value>
+  </data>
+  <data name="SafeScreen" xml:space="preserve">
+    <value>Màn hình của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="ScreenInUse" xml:space="preserve">
+    <value>Màn hình đang được sử dụng</value>
+  </data>
+  <data name="ScreenRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể khôi phục lại màn hình</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Xin hãy chọn địa điểm</value>
+  </data>
+  <data name="Resolution" xml:space="preserve">
+    <value>Xin hãy chọn độ phân giải</value>
+  </data>
+  <data name="ScreenName" xml:space="preserve">
+    <value>Xin hãy điền tên màn hình</value>
+  </data>
+  <data name="BoxInUse" xml:space="preserve">
+    <value>Box đang được sử dụng</value>
+  </data>
+  <data name="BoxRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi box này</value>
+  </data>
+  <data name="DeleteBox" xml:space="preserve">
+    <value>Box của bạn đã được xóa</value>
+  </data>
+  <data name="SafeBox" xml:space="preserve">
+    <value>Box của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="BoxName" xml:space="preserve">
+    <value>Xin hãy nhập tên box</value>
+  </data>
+  <data name="DeleteDevice" xml:space="preserve">
+    <value>Thiết bị của bạn đã được xóa</value>
+  </data>
+  <data name="DeleteNotif" xml:space="preserve">
+    <value>Bạn sẽ không thể quản lý nội dung trên thiết bị này</value>
+  </data>
+  <data name="SafeDevice" xml:space="preserve">
+    <value>Thiết bị của bạn vẫn an toàn</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Xin hãy nhập địa chỉ</value>
+  </data>
+  <data name="DeleteLocation" xml:space="preserve">
+    <value>Địa điểm của bạn đã được xóa</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Xin hãy nhập quận</value>
+  </data>
+  <data name="LocationRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi địa điểm này</value>
+  </data>
+  <data name="LocationSafe" xml:space="preserve">
+    <value>Địa điểm của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="Province" xml:space="preserve">
+    <value>Xin hãy nhập khu vực</value>
+  </data>
+  <data name="NameLetter" xml:space="preserve">
+    <value>Xin hãy điền tên đủ chỉ với kí tự</value>
+  </data>
+  <data name="BrandRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể khôi phục thương hiệu này</value>
+  </data>
+  <data name="BrandSafe" xml:space="preserve">
+    <value>Thương hiêu của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="DeleteBrand" xml:space="preserve">
+    <value>Thương hiêu của bạn đã được xóa</value>
+  </data>
+  <data name="PleaseDay" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một ngày</value>
+  </data>
+  <data name="PleaseTime" xml:space="preserve">
+    <value>Xin hãy chọn ít nhất một thời điểm</value>
+  </data>
+  <data name="PlsDev" xml:space="preserve">
+    <value>Xin hãy chọn thiết bị</value>
+  </data>
+  <data name="PlsScen" xml:space="preserve">
+    <value>Xin hãy chọn kịch bản</value>
+  </data>
+  <data name="SafeScen" xml:space="preserve">
+    <value>Lịch trình của bạn vẫn an toàn :)</value>
+  </data>
+  <data name="ScenDelete" xml:space="preserve">
+    <value>Lịch trình của bạn đã được xóa</value>
+  </data>
+  <data name="ScenRecover" xml:space="preserve">
+    <value>Bạn sẽ không thể phục hồi lịch trình này</value>
+  </data>
+</root>

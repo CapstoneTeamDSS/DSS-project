@@ -19,12 +19,12 @@ namespace DSS.Data.Models.Entities.Services
             var playlistItems = this.repository
                 .Get(a => a.PlaylistID == playlistID)
                 .ToList();
-            var totalDuration = new TimeSpan();
+            var totalDuration = 0;
             foreach (var item in playlistItems)
             {
-                totalDuration += TimeSpan.ParseExact(item.Duration, "g", null);
+                totalDuration += item.Duration;
             }
-            result = totalDuration.ToString();
+            result = TimeSpan.FromSeconds(totalDuration).ToString();
             return result;
         }
 

@@ -9,7 +9,7 @@ namespace DSS.Models
     public class BrandDetailVM
     {
         public int? Id { get; set; }
-        [Required(ErrorMessage = "Please enter Brand's name")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Brand")]
         public string Name { get; set; }
         public string Description { get; set; }
         public bool isActive { get; set; }

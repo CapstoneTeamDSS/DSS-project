@@ -43,6 +43,7 @@ namespace DSS.Controllers
             }
             return ScreenVM;
         }
+        [Authorize(Roles = "Admin")]
         // GET: Screen/Delete/:id
         public ActionResult Delete(int id)
         {
@@ -111,6 +112,39 @@ namespace DSS.Controllers
                 };
             }
             return View("Form", model);
+        }
+        // POST: Screen/CheckScreenIdIsMatching  
+        [HttpPost]
+        public JsonResult CheckScreenIdIsMatching(int id)
+        {
+            try
+            {
+                //Get device by screen Id
+                IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
+                var device = deviceService.Get(a => a.ScreenID == id).FirstOrDefault();
+                //bool isUsing = true;
+                //if (device == null)
+                //{
+                //    isUsing = false;
+                //}
+                DSS.Models.MatchingDeviceVM deviceVM = null;
+                if (device != null)
+                {
+                    deviceVM = new DSS.Models.MatchingDeviceVM
+                    {
+                        Title = device.Title,
+                    };
+                }
+                return Json(new
+                {
+                    isUsing = device != null,
+                    deviceVM = deviceVM,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         // POST: Screen/Update
         [HttpPost]

@@ -14,6 +14,7 @@ namespace DSS.Models
         [Required(ErrorMessage = "Please select title")]
         public string Title { get; set; }
         public string Description { get; set; }
+        public bool IsPublic { get; set; }
     }
 
     public class ScenarioDetailVM
@@ -23,6 +24,7 @@ namespace DSS.Models
         public string Title { get; set; }
         public int LayoutId { get; set; }
         public PlaylistArea[] PlaylistAreaArr { get; set; }
+        public bool IsPublic { get; set; }
     }
 
     public class PlaylistArea

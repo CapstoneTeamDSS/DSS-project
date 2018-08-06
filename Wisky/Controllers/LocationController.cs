@@ -140,8 +140,7 @@ namespace DSS.Controllers
             if (ModelState.IsValid)
             {
                 var location = new Data.Models.Entities.Location
-                {
-                    LocationID = model.LocationId,
+                {                   
                     BrandID = user.BrandID,
                     Province = model.Province,
                     District = model.District,
@@ -170,7 +169,7 @@ namespace DSS.Controllers
                 var location = this.locationService.Get(model.LocationId);
                 if (location != null)
                 {
-                    location.LocationID = model.LocationId;
+                    location.LocationID = (int)model.LocationId;
                     location.BrandID = user.BrandID;
                     location.Province = model.Province;
                     location.District = model.District;

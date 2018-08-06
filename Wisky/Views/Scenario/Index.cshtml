@@ -1,22 +1,20 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Scenario Management</h3>
+            <h3>@DSS.ResourcesLanguage.ScenarioIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
-    
+
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Scenario list</h2>
+                    <h2>@DSS.ResourcesLanguage.ScenarioIndex.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
@@ -30,20 +28,20 @@
                 </div>
                 <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                        List of created scenarios
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
 
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.ScenarioIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Title
+                                    @DSS.ResourcesLanguage.ScenarioIndex.ColTitle
                                 </th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.ScenarioIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.ScenarioIndex.ColStatus</th>
+                                <th>@DSS.ResourcesLanguage.ScenarioIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,10 +54,11 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.Description)</td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.ScenarioId)">@( (bool)item.IsPublic ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</a></td>
                                         <td style="width:300px; text-align:center">
-                                            <a href="/Scenario/UpdateForm/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info"> Edit Info</i></a>
-                                            <a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success"> Edit Details</i></a>
-                                            <a href="/Scenario/Delete/@(item.ScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Scenario/UpdateForm/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditInfo</i></a>
+                                            <a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditDetails</i></a>
+                                            <a class="btnDelete" data-id="@item.ScenarioId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -89,6 +88,105 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Scenario/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? $("#public").val() : $("#private").val()); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+    </script>
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var idScenario = $(btnDel).attr("data-id");
+            var data = {
+                id: idScenario,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/CheckScenarioIdIsUsed",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //show sweerAlert warming
+                    if (data.isUsing) {
+                        swal("Oops...",$("#use").val(), "error");
+                    } else {
+                        swal({
+                            title: $("#sure").val(),
+                            text: $("#able").val(),
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#cancel").val(),
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Scenario/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Scenario/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal($("#deleted1").val(), $("#deleted").val(), "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert($("#error").val())
+                                        }
+                                    });
+                                } else {
+                                    swal($("#canceled").val(), $("#safe").val(), "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert($("#error").val());
+                }
+            });
+        });
+    </script>
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDeleteScen" id="scen" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.notbeable" id="able" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted1" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted" id="deleted" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="safe" />
+
+    <!--End Sweet alert-->
 }
 
 @section styles{
@@ -99,5 +197,8 @@
     <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
 

@@ -1,11 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Detail";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Detail";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>@DSS.ResourcesLanguage.PlaylistDetails.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,13 +16,10 @@
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Playlist Detail</h2>
+                    <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitleDetail</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
                     @using (Html.BeginForm("UpdateDetail", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
                         <div class="stepContainer">
@@ -30,13 +29,11 @@
                                     var i = 0;
                                     foreach (var item in playlistItemList)
                                     {
-                                        <li id='i_@(++i)' class="i-old" onclick="swapVideo('i_@(i)', this)">
+                                        <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)"></span>
+                                        <li id='i_@(++i)' class="i-old" data-value="@(item.playlistItemId)">
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
-                                            <input type="hidden" name="playlistItemIds[]" value="@(item.playlistItemId)" />
-                                            <input type="hidden" class="prePos" value="@(i)" />
-                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:10%" class="btn btn-success" data-video-url="@(item.URL)" value="Play"/>
-                                            <input type="button" style="position:relative; top: -15px; left:0; margin-left:5%" class="btn btn-danger" value="Delete"/>
+                                            <input type="button" style="position:relative; top: -15px; left:100px; margin-left:-10%" class="btn btn-danger" value="Delete" />
                                         </li>
                                     }
                                 }
@@ -44,8 +41,8 @@
                         </div>
                         <hr />
                         <div style="position:sticky; top:0; left:0 ">
-                            <input class="btn btn-primary" style="margin-left:35%" type="button" value="Reset" onClick="window.location.href=window.location.href">
-                            <input class="btn btn-success" style="margin-left:0" type="submit" value="Save Change" />
+                            <input class="btn btn-primary" style="margin-left:35%" type="button" value=@DSS.ResourcesLanguage.PlaylistDetails.BtnReset onClick="window.location.href=window.location.href">
+                            <input class="btn btn-success" style="margin-left:0" type="submit" value="@DSS.ResourcesLanguage.PlaylistDetails.BtnSave" />
                             @*<button style="margin-left:2%" type="submit" class="btn btn-success">Submit</button>*@
                         </div>
                     }
@@ -56,16 +53,12 @@
         <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Preview </h2>
+                    <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
+                    <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
-
                     <div id="preview-warapper" style="display:inline-block">
-                        <video id="player" src="~/Content/videos/video1.mp4" controls></video>
                     </div>
                     <hr />
                 </div>
@@ -98,35 +91,134 @@
             }
         });
     </script>
+    <!--Show preview-->
     <script>
-        function swapVideo(id, el) {
-            var allListItem = document.querySelectorAll('#namelist li');
-            for (var item of allListItem) {
-                if (item.getAttribute('id') == id) {
-                    item.classList.add('i-new');
-                    item.classList.remove('i-old');
-                } else {
-                    item.classList.add('i-old');
-                    item.classList.remove('i-new');
+        $("#namelist li").click(function () {
+            $('#preview-warapper').empty();
+            var data = {
+                id: $(this).attr('data-value'),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Playlist/CheckTypeMediaSrcInPlaylist",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.mediaType == 1) {
+                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: data.mediaURL }));
+                        $("#theImg").css('height', '350px');
+                        $("#theImg").css('width', '350px');
+                        $("#preview-warapper").css('margin-left', '100px');
+                    } else if (data.mediaType == 2) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var video = $('<video />', {
+                            id: 'video',
+                            src: data.mediaURL,
+                            type: 'video/mp4',
+                            controls: true
+                        });
+                        console.log(video);
+                        console.log(video.duration);
+                        video.appendTo($('#preview-warapper'));
+                        video[0].play();
+                    } else if (data.mediaType == 3) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var audio = $('<audio />', {
+                            id: 'audio',
+                            src: data.mediaURL,
+                            type: 'audio/mp3',
+                            controls: true
+                        });
+                        audio.appendTo($('#preview-warapper'));
+                        audio[0].play();
+                    } else if (data.mediaType == 4) {
+                        $.get(data.mediaURL, function (data) {
+                            var lines = data.split("\n");
+                            $.each(lines, function (n, elem) {
+                                $('#preview-warapper').append('<div>' + elem + '</div>');
+                            });
+                        });
+                        $("#preview-warapper").css('margin-left', '10px');
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
                 }
-            }
-            var firstBtn = document.querySelector(`#${id} .btn-success`);
-            player.src = firstBtn.getAttribute("data-video-url");
-            player.load();
-            player.play();
-        }
-
-        var videoPlayButtons = document.querySelectorAll("button"),
-            player = document.getElementById("player");
-
-                                                                        //for (var i = 0; i < videoPlayButtons.length; i++) {
-                                                                        //    videoPlayButtons[i].addEventListener('click', swapVideo);
-                                                                        //}
+            });
+        });
     </script>
+    <!--End Show preview-->
+    @*<!--Show all preview-->
+        <script>
+            $("#playAll").on('click', function () {
+                var time = 0;
+                $('.media-datas').each(function () {
+                    $('#preview-warapper').empty();
+                    var type = $(this).attr('data-type');
+                    var url = $(this).attr('data-url');
+                    if (type == 1) {
+                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
+                        $("#theImg").css('height', '350px');
+                        $("#theImg").css('width', '350px');
+                        $("#preview-warapper").css('margin-left', '100px');
+                    } else if (type == 2) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var video = $('<video />', {
+                            id: 'video',
+                            src: url,
+                            type: 'video/mp4',
+                            controls: true
+                        });
+                        video.appendTo($('#preview-warapper'));
+                        video[0].play();
+                    } else if (type == 3) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var audio = $('<audio />', {
+                            id: 'audio',
+                            src: url,
+                            type: 'audio/mp3',
+                            controls: true
+                        });
+                        audio.appendTo($('#preview-warapper'));
+                        audio[0].play();
+                    } else if (type == 4) {
+                        $.get(url, function (data) {
+                            var lines = data.split("\n");
+                            $.each(lines, function (n, elem) {
+                                $('#preview-warapper').append('<div>' + elem + '</div>');
+                            });
+                        });
+                        $("#preview-warapper").css('margin-left', '10px');
+                    }
+                });
+            });
+        </script>
+        <!--End Show all preview-->*@
+    <!--Show all preview-->
+    <script type="text/javascript" src="~/Content/HTML5Gallery/html5gallery.js"></script>
+    <script>
+        $("#playAll").on('click', function () {
+            var divPreview = $('#preview-warapper');
+            divPreview.empty();
+            var url = [];
+            $('.media-datas').each(function () {
+                url.push($(this).attr('data-url'));
+            });
+            divPreview.addClass("html5gallery");
+            divPreview.attr({ "data-skin": "darkness", "data-width": "480", "data-height": "272", "data-resizemode": "fill" });
+            if (url.length > 0) {
+                for (var i = 0; i < url.length; i++) {
+                    divPreview.html('<a class="playlist"></a>');
+                    $(".playlist").attr("href", url[i]);
+                }
+            }          
+        });
+    </script>
+    <!--End Show all preview-->
 }
 
 @section styles{
-
     <style>
         .stepContainer {
             max-height: 315px;
@@ -186,7 +278,6 @@
             width: 350px;
             height: 350px
         }
-
 
         #namelist li {
             width: 500px;

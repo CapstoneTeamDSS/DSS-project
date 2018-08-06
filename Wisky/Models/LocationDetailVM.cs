@@ -8,13 +8,13 @@ namespace DSS.Models
 {
     public class LocationDetailVM
     {
-        public int LocationId { get; set; }
+        public int? LocationId { get; set; }
         public int BrandId { get; set; }
-        [Required(ErrorMessage = "Province can not be empty!!!")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.GeneralError), ErrorMessageResourceName ="Province")]
         public string Province { get; set; }
-        [Required(ErrorMessage = "District can not be empty!!!")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.GeneralError), ErrorMessageResourceName = "District")]
         public string District { get; set; }
-        [Required(ErrorMessage = "Address can not be empty!!!")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.GeneralError), ErrorMessageResourceName = "Address")]
         public string Address { get; set; }
         public string BrandName { get; set; }
         public string Description { get; set; }

@@ -15,10 +15,12 @@ namespace DSS.Models
 
         public int displayOrder { get; set; }
 
-        public string duration { get; set; }
+        public int duration { get; set; }
 
         public string mediaSrcTitle { get; set; }
 
         public string URL { get; set; }
+
+        public int mediaType { get; set; }
     }
 }

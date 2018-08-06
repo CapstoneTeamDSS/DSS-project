@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Location Management</h3>
+            <h3>@DSS.ResourcesLanguage.LocationIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Location List</h2><br>
+                    <h2>@DSS.ResourcesLanguage.LocationIndex.PageTitle</h2><br>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
                     <a href="/Location/Form" class="iframe">
@@ -34,18 +34,16 @@
                         <thead>
                             <tr>
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.LocationIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Brand Name
+                                    @DSS.ResourcesLanguage.LocationIndex.ColBrand
                                 </th>
-                                <th>Province</th>
-                                <th>District</th>
-                                <th>Address</th>
-                                <th>Description</th>
-                                <th>Action</th>
-
-
+                                <th>@DSS.ResourcesLanguage.LocationIndex.ColProvince</th>
+                                <th>@DSS.ResourcesLanguage.LocationIndex.ColDistrict</th>
+                                <th>@DSS.ResourcesLanguage.LocationIndex.ColAddress</th>
+                                <th>@DSS.ResourcesLanguage.LocationIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.LocationIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,8 +60,8 @@
                                         <td>@(item.Address )</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Location/Form/@(item.LocationId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a class="btnDelete" data-id="@item.LocationId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Location/Form/@(item.LocationId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.LocationIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.LocationId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.LocationIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -75,6 +73,22 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBox" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.LocationSafe" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteLocation" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.LocationRecover" id="able" />
+
+
+
+
+
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -101,7 +115,7 @@
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "70%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -126,22 +140,22 @@
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
-                success: function (data) {                   
+                success: function (data) {
                     location = data.locationIdDelete.Province;
                     console.log(location);
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#err").val())
                 }
             });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this!" + location,
+                title: $("#sure").val(),
+                text: $("#able").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -154,15 +168,15 @@
                             url: "/Location/Delete?Id=" + locationIdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your location has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your location is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });
