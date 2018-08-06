@@ -7,27 +7,27 @@
       <Diagram DiagramId="60dd0cc3d4c5407098ce42826cda126c" Name="Diagram1">
         <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="9" PointY="12" />
         <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="0.75" PointY="11.25" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="12.375" />
-        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="9.875" />
+        <EntityTypeShape EntityType="DSSModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.5" />
         <EntityTypeShape EntityType="DSSModel.AspNetUser" Width="1.5" PointX="3" PointY="9.75" />
-        <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="5.25" PointY="22.625" />
+        <EntityTypeShape EntityType="DSSModel.Box" Width="1.5" PointX="5.25" PointY="38.75" />
         <EntityTypeShape EntityType="DSSModel.Brand" Width="1.5" PointX="0.75" PointY="15.5" />
-        <EntityTypeShape EntityType="DSSModel.Device" Width="1.5" PointX="7.5" PointY="21.75" />
-        <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="12.75" PointY="19.875" />
-        <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="3.75" PointY="1.75" />
-        <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="3" PointY="22.25" />
+        <EntityTypeShape EntityType="DSSModel.Device" Width="1.5" PointX="7.5" PointY="26.5" />
+        <EntityTypeShape EntityType="DSSModel.DeviceScenario" Width="1.5" PointX="9.75" PointY="21.25" />
+        <EntityTypeShape EntityType="DSSModel.Layout" Width="1.5" PointX="3.75" PointY="23.75" />
+        <EntityTypeShape EntityType="DSSModel.Location" Width="1.5" PointX="3" PointY="34.875" />
         <EntityTypeShape EntityType="DSSModel.MediaSrc" Width="1.5" PointX="3" PointY="15.375" />
         <EntityTypeShape EntityType="DSSModel.MediaType" Width="1.5" PointX="0.75" PointY="20.125" />
-        <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="DSSModel.Playlist" Width="1.5" PointX="6" PointY="19.75" />
         <EntityTypeShape EntityType="DSSModel.PlaylistItem" Width="1.5" PointX="8.25" PointY="15.875" />
-        <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="3" PointY="35.375" />
+        <EntityTypeShape EntityType="DSSModel.Resolution" Width="1.5" PointX="3" PointY="31.75" />
         <EntityTypeShape EntityType="DSSModel.Scenario" Width="1.5" PointX="6" PointY="15.5" />
         <EntityTypeShape EntityType="DSSModel.ScenarioItem" Width="1.5" PointX="11.25" PointY="15.75" />
-        <EntityTypeShape EntityType="DSSModel.Schedule" Width="1.5" PointX="9.75" PointY="19.875" />
-        <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="28.625" />
+        <EntityTypeShape EntityType="DSSModel.Schedule" Width="1.5" PointX="12.75" PointY="21.25" />
+        <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="33.375" />
         <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DSSModel.TimeSlot" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="3.75" PointY="6.125" />
+        <EntityTypeShape EntityType="DSSModel.TimeSlot" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="3.75" PointY="20.125" />
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
         <AssociationConnector Association="DSSModel.FK_Area_VisualType" />
         <AssociationConnector Association="DSSModel.FK_ScenarioItem_Area" />

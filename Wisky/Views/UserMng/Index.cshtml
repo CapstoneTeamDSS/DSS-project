@@ -69,7 +69,7 @@
                                         <td>@(item.UserName)</td>
                                         <td>@(item.FullName)</td>
                                         <td>@(item.Email)</td>
-                                        <td>@(item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.UserName)">@( (bool)item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a></td>
                                         @{
                                             if (User.IsInRole("System Admin"))
                                             {
@@ -90,8 +90,8 @@
         </div>
     </div>
 </div>
-<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable" />
-<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
 <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.Notable" id="recover" />
 <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.AccSafe" id="safe" />
 <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.DelSucc" id="del" />
@@ -138,6 +138,29 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/UserMng/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? $("#act").val() : $("#dis").val()); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert($("#err").val())
+                }
+            });
+        }
+    </script>
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <script>
