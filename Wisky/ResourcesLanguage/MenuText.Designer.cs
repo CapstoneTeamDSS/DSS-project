@@ -79,7 +79,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advanced Scheduling.
+        ///   Looks up a localized string similar to Scheduling.
         /// </summary>
         public static string AdvSchedule {
             get {
