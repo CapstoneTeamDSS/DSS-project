@@ -835,6 +835,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScreenIndex.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourcesLanguage\UserChange.vi.Designer.cs">
+      <DependentUpon>UserChange.vi.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResourcesLanguage\UserChange.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserChange.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesLanguage\UserDetails.vi.Designer.cs">
       <DependentUpon>UserDetails.vi.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -2281,6 +2291,14 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <EmbeddedResource Include="ResourcesLanguage\UserChange.vi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserChange.vi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourcesLanguage\UserChange.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserChange.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesLanguage\UserMngForm.vi.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserMngForm.vi.Designer.cs</LastGenOutput>

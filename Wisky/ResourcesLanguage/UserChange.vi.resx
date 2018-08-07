@@ -117,67 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountMng" xml:space="preserve">
-    <value>Quản lý người dùng</value>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Hủy bỏ</value>
   </data>
-  <data name="AdvSchedule" xml:space="preserve">
-    <value>Xếp lịch</value>
+  <data name="BtnUpdate" xml:space="preserve">
+    <value>Cập nhật</value>
   </data>
-  <data name="BoxMng" xml:space="preserve">
-    <value>Android Box</value>
+  <data name="Confirm" xml:space="preserve">
+    <value>Xác nhận Mật khẩu</value>
   </data>
-  <data name="BrandMng" xml:space="preserve">
-    <value>Quản lý thương hiệu</value>
+  <data name="CPass" xml:space="preserve">
+    <value>Đổi Mật khẩu</value>
   </data>
-  <data name="DeviceMng" xml:space="preserve">
-    <value>Thiết bị</value>
+  <data name="CurrPass" xml:space="preserve">
+    <value>Mật khẩu Hiện tại</value>
   </data>
-  <data name="GeneralSection" xml:space="preserve">
-    <value>Quản lý chung</value>
+  <data name="NewPass" xml:space="preserve">
+    <value>Mật khẩu mới</value>
   </data>
-  <data name="LayoutMng" xml:space="preserve">
-    <value>Cách bố trí</value>
+  <data name="PageHeader1" xml:space="preserve">
+    <value>Tài khoản của tôi</value>
   </data>
-  <data name="LocationMng" xml:space="preserve">
-    <value>Địa điểm</value>
+  <data name="PageHeader2" xml:space="preserve">
+    <value>Cập nhật Mật khẩu </value>
   </data>
-  <data name="Logout" xml:space="preserve">
-    <value>Đăng xuất</value>
-  </data>
-  <data name="Matching" xml:space="preserve">
-    <value>Ghép thiết bị</value>
-  </data>
-  <data name="MediaResourceMng" xml:space="preserve">
-    <value>Tài nguyên</value>
-  </data>
-  <data name="MediaSection" xml:space="preserve">
-    <value>Quản lý Đa phương tiện </value>
-  </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>Tài khoản</value>
-  </data>
-  <data name="PlaylistMng" xml:space="preserve">
-    <value>Chương trình</value>
-  </data>
-  <data name="Report" xml:space="preserve">
-    <value>Báo cáo</value>
-  </data>
-  <data name="ResolutionMng" xml:space="preserve">
-    <value>Độ phân giải</value>
-  </data>
-  <data name="ScenarioMng" xml:space="preserve">
-    <value>Kịch bản</value>
-  </data>
-  <data name="Scheduling" xml:space="preserve">
-    <value>Xếp lịch</value>
-  </data>
-  <data name="ScreenMng" xml:space="preserve">
-    <value>Màn hình</value>
-  </data>
-  <data name="SystemSection" xml:space="preserve">
-    <value>Quản lý Hệ thống</value>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Xin chào</value>
+  <data name="Pass" xml:space="preserve">
+    <value>Mật Khẩu</value>
   </data>
 </root>
