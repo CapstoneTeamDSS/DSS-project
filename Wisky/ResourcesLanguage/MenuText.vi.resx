@@ -132,6 +132,9 @@
   <data name="DeviceMng" xml:space="preserve">
     <value>Thiết bị</value>
   </data>
+  <data name="GeneralSection" xml:space="preserve">
+    <value>Quản lý chung</value>
+  </data>
   <data name="LayoutMng" xml:space="preserve">
     <value>Cách bố trí</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="MediaResourceMng" xml:space="preserve">
     <value>Tài nguyên</value>
+  </data>
+  <data name="MediaSection" xml:space="preserve">
+    <value>Quản lý Đa phương tiện </value>
   </data>
   <data name="MyAcc" xml:space="preserve">
     <value>Tài khoản</value>
@@ -167,6 +173,9 @@
   </data>
   <data name="ScreenMng" xml:space="preserve">
     <value>Màn hình</value>
+  </data>
+  <data name="SystemSection" xml:space="preserve">
+    <value>Quản lý Hệ thống</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Xin chào</value>
