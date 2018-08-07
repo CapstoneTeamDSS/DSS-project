@@ -151,7 +151,7 @@
     <value>Time To Play</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
-    <value>Make New Schedule</value>
+    <value>Create New Schedule</value>
   </data>
   <data name="TxtDeviceNameDefault" xml:space="preserve">
     <value>Choose Device</value>

@@ -115,7 +115,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Scenario Inforation.
+        ///   Looks up a localized string similar to  Scenario Information.
         /// </summary>
         public static string PageTitle {
             get {
