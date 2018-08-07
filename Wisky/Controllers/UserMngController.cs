@@ -100,7 +100,25 @@ namespace DSS.Controllers
             }
             return roleList;
         }
+        [Authorize(Roles = "System Admin")]
+        public ActionResult UpdateStatus(string dataId)
+        {
+            bool result = false;
+            var user = this.aspNetUserService
+                .Get(a => a.UserName.Equals(dataId))
+                .FirstOrDefault();
+            if (user != null)
+            {
+                user.isActive = !user.isActive;
+                this.aspNetUserService.Update(user);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
+        }
 
         // POST: UserMng/Add
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.UserDetailVM model)
