@@ -106,6 +106,15 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Input wrong old/ Confirm new password.
+        /// </summary>
+        public static string InputWrong {
+            get {
+                return ResourceManager.GetString("InputWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Password.
         /// </summary>
         public static string NewPass {

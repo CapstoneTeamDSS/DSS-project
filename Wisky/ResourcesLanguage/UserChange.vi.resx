@@ -144,4 +144,7 @@
   <data name="Pass" xml:space="preserve">
     <value>Mật Khẩu</value>
   </data>
+  <data name="InputWrong" xml:space="preserve">
+    <value>Xin hãy nhập đúng mật khẩu cũ/ xác nhận mật khẩu mới</value>
+  </data>
 </root>

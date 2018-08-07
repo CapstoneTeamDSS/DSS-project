@@ -160,7 +160,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make New Schedule.
+        ///   Looks up a localized string similar to Create New Schedule.
         /// </summary>
         public static string PageHeader {
             get {

@@ -151,7 +151,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New User.
+        ///   Looks up a localized string similar to Update User Account.
         /// </summary>
         public static string PageHeader {
             get {
