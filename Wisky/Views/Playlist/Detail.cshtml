@@ -165,24 +165,20 @@
                 var title = $(this).attr('data-name');
                 var duration = parseInt($(this).attr('data-duration'));
                 var durationShow = 0;
-                if (duration == 0) {
-                    durationShow = 10000;
-                } else {
-                    durationShow = duration * 1000;
-                }
+                var result = (duration == 0) ? durationShow = 5000 : durationShow = duration * 1000;
                 if (i == 0) {
                     show();
                 } else {
-                    setTimeout(function () {
-                        $('#preview-warapper').empty();
-                        show();
-                    }, durationTimer + 1000);
+                    var temp = durationTimer;
+                    temp += durationShow;
+                    setTimeout(show, temp);
+                    
                 }
                 function show() {
+                    $('#preview-warapper').empty();
                     $('#hideMsg').show();
                     switch (type) {
                         case 1:
-                            var sec = $('#hideMsg span').text() || 0;
                             var sec = durationShow / 1000;
                             var timer = setInterval(function () {
                                 $('#name').text(title);
@@ -196,11 +192,19 @@
                             $("#theImg").css('height', '350px');
                             $("#theImg").css('width', '350px');
                             $("#preview-warapper").css('margin-left', '100px');
-                            //$(".timer").attr("data-seconds-left", durationTimer);
-                            //$('.timer').startTimer();
                             break;
                         case 2:
-                            break;
+                            $("#preview-warapper").css('margin-left', '100px');
+                            var video = $('<video />', {
+                                id: 'video',
+                                src: url,
+                                type: 'video/mp4',
+                                controls: true
+                            });
+                            video.appendTo($('#preview-warapper'));
+                            video[0].play();
+                            video.bind("ended", function () {
+                            });
                         default:
                             alert('3');
                     }
@@ -208,7 +212,7 @@
                 //$('video').on('ended', function () {
                 //    console.log('Video has ended!');
                 //});
-                
+
             });
         });
     </script>
