@@ -17,6 +17,7 @@ namespace DSS.Data.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Area()
         {
+            this.Scenarios = new HashSet<Scenario>();
             this.ScenarioItems = new HashSet<ScenarioItem>();
         }
     
@@ -26,6 +27,8 @@ namespace DSS.Data.Models.Entities
     
         public virtual Layout Layout { get; set; }
         public virtual VisualType VisualType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Scenario> Scenarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScenarioItem> ScenarioItems { get; set; }
     }

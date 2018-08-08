@@ -28,7 +28,9 @@ namespace DSS.Data.Models.Entities
         public string Description { get; set; }
         public int BrandID { get; set; }
         public Nullable<bool> isPublic { get; set; }
+        public Nullable<int> AudioArea { get; set; }
     
+        public virtual Area Area { get; set; }
         public virtual Brand Brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceScenario> DeviceScenarios { get; set; }
