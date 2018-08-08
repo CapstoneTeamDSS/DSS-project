@@ -81,6 +81,8 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ScreenRecover" id="recover" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
 
 @section scripts{
     <!-- Datatables -->
@@ -145,6 +147,10 @@
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#no").val(),
+                            closeOnConfirm: false,
+                            closeOnCancel: false
                         },
                             function (isConfirm) {
                                 if (isConfirm) {
