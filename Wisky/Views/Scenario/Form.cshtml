@@ -30,7 +30,7 @@
             <div class="col-md-12 col-sm-8 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle : DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle)<small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtStepbyStep</small></h2>
+                        <h2>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageTitle : DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle)<small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtStepbyStep</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -148,15 +148,6 @@
                                     </div>
                                     <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="x_panel" style="height:441px">
-                                                <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtYourPlaylist</h2>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <ul id="fromList" style="height:350px" class="stepContainer"></ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
                                                     <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPreview </h2>
@@ -164,23 +155,12 @@
                                                 </div>
                                                 <div class="x_content">
                                                     <div id="preview-warapper" style="display:inline-block;align-content:center">
-                                                        <div style="height:400px;width:500px;align-content:center" id="divLayout">
+                                                        <div style="height:350px;width:550px;align-content:center" id="divLayout">
                                                         </div>
                                                     </div>
                                                     <hr />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
-                                            <div class="x_panel" style="height:441px">
-                                                <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtAreaListPlaylist</h2>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <ul id="toList" style="height:350px" class="stepContainer"></ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
                                                     <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPlaylistInfo</h2>
@@ -211,6 +191,31 @@
                                                             18:00
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel" style="height:470px">
+                                                <div class="x_title">
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtAreaListPlaylist</h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="x_content">
+                                                    <ul id="toList" style="height:350px" class="stepContainer"></ul>
+                                                    <hr />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="x_panel" style="height:400px">
+                                                <div class="x_title">
+                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtYourPlaylist</h2>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="x_content">
+                                                    <ul id="fromList" style="height:350px" class="stepContainer"></ul>
+                                                    <hr />
                                                 </div>
                                             </div>
                                         </div>
@@ -499,7 +504,7 @@
                     }
                 });
             }
-        }        
+        }
 
         function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
             /*Remove data when change location*/

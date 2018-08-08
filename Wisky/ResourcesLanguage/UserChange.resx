@@ -144,4 +144,7 @@
   <data name="Pass" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="InputWrong" xml:space="preserve">
+    <value>Input wrong old/ Confirm new password</value>
+  </data>
 </root>
