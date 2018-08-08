@@ -155,9 +155,10 @@
                                                 </div>
                                                 <div class="x_content">
                                                     <div id="preview-warapper" style="display:inline-block;align-content:center">
-                                                        <div style="height:350px;width:550px;align-content:center" id="divLayout">
+                                                        <div style="height:350px;width:570px;align-content:center" id="divLayout">
                                                         </div>
                                                     </div>
+                                                    <input type="hidden" name="AudioArea" id="txtAudioAreaId" value="" />
                                                     <hr />
                                                 </div>
                                             </div>
@@ -282,7 +283,18 @@
         //    player.load();
         //    player.play();
         //}
-
+        function audioCheck(el) {
+            $('.cbAudio').not($(el)).prop('checked', false);
+            console.log($("input[name='AudioArea']"));
+            $("#txtAudioAreaId").attr("value", $(el).attr("value"));
+        }
+        function audioSetting(el) {
+            $('.cbAudio').each(function () {
+                $(this).prop("checked", false);
+            });
+            $("#txtAudioAreaId").attr("value", $(el).attr("area-id"));
+            onVdPlay(el);
+        }
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
