@@ -115,7 +115,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Screen.
+        ///   Looks up a localized string similar to Update Screen.
         /// </summary>
         public static string PageHeader {
             get {
