@@ -73,7 +73,7 @@ namespace DSS.Controllers
                 }               
                 return Json(new
                 {
-                    locationIsDelete = locationVMs,
+                    locationIdDelete = locationVMs,
                 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

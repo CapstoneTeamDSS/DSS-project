@@ -40,18 +40,22 @@ namespace DSS.Controllers
         public static List<Models.AndroidBoxVM> GetBoxIdByBrandId()
         {
             IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var AndroidBoxVM = new List<Models.AndroidBoxVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var user = Helper.GetCurrentUser();
             var boxList = boxService.GetBoxIdByBrandId(user.BrandID);
             foreach (var item in boxList)
             {
+                var location = locationService.Get(item.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var m = new Models.AndroidBoxVM
                 {
                     Name = item.BoxName,
                     Description = item.Description,
                     BoxId = item.BoxID,
-                    LocationId = item.LocationID
+                    LocationId = item.LocationID,
+                    Location = locationString,
                 };
                 AndroidBoxVM.Add(m);
             }
