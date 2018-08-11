@@ -13,6 +13,7 @@ namespace DSS.Models
         public int LocationId { get; set; }
         [Required(ErrorMessage = "Please enter Box's name")]
         public string Name { get; set; }
+        public string Location { get; set; }
         public string Description { get; set; }
     }
 }

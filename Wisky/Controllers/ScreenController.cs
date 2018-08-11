@@ -34,7 +34,6 @@ namespace DSS.Controllers
                 {
                     Name = item.ScreenName,
                     Description = item.Description,
-                    ResolutionId = item.ResolutionID,
                     ScreenId = item.ScreenID,
                     isHorizontal = item.isHorizontal,
                     LocationId = item.LocationID,
@@ -78,7 +77,6 @@ namespace DSS.Controllers
                         Name = screen.ScreenName,
                         ScreenId = screen.ScreenID, //truyen screen Id qua view de phan biet update hay addnew
                         Description = screen.Description,
-                        ResolutionId = screen.ResolutionID,
                         LocationId = screen.LocationID,
                         isHorizontal = screen.isHorizontal,
                     };
@@ -99,7 +97,6 @@ namespace DSS.Controllers
                     ScreenName = model.Name,
                     Description = model.Description,
                     LocationID = model.LocationId,
-                    ResolutionID= model.ResolutionId,
                     isHorizontal = model.isHorizontal,
 
                 };
@@ -158,7 +155,6 @@ namespace DSS.Controllers
                     screen.ScreenName = model.Name;
                     screen.Description = model.Description;
                     screen.LocationID = model.LocationId;
-                    screen.ResolutionID = model.ResolutionId;
                 }
                 await this.screenService.UpdateAsync(screen);
                 //return this.RedirectToAction("Index");
