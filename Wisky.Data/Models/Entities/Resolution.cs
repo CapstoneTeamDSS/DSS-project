@@ -14,12 +14,6 @@ namespace DSS.Data.Models.Entities
     
     public partial class Resolution
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Resolution()
-        {
-            this.Screens = new HashSet<Screen>();
-        }
-    
         public int ResolutionID { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
@@ -27,7 +21,5 @@ namespace DSS.Data.Models.Entities
         public int BrandID { get; set; }
     
         public virtual Brand Brand { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Screen> Screens { get; set; }
     }
 }
