@@ -73,26 +73,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                @DSS.ResourcesLanguage.ScreenAddForm.LblResolution  <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="select2_group form-control" name="ResolutionId" id="resolution-list">
-                                    <option value="-1">--- @DSS.ResourcesLanguage.ScreenAddForm.txtResolutionDefault ---</option>
-                                    @{
-                                        var resolutionList = ViewBag.resolutionList as List<DSS.Models.ResolutionDetailVM>;
-                                        if (resolutionList != null)
-                                        {
-                                            foreach (var item in resolutionList)
-                                            {
-                                                <option value="@(item.Id)" @(Model?.ResolutionId == item.Id ? "selected" : "")>@(item.Height) X @(item.Width)</option>
-                                            }
-                                        }
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
                                 @DSS.ResourcesLanguage.ScreenAddForm.LblDescription
                             </label>
@@ -128,7 +108,6 @@
 </div>
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.ScreenName" id="screen" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Location" id="locate" />
-<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Resolution" id="err" />
 @section scripts{
     <!--Radio Button Check Type Value-->
     <script>
@@ -148,9 +127,6 @@
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
                 stringError.push($("#locate").val());
-            }
-            if ($("#resolution-list").prop("selectedIndex") === 0) {
-                stringError.push($("#err").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
