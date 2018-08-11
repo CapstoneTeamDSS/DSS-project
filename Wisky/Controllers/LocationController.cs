@@ -195,11 +195,16 @@ namespace DSS.Controllers
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
             var boxInLocation = boxService.Get(a => a.LocationID == id).FirstOrDefault();
             var screenInLocation = screenService.Get(a => a.LocationID == id).FirstOrDefault();
+            bool result = false;
             if (location != null && boxInLocation == null && screenInLocation == null)
             {
                 this.locationService.Delete(location);
+                result = true;
             }
-            return this.RedirectToAction("Index");
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
         }
 
     }
