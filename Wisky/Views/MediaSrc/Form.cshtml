@@ -65,10 +65,10 @@
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-8">
                                     <input type="hidden" name="URL" id="txtMediaURL" value="@(Model?.URL)" />
+                                    <input type="hidden" name="SecurityHash" id="txtSecurityHash" value="@(Model?.SecurityHash)" />
                                     <input type="hidden" name="Filename" id="txtFilename" />
                                     <input type="hidden" name="Duration" id="txtDuration" />
                                     <input type="button" id="btnChange" value="@DSS.ResourcesLanguage.MediaSrcAddForm.BtnUpload" />
-                                    @*<input type="button" id="btnClose" value="Close" />*@
                                     <div id="review_container"></div>
                                     <script src="//static.filestackapi.com/filestack-js/1.x.x/filestack.min.js"></script>
                                 </div>
@@ -174,7 +174,8 @@
                 onUploadDone: (res) => uploadDoneCallBack(res),
             };
             var picker = client.picker(options);
-            //picker.open();
+            var fileHandle = "";
+            //picker.open();            
             function uploadDoneCallBack(res) {
                 var oldUrl = $("#txtMediaURL").val();
                 var oldHandle = oldUrl.replace("https://cdn.filestackcontent.com/", "");
@@ -182,6 +183,15 @@
                 var filename = res.filesUploaded[0].filename;
                 var mimetype = res.filesUploaded[0].mimetype;
                 var handle = res.filesUploaded[0].handle;
+                /*Get md5 hash value - take some time to calculate*/
+                client.metadata(handle, {
+                    md5: true,
+                }).then((response) => {
+                    $("#txtSecurityHash").val(response.md5);
+                    console.log(response.md5);
+                }).catch((error) => {
+                    console.error(error);
+                });
                 $("#txtMediaURL").val(url);
                 $("#txtFilename").val(filename);
                 $("#btnChange").val("Change media");
@@ -199,12 +209,11 @@
                 }
                 if (oldHandle != "") {
                     /*Delete previous uploaded file*/
-                    var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";
-                    var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
-                    var policy = "eyJjYWxsIjpbInJlYWQiLCJyZW1vdmUiXSwiZXhwaXJ5IjoxNTM1NjUyMDAwfQ==";                    
+                    //var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";
+                    //var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
+                    var policy = "eyJjYWxsIjpbInJlYWQiLCJyZW1vdmUiXSwiZXhwaXJ5IjoxNTM1NjUyMDAwfQ==";
                     var signature = "7084de1113fc2aad1e6736d3c3b2da841a963f123ac28b6395559307df7c38d9";
                     var delUrl = "https://www.filestackapi.com/api/file/" + oldHandle + "?key=" + apikey + "&policy=" + policy + "&signature=" + signature;
-                    console.log(delUrl);
                     $.ajax({
                         type: "DELETE",
                         url: delUrl,
@@ -215,7 +224,6 @@
                 }
             }
             btnChange.addEventListener('click', () => picker.open());
-            //btnClose.addEventListener('click', () => picker.close());
         });
     </script>
     <!-- End Switchery Change Status Text-->
