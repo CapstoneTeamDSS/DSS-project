@@ -19,7 +19,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.DeviceScenarioId != null) ? "Update Schedule" : "Make new Schedule")</h2>
+                    <h2>@((Model?.DeviceScenarioId != null) ? DSS.ResourcesLanguage.SchedulingUpdateForm.PageHeader : DSS.ResourcesLanguage.SchedulingAddForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -34,19 +34,19 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Screen orientation <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblScreenOrentation <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top: 8px;">
                                 <div id="orientaion" class="btn-group" data-toggle="buttons">
                                     <input type="hidden" id="isHorizontal" value="@(isHorizontal?1:0)" />
-                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; Portraint &nbsp;
-                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> Landscape
+                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; @DSS.ResourcesLanguage.SchedulingAddForm.TxtPortrait &nbsp;
+                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> @DSS.ResourcesLanguage.SchedulingAddForm.TxtLandscape
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Scenario Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblScenarioTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="ScenarioID" value="@(Model?.ScenarioID)" />
@@ -56,34 +56,34 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Device Name <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblDeviceName <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="hidden" id="DeviceID" value="@(Model?.DeviceID)" />
                                 <select class="select2_group form-control" name="DeviceID" id="DeviceList">
-                                    <option value="-1">--- Select Device ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.SchedulingUpdateForm.TxtDeviceNameDefault ---</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Playmode <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblPlaymode <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div id="playmode" class="btn-group" data-toggle="buttons">
                                     <input type="hidden" id="isFixed" value="@(Model?.isFixed==true?1:0)" />
                                     <label class="btn btn-primary" id="btnAuto" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" class="Playmode" name="isFixed" value="false"> &nbsp; Auto &nbsp;
+                                        <input type="radio" class="Playmode" name="isFixed" value="false"> &nbsp; @DSS.ResourcesLanguage.SchedulingUpdateForm.BtnAuto &nbsp;
                                     </label>
                                     <label class="btn btn-default" id="btnFixed" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                        <input type="radio" class="Playmode" name="isFixed" value="true"> Fixed
+                                        <input type="radio" class="Playmode" name="isFixed" value="true"> @DSS.ResourcesLanguage.SchedulingUpdateForm.BtnFixed
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Start time <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblStarttime <span class="required">*</span>
                             </label>
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
                                 <div class='input-group date' id='datetimepickerStart'>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                End time <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblEndtime <span class="required">*</span>
                             </label>
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
                                 <div class='input-group date' id='datetimepickerEnd'>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Time to plays <span class="required">*</span>
+                                @DSS.ResourcesLanguage.SchedulingUpdateForm.LblTimetoPlay <span class="required">*</span>
                             </label>
                             <div class="control-label col-md-3 col-sm-3 col-xs-12">
                                 <input name="TimeToPlay" id="TimeToPlay" class="form-control col-md-7 col-xs-12" min="0" type="number" value="@(Model?.TimeToPlay)" />
@@ -122,8 +122,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.SchedulingAddForm.BtReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.SchedulingAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -131,8 +131,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.SchedulingUpdateForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.SchedulingUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -186,9 +186,9 @@
                     var deviceList = data.DeviceList;
                     var scenarioList = data.ScenarioList;
                     $("#ScenarioList").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- Choose Scenario ---" + '</option>');
+                        .append('<option value="' + 0 + '">' + "--- @DSS.ResourcesLanguage.SchedulingAddForm.TxtScenarioTitleDefault ---" + '</option>');
                     $("#DeviceList").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- Choose Device ---" + '</option>');
+                        .append('<option value="' + 0 + '">' + "--- @DSS.ResourcesLanguage.SchedulingAddForm.TxtDeviceNameDefault ---" + '</option>');
                     for (var i = 0; i < scenarioList.length; i++) {
                         var selected = $("#ScenarioID").val() == scenarioList[i].ScenarioId ? "selected" : "";
                         if (scenarioList[i] != '') {

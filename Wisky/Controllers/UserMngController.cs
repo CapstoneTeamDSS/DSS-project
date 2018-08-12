@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -26,7 +27,7 @@ namespace DSS.Controllers
         [Authorize(Roles = "System Admin")]
         // GET: UserMng/Index
         public ActionResult Index()
-        {  
+        {
             ViewBag.userList = GetAllUser();
             return View();
         }
@@ -50,7 +51,7 @@ namespace DSS.Controllers
             }
             return userVMs;
         }
-       
+
         // GET: UserMng/Form/:id
         public ActionResult Form(string id)
         {
@@ -99,7 +100,25 @@ namespace DSS.Controllers
             }
             return roleList;
         }
+        [Authorize(Roles = "System Admin")]
+        public ActionResult UpdateStatus(string dataId)
+        {
+            bool result = false;
+            var user = this.aspNetUserService
+                .Get(a => a.UserName.Equals(dataId))
+                .FirstOrDefault();
+            if (user != null)
+            {
+                user.isActive = !user.isActive;
+                this.aspNetUserService.Update(user);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
+        }
 
         // POST: UserMng/Add
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.UserDetailVM model)
@@ -119,7 +138,7 @@ namespace DSS.Controllers
                     BrandId = model.BrandId,
                     isActive = model.isActive,
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);                 
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
@@ -129,7 +148,7 @@ namespace DSS.Controllers
                         ContentType = "text/html"
                     };
                 }
-                
+
             }
             // If we got this far, something failed, redisplay form
             ViewBag.brandList = BrandController.GetBrandList();

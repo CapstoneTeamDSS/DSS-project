@@ -19,6 +19,7 @@ namespace DSS.Models
         public DateTime CreateDatetime { get; set; }
         public bool isPublic { get; set; }
         public string Filename { get; set; }
+        public string SecurityHash { get; set; }
     }
 
     public class MediaSrcUseVM

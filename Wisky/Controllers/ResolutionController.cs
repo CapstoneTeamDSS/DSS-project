@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace DSS.Controllers
 {
     //[Authorize]
+    [Authorize(Roles = "System Admin")]
     public class ResolutionController : Controller
     {
         IResolutionService resolutionService = DependencyUtils.Resolve<IResolutionService>();

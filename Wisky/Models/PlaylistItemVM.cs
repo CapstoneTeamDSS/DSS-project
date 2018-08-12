@@ -20,5 +20,7 @@ namespace DSS.Models
         public string mediaSrcTitle { get; set; }
 
         public string URL { get; set; }
+
+        public int mediaType { get; set; }
     }
 }

@@ -1,0 +1,288 @@
+﻿@model DSS.Models.AdvancedScheduleAddVM
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    bool isHorizontal = true;
+    if (Model != null)
+    {
+        isHorizontal = Model?.isHorizontal ?? true;
+    }
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isEnable;
+    }
+}
+<div class="">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@((Model?.ScheduleID != null) ? @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderUpdate : @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderAdd)</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    @using (Html.BeginForm((Model?.ScheduleID != null) ? "Update" : "Add", "AdvancedScheduling", new { ScheduleID = (Model?.ScheduleID) }, FormMethod.Post, new { @id = "frm_AdvScheduling", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblOrentation <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12" style="padding-top: 8px;">
+                                <div id="orientaion" class="btn-group" data-toggle="buttons">
+                                    <input type="hidden" id="isHorizontal" value="@(isHorizontal?1:0)" />
+                                    <input type="radio" name="isHorizontal" @(!isHorizontal ? "checked" : "") value="false"> &nbsp; @DSS.ResourcesLanguage.AdScheduleForm.TxtPortrait &nbsp;
+                                    <input type="radio" name="isHorizontal" @(isHorizontal ? "checked" : "") value="true"> @DSS.ResourcesLanguage.AdScheduleForm.TxtLandscape
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblTitle <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="hidden" id="ScenarioID" value="@(Model?.ScenarioID)" />
+                                <input type="hidden" name="LayoutID" id="LayoutID" value="@(Model?.LayoutID)" />
+                                <select class="select2_group form-control" name="ScenarioID" id="ScenarioList"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblDevice <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="hidden" id="DeviceID" value="@(Model?.DeviceID)" />
+                                <select class="select2_group form-control" name="DeviceID" id="DeviceList">
+                                    <option value="-1">--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblPriority <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="radio" checked name="Priority" value="1"> @DSS.ResourcesLanguage.AdScheduleForm.TxtLow
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="radio" @(Model?.Priority == 2 ? "checked" : "") name="Priority" value="2"> @DSS.ResourcesLanguage.AdScheduleForm.TxtMedium
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <input type="radio" @(Model?.Priority == 3 ? "checked" : "") name="Priority" value="3"> @DSS.ResourcesLanguage.AdScheduleForm.TxtHigh
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblDay<span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 64) == 64 ? "checked" : "") value="64" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtMon
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 32) == 32 ? "checked" : "") value="32" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtTus
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 16) == 16 ? "checked" : "") value="16" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtWed
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 8) == 8 ? "checked" : "") value="8" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtThu
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 4) == 4 ? "checked" : "") value="4" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtFri
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 2) == 2 ? "checked" : "") value="2" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtSat
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <input type="checkbox" class="js-switch" name="DayFilter" @((Model?.DayFilterPoint & 1) == 1 ? "checked" : "") value="1" /> @DSS.ResourcesLanguage.AdScheduleForm.TxtSun
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AdScheduleForm.LblTime <span class="required">*</span>
+                            </label>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                @{
+                                    var i = 0;
+                                    var val = 2048;
+                                    var timeSlotList = ViewBag.TimeSlotList as List<DSS.Models.TimeSlotVM>;
+                                    if (timeSlotList != null)
+                                    {
+                                        foreach (var item in timeSlotList)
+                                        {
+                                            i++;
+                                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                                <input type="checkbox" name="TimeFilter" @((Model?.TimeFilterPoint & val) == val ? "checked" : "") value="@(val)" /> @(item.StartTime)-@(item.EndTime)
+                                            </div>
+                                            val /= 2;
+                                            if (i % 3 == 0)
+                                            {
+                                                <br />
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                @DSS.ResourcesLanguage.AdScheduleIndex.ColStatus <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-9">
+                                <input type="checkbox" id="cbStatus" name="isEnable" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable : DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable)</span>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        if (Model?.ScheduleID == null)
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.AdScheduleForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.AdScheduleForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AdScheduleForm.BtnSubmit</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtEnable" id="enable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AdScheduleIndex.TxtDisable" id="disable" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsScen" id="scen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDev" id="dev" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PleaseTime" id="time" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PleaseDay" id="day" />
+@section scripts{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <script>
+        $(document).ready(function () {
+            var isHorizontal = $("#isHorizontal").val() == true;
+            loadReference(isHorizontal);
+        });
+
+        $("input:radio[name='isHorizontal']").change(function () {
+            var isHorizontal = $(this).val() == "true";
+            loadReference(isHorizontal);
+        });
+
+        function loadReference(isHorizontal) {
+            $.ajax({
+                type: "GET",
+                url: "/AdvancedScheduling/LoadReference?isHorizontal=" + isHorizontal,
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    var deviceList = data.DeviceList;
+                    var scenarioList = data.ScenarioList;
+                    $("#ScenarioList").find('option').remove().end()
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtScenarioDefault ---" + '</option>');
+                    $("#DeviceList").find('option').remove().end()
+                        .append('<option value="' + -1 + '">' + "--- @DSS.ResourcesLanguage.AdScheduleForm.TxtDeviceDefault ---" + '</option>');
+                    for (var i = 0; i < scenarioList.length; i++) {
+                        var selected = $("#ScenarioID").val() == scenarioList[i].ScenarioId ? "selected" : "";
+                        if (scenarioList[i] != '') {
+                            $('#ScenarioList').append("<option value='" + scenarioList[i].ScenarioId + "'"
+                                + selected
+                                + ">" + scenarioList[i].Title + "</option > ");
+                        }
+                    }
+                    for (var i = 0; i < deviceList.length; i++) {
+                        var selected = $("#DeviceID").val() == deviceList[i].DeviceId ? "selected" : "";
+                        if (deviceList[i] != '') {
+                            $('#DeviceList').append("<option value='" + deviceList[i].DeviceId + "'"
+                                + selected
+                                + ">" + deviceList[i].Title + "</option > ");
+                        }
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
+        /*Validation*/
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            if ($("#ScenarioList").prop("selectedIndex") === 0) {
+                stringError.push($("#scen").val());
+            }
+            if ($("#DeviceList").prop("selectedIndex") === 0) {
+                stringError.push($("#dev").val());
+            }
+            if (($("input[name*='DayFilter']:checked").length) <= 0) {
+                stringError.push($("#day").val());
+            }
+            if (($("input[name*='TimeFilter']:checked").length) <= 0) {
+                stringError.push($("#time").val());
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li />')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a />')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                $("#frm_AdvScheduling").submit();
+            }
+        }
+    </script>
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = $("#disable").val();
+            if (this.checked) {
+                text = $("#enable").val();
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
+}
+@section styles{
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="~/Content/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+}

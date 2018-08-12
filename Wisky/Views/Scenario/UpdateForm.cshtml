@@ -12,7 +12,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Scenario Info</h3>
+            <h3>@DSS.ResourcesLanguage.ScenarioUpdateForm.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -20,7 +20,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Update Scenario information</h2>
+                    <h2>@DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -30,7 +30,7 @@
                         @Html.ValidationSummary()
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScenarioUpdateForm.LblTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.ScenarioUpdateForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -51,17 +51,17 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Status <span class="required">*</span>
+                                @DSS.ResourcesLanguage.ScenarioUpdateForm.LblStatus <span class="required">*</span>
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPublic : @DSS.ResourcesLanguage.ScenarioUpdateForm.TxtPrivate)</span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                <button class="btn btn-primary" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.ScenarioUpdateForm.BtnReset </button>
+                                <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.ScenarioUpdateForm.BtnSubmit </button>
                             </div>
                         </div>
                     }
@@ -70,16 +70,17 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPublic" id="public" />
 @section scripts{
-
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "Private";
+            var text = $("#private").val();
             if (this.checked) {
-                text = "Public";
+                text = $("#public").val();
             }
             $('#spStatus').text(text);
         });

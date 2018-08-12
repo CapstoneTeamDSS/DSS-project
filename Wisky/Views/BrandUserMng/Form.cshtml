@@ -21,7 +21,7 @@
         <div class="col-md-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.Id != null) ? "Update User information" : "Add new User")</h2>
+                    <h2>@((Model?.Id != null) ? @DSS.ResourcesLanguage.BrandUserMngUpdateForm.PageHeader : @DSS.ResourcesLanguage.BrandUserMngAddForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -30,25 +30,25 @@
                     {
                         @Html.ValidationSummary()
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Full Name <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblFullname<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Email <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblEmail<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" name="Email" @((Model?.Id != null) ? "readonly='readonly'" : "") placeholder="abc@email.com" value="@(Model?.Email)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone Number</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblPhone</label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="PhoneNumber" value="@(Model?.PhoneNumber)">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-3">Username <span class="required">*</span></label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblUsername<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
                             </div>
@@ -56,20 +56,18 @@
                         if (Model?.Id == null)
                         {
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-3">Password <span class="required">*</span></label>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <input type="text" class="form-control" name="Password">
-                                </div>
-                                <div class="col-md-2 col-sm-3 col-xs-3">
-                                    <input type="button" class="form-control btn btn-success" value="Auto Generate">
-                                </div>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblPassword<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">                             
+                                    <input type="text" class="form-control col-md-6 col-sm-6 col-xs-6" rel="gp" data-size="8" data-character-set="a-z,A-Z,0-9" name="Password">
+                                    <input type="button" class="form-control btn btn-success getNewPass col-md-6 col-sm-6 col-xs-6" value="@DSS.ResourcesLanguage.BrandUserMngAddForm.BtnAutoGenerate">
+                                    </div>
                             </div>
                         }
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Role <span class="required">*</span></label>
                             <div class="col-md-3 col-sm-3 col-xs-10">
                                 <select class="select2_multiple form-control" name="Role" multiple="multiple" id="Role">
-                                    <option value="0">--- Select Role ---</option>
+                                    <option value="0">--- @DSS.ResourcesLanguage.BrandUserMngAddForm.TxtRoleDefault ---</option>
                                     @{
                                         var roleList = ViewBag.roleList as List<DSS.Models.RoleVM>;
                                         foreach (var item in roleList)
@@ -82,13 +80,12 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 col-sm-3 col-xs-3 control-label">
-                                Account Status
+                                @DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatus
                                 <br>
-                                <small class="text-navy">Disabled user can not log in anymnore</small>
+                                <small class="text-navy">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblStatusDescription</small>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Enable" : "Disable")</span>
-
+                                <input type="checkbox" id="cbStatus" name="isActive" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.BrandUserMngAddForm.TxtEnable : DSS.ResourcesLanguage.BrandUserMngAddForm.TxtDisable)</span>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -96,8 +93,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.BrandUserMngAddForm.BtnReset</button>
+                                    <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.BrandUserMngAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -105,8 +102,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.BrandUserMngUpdateForm.BtnCancel</button>
+                                    <button type="submit" class="btn btn-success"> @DSS.ResourcesLanguage.BrandUserMngUpdateForm.BtnSubmit </button>
                                 </div>
                             </div>
                         }
@@ -116,6 +113,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
 @section styles {
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
@@ -132,13 +131,48 @@
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
-            var text = "Disable";
+            var text = $("#dis").val();
             if (this.checked) {
-                text = "Enable";
+                text = $("#act").val();
             }
             $('#spStatus').text(text);
         });
     </script>
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+
+    <script>
+        // Generate a password string
+        function randString(id) {
+            var dataSet = $(id).attr('data-character-set').split(',');
+            var possible = '';
+            if ($.inArray('a-z', dataSet) >= 0) {
+                possible += 'abcdefghijklmnopqrstuvwxyz';
+            }
+            if ($.inArray('A-Z', dataSet) >= 0) {
+                possible += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            }
+            if ($.inArray('0-9', dataSet) >= 0) {
+                possible += '0123456789';
+            }
+            if ($.inArray('#', dataSet) >= 0) {
+                possible += '!|[]{}()%&*$#^<>~';
+            }
+            var text = '';
+            for (var i = 0; i < $(id).attr('data-size'); i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            return text;
+        }
+        // Create a new password
+        $(".getNewPass").click(function () {
+            var field = $(this).closest('div').find('input[rel="gp"]');
+            field.val(randString(field));
+        });
+
+        // Auto Select Pass On Focus
+        $('input[rel="gp"]').on("click", function () {
+            $(this).select();
+        });
+    </script>
 }

@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Brand Management</h3>
+            <h3>@DSS.ResourcesLanguage.BrandIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -15,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Brand List</h2>
+                    <h2>@DSS.ResourcesLanguage.BrandIndex.PageTitle</h2>
                     <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
                         <a href="/Brand/Form" class="iframe">
                             <ul class="bs-glyphicons-list">
@@ -35,14 +34,14 @@
                         <thead>
                             <tr>
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.BrandIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Brand Name
+                                    @DSS.ResourcesLanguage.BrandIndex.ColBrand
                                 </th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.BrandIndex.ColStatus</th>
+                                <th>@DSS.ResourcesLanguage.BrandIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.BrandIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +54,12 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Name)</td>
                                         <td>
-                                            <a href="#" class="isActive" style="color:@(item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@(item.isActive?"Enable":"Disable")</a>
+                                            <a href="#" class="isActive" style="color: @( (bool) item.isActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isActive)" data-id="@(item.Id)">@((bool)item.isActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a>
                                         </td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Brand/Form/@(item.Id)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Brand/Form/@(item.Id)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.BrandIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.BrandIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -71,6 +70,20 @@
             </div>
         </div>
     </div>
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="disable" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="active" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandRecover" id="recover" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BrandSafe" id="safe" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBrand" id="del" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+
+
+
     @section scripts{
         <!-- Datatables -->
         <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -119,13 +132,13 @@
                     success: function (data) {
                         if (data.success) {
                             curStt = !curStt;
-                            $(el).attr("data-stt", curStt ? "true":"false"); //Change status
-                            $(el).html((curStt) ? "Enable" : "Disable"); //Change status text
+                            $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                            $(el).html((curStt) ? $("#active").val() : $("#disable").val()); //Change status text
                             $(el).css("color", curStt ? "green" : "red"); //Change status color
-                        }                        
+                        }
                     },
                     error: function () {
-                        alert("Error occured!!")
+                        alert($("#err").val())
                     }
                 });
             }
@@ -140,13 +153,13 @@
 
                 });
                 swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this brand!",
+                    title: $("#sure").val(),
+                    text: $("#recover").val(),
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: '#DD6B55',
-                    confirmButtonText: 'Yes, delete it!',
-                    cancelButtonText: "No, cancel!",
+                    confirmButtonText: $("#yes").val(),
+                    cancelButtonText: $("#no").val(),
                     closeOnConfirm: false,
                     closeOnCancel: false
                 },
@@ -159,15 +172,15 @@
                                 url: "/Brand/Delete?Id=" + IdDelete,
                                 contentType: 'application/json; charset=utf-8',
                                 success: function (data) {
-                                    swal("Deleted!", "Your brand has been deleted!", "success");
+                                    swal($("#deleted").val(), $("#del").val(), "success");
                                     location.reload();
                                 },
                                 error: function () {
-                                    alert("Error occured!!")
+                                    alert($("#err").val())
                                 }
                             });
                         } else {
-                            swal("Cancelled", "Your brand is safe :)", "error");
+                            swal($("#cancel").val(), $("#safe").val(), "error");
                         }
                     });
             });

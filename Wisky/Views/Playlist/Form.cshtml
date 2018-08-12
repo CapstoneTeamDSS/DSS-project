@@ -2,11 +2,18 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
 }
+
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Playlist Management</h3>
+            <h3>@DSS.ResourcesLanguage.PlaylistAddForm.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,14 +21,15 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Add New Playlist</h2>
+                    <h2>@((Model?.Id != null) ? DSS.ResourcesLanguage.PlaylistUpdateForm.PageTitle : DSS.ResourcesLanguage.PlaylistAddForm.PageTitle)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br>
                     @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Playlist", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                     {
-                        @Html.ValidationSummary()
+                        @*@Html.ValidationSummary()*@
+                        <input type="hidden" id="playlistId" value="@(Model?.Id)" />
                         //show error - validation
                         <div>
                             <ul class="mylist"></ul>
@@ -29,30 +37,51 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Playlist Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <input id="first-name"
-                                       name="Title"
-                                       class="form-control col-md-7 col-xs-12"
-                                       data-parsley-id="5" type="text"
-                                       value="@(Model?.Title)">
+                                <input id="first-name" name="Title" class="form-control col-md-7 col-xs-12" data-parsley-id="5" type="text" value="@(Model?.Title)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblStatus <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? @DSS.ResourcesLanguage.PlaylistAddForm.LblPublic : @DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate)</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
+                                    <option value="-1">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
+                                    @{
+                                        var visualTypeList = ViewBag.visualTypeList as List<DSS.Models.VisualTypeVM>;
+                                        foreach (var item in visualTypeList)
+                                        {
+                                            <option value="@(item.VisualTypeID)" @((Model?.VisualTypeName)?.CompareTo(item.VisualTypeName) == 0 ? "selected" : "")>@(item.VisualTypeName)</option>
+                                        }
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
-                                <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
+                                <textarea class="form-control" rows="2" name="Description">@(Model?.Description)</textarea>
                             </div>
                         </div>
-                        <div style="position:relative" class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                Resource Items <span class="required">*</span>
+                        <div style="position:relative" class="form-group" id="FileSelector">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                @DSS.ResourcesLanguage.PlaylistAddForm.LblResrouce <span class="required">*</span>
                             </label>
-                            <div style="margin-left: 0px" class="col-md-4 col-sm-4 col-xs-5">
-                                <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                            <div style="margin-left: 0px" class="col-md-3 col-sm-3 col-xs-3">
+                                <select name="from" id="multiselect1" class="form-control" size="7" multiple="multiple">
                                     @{
                                         var mediaSrcList = ViewBag.mediaSrcList as List<DSS.Models.MediaSrcUseVM>;
                                         var itemList = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
@@ -67,15 +96,15 @@
                                     }
                                 </select>
                             </div>
-                            <div class=" col-md-1 col-sm-1 col-xs-2">
+                            <div class=" col-md-2 col-sm-2 col-xs-2">
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
                                 <button style=" margin-bottom: 0px" type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
                             </div>
                             <div style=" display: inline-block"></div>
-                            <div class=" col-md-4 col-sm-4 col-xs-5" id="selectedFiles">
-                                <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple" >
+                            <div class=" col-md-3 col-sm-3 col-xs-3" id="selectedFiles">
+                                <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
                                     @{
                                         var itemListTo = ViewBag.itemList as List<DSS.Models.PlaylistItemVM>;
                                         foreach (var item in itemListTo)
@@ -86,12 +115,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="FileTypeForIllustration">
                             <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3">
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> Video
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> Image
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="3"> Audio
-                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="4"> Text
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="2"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtVideo
+                                <input style="display:inline-block" type="checkbox" name="fileType" checked value="1"> @DSS.ResourcesLanguage.PlaylistAddForm.TxtImage
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -99,8 +126,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.PlaylistAddForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.PlaylistAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -108,8 +135,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.PlaylistUpdateForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success" id="btnSubmit">@DSS.ResourcesLanguage.PlaylistUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -128,10 +155,16 @@
             var stringError = [];
             var SelectedOptions = $("#multiselect1_to > option");
             if ($('#first-name').val() == '') {
-                stringError.push("Please input title.");
+                /**/
+
+                stringError.push($("p").text());
+                /**/
             }
-            if (SelectedOptions.length === 0) {
-                stringError.push("Please select at least 1 item.");
+            if ($("#VisualType").prop("selectedIndex") === 0) {
+                stringError.push("Please choose Visual Type.");
+            }
+            if ($("#VisualType").prop("selectedIndex") > 0 && SelectedOptions.length === 0) {
+                stringError.push($("p1").text());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
@@ -151,6 +184,14 @@
             }
         }
     </script>
+    <!--Clear multiselect1 when change visual type-->
+    <script>
+        if ($("#VisualType").change(function () {
+            $("#multiselect1_to").empty();
+        }));
+    </script>
+    <p style="display:none">@DSS.ResourcesLanguage.GeneralError.Title</p>
+    <p1 style="display:none">@DSS.ResourcesLanguage.GeneralError.SelectItem</p1>
     <!-- End Validation-->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -230,8 +271,10 @@
                 };
                 data["AddedElements"].push(obj);
             });
+            var playlistId = $("#playlistId").val();
+            var url = playlistId == '' ? "/Playlist/Add" : "/Playlist/Update";
             $.ajax({
-                url: '/Playlist/Add',
+                url: url,
                 method: 'POST',
                 data: data,
                 success: function (res) {
@@ -242,7 +285,7 @@
                     }
                 },
                 error: function () {
-                    alert("Can not send request!");
+                    alert($("#req").val());
                 }
             });
         }
@@ -282,22 +325,66 @@
     </script>
     <!-- end iframe button matching-->
     <script>
+        /* Hide all file from begin*/
+        function HideFileSelector() {
+            GetFileBaseOnFileType([]);
+            $("#FileTypeForIllustration").hide();
+            $("#FileSelector").hide();
+        }
+        $(document).ready(function () {
+            HideFileSelector();
+        });
+        /*Get file list base on Visual Type*/
+        $("#VisualType").change(function () {
+            var selected = $(this).find(":selected").val();
+            $("#FileSelector").show();
+            if (selected == 1) {
+                $("#FileTypeForIllustration").show();
+                GetFileBaseOnFileType(['1', '2']);
+            } else if (selected == 2) {
+                GetFileBaseOnFileType(['3']);
+                $("#FileTypeForIllustration").hide();
+            } else if (selected == 3) {
+                $("#FileTypeForIllustration").hide();
+                GetFileBaseOnFileType(['4']);
+            } else {
+                HideFileSelector();
+            }
+        })
         /*Get file list base on file type*/
         $("input:checkbox[name='fileType']").change(function () {
             var values = [];
             $("input:checkbox[name='fileType']:checked").each(function () {
                 values.push($(this).val());
             });
+            GetFileBaseOnFileType(values);
+        });
+        /*Show File in Type array, hide the others*/
+        function GetFileBaseOnFileType(showFileTypes) {
             $("#multiselect1").find("option").each(function () {
                 var type = $(this).attr("data-type");
-                if ($.inArray(type, values) > -1) {
+                if ($.inArray(type, showFileTypes) > -1) {
                     $(this).show();
                 } else {
                     $(this).hide();
                 }
             });
+        }
+    </script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- End Switchery -->
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = $("#private").val();
+            if (this.checked) {
+                text = $("#public").val();
+            }
+            $('#spStatus').text(text);
         });
     </script>
+    <!-- End Switchery Change Status Text-->
     <!--Check typeId, if Image == 1 show colorbox-->
     <script>
         $("#multiselect1").change(function () {
@@ -326,6 +413,9 @@
             }
         });
     </script>
+    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.CantSentReq" id="req" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPrivate" id="private" />
+    <input type="hidden" value="@DSS.ResourcesLanguage.PlaylistAddForm.LblPublic" id="public" />
     <!--End Check typeId, if Image == 1 show colorbox-->
 }
 @section styles{
@@ -339,4 +429,8 @@
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
 }
+

@@ -19,6 +19,7 @@ namespace DSS.Data.Models.Entities
         {
             this.DeviceScenarios = new HashSet<DeviceScenario>();
             this.ScenarioItems = new HashSet<ScenarioItem>();
+            this.Schedules = new HashSet<Schedule>();
         }
     
         public int ScenarioID { get; set; }
@@ -27,12 +28,16 @@ namespace DSS.Data.Models.Entities
         public string Description { get; set; }
         public int BrandID { get; set; }
         public Nullable<bool> isPublic { get; set; }
+        public int AudioArea { get; set; }
     
+        public virtual Area Area { get; set; }
         public virtual Brand Brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceScenario> DeviceScenarios { get; set; }
         public virtual Layout Layout { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScenarioItem> ScenarioItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

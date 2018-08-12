@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>User Management</h3>
+            <h3>@DSS.ResourcesLanguage.BrandUserMngIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Users list</h2>
+                    <h2>@DSS.ResourcesLanguage.BrandUserMngIndex.PageTitle</h2>
                     <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
                         <a href="/BrandUserMng/Form" class="iframe">
                             <ul class="bs-glyphicons-list">
@@ -35,21 +35,21 @@
                         <thead>
                             <tr>
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.BrandUserMngIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    User Name
+                                    @DSS.ResourcesLanguage.BrandUserMngIndex.ColUserName
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Full Name
+                                    @DSS.ResourcesLanguage.BrandUserMngIndex.ColFullName
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Email
+                                    @DSS.ResourcesLanguage.BrandUserMngIndex.ColEmail
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Status
+                                    @DSS.ResourcesLanguage.BrandUserMngIndex.ColStatus
                                 </th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.BrandUserMngIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,10 +63,10 @@
                                         <td>@(item.UserName)</td>
                                         <td>@(item.FullName)</td>
                                         <td>@(item.Email)</td>
-                                        <td>@(item.isActive ? "Enable" : "Disable")</td>
+                                        <td><a href="#" class="isActive" style="color:@( (bool) item.IsActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsActive)" data-id="@(item.UserName)">@( (bool)item.IsActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a></td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/BrandUserMng/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -78,6 +78,20 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.DelSucc" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.Notable" id="able" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.AccSafe" id="safe" />
+
+
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -102,9 +116,9 @@
         $(document).ready(function () {
             //Examples of how to assign the Colorbox event to elements
             $(".iframe").colorbox({
-                iframe: true, width: "60%", height: "90%",
+                iframe: true, width: "50%", height: "85%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -113,10 +127,115 @@
             });
         });
     </script>
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/BrandUserMng/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? $("#act").val() : $("#dis").val()); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert($("#err").val())
+                }
+            });
+        }
+    </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var boxNum = 0;
+            $.ajax({
+
+            });
+            swal({
+                title: $("#sure").val(),
+                text: $("#able").val(),
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var IdDelete = $(btnDel).attr("data-id");
+                        $(btnDel).attr("href", "/BrandUserMng/Delete?Id=" + IdDelete);
+                        $.ajax({
+                            type: "GET",
+                            url: "/BrandUserMng/Delete?Id=" + IdDelete,
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                swal($("#deleted").val(), $("#del").val(), "success");
+                                location.reload();
+                            },
+                            error: function () {
+                                alert($("#err").val())
+                            }
+                        });
+                    } else {
+                        swal($("#canceled").val(), $("#safe").val(), "error");
+                    }
+                });
+        });
+    </script>
+    <!--End Sweet alert-->
+    <script>
+        // Generate a password string
+        function randString(id) {
+            var dataSet = $(id).attr('data-character-set').split(',');
+            var possible = '';
+            if ($.inArray('a-z', dataSet) >= 0) {
+                possible += 'abcdefghijklmnopqrstuvwxyz';
+            }
+            if ($.inArray('A-Z', dataSet) >= 0) {
+                possible += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            }
+            if ($.inArray('0-9', dataSet) >= 0) {
+                possible += '0123456789';
+            }
+            if ($.inArray('#', dataSet) >= 0) {
+                possible += '![]{}()%&*$#^<>~|';
+            }
+            var text = '';
+            for (var i = 0; i < $(id).attr('data-size'); i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            return text;
+        }
+
+        // Create a new password
+        $(".getNewPass").click(function () {
+            var field = $(this).closest('div').find('input[rel="gp"]');
+            field.val(randString(field));
+        });
+
+        // Auto Select Pass On Focus
+        $('input[rel="gp"]').on("click", function () {
+            $(this).select();
+        });
+
+    </script>
 }
 
 @section styles{
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->

@@ -11,13 +11,12 @@ namespace DSS.Models
         public int? ScreenId { get; set; }
         [Range(0, Double.PositiveInfinity, ErrorMessage = "Please select location.")]
         public int LocationId { get; set; }
-        [Range(0, Double.PositiveInfinity, ErrorMessage = "Please select resolution.")]
-        public int ResolutionId { get; set; }
         [Required(ErrorMessage = "Please input screen name.")]
         public string Name { get; set; }
         public string Description { get; set; }
         public string BrandName { get; set; }
         public bool isHorizontal { get; set; }
+
 
     }
 }

@@ -157,9 +157,10 @@ namespace DSS.Controllers
                         {
                             Name = item.ScreenName,
                             Description = item.Description,
-                            ResolutionId = item.ResolutionID,
                             ScreenId = item.ScreenID,
                             LocationId = item.LocationID,
+                            isHorizontal = item.isHorizontal,
+                            
                         };
                         screenVMs.Add(b);
                     }
@@ -229,6 +230,7 @@ namespace DSS.Controllers
         }
 
         // GET: MatchingDevice/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var device = this.deviceService.Get(id);

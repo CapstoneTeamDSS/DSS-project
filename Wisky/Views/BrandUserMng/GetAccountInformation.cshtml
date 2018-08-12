@@ -1,0 +1,106 @@
+﻿@model DSS.Models.BrandUserDetailVM
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool status = false;
+    if (Model != null)
+    {
+        status = Model.isActive;
+    }
+    <!--hide over flow x-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+    <!-- End hide over flow x-->
+}
+<div class="">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@DSS.ResourcesLanguage.UserChange.PageHeader1</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    @using (Html.BeginForm((Model?.Id != null) ? "UpdateMyAccount" : "Add", "BrandUserMng", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_GetAccountInformation", @class = "form-horizontal form-label-left", role = "form" }))
+                    {
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblFullname<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" name="FullName" class="form-control" value="@(Model?.FullName)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblEmail<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Email" placeholder="abc@email.com" value="@(Model?.Email)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblPhone</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" @*@((Model?.Id != null) ? "readonly='readonly'" : "")*@ name="PhoneNumber" value="@(Model?.PhoneNumber)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.BrandUserMngAddForm.LblUsername<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" class="form-control" @((Model?.Id != null) ? "readonly='readonly'" : "") name="Username" placeholder="Username" value="@(Model?.UserName)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">@DSS.ResourcesLanguage.UserChange.Pass</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <a href="/BrandUserMng/ChangePassword" style="text-decoration:underline">@DSS.ResourcesLanguage.UserChange.CPass</a>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                <a class='btn btn-warning'
+                                   href="@Url.Action("Index", "Home")"
+                                   title="Please choose Location, Box And Screen">
+                                    @DSS.ResourcesLanguage.UserChange.BtnCancel
+                                </a>
+                                <button type="submit" class="btn btn-success">@DSS.ResourcesLanguage.UserChange.BtnUpdate</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtDisable" id="dis" />
+<input type="hidden" value="@DSS.ResourcesLanguage.AccountError.TxtActive" id="act" />
+@section styles {
+    <!-- Switchery -->
+    <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- End Switchery -->
+    <!--Set color is red when show error validation-->
+    <style>
+        .validation-summary-errors {
+            color: red;
+        }
+    </style>
+    <!--End Set color is red when show error validation-->
+}
+@section scripts {
+    <!-- Switchery Change Status Text-->
+    <script>
+        $("#cbStatus").change(function () {
+            var text = $("dis").val();
+            if (this.checked) {
+                text = $("act").val();
+            }
+            $('#spStatus').text(text);
+        });
+    </script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+}

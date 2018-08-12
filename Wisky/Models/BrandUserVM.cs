@@ -1,52 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
-
 
 namespace DSS.Models
 {
+
     public class BrandUserMngVM
     {
         public String Id { get; set; }
-        [Required(ErrorMessage = "Please enter user name.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Fullname")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "Please enter password.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Password")]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Please enter email.")]
-        [EmailAddress(ErrorMessage = "Invalid email")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Email")]
+        [EmailAddress(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InEmail")]
         //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter full name.")]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Fullname")]
+        [StringLength(50, MinimumLength = 8, ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InName")]
         public string FullName { get; set; }
-        [Required(ErrorMessage = "Please enter phone number.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Phone")]
         public int BrandID { get; set; }
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
         public string BrandName { get; set; }
     }
 
+    public class BrandAccountInformation
+    {
+        public String Id { get; set; }
+        [Required(ErrorMessage = "Please enter full name.")]
+        [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
+        public string FullName { get; set; }
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        public string PhoneNumber { get; set; }
+    }
     public class BrandUserDetailVM
     {
         public String Id { get; set; }
-        [Required(ErrorMessage = "Please enter user name.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Username")]
         public string UserName { get; set; }
         //[Required]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Please enter email.")]
-        [EmailAddress(ErrorMessage = "Invalid email")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Email")]
+        [EmailAddress(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InEmail")]
+        //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter full name.")]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Please enter full name only letter.")]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Fullname")]
+        [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
+        [StringLength(50, MinimumLength = 8,ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InName")]
         public string FullName { get; set; }
-        [Required(ErrorMessage = "Please enter phone number.")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        //[Required(ErrorMessage = "Please enter phone number.")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InPhone")]
         public string PhoneNumber { get; set; }
         [Required]
         public bool isActive { get; set; }
-        [Required(ErrorMessage = "Please selete role.")]
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Role")]
         public string Role { get; set; }
     }
 }

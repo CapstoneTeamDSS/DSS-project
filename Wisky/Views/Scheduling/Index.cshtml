@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Scheduling</h3>
+            <h3>@DSS.ResourcesLanguage.SchedulingIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -13,7 +13,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Schedule list</h2>
+                    <h2>@DSS.ResourcesLanguage.SchedulingIndex.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
@@ -32,13 +32,13 @@
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Scenario Title</th>
-                                <th>Device Name</th>
-                                <th>Times to play</th>
-                                <th>Start time</th>
-                                <th>End time</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColNo</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColScenarioTitle</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColDevice</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColTimetoPlay</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColStartTime</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColEndTime</th>
+                                <th>@DSS.ResourcesLanguage.SchedulingIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +55,8 @@
                                         <td>@(item.StartTime)</td>
                                         <td>@(item.EndTime)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/Scheduling/Form/@(item.DeviceScenarioId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a href="/Scheduling/Delete/@(item.DeviceScenarioId) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/Scheduling/Form/@(item.DeviceScenarioId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.SchedulingIndex.BtnEdit </i></a>
+                                            <a href="/Scheduling/Delete/@(item.DeviceScenarioId) "><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.SchedulingIndex.BtnDelete </i></a>
                                         </td>
                                     </tr>
                                 }
@@ -94,7 +94,7 @@
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "80%",
                 //refresh page when summit
-                onClosed: function () { location.reload(true); },
+                //onClosed: function () { location.reload(true); },
             });
             //Example of preserving a JavaScript event for inline calls.
             $("#click").click(function () {
@@ -104,6 +104,66 @@
         });
     </script>
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var idScenario = $(btnDel).attr("data-id");
+            var data = {
+                id: idScenario,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Scheduling/CheckStartTimeAndEndTime",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //show sweerAlert warming
+                    if (data.isRight) {
+                        swal("Oops...", data.title, "error");
+                    } else {
+                        swal({
+                            title: "Are you sure?",
+                            text: "You will not be able to recover this scheduling!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: 'Yes, delete it!',
+                            cancelButtonText: "No, cancel!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Scheduling/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Scheduling/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal("Deleted!", "Your scheduling has been deleted!", "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert("Error occured!!")
+                                        }
+                                    });
+                                } else {
+                                    swal("Cancelled", "Your scheduling is safe :)", "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    </script>
+    <!--End Sweet alert-->
 }
 @section styles{
     <!-- Datatables -->
@@ -118,5 +178,8 @@
     <!-- iframe button matching-->
     <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
     <!-- end iframe button matching-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
 }
 

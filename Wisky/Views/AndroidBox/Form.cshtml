@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DSS.Models.AndroidBoxVM
+@{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
@@ -14,7 +15,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.BoxId != null) ? "Update Box information" : "Add new Box")</h2>
+                    <h2>@((Model?.BoxId != null) ? @DSS.ResourcesLanguage.AndroidBoxUpdateForm.PageHeader : @DSS.ResourcesLanguage.AndroidBoxAddForm.PageHeader)</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -29,7 +30,7 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Box Name <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AndroidBoxAddForm.LblName <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -41,11 +42,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Location  <span class="required">*</span>
+                                @DSS.ResourcesLanguage.AndroidBoxAddForm.LblLocation  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <select class="select2_group form-control" name="LocationId" id="location-list">
-                                    <option value="-1">--- Select Location ---</option>
+                                    <option value="-1">--- @DSS.ResourcesLanguage.AndroidBoxUpdateForm.TxtLocationDefault ---</option>
                                     @{
                                         var locationList = ViewBag.locationList as List<DSS.Models.LocationAdditionalVM>;
                                         if (locationList != null)
@@ -61,10 +62,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
-                                Description
+                            <label class="control-label col-md-3 col-sm-3 col-xs-3">
+                                @DSS.ResourcesLanguage.AndroidBoxAddForm.LblDescription
                             </label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
                             </div>
                             @*<input type="hidden" name="Id" value="@(Model?.Id)"/>*@
@@ -74,8 +75,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button class="btn btn-primary" type="reset">@DSS.ResourcesLanguage.AndroidBoxAddForm.BtnReset</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AndroidBoxAddForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -83,8 +84,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.AndroidBoxUpdateForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.AndroidBoxUpdateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -94,6 +95,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.BoxName" id="bname" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Location" id="loc" />
 @section scripts{
     <!--Validation-->
     <script>
@@ -101,10 +104,10 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input box name.");
+                stringError.push($("#bname").val());
             }
             if ($("#location-list").prop("selectedIndex") === 0) {
-                stringError.push("Please choose location.");
+                stringError.push($("#loc").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')
@@ -134,3 +137,4 @@
         }
     </style>
     <!--End Set color is red when show error validation-->
+}

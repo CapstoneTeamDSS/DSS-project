@@ -1,4 +1,9 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 <div class="select-layout" style="display:inline-block">
-    <video style="width:400px; height:225px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="17" />
+    <video style="width:500px; height:282px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="17" visual-type="1"/>
+    <input type="checkbox" value="17" class="cbAudio" onclick="audioCheck(this)"/>
 </div>
+<br/>
+<br/>
+<span style="font-size:medium; text-align:center">Check on area to turn on sound, or make your own sound list by:</span>
+<div type="button" id="btnAudio" area-id="39" visual-type="2" onclick="audioSetting(this)" class="vdReview" style="width:95%; text-align:center; text-decoration:underline; font-size:larger">Audio Setting</div>

@@ -49,8 +49,26 @@ namespace DSS.Controllers
             }
             return View(model);
         }
+        //TOANTXSE62006
+        //GET: MediaSrc/UpdateStatus
+        public ActionResult UpdateStatus(int dataId)
+        {
+            bool result = false;
+            var mediasrc = this.mediaSrcService
+                .Get(a => a.MediaSrcID == dataId)
+                .FirstOrDefault();
+            if (mediasrc != null)
+            {
+                mediasrc.isPublic = !mediasrc.isPublic;
+                this.mediaSrcService.Update(mediasrc);
+                result = true;
+            }
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
 
-
+        }
         //TrinhNNP
         //Get media Src List by Brand ID
         public static List<Models.MediaSrcUseVM> GetMediaSrcListByBrandId()
@@ -74,7 +92,32 @@ namespace DSS.Controllers
             }
             return mediaSrcUseVMs;
         }
-
+        //TOANTXSE
+        //Get media Src List by Brand ID
+        public static List<Models.MediaSrcUseVM> GetMediaSrcListByBrandIdAndStatus()
+        {
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var mediaSrcUseVMs = new List<Models.MediaSrcUseVM>();
+            var user = Helper.GetCurrentUser();
+            var mediaSrcList = mediaSrcService.GetMediaSrcByBrand(user.BrandID);
+            foreach (var item in mediaSrcList)
+            {
+                if(item.isPublic == true)
+                {
+                    var m = new Models.MediaSrcUseVM
+                    {
+                        Title = item.Title,
+                        Description = item.Description,
+                        URL = item.URL,
+                        isPublic = (bool)item.isPublic,
+                        MediaSrcId = item.MediaSrcID,
+                        TypeId = item.TypeID,
+                    };
+                    mediaSrcUseVMs.Add(m);
+                }
+            }
+            return mediaSrcUseVMs;
+        }
         // Media/Add resource
         //[HttpPost]
         //public async System.Threading.Tasks.Task<ActionResult> Add(Models.MediaSrcVM model, HttpPostedFileBase file)
@@ -159,6 +202,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     Extension = ext,
                     CreateDatetime = time,
+                    SecurityHash = model.SecurityHash
                 };
                 await this.mediaSrcService.CreateAsync(media);
                 return new ContentResult
@@ -195,7 +239,7 @@ namespace DSS.Controllers
         // Check type file
         private int CheckFileType(string FileName)
         {
-            string ext = Path.GetExtension(FileName);
+            string ext = Path.GetExtension(FileName.ToLower());
             if (ext.Equals(".png") || ext.Equals(".jpg") || ext.Equals(".jpeg"))
             {
                 return 1;
@@ -215,12 +259,68 @@ namespace DSS.Controllers
             return 0;
         }
 
+        //TOANTXSE
+        // POST: Media/CheckMediaIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckMediaIdIsUsed(int id)
+        {
+            try
+            {
+                //Get device by screen Id
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+                var playlistItem = playlistItemService.Get().ToList();
+                var playlist = playlistService.Get().ToList();
+                var playlistItemVMs = new List<Models.PlaylistItemVM>();
+                var playlistVMs = new List<Models.PlaylistDetailVM>();
+                //check mediaSrcId have in playlistItem
+                foreach (var item in playlistItem)
+                {
+                    if (item.MediaSrcID == id)
+                    {
+                        var b = new Models.PlaylistItemVM
+                        {
+                            playlistId = item.PlaylistID,
 
+                        };
+                        playlistItemVMs.Add(b);
+                    }
+                }
+                // if playlistItemVMs != null, get Playlist Title by playlistID
+                if (playlistItemVMs.Count != 0)
+                {
+                    foreach (var item in playlistItemVMs)
+                    {
+                        foreach (var itemPlaylist in playlist)
+                        {
+                            if (item.playlistId == itemPlaylist.PlaylistID)
+                            {
+                                var b = new Models.PlaylistDetailVM
+                                {
+                                    Title = itemPlaylist.Title,
+                                };
+                                playlistVMs.Add(b);
+                            }
+                        }
+                    }
+                }
+                return Json(new
+                {
+                    isUsing = playlistItemVMs.Count != 0,
+                    playlistVMlist = playlistVMs,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         // GET: Media/Delete/:id
         public ActionResult Delete(int id)
         {
+            var user = Helper.GetCurrentUser();
             var mediaSrc = this.mediaSrcService.Get(id);
-            if (mediaSrc != null)
+            if (mediaSrc != null && mediaSrc.BrandID == user.BrandID)
             {
                 this.mediaSrcService.Delete(mediaSrc);
             }
@@ -241,6 +341,7 @@ namespace DSS.Controllers
                     mediaSrc.isPublic = model.isPublic;
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;
+                    mediaSrc.SecurityHash = mediaSrc.SecurityHash;
                 };
                 await this.mediaSrcService.UpdateAsync(mediaSrc);
                 //return this.RedirectToAction("Index");

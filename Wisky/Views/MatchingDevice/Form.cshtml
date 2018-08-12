@@ -14,7 +14,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>@((Model?.DeviceId != null) ? "Update Matching Device Information" : "Add New Matching Device")</h2>
+                    <h2>@((Model?.DeviceId != null) ? @DSS.ResourcesLanguage.MatchingDeviceUpateForm.PageHeader : "Add New Matching Device")</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -29,7 +29,7 @@
                         //end show error - validation
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Title <span class="required">*</span>
+                                @DSS.ResourcesLanguage.MatchingDeviceUpateForm.LblTitle <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Screen Name<span class="required">*</span>
+                                @DSS.ResourcesLanguage.MatchingDeviceUpateForm.LblScreen<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                Box Name<span class="required">*</span>
+                                @DSS.ResourcesLanguage.MatchingDeviceUpateForm.LblBox<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name"
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3">
-                                Description
+                                @DSS.ResourcesLanguage.MatchingDeviceUpateForm.LblDescription
                             </label>
                             <div class="col-md-8 col-sm-8 col-xs-8">
                                 <textarea class="form-control" rows="3" name="Description">@(Model?.Description)</textarea>
@@ -86,8 +86,8 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">Cancel</button>
-                                    <button type="button" onclick="checkValidation()" class="btn btn-success">Submit</button>
+                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.MatchingDeviceUpateForm.BtnCancel</button>
+                                    <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.MatchingDeviceUpateForm.BtnSubmit</button>
                                 </div>
                             </div>
                         }
@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="tit" />
 @section scripts{
     <!--Validation-->
     <script>
@@ -104,7 +105,7 @@
             $(".mylist").empty();
             var stringError = [];
             if ($('#first-name').val() == '') {
-                stringError.push("Please input title.");
+                stringError.push($("#tit").val());
             }
             if (stringError.length > 0) {
                 var cList = $('ul.mylist')

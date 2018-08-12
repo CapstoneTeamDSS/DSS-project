@@ -64,21 +64,46 @@ namespace DSS.Controllers
         // GET: Scenario/Delete/:id
         public ActionResult Delete(int id)
         {
+            IScenarioItemService scerarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
             var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
-            if (scenario != null)
+            var user = Helper.GetCurrentUser();
+            var scenarioItem = scerarioItemService.GetItemListByScenarioId(id);
+            if (scenarioItem != null && scenario != null && scenario.BrandID == user.BrandID)
             {
+                foreach (var i in scenarioItem)
+                {
+                    scerarioItemService.Delete(i);
+                }
                 this.scenarioService.Delete(scenario);
             }
             return this.RedirectToAction("Index");
         }
 
-        // GET: AndroidBox/Form/:id
+        // GET: Scenario/Form/:id
         public ActionResult Form()
         {
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
             return View();
         }
-
+        //TOANTXSE
+        // POST: Scenario/CheckScenarioIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckScenarioIdIsUsed(int id)
+        {
+            try
+            {
+                IDeviceScenarioService deviceScenarioService = DependencyUtils.Resolve<IDeviceScenarioService>();
+                var deviceScenario = deviceScenarioService.Get(a => a.ScenarioID == id).FirstOrDefault();
+                return Json(new
+                {
+                    isUsing = deviceScenario != null,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //POST: Scenario/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.ScenarioDetailVM model)
@@ -95,6 +120,8 @@ namespace DSS.Controllers
                     Description = model.Description,
                     LayoutID = model.LayoutId,
                     BrandID = user.BrandID,
+                    isPublic = model.IsPublic,
+                    AudioArea = model.AudioArea,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
@@ -254,7 +281,7 @@ namespace DSS.Controllers
         {
             IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
-            var PlaylistList = PlaylistController.GetPlaylistIdByBrandId() as List<Models.PlaylistDetailVM>;
+            var PlaylistList = PlaylistController.GetPlaylistIdByBrandIdAndStatus() as List<Models.PlaylistDetailVM>;
             return Json(new
             {
                 PlaylistList = PlaylistList,

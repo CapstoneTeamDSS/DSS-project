@@ -24,6 +24,8 @@ namespace DSS.Models
         public string Title { get; set; }
         public int LayoutId { get; set; }
         public PlaylistArea[] PlaylistAreaArr { get; set; }
+        public bool IsPublic { get; set; }
+        public int AudioArea { get; set; }
     }
 
     public class PlaylistArea

@@ -5,7 +5,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Matching Your Device</h3>
+            <h3>@DSS.ResourcesLanguage.MatchingDeviceIndex.PageHeader</h3>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -14,14 +14,14 @@
         <div>
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Matching Panel</h2>
+                    <h2>@DSS.ResourcesLanguage.MatchingDeviceIndex.PageTitle</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div width:50%;">
-                        <label>Location</label>
+                        <label>@DSS.ResourcesLanguage.MatchingDeviceIndex.LblLocation</label>
                         <select style="width:300px; height:25px" id="locationSelect">
-                            <option value="0">--- Select Location ---</option>
+                            <option value="0">---@DSS.ResourcesLanguage.MatchingDeviceIndex.TxtLocationDefault ---</option>
                             @{
                                 var locationStringList = ViewBag.locationStringList as List<DSS.Models.LocationStringVM>;
                                 foreach (var item in locationStringList)
@@ -32,27 +32,27 @@
                         </select>
                     </div>
                     <p class="text-muted font-13 m-b-30" style="color:dodgerblue">
-                        Please select screen and android box you wish to match.
+                        @DSS.ResourcesLanguage.MatchingDeviceIndex.TxtInstruction
                     </p>
                     <div style="float:left; width:100%">
-                        <label>Screen</label>
+                        <label>@DSS.ResourcesLanguage.MatchingDeviceIndex.LblScreen</label>
 
                         <select style="width:300px; height:25px" id="screenListById" name="screenListById">
-                            <option value="0">--- Choose Screen ---</option>
+                            <option value="0">--- @DSS.ResourcesLanguage.MatchingDeviceIndex.TxtScreenDefault ---</option>
                         </select>
                         <div style="float:left; width:50%; ">
-                            <label>Android Box</label>
+                            <label>@DSS.ResourcesLanguage.MatchingDeviceIndex.LblBox</label>
                             <select style="width:300px; height:25px" id="boxListById" name="boxListById">
-                                <option value="0">--- Choose Box ---</option>
+                                <option value="0">--- @DSS.ResourcesLanguage.MatchingDeviceIndex.TxtBoxDefault ---</option>
                             </select>
                         </div>
                         <div style="float:right">
                             @{
-                                <a class='btn btn-success'
-                                   id="btnMatch"
-                                   title="Please choose Location, Box And Screen">
-                                    Match
-                                </a>
+                            <a class='btn btn-success'
+                               id="btnMatch"
+                               title="Please choose Location, Box And Screen">
+                                @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnMatch
+                            </a>
                             }
                         </div>
                     </div>
@@ -60,15 +60,16 @@
                         <thead>
                             <tr>
                                 <th>
-                                    No
+                                    @DSS.ResourcesLanguage.MatchingDeviceIndex.ColNo
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
-                                    Title
+                                    @DSS.ResourcesLanguage.MatchingDeviceIndex.ColTitle
                                 </th>
-                                <th>Screen Name</th>
-                                <th>Box Name</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColScreen</th>
+                                <th>@DSS.ResourcesLanguage.ScreenIndex.ColType</th>
+                                <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColBox</th>
+                                <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColAction</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,11 +82,12 @@
                                         <td>@(++j)</td>
                                         <td>@(item.Title)</td>
                                         <td>@(item.ScreenName)</td>
+                                        <td>@(item.IsHorizontal ? DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape : DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait)</td>
                                         <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info"> Edit</i></a>
-                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -97,6 +99,21 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="screen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="screen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteDevice" id="del" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.SafeDevice" id="safe" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteNotif" id="notif" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait" id="por" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
+
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -146,12 +163,12 @@
                     }
                     for (var i = 0; i < data.screenListByLocationId.length; i++) {
                         if (data.screenListByLocationId[i] != '') {
-                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + '</option>');
+                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + " " + "(" + (data.screenListByLocationId[i].isHorizontal ? $("#land").val() : $("#por").val()) + ")" + '</option>');
                         }
                     }
                 },
                 error: function () {
-                    alert("Error occured!!")
+                    alert($("#err").val())
                 }
             });
         });
@@ -174,11 +191,13 @@
             var btnMatch = $('#btnMatch');
             if (box.val() == 0 || screen.val() == 0) {
                 //console.log(box);
-                btnMatch.attr("disabled", true);               
+                btnMatch.attr("disabled", "disabled");
+                btnMatch.bind('click', false);
                 btnMatch.attr("class", "btn btn-success");
-                //btnMatch.click(true);     
+                //btnMatch.click(true);
             } else {
-                btnMatch.attr("disabled", false);              
+                btnMatch.attr("disabled", false);
+                btnMatch.unbind('click', false);
                 btnMatch.attr("class", "iframe btn btn-success");
                 //show iframe
                 $(document).ready(function () {
@@ -186,7 +205,7 @@
                     $(".iframe").colorbox({
                         iframe: true, width: "65%", height: "70%",
                         //refresh page when summit
-                        onClosed: function () { location.reload(true); },
+                        //onClosed: function () { location.reload(true); },
                     });
                     //Example of preserving a JavaScript event for inline calls.
                     $("#click").click(function () {
@@ -221,17 +240,14 @@
         $(".btnDelete").click(function () {
             var btnDel = $(this);
             var boxNum = 0;
-            $.ajax({
-
-            });
             swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this device!",
+                title: $("#sure").val(),
+                text: $("#notif").val(),
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: "No, cancel!",
+                confirmButtonText: $("#yes").val(),
+                cancelButtonText: $("#no").val(),
                 closeOnConfirm: false,
                 closeOnCancel: false
             },
@@ -244,15 +260,15 @@
                             url: "/MatchingDevice/Delete?Id=" + IdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal("Deleted!", "Your device has been deleted!", "success");
+                                swal($("#deleted").val(), $("#del").val(), "success");
                                 location.reload();
                             },
                             error: function () {
-                                alert("Error occured!!")
+                                alert($("#err").val())
                             }
                         });
                     } else {
-                        swal("Cancelled", "Your device is safe :)", "error");
+                        swal($("#cancel").val(), $("#safe").val(), "error");
                     }
                 });
         });
@@ -273,4 +289,9 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <style>
+        .sweet-alert p {
+            font-size: 14px;
+        }
+    </style>
 }

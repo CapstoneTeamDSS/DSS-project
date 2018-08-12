@@ -40,24 +40,29 @@ namespace DSS.Controllers
         public static List<Models.AndroidBoxVM> GetBoxIdByBrandId()
         {
             IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var AndroidBoxVM = new List<Models.AndroidBoxVM>();
             IBrandService brandService = DependencyUtils.Resolve<IBrandService>();
             var user = Helper.GetCurrentUser();
             var boxList = boxService.GetBoxIdByBrandId(user.BrandID);
             foreach (var item in boxList)
             {
+                var location = locationService.Get(item.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var m = new Models.AndroidBoxVM
                 {
                     Name = item.BoxName,
                     Description = item.Description,
                     BoxId = item.BoxID,
-                    LocationId = item.LocationID
+                    LocationId = item.LocationID,
+                    Location = locationString,
                 };
                 AndroidBoxVM.Add(m);
             }
             return AndroidBoxVM;
         }
         // GET: AndroidBox/Delete/:id
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var box = this.boxService.Get(id);
@@ -110,6 +115,39 @@ namespace DSS.Controllers
                 };
             }
             return View("Form", model);
+        }
+        // POST: Anrdoid Box/CheckAndroidBoxIdIsMatching  
+        [HttpPost]
+        public JsonResult CheckAndroidBoxIdIsMatching(int id)
+        {
+            try
+            {
+                //Get device by screen Id
+                IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
+                var device = deviceService.Get(a => a.BoxID == id).FirstOrDefault();
+                //bool isUsing = true;
+                //if (device == null)
+                //{
+                //    isUsing = false;
+                //}
+                DSS.Models.MatchingDeviceVM deviceVM = null;
+                if (device != null)
+                {
+                    deviceVM = new DSS.Models.MatchingDeviceVM
+                    {
+                        Title = device.Title,
+                    };
+                }
+                return Json(new
+                {
+                    isUsing = device != null,
+                    deviceVM = deviceVM,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         // POST: AndroidBox/Update
         [HttpPost]
