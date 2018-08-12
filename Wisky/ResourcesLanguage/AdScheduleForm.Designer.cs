@@ -151,7 +151,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Scenario.
+        ///   Looks up a localized string similar to Update Schedule.
         /// </summary>
         public static string PageHeaderUpdate {
             get {

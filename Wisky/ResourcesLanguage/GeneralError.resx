@@ -265,7 +265,7 @@
     <value>Please check at least 1 time</value>
   </data>
   <data name="PlsDev" xml:space="preserve">
-    <value>Please choose scenario</value>
+    <value>Please choose device</value>
   </data>
   <data name="PlsScen" xml:space="preserve">
     <value>Please choose scenario</value>
