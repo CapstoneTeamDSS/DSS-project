@@ -42,6 +42,7 @@
                                     @DSS.ResourcesLanguage.AndroidBoxIndex.ColName
                                 </th>
                                 <th>@DSS.ResourcesLanguage.AndroidBoxIndex.ColDescription</th>
+                                <th>Location</th>
                                 <th>@DSS.ResourcesLanguage.AndroidBoxIndex.ColAction</th>
                             </tr>
                         </thead>
@@ -55,6 +56,7 @@
                                         <td>@(++i)</td>
                                         <td>@(item.Name)</td>
                                         <td>@(item.Description)</td>
+                                        <td>@(item.Location)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/AndroidBox/Form/@(item.BoxId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.AndroidBoxIndex.BtnEdit</i></a>
                                             <a class="btnDelete" data-id="@item.BoxId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.AndroidBoxIndex.BtnDelete</i></a>
@@ -79,6 +81,8 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.SafeBox" id="safe" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="err" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBox" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
 @section scripts{
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -133,7 +137,7 @@
                 success: function (data) {
                     console.log(data);
                     if (data.isUsing) {
-                        swal($("#use").val(), $("#detacth").val() +" "+ data.deviceVM.Title +" "+$("#if").val(), "error");
+                        swal($("#use").val(), $("#detacth").val() + " " + data.deviceVM.Title + " " + $("#if").val(), "error");
                     } else {
                         swal({
                             title: $("#sure").val(),
@@ -141,6 +145,10 @@
                             type: "warning",
                             showCancelButton: true,
                             confirmButtonColor: '#DD6B55',
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#no").val(),
+                            closeOnConfirm: false,
+                            closeOnCancel: false
                         },
                             function (isConfirm) {
                                 if (isConfirm) {

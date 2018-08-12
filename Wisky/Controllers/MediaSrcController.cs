@@ -202,6 +202,7 @@ namespace DSS.Controllers
                     Description = model.Description,
                     Extension = ext,
                     CreateDatetime = time,
+                    SecurityHash = model.SecurityHash
                 };
                 await this.mediaSrcService.CreateAsync(media);
                 return new ContentResult
@@ -340,6 +341,7 @@ namespace DSS.Controllers
                     mediaSrc.isPublic = model.isPublic;
                     mediaSrc.Description = model.Description;
                     mediaSrc.UpdateDatetime = time;
+                    mediaSrc.SecurityHash = mediaSrc.SecurityHash;
                 };
                 await this.mediaSrcService.UpdateAsync(mediaSrc);
                 //return this.RedirectToAction("Index");

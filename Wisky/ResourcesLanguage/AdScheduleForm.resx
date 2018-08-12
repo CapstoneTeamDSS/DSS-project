@@ -148,7 +148,7 @@
     <value>Create New Schedule</value>
   </data>
   <data name="PageHeaderUpdate" xml:space="preserve">
-    <value>Update Scenario</value>
+    <value>Update Schedule</value>
   </data>
   <data name="TxtDeviceDefault" xml:space="preserve">
     <value>Choose Device</value>
