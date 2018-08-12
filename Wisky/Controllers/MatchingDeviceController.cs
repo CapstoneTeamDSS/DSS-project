@@ -157,7 +157,6 @@ namespace DSS.Controllers
                         {
                             Name = item.ScreenName,
                             Description = item.Description,
-                            ResolutionId = item.ResolutionID,
                             ScreenId = item.ScreenID,
                             LocationId = item.LocationID,
                             isHorizontal = item.isHorizontal,

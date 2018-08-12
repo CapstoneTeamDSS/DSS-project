@@ -55,7 +55,7 @@ namespace DSS.Controllers
                     Name = item.BrandName,
                     Description = item.Description,
                     Id = item.BrandID,
-                    isActive = item.isActive ?? true,
+                    isActive = item.isActive,
                 };
                 brandVMs.Add(b);
             }
@@ -76,7 +76,7 @@ namespace DSS.Controllers
                         Name = brand.BrandName,
                         Description = brand.Description,
                         Id = brand.BrandID,
-                        isActive = brand.isActive ?? true,
+                        isActive = brand.isActive,
                     };
                 }
             }

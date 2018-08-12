@@ -61,7 +61,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reset.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string BtnCancel {
             get {

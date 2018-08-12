@@ -73,7 +73,7 @@
         </div>
     </div>
 </div>
-<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteBox" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteLocation" id="deleted" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.LocationSafe" id="safe" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
@@ -168,8 +168,12 @@
                             url: "/Location/Delete?Id=" + locationIdDelete,
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
-                                swal($("#deleted").val(), $("#del").val(), "success");
-                                location.reload();
+                                if (data.success) {
+                                    swal($("#deleted").val(), $("#del").val(), "success");
+                                    location.reload();
+                                } else {
+                                    alert("Can not delete using location!");
+                                }
                             },
                             error: function () {
                                 alert($("#err").val())

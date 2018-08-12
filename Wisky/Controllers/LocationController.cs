@@ -13,7 +13,7 @@ namespace DSS.Controllers
     public class LocationController : Controller
     {
         ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
-        IMapper mapper = DependencyUtils.Resolve<IMapper>();        
+        IMapper mapper = DependencyUtils.Resolve<IMapper>();
         //GET: Location/Index
         public ActionResult Index()
         {
@@ -70,10 +70,10 @@ namespace DSS.Controllers
                         };
                         locationVMs.Add(b);
                     }
-                }               
+                }
                 return Json(new
                 {
-                    locationIsDelete = locationVMs,
+                    locationIdDelete = locationVMs,
                 }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace DSS.Controllers
                     BrandId = item.BrandID,
                     District = item.District,
                     Province = item.Province,
-                    LocationId = item.LocationID,                
+                    LocationId = item.LocationID,
                 };
                 locationVMs.Add(b);
             }
@@ -140,7 +140,7 @@ namespace DSS.Controllers
             if (ModelState.IsValid)
             {
                 var location = new Data.Models.Entities.Location
-                {                   
+                {
                     BrandID = user.BrandID,
                     Province = model.Province,
                     District = model.District,
@@ -191,11 +191,20 @@ namespace DSS.Controllers
         public ActionResult Delete(int id)
         {
             var location = this.locationService.Get(id);
-            if (location != null)
+            IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+            IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+            var boxInLocation = boxService.Get(a => a.LocationID == id).FirstOrDefault();
+            var screenInLocation = screenService.Get(a => a.LocationID == id).FirstOrDefault();
+            bool result = false;
+            if (location != null && boxInLocation == null && screenInLocation == null)
             {
                 this.locationService.Delete(location);
+                result = true;
             }
-            return this.RedirectToAction("Index");
+            return Json(new
+            {
+                success = result,
+            }, JsonRequestBehavior.AllowGet);
         }
 
     }

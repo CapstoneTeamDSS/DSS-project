@@ -111,6 +111,8 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.DeleteNotif" id="notif" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait" id="por" />
+<input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
 
 @section scripts{
     <!-- Datatables -->
@@ -161,7 +163,7 @@
                     }
                     for (var i = 0; i < data.screenListByLocationId.length; i++) {
                         if (data.screenListByLocationId[i] != '') {
-                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name +" "+ "("+ (data.screenListByLocationId[i].isHorizontal ? "Landscape":"Portrait") +")"+ '</option>');
+                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + " " + "(" + (data.screenListByLocationId[i].isHorizontal ? $("#land").val() : $("#por").val()) + ")" + '</option>');
                         }
                     }
                 },
