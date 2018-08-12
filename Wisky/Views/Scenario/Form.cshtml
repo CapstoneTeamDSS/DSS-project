@@ -283,17 +283,32 @@
         //    player.load();
         //    player.play();
         //}
+        var audioSettingBeingChosen = false;
         function audioCheck(el) {
+            audioSettingBeingChosen = false;
+            $("#btnAudio").css("border", "none");
             $('.cbAudio').not($(el)).prop('checked', false);
-            console.log($("input[name='AudioArea']"));
-            $("#txtAudioAreaId").attr("value", $(el).attr("value"));
+            var curVal = $('#txtAudioAreaId').val();
+            if (curVal == $(el).attr("value")) {
+                $("#txtAudioAreaId").attr("value", "-1");
+            } else {
+                $("#txtAudioAreaId").attr("value", $(el).attr("value"));
+            }
+            console.log($('#txtAudioAreaId').val());
         }
         function audioSetting(el) {
-            $('.cbAudio').each(function () {
-                $(this).prop("checked", false);
-            });
-            $("#txtAudioAreaId").attr("value", $(el).attr("area-id"));
-            onVdPlay(el);
+            audioSettingBeingChosen = !audioSettingBeingChosen;
+            if (!audioSettingBeingChosen) {
+                $("#btnAudio").css("border", "none");
+                $("#txtAudioAreaId").attr("value", "-1");
+            } else {
+                $("#txtAudioAreaId").attr("value", $(el).attr("area-id"));
+                $('.cbAudio').each(function () {
+                    $(this).prop("checked", false);
+                });
+                onVdPlay(el);
+            }            
+            console.log($('#txtAudioAreaId').val());
         }
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
