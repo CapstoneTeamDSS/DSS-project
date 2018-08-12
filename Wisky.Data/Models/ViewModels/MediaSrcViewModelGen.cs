@@ -25,6 +25,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual Nullable<System.DateTime> CreateDatetime { get; set; }
     			public virtual string Description { get; set; }
     			public virtual string Extension { get; set; }
+    			public virtual string SecurityHash { get; set; }
     	
     	public MediaSrcViewModel() : base() { }
     	public MediaSrcViewModel(DSS.Data.Models.Entities.MediaSrc entity) : base(entity) { }
