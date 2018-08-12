@@ -376,7 +376,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please choose scenario.
+        ///   Looks up a localized string similar to Please choose device.
         /// </summary>
         public static string PlsDev {
             get {
