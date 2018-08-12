@@ -27,9 +27,10 @@
         <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="36.75" />
         <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DSSModel.TimeSlot" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="1.5" PointY="7.625" />
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
         <AssociationConnector Association="DSSModel.FK_Area_VisualType" />
+        <AssociationConnector Association="DSSModel.FK_Scenario_Area" />
         <AssociationConnector Association="DSSModel.FK_ScenarioItem_Area" />
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
