@@ -17,7 +17,6 @@ namespace DSS.Data.Models.ViewModels
     	
     			public virtual int ScreenID { get; set; }
     			public virtual int LocationID { get; set; }
-    			public virtual int ResolutionID { get; set; }
     			public virtual string ScreenName { get; set; }
     			public virtual string Description { get; set; }
     			public virtual bool isHorizontal { get; set; }
