@@ -33,6 +33,11 @@ namespace DSS.Models
         public string FullName { get; set; }
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string PhoneNumber { get; set; }
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Email")]
+        [EmailAddress(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InEmail")]
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
     public class BrandUserDetailVM
     {
