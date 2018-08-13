@@ -29,8 +29,8 @@
                                     var i = 0;
                                     foreach (var item in playlistItemList)
                                     {
-                                        <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)" data-name="@(item.mediaSrcTitle)" data-duration="@(item.duration)"></span>
                                         <li id='i_@(++i)' class="i-old" data-value="@(item.playlistItemId)">
+                                            <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)" data-name="@(item.mediaSrcTitle)" data-duration="@(item.duration)"></span>
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
                                             <input type="button" style="position:relative; top: -15px; left:100px; margin-left:-10%" class="btn btn-danger" value="Delete" />
@@ -55,9 +55,9 @@
                 <div class="x_title">
                     <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
                     <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
-                    <div id="hideMsg" style="display:none">
-                        <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
-                    </div>
+                    @*<div id="hideMsg" style="display:none">
+                            <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
+                        </div>*@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -69,8 +69,6 @@
         </div>
     </div>
 </div>
-</div>
-
 
 @section scripts{
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
@@ -154,15 +152,16 @@
         });
     </script>
     <!--End Show preview-->
-    <!--Show all preview-->
+    <!--Play all preview-->
     <script>
         $("#playAll").on('click', function () {
-            var durationTimer = 0;
+            //var durationTimer = 0;
             $('#preview-warapper').empty();
+            console.log($(".media-datas"));
             $('.media-datas').each(function (i) {
                 var type = parseInt($(this).attr('data-type'));
                 var url = $(this).attr('data-url');
-                var title = $(this).attr('data-name');
+                //var title = $(this).attr('data-name');
                 var duration = parseInt($(this).attr('data-duration'));
                 var result = (duration == 0) ? duration = 5000 : duration = duration * 1000;
                 if (i == 0) {
@@ -172,18 +171,18 @@
                 }
                 function show() {
                     $('#preview-warapper').empty();
-                    $('#hideMsg').show();
+                    //$('#hideMsg').show();
                     switch (type) {
                         case 1:
-                            var sec = duration / 1000;
-                            var timer = setInterval(function () {
-                                $('#name').text(title);
-                                $('#timer').text(sec--);
-                                if (sec == 0) {
-                                    clearInterval(timer);
-                                }
-                            }, 1000);
-                            durationTimer = duration;
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
                             $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
                             $("#theImg").css('height', '350px');
                             $("#theImg").css('width', '350px');
@@ -200,6 +199,7 @@
                             video.appendTo($('#preview-warapper'));
                             video[0].play();
                             video.bind("ended", function () {
+                                alert("done video");
                             });
                         default:
                             alert('3');
