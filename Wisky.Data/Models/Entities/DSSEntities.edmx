@@ -527,6 +527,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Scenario_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Scenario" Type="Self.Scenario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="Scenario">
+              <PropertyRef Name="AudioArea" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Scenario_Brand">
           <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Scenario" Type="Self.Scenario" Multiplicity="*" />
@@ -726,6 +740,10 @@
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Resolution" EntitySet="Resolution" />
           </AssociationSet>
+          <AssociationSet Name="FK_Scenario_Area" Association="Self.FK_Scenario_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Scenario" EntitySet="Scenario" />
+          </AssociationSet>
           <AssociationSet Name="FK_Scenario_Brand" Association="Self.FK_Scenario_Brand">
             <End Role="Brand" EntitySet="Brand" />
             <End Role="Scenario" EntitySet="Scenario" />
@@ -790,6 +808,10 @@
           <AssociationSet Name="FK_Area_VisualType" Association="DSSModel.FK_Area_VisualType">
             <End Role="VisualType" EntitySet="VisualTypes" />
             <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scenario_Area" Association="DSSModel.FK_Scenario_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Scenario" EntitySet="Scenarios" />
           </AssociationSet>
           <AssociationSet Name="FK_ScenarioItem_Area" Association="DSSModel.FK_ScenarioItem_Area">
             <End Role="Area" EntitySet="Areas" />
@@ -902,6 +924,7 @@
           <Property Name="VisualTypeID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Area_Layout" FromRole="Area" ToRole="Layout" />
           <NavigationProperty Name="VisualType" Relationship="DSSModel.FK_Area_VisualType" FromRole="Area" ToRole="VisualType" />
+          <NavigationProperty Name="Scenarios" Relationship="DSSModel.FK_Scenario_Area" FromRole="Area" ToRole="Scenario" />
           <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="Area" ToRole="ScenarioItem" />
         </EntityType>
         <EntityType Name="AspNetRole">
@@ -1219,6 +1242,20 @@
             </Principal>
             <Dependent Role="Area">
               <PropertyRef Name="VisualTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scenario_Area">
+          <End Type="DSSModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="DSSModel.Scenario" Role="Scenario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="Scenario">
+              <PropertyRef Name="AudioArea" />
+              <PropertyRef Name="LayoutID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

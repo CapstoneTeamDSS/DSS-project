@@ -5,6 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="60dd0cc3d4c5407098ce42826cda126c" Name="Diagram1">
+
         <EntityTypeShape EntityType="DSSModel.Area" Width="1.5" PointX="6" PointY="4.875" />
         <EntityTypeShape EntityType="DSSModel.AspNetRole" Width="1.5" PointX="0.75" PointY="20.125" />
         <EntityTypeShape EntityType="DSSModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="20.25" />
@@ -28,8 +29,11 @@
         <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DSSModel.TimeSlot" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="0.75" PointY="7.125" />
+
+        
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
         <AssociationConnector Association="DSSModel.FK_Area_VisualType" />
+        <AssociationConnector Association="DSSModel.FK_Scenario_Area" />
         <AssociationConnector Association="DSSModel.FK_ScenarioItem_Area" />
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="DSSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />

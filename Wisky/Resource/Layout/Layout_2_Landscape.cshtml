@@ -1,9 +1,13 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:280px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="19" visual-type="1" />
+    <video style="width:235px; height:261px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="19" visual-type="1" />
+    <input type="checkbox" value="19" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:280px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="20" visual-type="1" />
+    <video style="width:235px; height:261px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="20" visual-type="1" />
+    <input type="checkbox" value="20" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <br />
-<div type="button" id="btnAudio" area-id="40" visual-type="2" onclick="onVdPlay(this)" class="vdReview" style="width:95%; text-align:center; text-decoration:underline; font-size:larger">Audio Setting</div>
+<br />
+<span style="font-size:medium; text-align:center">Check on area to turn on sound, or make your own sound list by:</span>
+<div type="button" id="btnAudio" area-id="40" visual-type="2" onclick="audioSetting(this)" class="vdReview" style="width:95%; text-align:center; text-decoration:underline; font-size:larger">Audio Setting</div>

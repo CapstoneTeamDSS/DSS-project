@@ -155,9 +155,10 @@
                                                 </div>
                                                 <div class="x_content">
                                                     <div id="preview-warapper" style="display:inline-block;align-content:center">
-                                                        <div style="height:350px;width:550px;align-content:center" id="divLayout">
+                                                        <div style="height:350px;width:570px;align-content:center" id="divLayout">
                                                         </div>
                                                     </div>
+                                                    <input type="hidden" name="AudioArea" id="txtAudioAreaId" value="" />
                                                     <hr />
                                                 </div>
                                             </div>
@@ -282,7 +283,33 @@
         //    player.load();
         //    player.play();
         //}
-
+        var audioSettingBeingChosen = false;
+        function audioCheck(el) {
+            audioSettingBeingChosen = false;
+            $("#btnAudio").css("border", "none");
+            $('.cbAudio').not($(el)).prop('checked', false);
+            var curVal = $('#txtAudioAreaId').val();
+            if (curVal == $(el).attr("value")) {
+                $("#txtAudioAreaId").attr("value", "-1");
+            } else {
+                $("#txtAudioAreaId").attr("value", $(el).attr("value"));
+            }
+            console.log($('#txtAudioAreaId').val());
+        }
+        function audioSetting(el) {
+            audioSettingBeingChosen = !audioSettingBeingChosen;
+            if (!audioSettingBeingChosen) {
+                $("#btnAudio").css("border", "none");
+                $("#txtAudioAreaId").attr("value", "-1");
+            } else {
+                $("#txtAudioAreaId").attr("value", $(el).attr("area-id"));
+                $('.cbAudio').each(function () {
+                    $(this).prop("checked", false);
+                });
+                onVdPlay(el);
+            }            
+            console.log($('#txtAudioAreaId').val());
+        }
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
 
