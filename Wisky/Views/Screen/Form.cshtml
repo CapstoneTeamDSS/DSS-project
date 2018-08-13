@@ -142,7 +142,15 @@
                         .appendTo(li);
                 });
             } else {
-                $("#frm_screen").submit();
+                //if ($('#location-list').is(':empty')==true && $('.validation-summary-errors').is(':empty')==true) {
+                swal({
+                    position: 'center',
+                    type: 'success',
+                    title: 'Add Screen Successful.',
+                    timer: 2000
+                });
+                //$("#frm_screen").submit();   
+                     
             }
         }
     </script>
