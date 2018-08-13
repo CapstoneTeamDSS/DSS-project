@@ -145,10 +145,10 @@
     <value>Nhãn dán Kịch bản</value>
   </data>
   <data name="PageHeaderAdd" xml:space="preserve">
-    <value>Tạo Kịch bản mới</value>
+    <value>Tạo Lịch trình mới</value>
   </data>
   <data name="PageHeaderUpdate" xml:space="preserve">
-    <value>Cập nhật Kịch bản</value>
+    <value>Cập nhật Lịch trình</value>
   </data>
   <data name="TxtDeviceDefault" xml:space="preserve">
     <value>Chọn Thiết bị</value>
@@ -178,7 +178,7 @@
     <value>Thứ bảy</value>
   </data>
   <data name="TxtScenarioDefault" xml:space="preserve">
-    <value>Chọn Kịch bản</value>
+    <value>Chọn Lịch trình</value>
   </data>
   <data name="TxtSun" xml:space="preserve">
     <value>Chủ nhật</value>

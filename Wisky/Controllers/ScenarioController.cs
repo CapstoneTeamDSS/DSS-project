@@ -121,6 +121,7 @@ namespace DSS.Controllers
                     LayoutID = model.LayoutId,
                     BrandID = user.BrandID,
                     isPublic = model.IsPublic,
+                    AudioArea = model.AudioArea,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/

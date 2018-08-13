@@ -1,16 +1,22 @@
 ﻿@inherits System.Web.Mvc.WebViewPage
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:140px;" id="player" src="https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="35" visual-type="1" />
+    <video style="width:235px; height:130px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a1" onplay="onVdPlay(this)" area-id="35" visual-type="1" />
+    <input type="checkbox" value="35" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:140px;" id="player" src="https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE" controls class="vdReview" area-code="a2" onplay="onVdPlay(this)" area-id="36" visual-type="1" />
+    <video style="width:235px; height:130px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="a2" onplay="onVdPlay(this)" area-id="36" visual-type="1" />
+    <input type="checkbox" value="36" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <br />
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:140px;" id="player" src="https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE" controls class="vdReview" area-code="b1" onplay="onVdPlay(this)" area-id="37" visual-type="1" />
+    <video style="width:235px; height:130px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="b1" onplay="onVdPlay(this)" area-id="37" visual-type="1" />
+    <input type="checkbox" value="37" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <div class="select-layout" style="display:inline-block">
-    <video style="width:250px; height:140px;" id="player" src="https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE" controls class="vdReview" area-code="b2" onplay="onVdPlay(this)" area-id="38" visual-type="1" />
+    <video style="width:235px; height:130px;" id="player" src="/Content/videos/Relax.mp4" controls class="vdReview" area-code="b2" onplay="onVdPlay(this)" area-id="38" visual-type="1" />
+    <input type="checkbox" value="38" class="cbAudio" onclick="audioCheck(this)" />
 </div>
 <br />
-<div type="button" id="btnAudio" area-id="46" visual-type="2" onclick="onVdPlay(this)" class="vdReview" style="width:95%; text-align:center; text-decoration:underline; font-size:larger">Audio Setting</div>
+<br />
+<span style="font-size:medium; text-align:center">Check on area to turn on sound, or make your own sound list by:</span>
+<div type="button" id="btnAudio" area-id="46" visual-type="2" onclick="audioSetting(this)" class="vdReview" style="width:95%; text-align:center; text-decoration:underline; font-size:larger">Audio Setting</div>
