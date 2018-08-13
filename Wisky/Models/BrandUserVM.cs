@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DSS.Annotaion;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DSS.Models
@@ -24,20 +25,18 @@ namespace DSS.Models
         public string BrandName { get; set; }
     }
 
-    public class BrandAccountInformation
+    public class BrandAccountInformationVMs
     {
         public String Id { get; set; }
-        [Required(ErrorMessage = "Please enter full name.")]
-        [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "{0}'s length should be between {2} and {1}.")]
-        public string FullName { get; set; }
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
-        public string PhoneNumber { get; set; }
-        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Email")]
-        [EmailAddress(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InEmail")]
-        public string Email { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; }
+        [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Fullname")]
+        [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
+        [StringLength(50, MinimumLength = 8, ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InName")]
+        public string FullName { get; set; }
+        //[Required(ErrorMessage = "Please enter phone number.")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InPhone")]
+        public string PhoneNumber { get; set; }
     }
     public class BrandUserDetailVM
     {
@@ -48,7 +47,7 @@ namespace DSS.Models
         public string Password { get; set; }
         [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Email")]
         [EmailAddress(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "InEmail")]
-        //[UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
+        [UniqueEmail(ErrorMessage = "Email already exists. Please enter a different email")]
         public string Email { get; set; }
         [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Fullname")]
         [RegularExpression(@"^[\p{L}\p{M}\s'-]{1,40}$", ErrorMessage = "Please enter full name only letter.")]
