@@ -149,6 +149,7 @@
           <Property Name="CreateDatetime" Type="datetime" />
           <Property Name="Description" Type="text" />
           <Property Name="Extension" Type="varchar" MaxLength="10" />
+          <Property Name="SecurityHash" Type="text" />
         </EntityType>
         <EntityType Name="MediaType">
           <Key>
@@ -1057,6 +1058,7 @@
           <Property Name="CreateDatetime" Type="DateTime" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Brand" Relationship="DSSModel.FK_MediaSrc_Brand" FromRole="MediaSrc" ToRole="Brand" />
           <NavigationProperty Name="MediaType" Relationship="DSSModel.FK_MediaSrc_MediaType" FromRole="MediaSrc" ToRole="MediaType" />
           <NavigationProperty Name="PlaylistItems" Relationship="DSSModel.FK_PlaylistItem_MediaSrc" FromRole="MediaSrc" ToRole="PlaylistItem" />
@@ -1663,6 +1665,7 @@
           <EntitySetMapping Name="MediaSrcs">
             <EntityTypeMapping TypeName="DSSModel.MediaSrc">
               <MappingFragment StoreEntitySet="MediaSrc">
+                <ScalarProperty Name="SecurityHash" ColumnName="SecurityHash" />
                 <ScalarProperty Name="Extension" ColumnName="Extension" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
