@@ -29,8 +29,8 @@
                                     var i = 0;
                                     foreach (var item in playlistItemList)
                                     {
-                                        <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)" data-name="@(item.mediaSrcTitle)" data-duration="@(item.duration)"></span>
                                         <li id='i_@(++i)' class="i-old" data-value="@(item.playlistItemId)">
+                                            <span class="media-datas" style="visibility:hidden" data-url="@(item.URL)" data-type="@(item.mediaType)" data-name="@(item.mediaSrcTitle)" data-duration="@(item.duration)"></span>
                                             <span id="title">@(item.mediaSrcTitle)</span>
                                             <span id="duration">@(item.duration)</span>
                                             <input type="button" style="position:relative; top: -15px; left:100px; margin-left:-10%" class="btn btn-danger" value="Delete" />
@@ -69,8 +69,6 @@
         </div>
     </div>
 </div>
-</div>
-
 
 @section scripts{
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
@@ -154,46 +152,55 @@
         });
     </script>
     <!--End Show preview-->
-    <!--Show all preview-->
+    <!--Play all preview-->
     <script>
         $("#playAll").on('click', function () {
-            var durationTimer = 0;
+            //var durationTimer = 0;
             $('#preview-warapper').empty();
+            console.log($(".media-datas"));
+            var time = 0;
             $('.media-datas').each(function (i) {
                 var type = parseInt($(this).attr('data-type'));
                 var url = $(this).attr('data-url');
                 var title = $(this).attr('data-name');
-                var duration = parseInt($(this).attr('data-duration'));
-                var durationShow = 0;
-                var result = (duration == 0) ? durationShow = 5000 : durationShow = duration * 1000;
-                if (i == 0) {
-                    show();
-                } else {
-                    var temp = durationTimer;
-                    temp += durationShow;
-                    setTimeout(show, temp);
-                    
-                }
-                function show() {
+                var currItemDuration = parseInt($(this).attr('data-duration'));
+                var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+                //if (i == 0) {
+                //    show(url, type, title, duration);
+                //} else {
+                    setTimeout(show, time, url, type, title, duration);
+                //}
+                console.log(time);
+                time += duration;
+                function show(url, type, title, duration) {
                     $('#preview-warapper').empty();
                     $('#hideMsg').show();
                     switch (type) {
                         case 1:
-                            var sec = durationShow / 1000;
-                            var timer = setInterval(function () {
-                                $('#name').text(title);
-                                $('#timer').text(sec--);
-                                if (sec == 0) {
-                                    clearInterval(timer);
-                                }
-                            }, 1000);
-                            durationTimer = durationShow;
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
                             $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
                             $("#theImg").css('height', '350px');
                             $("#theImg").css('width', '350px');
                             $("#preview-warapper").css('margin-left', '100px');
                             break;
                         case 2:
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
                             $("#preview-warapper").css('margin-left', '100px');
                             var video = $('<video />', {
                                 id: 'video',
@@ -204,15 +211,13 @@
                             video.appendTo($('#preview-warapper'));
                             video[0].play();
                             video.bind("ended", function () {
+                                alert("done video");
                             });
+                            break;
                         default:
                             alert('3');
                     }
                 }
-                //$('video').on('ended', function () {
-                //    console.log('Video has ended!');
-                //});
-
             });
         });
     </script>
