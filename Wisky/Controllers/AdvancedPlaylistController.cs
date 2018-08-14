@@ -56,6 +56,49 @@ namespace DSS.Controllers
         {
             return View("Form");
         }
+        [HttpPost]
+        public JsonResult LoadResourceList()
+        {
+            var ResourceList = MediaSrcController.GetMediaSrcListByBrandIdAndStatus();
+            return Json(new
+            {
+                ResourceList = ResourceList,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CheckTypeMediaSrcInPlaylist(int id)
+        {
+            try
+            {
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                var mediaType = mediaSrcService.Get(id).TypeID;
+                var mediaURL = mediaSrcService.Get(id).URL;
+                return Json(new
+                {
+                    mediaURL = mediaURL,
+                    mediaType = mediaType,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public ActionResult LoadMediaSrcInfo(int mediaSrcId)
+        {
+            IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+            var mediaSrc = mediaSrcService.GetById(mediaSrcId);
+            return Json(new
+            {
+                Id = mediaSrc.MediaSrcID,
+                Description = mediaSrc.Description,
+                Title = mediaSrc.Title,
+                Duration = "00:00:00",
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 
 }

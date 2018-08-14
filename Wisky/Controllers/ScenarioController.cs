@@ -279,8 +279,6 @@ namespace DSS.Controllers
         [HttpPost]
         public JsonResult LoadPlaylistList()
         {
-            IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
-            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var PlaylistList = PlaylistController.GetPlaylistIdByBrandIdAndStatus() as List<Models.PlaylistDetailVM>;
             return Json(new
             {
