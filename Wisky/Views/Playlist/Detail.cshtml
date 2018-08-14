@@ -55,9 +55,9 @@
                 <div class="x_title">
                     <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
                     <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
-                    @*<div id="hideMsg" style="display:none">
-                            <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
-                        </div>*@
+                    <div id="hideMsg" style="display:none">
+                        <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -158,20 +158,23 @@
             //var durationTimer = 0;
             $('#preview-warapper').empty();
             console.log($(".media-datas"));
+            var time = 0;
             $('.media-datas').each(function (i) {
                 var type = parseInt($(this).attr('data-type'));
                 var url = $(this).attr('data-url');
-                //var title = $(this).attr('data-name');
-                var duration = parseInt($(this).attr('data-duration'));
-                var result = (duration == 0) ? duration = 5000 : duration = duration * 1000;
-                if (i == 0) {
-                    show();
-                } else {
-                    setTimeout(show, 5000 * i);
-                }
-                function show() {
+                var title = $(this).attr('data-name');
+                var currItemDuration = parseInt($(this).attr('data-duration'));
+                var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+                //if (i == 0) {
+                //    show(url, type, title, duration);
+                //} else {
+                    setTimeout(show, time, url, type, title, duration);
+                //}
+                console.log(time);
+                time += duration;
+                function show(url, type, title, duration) {
                     $('#preview-warapper').empty();
-                    //$('#hideMsg').show();
+                    $('#hideMsg').show();
                     switch (type) {
                         case 1:
                             //var sec = duration / 1000;
@@ -189,6 +192,15 @@
                             $("#preview-warapper").css('margin-left', '100px');
                             break;
                         case 2:
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
                             $("#preview-warapper").css('margin-left', '100px');
                             var video = $('<video />', {
                                 id: 'video',
@@ -201,14 +213,11 @@
                             video.bind("ended", function () {
                                 alert("done video");
                             });
+                            break;
                         default:
                             alert('3');
                     }
                 }
-                //$('video').on('ended', function () {
-                //    console.log('Video has ended!');
-                //});
-
             });
         });
     </script>
