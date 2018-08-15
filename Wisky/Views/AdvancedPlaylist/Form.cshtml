@@ -1,19 +1,14 @@
-﻿@model DSS.Models.ScenarioDetailVM
+﻿@model DSS.Models.PlaylistCRUDVM
 @{
-    ViewBag.Title = (Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader;
+    ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    //Chỉnh nút status
-    bool status = true;
-    if (Model != null)
-    {
-        status = Model.IsPublic;
-    }
 }
+
 <div class="" role="main" style="min-height: 1207px;width:inherit">
     <div style="width:1230px;margin-right:1000px">
         <div class="page-title">
             <div class="title_left">
-                <h3>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader)</h3>
+                <h3>Playlist</h3>
             </div>
 
             <div class="title_right">
@@ -30,7 +25,7 @@
             <div class="col-md-12 col-sm-8 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageTitle : DSS.ResourcesLanguage.ScenarioUpdateForm.PageTitle)<small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtStepbyStep</small></h2>
+                        <h2>Playlist editor<small>You can edit playlist right here</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -54,57 +49,36 @@
                     </div>
                     <div class="x_content">
                         <!-- Smart Wizard -->
-                        <p>@((Model?.ScenarioId != null) ? "" : @DSS.ResourcesLanguage.ScenarioAddForm.TxtInfo)</p>
+                        <p>Playlist contents</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <ul class="wizard_steps anchor">
                                 <li>
                                     <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-1" class="selected" isdone="1" rel="1">
                                         <span class="step_no">1</span>
                                         <span class="step_descr">
-                                            @((Model?.ScenarioId != null) ? "Enter Info" : @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep1)<br>
-                                            <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtEnterScenarioInfo</small>
+                                            @((Model?.Id != null) ? "Enter Info" : @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep1)<br>
+                                            <small>Playlist information</small>
                                         </span>
                                     </a>
                                 </li>
-                                @if (Model?.ScenarioId == null)
-                                {
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
-                                            <span class="step_no">2</span>
-                                            <span class="step_descr">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep2<br>
-                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtChooseScreenType</small>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-3" class="disabled" isdone="0" rel="3">
-                                            <span class="step_no">3</span>
-                                            <span class="step_descr">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep3<br>
-                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtChooseScreenLayout</small>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
-                                            <span class="step_no">4</span>
-                                            <span class="step_descr">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep4<br>
-                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtNavigateScenarioDetails</small>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
+                                <li>
+                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-2" class="disabled" isdone="0" rel="2">
+                                        <span class="step_no">2</span>
+                                        <span class="step_descr">
+                                            @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep2<br>
+                                            <small>Playlist details</small>
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                             <div class="stepContainer" style="height:auto">
-                                @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
+                                @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Scenario", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
-                                    <input type="hidden" id="txtScenarioId" value="@(Model?.ScenarioId)" />
                                     <div id="step-1" class="content" style="display: block;">
+                                        <input type="hidden" id="playlistId" name="Id" value="@(Model?.Id)" />
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.LblTitle <span class="required">*</span> <br />
+                                                Playlist Title <span class="required">*</span> <br />
                                                 <span id="msg_title" style="color:red"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -113,10 +87,27 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                                @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
+                                                    <option value="-1">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
+                                                    @{
+                                                        var visualTypeList = ViewBag.visualTypeList as List<DSS.Models.VisualTypeVM>;
+                                                        foreach (var item in visualTypeList)
+                                                        {
+                                                            <option value="@(item.VisualTypeID)" @((Model?.VisualTypeName)?.CompareTo(item.VisualTypeName) == 0 ? "selected" : "")>@(item.VisualTypeName)</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                                 @DSS.ResourcesLanguage.ScenarioAddForm.LblStatus <span class="required">*</span>
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</span>
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" /> <span id="spStatus">public</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -129,42 +120,22 @@
                                         </div>
                                     </div>
                                     <div id="step-2" class="content" style="display: none;">
-                                        <div style="float:left; padding-left:250px;padding-top:30px">
-                                            <img src="~/Content/images/Scenario/Landscape.png" /><br />
-                                            <div style="text-align:center">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtLandscape<br /><br /><br />
-                                                <div><input type="radio" checked value="true" name="Orientation"></div>
-                                            </div>
-                                        </div>
-                                        <div style="float:right;padding-right:250px;padding-bottom:20px">
-                                            <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
-                                            <div style="text-align:center">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtPortrait<br />
-                                                <div><input type="radio" value="false" name="Orientation"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="step-3" class="content" style="display: none;">
-                                    </div>
-                                    <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPreview </h2>
+                                                    <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
+                                                    <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
-                                                    <div id="preview-warapper" style="display:inline-block;align-content:center">
-                                                        <div style="height:350px;width:570px;align-content:center" id="divLayout">
-                                                        </div>
+                                                    <div id="preview-warapper" style="display:inline-block;height:370px;width:570px;align-content:center">
                                                     </div>
-                                                    <input type="hidden" name="AudioArea" id="txtAudioAreaId" value="" />
-                                                    <hr />
                                                 </div>
+                                                <hr />
                                             </div>
                                             <div class="x_panel">
                                                 <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtPlaylistInfo</h2>
+                                                    <h2>Resource Information</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
@@ -189,7 +160,7 @@
                                                             @DSS.ResourcesLanguage.ScenarioAddForm.LblDuration:
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-6" id="durationInfo">
-                                                            18:00
+                                                            <input id="imgDuration" type="text" class="time" disabled="disabled" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -199,7 +170,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel" style="height:470px">
                                                 <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtAreaListPlaylist</h2>
+                                                    <h2>Playlist contents</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
@@ -211,7 +182,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel" style="height:400px">
                                                 <div class="x_title">
-                                                    <h2>@DSS.ResourcesLanguage.ScenarioAddForm.TxtYourPlaylist</h2>
+                                                    <h2>Your resources</h2>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
@@ -263,6 +234,14 @@
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
+    <script>
+        $(function () {
+            $('#imgDuration').timepicker({
+                'timeFormat': 'H:i:s',
+                'step': 1
+            });
+        });
+    </script>
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
@@ -277,64 +256,110 @@
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/duration-picker/jquery.timepicker.min.js"></script>
     <script>
-        //function swapVideo() {
-        //    player.src = this.getAttribute("data-video-url");
-        //    player.load();
-        //    player.play();
-        //}
-        var audioSettingBeingChosen = false;
-        function audioCheck(el) {
-            audioSettingBeingChosen = false;
-            $("#btnAudio").css("border", "none");
-            $('.cbAudio').not($(el)).prop('checked', false);
-            var curVal = $('#txtAudioAreaId').val();
-            if (curVal == $(el).attr("value")) {
-                $("#txtAudioAreaId").attr("value", "-1");
-            } else {
-                $("#txtAudioAreaId").attr("value", $(el).attr("value"));
-            }
-            console.log($('#txtAudioAreaId').val());
-        }
-        function audioSetting(el) {
-            audioSettingBeingChosen = !audioSettingBeingChosen;
-            if (!audioSettingBeingChosen) {
-                $("#btnAudio").css("border", "none");
-                $("#txtAudioAreaId").attr("value", "-1");
-            } else {
-                $("#txtAudioAreaId").attr("value", $(el).attr("area-id"));
-                $('.cbAudio').each(function () {
-                    $(this).prop("checked", false);
-                });
-                onVdPlay(el);
-            }            
-            console.log($('#txtAudioAreaId').val());
-        }
-        var videoPlayButtons = document.querySelectorAll("button"),
-            player = document.getElementById("player");
+        $("#toList").sortable({
+            connectWith: '#deleteArea',
+            update: function (event, ui) {
+                //Run this code whenever an item is dragged and dropped out of this list
+                var order = $(this).sortable('serialize');
+            },
 
-        for (var i = 0; i < videoPlayButtons.length; i++) {
-            videoPlayButtons[i].addEventListener('click', swapVideo);
-        }
+        });
+    </script>
+    <!--Play all preview-->
+    <script>
+        $("#playAll").on('click', function () {
+            $('#preview-warapper').empty();
+            var time = 0;
+            $('#toList').find('li').each(function (i) {
+                var type = parseInt($(this).attr('data-type'));
+                var url = $(this).attr('data-url');
+                var currItemDuration = parseInt($(this).attr('data-duration'));
+                var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+                setTimeout(show, time, url, type, title, duration);
+                time += duration;
+                function show(url, type, title, duration) {
+                    $('#preview-warapper').empty();
+                    $('#hideMsg').show();
+                    switch (type) {
+                        case 1:
+                            $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
+                            $("#theImg").css('height', '350px');
+                            $("#theImg").css('width', '350px');
+                            $("#preview-warapper").css('margin-left', '100px');
+                            break;
+                        case 2:
+                            $("#preview-warapper").css('margin-left', '100px');
+                            var video = $('<video />', {
+                                id: 'video',
+                                src: url,
+                                type: 'video/mp4',
+                                controls: true
+                            });
+                            video.appendTo($('#preview-warapper'));
+                            video[0].play();
+                            //video.bind("ended", function () {
+                            //    alert("done video");
+                            //});
+                            break;
+                        case 3:
+                            $("#preview-warapper").css('margin-left', '100px');
+                            var video = $('<video />', {
+                                id: 'video',
+                                src: url,
+                                type: 'video/mp4',
+                                controls: true
+                            });
+                            video.appendTo($('#preview-warapper'));
+                            video[0].play();
+                            //video.bind("ended", function () {
+                            //    alert("done video");
+                            //});
+                            break;
+                    }
+                }
+            });
+        });
+    </script>
+    <!--End Show all preview-->
+    <script>
+        var AddedElements = {};
+        /*Get duration value from iframe*/
+        window.addEventListener('message', function (e) {
+            var $iframe = $('.iframe');
+            var eventName = e.data[0];
+            var data = JSON.parse(e.data[1]);
+            var mediaSrcId = data.mediaSrcId;
+            var duration = data.duration;
+            AddedElements[mediaSrcId] = duration;
+        }, false);
         function submitFunction() {
-            var other_data = $('#frm_scenario').serializeArray();
+            $("#toList").find("li").each(function () {
+                var ItemId = $(this).attr('data-id');
+                var Duration = $(this).attr('data-duration');
+                if (AddedElements[ItemId] == null) {
+                    AddedElements[ItemId] = Duration;
+                }
+            });
+            var other_data = $('#frm_playlist').serializeArray();
             var data = {
-                PlaylistAreaArr: [],
+                AddedElements: [],
             };
-            //Add data from form to data object to send to back end
             $.each(other_data, function (key, input) {
                 data[input.name] = input.value;
             });
-            $.each(PlaylistAreaObj, function (index, value) {
+            $.each(AddedElements, function (index, value) {
                 var obj = {
-                    "AreaId": index,
-                    "PlaylistIds": value,
+                    "ItemId": index,
+                    "ItemDuration": value,
                 };
-                data["PlaylistAreaArr"].push(obj);
+                data["AddedElements"].push(obj);
             });
-            console.log(data);
+            var playlistId = $("#playlistId").val();
+            var url = playlistId == '' ? "/AdvancedPlaylist/Add" : "/AdvancedPlaylist/Update";
             $.ajax({
-                url: '/Scenario/Add',
+                url: url,
                 method: 'POST',
                 data: data,
                 success: function (res) {
@@ -345,20 +370,10 @@
                     }
                 },
                 error: function () {
-                    alert("Error");
+                    alert($("#req").val());
                 }
             });
         };
-    </script>
-    <script>
-        $("#toList").sortable({
-            connectWith: '#deleteArea',
-            update: function (event, ui) {
-                //Run this code whenever an item is dragged and dropped out of this list
-                var order = $(this).sortable('serialize');
-            },
-
-        });
     </script>
     <script>
         function swapVideo(id, el) {
@@ -381,239 +396,196 @@
             player = document.getElementById("player");
     </script>
     <script>
-        /* STEP 2*/
-        $("input:radio[name='Orientation']").change(function () {
-            var isLandscape = $(this).val();
-            if (isLandscape == "true") {
-                $("#divLayout").css("height", "300px");
-                $("#divLayout").css("width", "533px");
+        ///*Get file list base on Visual Type*/
+        $("#VisualType").change(function () {
+            var selected = $(this).find(":selected").val();
+            CatchVisualType(selected);
+        })
+        function CatchVisualType(selected) {
+            //alert(selected);
+            console.log(selected);
+            resetChooseMedia();
+            if (selected == 1) {
+                GetFileBaseOnFileType(['1', '2']);
+            } else if (selected == 2) {
+                GetFileBaseOnFileType(['3']);
+            } else if (selected == 3) {
+                GetFileBaseOnFileType(['4']);
             } else {
-                $("#divLayout").css("height", "533px");
-                $("#divLayout").css("width", "300px");
+                GetFileBaseOnFileType([]);
             }
-            loadLayoutList(isLandscape);
+        }
+        /*Get file list base on file type*/
+        $("input:checkbox[name='fileType']").change(function () {
+            var values = [];
+            $("input:checkbox[name='fileType']:checked").each(function () {
+                values.push($(this).val());
+            });
+            GetFileBaseOnFileType(values);
         });
-        function loadLayoutList(isHorizontal) {
-            var data = {
-                isHorizontal: isHorizontal,
-            };
-            $.ajax({
-                type: "POST",
-                url: "/Scenario/LoadLayoutList",
-                data: JSON.stringify(data),
-                dataType: "json",
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    var layoutList = data.LayoutVMs;
-                    if (layoutList != null) {
-                        $("#step-3").find('div').remove().end();
-                        for (var i = 0; i < layoutList.length; i += 3) {
-                            var checked = i == 0 ? "checked" : "";
-                            var style = isHorizontal == "true" ? "width: 250px; height: 140px" : "width: 140px; height: 250px";
-                            $("#step-3").append('<div style="padding-top:30px" class="col-md-12 col-sm-12 col-xs-12">');
-                            $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
-                                + '<img src="' + layoutList[i].URL + '" style="display:block; margin:auto;' + style + '" />'
-                                + '<input type="radio" value="' + layoutList[i].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" ' + checked + ' onclick="loadLayout(' + layoutList[i].LayoutID + ')" />'
-                                + '</div>');
-                            if (i + 1 < layoutList.length) {
-                                $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
-                                    + '<img src="' + layoutList[i + 1].URL + '" style="display:block; margin:auto;' + style + '" />'
-                                    + '<input type="radio" value="' + layoutList[i + 1].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i + 1].LayoutID + ')"/>'
-                                    + '</div>');
-                            }
-                            if (i + 2 < layoutList.length) {
-                                $("#step-3").append('<div class="col-md-4 col-sm-4 col-xs-4">'
-                                    + '<img src="' + layoutList[i + 2].URL + '" style="display:block; margin:auto;' + style + '" />'
-                                    + '<input type="radio" value="' + layoutList[i + 2].LayoutID + '" name="LayoutId" style="display:block; margin:auto; margin-top:20px" onclick="loadLayout(' + layoutList[i + 2].LayoutID + ')"/>'
-                                    + '</div>');
-                            }
-                            $("#step-3").append('</div');
-                        }
-                    }
-                },
-                error: function () {
-                    alert($("#error").val())
+        /*Reset MediaSrc choose*/
+        function resetChooseMedia() {
+            $("#fromList").find("li").each(function () {
+                $(this).show();
+            });
+            $("#toList").empty();
+            $('#preview-warapper').empty();
+        }
+        /*Show File in Type array, hide the others*/
+        function GetFileBaseOnFileType(showFileTypes) {
+            $("#fromList").find("li").each(function () {
+                var type = $(this).attr("data-type");
+                if ($.inArray(type, showFileTypes) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
                 }
             });
         }
-
-        /* STEP 3*/
-        var playlistList;
-        var PlaylistAreaObj = {};
-        var areaId;
+    </script>
+    <script>
+        var ResourceList = {};
+        var PlaylistItemObj = [];
         $(document).ready(function () {
-            var layoutId = $("#txtLayoutId").val();
-            if (layoutId == null) {
-                layoutId = 7;
-            }
-            loadLayoutList("true");
-            loadLayout(layoutId);
-            loadPlaylistList();
+            loadResourceList();
         });
-        function loadLayout(id) {
-            var data = {
-                layoutId: id,
-            };
-            $.ajax({
-                type: "POST",
-                url: "/Scenario/LoadLayout",
-                data: JSON.stringify(data),
-                dataType: "html",
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $("#divLayout").html(data);
-                },
-                error: function () {
-                    alert($("#error").val())
-                }
-            });
-        }
-        function loadPlaylistList() {
+        function loadResourceList() {
             var data = {
             };
             $.ajax({
                 type: "POST",
-                url: "/Scenario/LoadPlaylistList",
+                url: "/AdvancedPlaylist/LoadResourceList",
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    playlistList = data.PlaylistList;
-                    showAllPlaylist();
+                    ResourceList = data.ResourceList;
+                    //showAllResources();
                 },
                 error: function () {
                     alert($("#error").val())
                 }
+            }).done(function () {
+                renderStep2();
             });
         }
-        function showAllPlaylist() {
-            for (var i = 0; i < playlistList.length; i++) {
-                if (playlistList[i] != '') {
-                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+        function showAllResources() {
+            for (var i = 0; i < ResourceList.length; i++) {
+                if (ResourceList[i] != '') {
+                    $('#fromList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        + "data-type='" + ResourceList[i].TypeId + "'"
+                        + "data-url='" + ResourceList[i].URL + "'"
+                        + "data-duration='" + 0 + "'"
                         + ">"
-                        + "<span id='title'>" + playlistList[i].Title + "</span>"
-                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
+                        + "<span id='title'>" + ResourceList[i].Title + "</span>"
+                        + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
                 }
             }
         }
-        /* STEP 4*/
-        function onVdPlay(el) {
-            /*Marked current sellected area */
-            areaId = $(el).attr("area-id");
-            if (!PlaylistAreaObj[areaId]) {
-                PlaylistAreaObj[areaId] = [];
-            }
-            $(".vdReview").css("border", "none");
-            $(el).css("border", "thick solid");
-            var scenarioId = $("#txtScenarioId").val();
-            console.log(scenarioId);
-            /* Render Playlist List for current selected area */
-            var areaVisualTypeID = $(el).attr("visual-type");
+        function renderStep2() {
+            var playlistId = $("#playlistId").val();
             var data = {
-                areaId: areaId,
-                scenarioId: scenarioId,
+                playlistId: playlistId,
             };
-            if (!scenarioId) {
-                renderPlaylistList([], areaVisualTypeID);
+            if (!playlistId) {
+                renderMediaSrcList([]);
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "/Scenario/LoadAreaPlaylist",
+                    url: "/AdvancedPlaylist/LoadPlaylistItemIds",
                     data: JSON.stringify(data),
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
-                        renderPlaylistList(data.ScenarioItemIds, areaVisualTypeID);
+                        renderMediaSrcList(data.PlaylistItemIds);
                     },
                     error: function () {
                         alert($("#error").val())
                     }
                 });
-            }
+            }          
         }
-
-        function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
-            /*Remove data when change location*/
+        function renderMediaSrcList(PlaylistItemIds) {
             $("#fromList").find('li').remove().end();
             $("#toList").find('li').remove().end();
             /*Load playlist list*/
-            for (var i = 0; i < playlistList.length; i++) {
-                if (playlistList[i] != '') {
-                    var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
-                    console.log(isMatchVisualType);
-                    var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
-                    var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
-                    $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+            for (var i = 0; i < ResourceList.length; i++) {
+                if (ResourceList[i] != '') {
+                    var isShow = !isInArray(ResourceList[i].MediaSrcId, PlaylistItemIds);
+                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        + "data-type='" + ResourceList[i].TypeId + "'"
+                        + "data-url='" + ResourceList[i].URL + "'"
+                        + "data-duration='" + 0 + "'"
                         + style
                         + ">"
-                        + "<span id='title'>" + playlistList[i].Title + "</span>"
-                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
+                        + "<span id='title'>" + ResourceList[i].Title + "</span>"
+                        + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
-                    if (!isShow && isMatchVisualType) {
-                        PlaylistAreaObj[areaId].push(playlistList[i].Id);
-                        $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                    if (!isShow) {
+                        $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].Id + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                            + "data-type='" + ResourceList[i].TypeId + "'"
+                            + "data-url='" + ResourceList[i].URL + "'"
+                            + "data-duration='" + 0 + "'"
                             + ">"
-                            + "<span id='title'>" + playlistList[i].Title + "</span>"
-                            + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> - </a>"
+                            + "<span id='title'>" + ResourceList[i].Title + "</span>"
+                            + "<span id='duration'>" + ResourceList[i].Duration + "</span>"
+                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist'> - </a>"
                             + "</li>");
                     }
                 }
             }
+            var selected = $("#VisualType").find(":selected").val();
+            setTimeout(CatchVisualType, 0, selected);
         }
-
         function isInArray(value, array) {
             return array.indexOf(value) > -1;
         }
 
-        /*Add playlist to area*/
-        function addToArea(el) {
-            if (!areaId) {
-                alert($("#area").val());
-            } else {
-                var liObjOrigin = $(el).parent()[0];
-                var liObj = $(liObjOrigin).clone().appendTo("#toList");
-                var playlistId = parseInt($(liObj).attr("data-id"));
-                PlaylistAreaObj[areaId].push(playlistId);
-                $(liObj).children('a').attr('class', "btn btn-danger btnRemovePlaylist");
-                $(liObj).children('a').attr('onclick', "removeItem(this);");
-                $(liObj).children('a').text(" - ");
-                $(el).parent().hide();
-            }
+        /*Add Resource to Playlist*/
+        function addToPlaylist(el) {
+            var liObjOrigin = $(el).parent()[0];
+            var liObj = $(liObjOrigin).clone().appendTo("#toList");
+            var playlistId = parseInt($(liObj).attr("data-id"));
+            PlaylistItemObj.push(playlistId);
+            $(liObj).children('a').attr('class', "btn btn-danger btnRemovePlaylist");
+            $(liObj).children('a').attr('onclick', "removeItem(this);");
+            $(liObj).children('a').text(" - ");
+            $(el).parent().hide();
         };
-        /*Remove playlist from area*/
+        /*Remove Resource from Playlist*/
         function removeItem(el) {
             var id = $(el).parent().attr("id");
             var playlistId = parseInt($(el).parent().attr("data-id"));
             $('#fromList').find("#" + id).show();
             $(el).parent().remove();
-            PlaylistAreaObj[areaId] = jQuery.grep(PlaylistAreaObj[areaId], function (value) {
+            PlaylistItemObj = jQuery.grep(PlaylistItemObj, function (value) {
                 return value != playlistId;
             });
-            console.log(PlaylistAreaObj);
         }
-        /*Marked and show info when click on playlist*/
-        function playlistClick(el) {
+        var currentSelectedEl;
+        /*Marked and show info when click on Resource*/
+        /*Allow to modify duration*/
+        function resourceClick(el) {
+            currentSelectedEl = el;
             /*Mark*/
             $("ul > li").css("border", "none");
             $(el).css("border", "solid");
-            var data = {
-                playlistId: $(el).attr("data-id"),
-            };
             /*Show info*/
+            var data = {
+                mediaSrcId: $(el).attr("data-id"),
+            };
             $.ajax({
                 type: "POST",
-                url: "/Scenario/LoadPlaylistInfo",
+                url: "/AdvancedPlaylist/LoadMediaSrcInfo",
                 data: JSON.stringify(data),
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     $("#titleInfo").html(data.Title);
                     $("#descriptionInfo").html(data.Description);
-                    $("#durationInfo").html(data.Duration);
+                    $("#txtDuration").val(data.Duration);
                 },
                 error: function () {
                     $("#titleInfo").html("###");
@@ -621,7 +593,78 @@
                     $("#durationInfo").html("###");
                 }
             });
+            /*Play resource on review wrapper*/
+            playMediaToReview(el);
+            /*Allow to modify duration*/
+            if ($(el).attr("data-type") == "1") {
+                $("#imgDuration").removeAttr('disabled');
+                var duration = $(el).attr('data-duration') != "" ? $(el).attr('data-duration') : "00:00:00";
+                $("#imgDuration").val(duration);
+            } else {
+                $("#imgDuration").attr('disabled', 'disabled');
+            }
         };
+
+        $("#imgDuration").change(function () {
+            var durationVal = $("#imgDuration").val();
+            $(currentSelectedEl).attr("data-duration", durationVal);
+        });
+
+        function playMediaToReview(el) {
+            $('#preview-warapper').empty();
+            var data = {
+                id: $(el).attr('data-id'),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/AdvancedPlaylist/CheckTypeMediaSrcInPlaylist",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.mediaType == 1) {
+                        $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: data.mediaURL }));
+                        $("#theImg").css('height', '350px');
+                        $("#theImg").css('width', '350px');
+                        $("#preview-warapper").css('margin-left', '100px');
+                    } else if (data.mediaType == 2) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var video = $('<video />', {
+                            id: 'video',
+                            src: data.mediaURL,
+                            type: 'video/mp4',
+                            controls: true
+                        });
+                        video.appendTo($('#preview-warapper'));
+                        video[0].play();
+                        video.bind("ended", function () {
+                            alert("I'm done!");
+                        });
+                    } else if (data.mediaType == 3) {
+                        $("#preview-warapper").css('margin-left', '100px');
+                        var audio = $('<audio />', {
+                            id: 'audio',
+                            src: data.mediaURL,
+                            type: 'audio/mp3',
+                            controls: true
+                        });
+                        audio.appendTo($('#preview-warapper'));
+                        audio[0].play();
+                    } else if (data.mediaType == 4) {
+                        $.get(data.mediaURL, function (data) {
+                            var lines = data.split("\n");
+                            $.each(lines, function (n, elem) {
+                                $('#preview-warapper').append('<div>' + elem + '</div>');
+                            });
+                        });
+                        $("#preview-warapper").css('margin-left', '10px');
+                    }
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        }
 
         $('#wizard').smartWizard({
             //onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
@@ -635,7 +678,7 @@
         /* Submit Form Data on Finish*/
         function onFinishCallback(objs, context) {
             if (validateAllSteps()) {
-                $('#frm_scenario').submit(function (event) {
+                $('#frm_playlist').submit(function (event) {
                     alert("fdfd submit");
                 });
             }
@@ -687,6 +730,10 @@
     </script>
 }
 @section styles{
+    <!-- duration Picker -->
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/jquery.timepicker.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/Content/duration-picker/site.css" />*@
+    <!-- End duration Picker -->
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
@@ -783,9 +830,4 @@
         }
     </style>
 }
-
-
-
-
-
 

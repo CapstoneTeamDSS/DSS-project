@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>@DSS.ResourcesLanguage.PlaylistIndex.PageHeader</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>@DSS.ResourcesLanguage.PlaylistIndex.PageTitle</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bs-glyphicons" style="width:60%; margin-left: 40%;">
+                    <a href="/AdvancedPlaylist/Form">
+                        <ul class="bs-glyphicons-list">
+                            <li>
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true" text-align:center></span>
+                            </li>
+                        </ul>
+                    </a>
+                </div>
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                    </p>
+                    <table id="datatable" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @DSS.ResourcesLanguage.PlaylistIndex.ColNo
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column descending" aria-sort="ascending">
+                                    @DSS.ResourcesLanguage.PlaylistIndex.ColTitle
+                                </th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDuration</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColStatus</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColVisualType</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColDescription</th>
+                                <th>@DSS.ResourcesLanguage.PlaylistIndex.ColAction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var playlistsList = ViewBag.playlistList as List<DSS.Models.PlaylistDetailVM>;
+                                var i = 0;
+                                foreach (var item in playlistsList)
+                                {
+                                    <tr>
+                                        <td>@(++i)</td>
+                                        <td>@(item.Title)</td>
+                                        <td>@(item.Duration)</td>
+                                        <td><a href="#" class="isPublic" style="color:@(item.isPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.isPublic)" data-id="@(item.Id)">@(item.isPublic ? @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic : @DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate)</a></td>
+                                        <td>@(item.VisualTypeName)</td>
+                                        <td>@(item.Description)</td>
+                                        <td style="width:300px; text-align:center">
+                                            <a href="/AdvancedPlaylist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.PlaylistIndex.BtnEdit </i></a>
+                                            @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
+                                            @*<a href="/AdvancedPlaylist/Detail/@(item.Id) "><i class="fa  btn btn-success">@DSS.ResourcesLanguage.PlaylistIndex.BtnDetail </i></a>*@
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MediaSrcIndex.BtnDelete</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPublic" id="public" />
+<input type="hidden" value="@DSS.ResourcesLanguage.MediaSrcAddForm.TxtPrivate" id="private" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDeleteScen" id="scen" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="if" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="sure" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.notbeable" id="able" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.YesDelete" id="yes" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="cancel" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted1" id="deleted1" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Deleted" id="deleted" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.error" id="error" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Canceled" id="canceled" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Filesafe" id="safe" />
+@section scripts{
+    <!-- Datatables -->
+    <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!--Change status enable disable-->
+    <script>
+        /*Change status enable disable*/
+        function changeStatus(el) {
+            var curStt = $(el).attr("data-stt") == "true" || $(el).attr("data-stt") == "True";
+            var dataId = $(el).attr("data-id");
+            $.ajax({
+                type: "GET",
+                url: "/Playlist/UpdateStatus?dataId=" + dataId,
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.success) {
+                        curStt = !curStt;
+                        $(el).attr("data-stt", curStt ? "true" : "false"); //Change status
+                        $(el).html((curStt) ? $("#public").val() : $("#private").val()); //Change status text
+                        $(el).css("color", curStt ? "green" : "red"); //Change status color
+                    }
+                },
+                error: function () {
+                    alert($("#error").val())
+                }
+            });
+        }
+    </script>
+    <!--End Change status enable disable-->
+    <!--Sweet alert-->
+    <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+    <script>
+        $(".btnDelete").click(function () {
+            var btnDel = $(this);
+            var IdPlaylist = $(btnDel).attr("data-id");
+            var data = {
+                id: IdPlaylist,
+            };
+            $.ajax({
+                type: "POST",
+                url: "/Playlist/CheckPlaylistIdIsUsed",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //set title warming when scenarioVMlist.length <= 3
+                    var title = "";
+                    if (data.scenarioVMlist.length <= 3) {
+                        for (var i = 0; i < data.scenarioVMlist.length; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                    } else {//set title warming when scenarioVMlist.length > 3 show ...
+                        for (var i = 0; i < 3; i++) {
+                            title += data.scenarioVMlist[i].Title;
+                            if (i < data.scenarioVMlist.length - 1) {
+                                title += ", ";
+                            }
+                        }
+                        title += "...";
+                    }
+                    //show sweerAlert warming
+                    if (data.isUsing) {
+                        swal($("#use").val(), $("#scen").val() + " " + title + $("#if").val(), "error");
+                    } else {
+                        swal({
+                            title: $("#sure").val(),
+                            text: $("#able").val(),
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: '#DD6B55',
+                            confirmButtonText: $("#yes").val(),
+                            cancelButtonText: $("#cancel").val(),
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    var IdDelete = $(btnDel).attr("data-id");
+                                    $(btnDel).attr("href", "/Playlist/Delete?Id=" + IdDelete);
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "/Playlist/Delete?Id=" + IdDelete,
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            swal($("#deleted1").val(), $("#deleted").val(), "success");
+                                            location.reload();
+                                        },
+                                        error: function () {
+                                            alert($("#error").val())
+                                        }
+                                    });
+                                } else {
+                                    swal($("#canceled").val(), $("#safe").val(), "error");
+                                }
+                            });
+                    }
+                },
+                error: function () {
+                    alert($("#error").val());
+                }
+            });
+        });
+    </script>
+    <!--End Sweet alert-->
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Examples of how to assign the Colorbox event to elements
+            $(".iframe").colorbox({
+                iframe: true, width: "80%", height: "80%",
+                //refresh page when summit
+                //onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
+}
+
+@section styles{
+    <!-- Datatables -->
+    <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
+    <!--Button add-->
+    <link href="~/Content/button-add/css/custom.min.css" rel="stylesheet">
+    <!-- End button add-->
+    <!--Sweet alert-->
+    <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+    <!--End Sweet alert-->
+}
