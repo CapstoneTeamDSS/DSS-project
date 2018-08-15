@@ -17,8 +17,8 @@ namespace DSS.Data.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Layout()
         {
-            this.Areas = new HashSet<Area>();
             this.Scenarios = new HashSet<Scenario>();
+            this.Areas = new HashSet<Area>();
         }
     
         public int LayoutID { get; set; }
@@ -30,8 +30,8 @@ namespace DSS.Data.Models.Entities
         public Nullable<bool> isPublic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Area> Areas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Scenario> Scenarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Area> Areas { get; set; }
     }
 }

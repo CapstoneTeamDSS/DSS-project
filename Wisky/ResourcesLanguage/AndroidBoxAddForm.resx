@@ -127,10 +127,10 @@
     <value>Description</value>
   </data>
   <data name="LblLocation" xml:space="preserve">
-    <value>Location*</value>
+    <value>Location</value>
   </data>
   <data name="LblName" xml:space="preserve">
-    <value>Box Name*</value>
+    <value>Box Name</value>
   </data>
   <data name="PageHeader" xml:space="preserve">
     <value>Add New Box</value>

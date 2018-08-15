@@ -760,7 +760,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DSSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DSSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Areas" EntityType="DSSModel.Area" />
           <EntitySet Name="AspNetRoles" EntityType="DSSModel.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="DSSModel.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="DSSModel.AspNetUserLogin" />
@@ -783,18 +782,6 @@
           <EntitySet Name="sysdiagrams" EntityType="DSSModel.sysdiagram" />
           <EntitySet Name="TimeSlots" EntityType="DSSModel.TimeSlot" />
           <EntitySet Name="VisualTypes" EntityType="DSSModel.VisualType" />
-          <AssociationSet Name="FK_Area_Layout" Association="DSSModel.FK_Area_Layout">
-            <End Role="Layout" EntitySet="Layouts" />
-            <End Role="Area" EntitySet="Areas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Area_VisualType" Association="DSSModel.FK_Area_VisualType">
-            <End Role="VisualType" EntitySet="VisualTypes" />
-            <End Role="Area" EntitySet="Areas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ScenarioItem_Area" Association="DSSModel.FK_ScenarioItem_Area">
-            <End Role="Area" EntitySet="Areas" />
-            <End Role="ScenarioItem" EntitySet="ScenarioItems" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="DSSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
@@ -891,19 +878,20 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Areas" EntityType="DSSModel.Area" />
+          <AssociationSet Name="FK_Area_Layout" Association="DSSModel.FK_Area_Layout">
+            <End Role="Layout" EntitySet="Layouts" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Area_VisualType" Association="DSSModel.FK_Area_VisualType">
+            <End Role="VisualType" EntitySet="VisualTypes" />
+            <End Role="Area" EntitySet="Areas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScenarioItem_Area" Association="DSSModel.FK_ScenarioItem_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="ScenarioItem" EntitySet="ScenarioItems" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Area">
-          <Key>
-            <PropertyRef Name="AreaID" />
-            <PropertyRef Name="LayoutID" />
-          </Key>
-          <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LayoutID" Type="Int32" Nullable="false" />
-          <Property Name="VisualTypeID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Area_Layout" FromRole="Area" ToRole="Layout" />
-          <NavigationProperty Name="VisualType" Relationship="DSSModel.FK_Area_VisualType" FromRole="Area" ToRole="VisualType" />
-          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="Area" ToRole="ScenarioItem" />
-        </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
             <PropertyRef Name="Id" />
@@ -1026,8 +1014,8 @@
           <Property Name="isHorizontal" Type="Boolean" Nullable="false" />
           <Property Name="LayoutSrc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="isPublic" Type="Boolean" />
-          <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_Layout" FromRole="Layout" ToRole="Area" />
           <NavigationProperty Name="Scenarios" Relationship="DSSModel.FK_Scenario_Layout" FromRole="Layout" ToRole="Scenario" />
+          <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_Layout" FromRole="Layout" ToRole="Area" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -1140,9 +1128,9 @@
           <Property Name="LayoutID" Type="Int32" Nullable="false" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Area" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
           <NavigationProperty Name="Playlist" Relationship="DSSModel.FK_PlaylistScenarioArea_Playlist" FromRole="ScenarioItem" ToRole="Playlist" />
           <NavigationProperty Name="Scenario" Relationship="DSSModel.FK_ScenarioItem_Scenario" FromRole="ScenarioItem" ToRole="Scenario" />
+          <NavigationProperty Name="Area" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="ScenarioItem" ToRole="Area" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -1195,47 +1183,9 @@
           </Key>
           <Property Name="VisualTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_VisualType" FromRole="VisualType" ToRole="Area" />
           <NavigationProperty Name="Playlists" Relationship="DSSModel.FK_Playlist_VisualType" FromRole="VisualType" ToRole="Playlist" />
+          <NavigationProperty Name="Areas" Relationship="DSSModel.FK_Area_VisualType" FromRole="VisualType" ToRole="Area" />
         </EntityType>
-        <Association Name="FK_Area_Layout">
-          <End Type="DSSModel.Layout" Role="Layout" Multiplicity="1" />
-          <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Layout">
-              <PropertyRef Name="LayoutID" />
-            </Principal>
-            <Dependent Role="Area">
-              <PropertyRef Name="LayoutID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Area_VisualType">
-          <End Type="DSSModel.VisualType" Role="VisualType" Multiplicity="1" />
-          <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VisualType">
-              <PropertyRef Name="VisualTypeID" />
-            </Principal>
-            <Dependent Role="Area">
-              <PropertyRef Name="VisualTypeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ScenarioItem_Area">
-          <End Type="DSSModel.Area" Role="Area" Multiplicity="1" />
-          <End Type="DSSModel.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Area">
-              <PropertyRef Name="AreaID" />
-              <PropertyRef Name="LayoutID" />
-            </Principal>
-            <Dependent Role="ScenarioItem">
-              <PropertyRef Name="AreaID" />
-              <PropertyRef Name="LayoutID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="DSSModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1526,21 +1476,62 @@
           <End Type="DSSModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="DSSModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+            <PropertyRef Name="LayoutID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LayoutID" Type="Int32" Nullable="false" />
+          <Property Name="VisualTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Layout" Relationship="DSSModel.FK_Area_Layout" FromRole="Area" ToRole="Layout" />
+          <NavigationProperty Name="VisualType" Relationship="DSSModel.FK_Area_VisualType" FromRole="Area" ToRole="VisualType" />
+          <NavigationProperty Name="ScenarioItems" Relationship="DSSModel.FK_ScenarioItem_Area" FromRole="Area" ToRole="ScenarioItem" />
+        </EntityType>
+        <Association Name="FK_Area_Layout">
+          <End Type="DSSModel.Layout" Role="Layout" Multiplicity="1" />
+          <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Layout">
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Area_VisualType">
+          <End Type="DSSModel.VisualType" Role="VisualType" Multiplicity="1" />
+          <End Type="DSSModel.Area" Role="Area" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VisualType">
+              <PropertyRef Name="VisualTypeID" />
+            </Principal>
+            <Dependent Role="Area">
+              <PropertyRef Name="VisualTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScenarioItem_Area">
+          <End Type="DSSModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="DSSModel.ScenarioItem" Role="ScenarioItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Principal>
+            <Dependent Role="ScenarioItem">
+              <PropertyRef Name="AreaID" />
+              <PropertyRef Name="LayoutID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DSSModelStoreContainer" CdmEntityContainer="DSSEntities">
-          <EntitySetMapping Name="Areas">
-            <EntityTypeMapping TypeName="DSSModel.Area">
-              <MappingFragment StoreEntitySet="Area">
-                <ScalarProperty Name="VisualTypeID" ColumnName="VisualTypeID" />
-                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
-                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="DSSModel.AspNetRole">
               <MappingFragment StoreEntitySet="AspNetRoles">
@@ -1808,6 +1799,15 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="DSSModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="VisualTypeID" ColumnName="VisualTypeID" />
+                <ScalarProperty Name="LayoutID" ColumnName="LayoutID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

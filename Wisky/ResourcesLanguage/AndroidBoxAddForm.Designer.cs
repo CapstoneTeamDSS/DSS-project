@@ -88,7 +88,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location*.
+        ///   Looks up a localized string similar to Location.
         /// </summary>
         public static string LblLocation {
             get {
@@ -97,7 +97,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Box Name*.
+        ///   Looks up a localized string similar to Box Name.
         /// </summary>
         public static string LblName {
             get {
