@@ -1,7 +1,7 @@
 ﻿@{
     /**/
 
-    ViewBag.Title = "Detail";
+    ViewBag.Title = DSS.ResourcesLanguage.PlaylistDetails.PageTitleDetail;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
@@ -164,22 +164,18 @@
                 var url = $(this).attr('data-url');
                 var title = $(this).attr('data-name');
                 var duration = parseInt($(this).attr('data-duration'));
-                var durationShow = 0;
-                var result = (duration == 0) ? durationShow = 5000 : durationShow = duration * 1000;
+                var result = (duration == 0) ? duration = 5000 : duration = duration * 1000;
                 if (i == 0) {
                     show();
                 } else {
-                    var temp = durationTimer;
-                    temp += durationShow;
-                    setTimeout(show, temp);
-                    
+                    setTimeout(show, 5000 * i);
                 }
                 function show() {
                     $('#preview-warapper').empty();
                     $('#hideMsg').show();
                     switch (type) {
                         case 1:
-                            var sec = durationShow / 1000;
+                            var sec = duration / 1000;
                             var timer = setInterval(function () {
                                 $('#name').text(title);
                                 $('#timer').text(sec--);
@@ -187,7 +183,7 @@
                                     clearInterval(timer);
                                 }
                             }, 1000);
-                            durationTimer = durationShow;
+                            durationTimer = duration;
                             $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
                             $("#theImg").css('height', '350px');
                             $("#theImg").css('width', '350px');

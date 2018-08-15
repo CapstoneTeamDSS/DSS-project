@@ -56,27 +56,19 @@ namespace DSS.Controllers
         public ActionResult GetAccountInformation()
         {
             var user = Helper.GetCurrentUser();
-            Models.BrandUserDetailVM model = null;
+            Models.BrandAccountInformationVMs model = null;
             var myuser = aspNetUserService.GetAccountsByUserName(user.UserName);
             if (myuser != null)
             {
-                model = new Models.BrandUserDetailVM
+                model = new Models.BrandAccountInformationVMs
                 {
                     UserName = myuser.UserName,
                     Id = myuser.Id,
                     Email = myuser.Email,
                     FullName = myuser.FullName,
-                    isActive = myuser.isActive,
-                    Password = myuser.PasswordHash,
+                    PhoneNumber = myuser.PhoneNumber,
                 };
-                var userRoles = UserManager.GetRoles(myuser.Id).ToArray();
-                ViewBag.userRoles = userRoles;
-                if (userRoles.Length > 0)
-                {
-                    model.Role = userRoles[0];
-                }
             }
-
             return View(model);
         }
         // GET: BrandUserMng/Form/:id
@@ -195,7 +187,7 @@ namespace DSS.Controllers
         }
 
         // POST: BrandUserMng/Update
-        public async System.Threading.Tasks.Task<ActionResult> UpdateMyAccount(Models.BrandAccountInformation model)
+        public async System.Threading.Tasks.Task<ActionResult> UpdateMyAccount(Models.BrandAccountInformationVMs model)
         {
             var currUser = Helper.GetCurrentUser();
             if (ModelState.IsValid)
@@ -208,6 +200,7 @@ namespace DSS.Controllers
                 {
                     user.BrandID = currUser.BrandID;
                     user.FullName = model.FullName;
+                    user.PhoneNumber = model.PhoneNumber;
                     user.AspNetRoles = currUser.AspNetRoles;
                 };
                 await this.aspNetUserService.UpdateAsync(user);

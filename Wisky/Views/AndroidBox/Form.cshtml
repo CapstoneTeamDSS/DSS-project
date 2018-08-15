@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.AndroidBoxVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.BoxId != null) ? @DSS.ResourcesLanguage.AndroidBoxUpdateForm.PageHeader : @DSS.ResourcesLanguage.AndroidBoxAddForm.PageHeader;
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
         body {

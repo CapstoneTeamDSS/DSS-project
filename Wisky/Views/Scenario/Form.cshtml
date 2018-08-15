@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.ScenarioDetailVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader;
     Layout = "~/Views/Shared/_Layout.cshtml";
     //Chỉnh nút status
     bool status = true;
@@ -344,7 +344,7 @@
                     }
                 },
                 error: function () {
-                    alert($("#req").val());
+                    alert("Error");
                 }
             });
         };
@@ -492,7 +492,7 @@
                         + ">"
                         + "<span id='title'>" + playlistList[i].Title + "</span>"
                         + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
                         + "</li>");
                 }
             }
@@ -549,7 +549,7 @@
                         + ">"
                         + "<span id='title'>" + playlistList[i].Title + "</span>"
                         + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
+                        + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
                         + "</li>");
                     if (!isShow && isMatchVisualType) {
                         PlaylistAreaObj[areaId].push(playlistList[i].Id);
@@ -557,7 +557,7 @@
                             + ">"
                             + "<span id='title'>" + playlistList[i].Title + "</span>"
                             + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='/Content/videos/Relax.mp4'> - </a>"
+                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> - </a>"
                             + "</li>");
                     }
                 }
