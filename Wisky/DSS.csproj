@@ -2938,6 +2938,7 @@
     <Content Include="Views\BrandUserMng\ChangePassword.cshtml" />
     <Content Include="Views\AdvancedPlaylist\Index.cshtml" />
     <Content Include="Views\AdvancedPlaylist\Form.cshtml" />
+    <Content Include="Views\AdvancedPlaylist\ImageDuration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

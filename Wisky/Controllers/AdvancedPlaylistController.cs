@@ -52,10 +52,69 @@ namespace DSS.Controllers
             //playlistDetailVM = playlistList.Select(mapper.Map<Playlist, Models.PlaylistDetailVM>).ToList();
             return playlistDetailVM;
         }
-        public ActionResult Form()
+        public ActionResult Form(int? id)
         {
-            return View("Form");
+            Models.PlaylistCRUDVM model = null;
+            if (id != null)
+            {
+                var playlist = this.playlistService.Get(id);
+                if (playlist != null)
+                {
+                    model = new Models.PlaylistCRUDVM
+                    {
+                        Title = playlist.Title,
+                        Description = playlist.Description,
+                        Id = playlist.PlaylistID,
+                        isPublic = (bool)playlist.isPublic,
+                    };
+                }
+            }
+            //ViewBag.mediaSrcList = MediaSrcController.GetMediaSrcListByBrandIdAndStatus();
+            ViewBag.visualTypeList = GetVisualTypes();
+            return View("Form", model);
         }
+
+        [HttpPost]
+        public JsonResult LoadMediaIds(int playlistId)
+        {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var playlistItems = playlistItemService.GetPlaylistItemByPlaylistId(playlistId);
+            var scenarioItemVMs = new List<Models.PlaylistItemVM>();
+            var playlistItemIds = new List<int>();
+            if (playlistItems != null)
+            {
+                foreach (var item in playlistItems)
+                {
+                    playlistItemIds.Add(item.MediaSrcID);
+                }
+            }
+            return Json(new
+            {
+                PlaylistItemIds = playlistItemIds,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        private List<Models.VisualTypeVM> GetVisualTypes()
+        {
+            List<Models.VisualTypeVM> visualTypeVMs = new List<Models.VisualTypeVM>();
+            IVisualTypeService visualTypeService = DependencyUtils.Resolve<IVisualTypeService>();
+            var visualTypes = visualTypeService.Get().ToList();
+            if (visualTypes != null)
+            {
+                foreach (var item in visualTypes)
+                {
+                    var v = new Models.VisualTypeVM
+                    {
+                        VisualTypeID = item.VisualTypeID,
+                        VisualTypeName = item.TypeName,
+                    };
+                    visualTypeVMs.Add(v);
+                }
+            }
+            return visualTypeVMs;
+        }
+
         [HttpPost]
         public JsonResult LoadResourceList()
         {
@@ -63,6 +122,63 @@ namespace DSS.Controllers
             return Json(new
             {
                 ResourceList = ResourceList,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        //TrinhNNP
+        // POST: Playlist/Add
+        [HttpPost]
+        public async System.Threading.Tasks.Task<ActionResult> Add(Models.PlaylistCRUDVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = Helper.GetCurrentUser();
+                var playlist = new Data.Models.Entities.Playlist
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    BrandID = user.BrandID,
+                    isPublic = model.isPublic,
+                    VisualTypeID = model.VisualTypeID,
+                };
+                await this.playlistService.CreateAsync(playlist);
+                /* Add item to playlist*/
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                if (model.AddedElements.Length > 0)
+                {
+                    var i = 0;
+                    foreach (var item in model.AddedElements)
+                    {
+                        var playlistItem = new Data.Models.Entities.PlaylistItem
+                        {
+                            PlaylistID = playlist.PlaylistID,
+                            MediaSrcID = item.ItemId,
+                            DisplayOrder = i++,
+                        };
+                        var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
+                        if (mediaSrcType != 1)
+                        {
+                            //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                            playlistItem.Duration = 0;
+                        }
+                        else
+                        {
+                            var duration = TimeSpan.Parse(item.ItemDuration);
+                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
+                        }
+                        await playlistItemService.CreateAsync(playlistItem);
+                    }
+                }
+                return Json(new
+                {
+                    success = true,
+                    url = "/AdvancedPlaylist/Index",
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new
+            {
+                success = false,
             }, JsonRequestBehavior.AllowGet);
         }
 

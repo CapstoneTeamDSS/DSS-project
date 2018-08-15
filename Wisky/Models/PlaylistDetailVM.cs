@@ -29,6 +29,7 @@ namespace DSS.Models
         public AddedElement[] AddedElements { get; set; }
         public bool isPublic { get; set; }
         public int VisualTypeID { get; set; }
+        public string VisualTypeName { get; set; }
     }
 
     public class AddedElement

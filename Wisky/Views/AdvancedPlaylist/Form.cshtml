@@ -78,7 +78,6 @@
                             <div class="stepContainer" style="height:auto">
                                 @using (Html.BeginForm((Model?.Id != null) ? "Update" : "Add", "Scenario", new { Id = (Model?.Id) }, FormMethod.Post, new { @id = "frm_playlist", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
-                                    <input type="hidden" id="txtScenarioId" value="@(Model?.Id)" />
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
@@ -87,6 +86,23 @@
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <input type="text" value="@(Model?.Title)" id="txtTitle" required="required" class="form-control col-md-7 col-xs-12" name="Title">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
+                                                @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
+                                                    <option value="-1">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
+                                                    @{
+                                                        var visualTypeList = ViewBag.visualTypeList as List<DSS.Models.VisualTypeVM>;
+                                                        foreach (var item in visualTypeList)
+                                                        {
+                                                            <option value="@(item.VisualTypeID)" @((Model?.VisualTypeName)?.CompareTo(item.VisualTypeName) == 0 ? "selected" : "")>@(item.VisualTypeName)</option>
+                                                        }
+                                                    }
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -107,14 +123,12 @@
                                         </div>
                                     </div>
                                     <div id="step-2" class="content" style="display: none;">
+                                        <input type="hidden" id="playlistId" value="@(Model?.Id)" />
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
                                                 <div class="x_title">
                                                     <h2>@DSS.ResourcesLanguage.PlaylistDetails.PageTitlePreview</h2>
                                                     <input id="playAll" class="btn btn-success" style="margin-left:200px" type="button" value="Play All" />
-                                                    <div id="hideMsg" style="display:none">
-                                                        <span id="name" style="color:blue"></span> will change In <span id="timer" style="color:blue"></span> Seconds
-                                                    </div>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="x_content">
@@ -150,30 +164,7 @@
                                                             @DSS.ResourcesLanguage.ScenarioAddForm.LblDuration:
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-6" id="durationInfo">
-                                                            18:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr />
-                                            </div>
-
-                                            <div class="x_panel">
-                                                <div class="x_title">
-                                                    <h2>Resource Type</h2>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="x_content">
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
-                                                            Visual Type:
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <select name="" class="select2_multiple form-control" id="">
-                                                                <option value="-1">--- @DSS.ResourcesLanguage.PlaylistAddForm.TxtVisualTypeDefault ---</option>
-                                                                <option value="1">Illustration</option>
-                                                                <option value="2">Audio</option>
-                                                                <option value="3">Text</option>
-                                                            </select>
+                                                            <input id="imgDuration" type="text" class="time" disabled="disabled" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,6 +238,14 @@
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
     <!-- End Switchery -->
+    <script>
+        $(function () {
+            $('#imgDuration').timepicker({
+                'timeFormat': 'H:i:s',
+                'step': 1
+            });
+        });
+    </script>
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
@@ -261,9 +260,103 @@
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/duration-picker/jquery.timepicker.min.js"></script>
+    <script>
+        $("#toList").sortable({
+            connectWith: '#deleteArea',
+            update: function (event, ui) {
+                //Run this code whenever an item is dragged and dropped out of this list
+                var order = $(this).sortable('serialize');
+            },
+
+        });
+    </script>
+    <!--Play all preview-->
+    <script>
+        $("#playAll").on('click', function () {
+            $('#preview-warapper').empty();
+            var time = 0;
+            $('#toList').find('li').each(function (i) {
+                var type = parseInt($(this).attr('data-type'));
+                var url = $(this).attr('data-url');
+                var currItemDuration = parseInt($(this).attr('data-duration'));
+                var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+                setTimeout(show, time, url, type, title, duration);
+                time += duration;
+                function show(url, type, title, duration) {
+                    $('#preview-warapper').empty();
+                    $('#hideMsg').show();
+                    switch (type) {
+                        case 1:
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
+                            $('#preview-warapper').prepend($('<img>', { id: 'theImg', src: url }));
+                            $("#theImg").css('height', '350px');
+                            $("#theImg").css('width', '350px');
+                            $("#preview-warapper").css('margin-left', '100px');
+                            break;
+                        case 2:
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
+                            $("#preview-warapper").css('margin-left', '100px');
+                            var video = $('<video />', {
+                                id: 'video',
+                                src: url,
+                                type: 'video/mp4',
+                                controls: true
+                            });
+                            video.appendTo($('#preview-warapper'));
+                            video[0].play();
+                            //video.bind("ended", function () {
+                            //    alert("done video");
+                            //});
+                            break;
+                        case 3:
+                            //var sec = duration / 1000;
+                            //var timer = setInterval(function () {
+                            //    $('#name').text(title);
+                            //    $('#timer').text(sec--);
+                            //    if (sec == 0) {
+                            //        clearInterval(timer);
+                            //    }
+                            //}, 1000);
+                            //durationTimer = duration;
+                            $("#preview-warapper").css('margin-left', '100px');
+                            var video = $('<video />', {
+                                id: 'video',
+                                src: url,
+                                type: 'video/mp4',
+                                controls: true
+                            });
+                            video.appendTo($('#preview-warapper'));
+                            video[0].play();
+                            //video.bind("ended", function () {
+                            //    alert("done video");
+                            //});
+                            break;
+                    }
+                }
+            });
+        });
+    </script>
+    <!--End Show all preview-->
     <script>
         var AddedElements = {};
-        //Get duration value from iframe
+        /*Get duration value from iframe*/
         window.addEventListener('message', function (e) {
             var $iframe = $('.iframe');
             var eventName = e.data[0];
@@ -273,6 +366,13 @@
             AddedElements[mediaSrcId] = duration;
         }, false);
         function submitFunction() {
+            $("#toList").find("li").each(function () {
+                var ItemId = $(this).attr('data-id');
+                var Duration = $(this).attr('data-duration');
+                if (AddedElements[ItemId] == null) {
+                    AddedElements[ItemId] = Duration;
+                }
+            });
             var other_data = $('#frm_playlist').serializeArray();
             var data = {
                 AddedElements: [],
@@ -288,7 +388,7 @@
                 data["AddedElements"].push(obj);
             });
             var playlistId = $("#playlistId").val();
-            var url = playlistId == '' ? "/AdvancedPlaylist/Add" : "/Playlist/Update";
+            var url = playlistId == '' ? "/AdvancedPlaylist/Add" : "/AdvancedPlaylist/Update";
             $.ajax({
                 url: url,
                 method: 'POST',
@@ -305,16 +405,6 @@
                 }
             });
         };
-    </script>
-    <script>
-        $("#toList").sortable({
-            connectWith: '#deleteArea',
-            update: function (event, ui) {
-                //Run this code whenever an item is dragged and dropped out of this list
-                var order = $(this).sortable('serialize');
-            },
-
-        });
     </script>
     <script>
         function swapVideo(id, el) {
@@ -337,8 +427,54 @@
             player = document.getElementById("player");
     </script>
     <script>
-        /* STEP 3*/
-        var ResourceList;
+        $(document).ready(function () {
+            GetFileBaseOnFileType([]);
+        });
+        /*Get file list base on Visual Type*/
+        $("#VisualType").change(function () {
+            resetChooseMedia();
+            var selected = $(this).find(":selected").val();
+            if (selected == 1) {
+                $("#FileTypeForIllustration").show();
+                GetFileBaseOnFileType(['1', '2']);
+            } else if (selected == 2) {
+                GetFileBaseOnFileType(['3']);
+                $("#FileTypeForIllustration").hide();
+            } else if (selected == 3) {
+                $("#FileTypeForIllustration").hide();
+                GetFileBaseOnFileType(['4']);
+            }
+        })
+        /*Get file list base on file type*/
+        $("input:checkbox[name='fileType']").change(function () {
+            var values = [];
+            $("input:checkbox[name='fileType']:checked").each(function () {
+                values.push($(this).val());
+            });
+            GetFileBaseOnFileType(values);
+        });
+        /*Reset MediaSrc choose*/
+        function resetChooseMedia() {
+            $("#fromList").find("li").each(function () {
+                $(this).show();
+            });
+            $("#toList").empty();
+            $('#preview-warapper').empty();
+        }
+        /*Show File in Type array, hide the others*/
+        function GetFileBaseOnFileType(showFileTypes) {
+            $("#fromList").find("li").each(function () {
+                var type = $(this).attr("data-type");
+                if ($.inArray(type, showFileTypes) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+    </script>
+    <script>
+        var ResourceList = {};
         var PlaylistItemObj = [];
         $(document).ready(function () {
             loadResourceList();
@@ -365,6 +501,9 @@
             for (var i = 0; i < ResourceList.length; i++) {
                 if (ResourceList[i] != '') {
                     $('#fromList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        + "data-type='" + ResourceList[i].TypeId + "'"
+                        + "data-url='" + ResourceList[i].URL + "'"
+                        + "data-duration='" + 0 + "'"
                         + ">"
                         + "<span id='title'>" + ResourceList[i].Title + "</span>"
                         + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
@@ -372,37 +511,58 @@
                 }
             }
         }
-        function renderPlaylistList(ScenarioItemIds, AreaVisualTypeId) {
+        var playlistId = $("#playlistId").val();
+        var data = {
+            playlistId: playlistId,
+        };
+        if (!playlistId) {
+            renderMediaSrcList([]);
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/AdvancedPlaylist/LoadMediaIds",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    renderMediaSrcList(data.PlaylistItemIds);
+                },
+                error: function () {
+                    alert($("#error").val())
+                }
+            });
+        }
+        function renderMediaSrcList(PlaylistItemIds) {
             /*Remove data when change location*/
             $("#fromList").find('li').remove().end();
             $("#toList").find('li').remove().end();
             /*Load playlist list*/
-            for (var i = 0; i < playlistList.length; i++) {
-                if (playlistList[i] != '') {
-                    var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
-                    console.log(isMatchVisualType);
-                    var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistItemObj[areaId]);
-                    var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
-                    $('#fromList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
-                        + style
+            for (var i = 0; i < ResourceList.length; i++) {
+                if (ResourceList[i] != '') {
+                    var isShow = !isInArray(ResourceList[i].Id, PlaylistItemIds);
+                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    $('#fromList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        + "data-type='" + ResourceList[i].TypeId + "'"
+                        + "data-url='" + ResourceList[i].URL + "'"
+                        + "data-duration='" + 0 + "'"
                         + ">"
-                        + "<span id='title'>" + playlistList[i].Title + "</span>"
-                        + "<span id='duration'>" + playlistList[i].Duration + "</span>"
+                        + "<span id='title'>" + ResourceList[i].Title + "</span>"
                         + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
-                    if (!isShow && isMatchVisualType) {
-                        PlaylistItemObj[areaId].push(playlistList[i].Id);
-                        $('#toList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                    if (!isShow) {
+                        $('#toList').append("<li class='playlistList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].Id + "' data-id='" + playlistList[i].Id + "' "
+                            + "data-type='" + ResourceList[i].TypeId + "'"
+                            + "data-url='" + ResourceList[i].URL + "'"
+                            + "data-duration='" + 0 + "'"
                             + ">"
-                            + "<span id='title'>" + playlistList[i].Title + "</span>"
-                            + "<span id='duration'>" + playlistList[i].Duration + "</span>"
-                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='/Content/videos/Relax.mp4'> - </a>"
+                            + "<span id='title'>" + ResourceList[i].Title + "</span>"
+                            + "<span id='duration'>" + ResourceList[i].Duration + "</span>"
+                            + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist'> - </a>"
                             + "</li>");
                     }
                 }
             }
         }
-
         function isInArray(value, array) {
             return array.indexOf(value) > -1;
         }
@@ -427,10 +587,12 @@
             PlaylistItemObj = jQuery.grep(PlaylistItemObj, function (value) {
                 return value != playlistId;
             });
-            console.log(PlaylistItemObj);
         }
+        var currentSelectedEl;
         /*Marked and show info when click on Resource*/
+        /*Allow to modify duration*/
         function resourceClick(el) {
+            currentSelectedEl = el;
             /*Mark*/
             $("ul > li").css("border", "none");
             $(el).css("border", "solid");
@@ -447,7 +609,7 @@
                 success: function (data) {
                     $("#titleInfo").html(data.Title);
                     $("#descriptionInfo").html(data.Description);
-                    $("#durationInfo").html(data.Duration);
+                    $("#txtDuration").val(data.Duration);
                 },
                 error: function () {
                     $("#titleInfo").html("###");
@@ -457,7 +619,20 @@
             });
             /*Play resource on review wrapper*/
             playMediaToReview(el);
+            /*Allow to modify duration*/
+            if ($(el).attr("data-type") == "1") {
+                $("#imgDuration").removeAttr('disabled');
+                var duration = $(el).attr('data-duration') != "" ? $(el).attr('data-duration') : "00:00:00";
+                $("#imgDuration").val(duration);
+            } else {
+                $("#imgDuration").attr('disabled', 'disabled');
+            }
         };
+
+        $("#imgDuration").change(function () {
+            var durationVal = $("#imgDuration").val();
+            $(currentSelectedEl).attr("data-duration", durationVal);
+        });
 
         function playMediaToReview(el) {
             $('#preview-warapper').empty();
@@ -579,6 +754,10 @@
     </script>
 }
 @section styles{
+    <!-- duration Picker -->
+    <link rel="stylesheet" type="text/css" href="~/Content/duration-picker/jquery.timepicker.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/Content/duration-picker/site.css" />*@
+    <!-- End duration Picker -->
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
