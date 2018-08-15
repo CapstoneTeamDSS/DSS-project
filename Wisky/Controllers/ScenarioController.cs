@@ -226,6 +226,7 @@ namespace DSS.Controllers
                     scenario.Description = model.Description;
                     scenario.Title = model.Title;
                     scenario.isPublic = model.IsPublic;
+                    scenario.UpdateDateTime = DateTime.Now;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
                 return this.RedirectToAction("Index");

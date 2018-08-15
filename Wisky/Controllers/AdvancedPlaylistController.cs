@@ -87,6 +87,7 @@ namespace DSS.Controllers
                     playlist.Title = model.Title;
                     playlist.Description = model.Description;
                     playlist.isPublic = model.isPublic;
+                    playlist.UpdateDateTime = DateTime.Now;
                 }
                 await this.playlistService.UpdateAsync(playlist);
                 IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
