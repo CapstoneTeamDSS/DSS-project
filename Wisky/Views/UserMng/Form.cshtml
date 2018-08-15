@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.UserDetailVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.Id != null) ? DSS.ResourcesLanguage.UserMngForm.UpdatePageHeader : DSS.ResourcesLanguage.UserMngForm.AddPageHeader;
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     bool status = false;
     if (Model != null)

@@ -152,6 +152,7 @@ namespace DSS.Controllers
                     success = true,
                     url = "/Scenario/Index",
                 }, JsonRequestBehavior.AllowGet);
+
             }
             return Json(new
             {
