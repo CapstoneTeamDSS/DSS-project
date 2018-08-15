@@ -2939,6 +2939,7 @@
     <Content Include="Views\AdvancedPlaylist\Index.cshtml" />
     <Content Include="Views\AdvancedPlaylist\Form.cshtml" />
     <Content Include="Views\AdvancedPlaylist\ImageDuration.cshtml" />
+    <Content Include="Views\AdvancedPlaylist\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

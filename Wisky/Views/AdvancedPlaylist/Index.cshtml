@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -63,7 +62,7 @@
                                         <td style="width:300px; text-align:center">
                                             <a href="/AdvancedPlaylist/Form/@(item.Id)"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.PlaylistIndex.BtnEdit </i></a>
                                             @*<a href="/Playlist/Delete/@(item.Id) "><i class="fa fa-trash btn btn-danger"> Delete</i></a>*@
-                                            @*<a href="/Playlist/Detail/@(item.Id) "><i class="fa  btn btn-success">@DSS.ResourcesLanguage.PlaylistIndex.BtnDetail </i></a>*@
+                                            @*<a href="/AdvancedPlaylist/Detail/@(item.Id) "><i class="fa  btn btn-success">@DSS.ResourcesLanguage.PlaylistIndex.BtnDetail </i></a>*@
                                             <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MediaSrcIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>

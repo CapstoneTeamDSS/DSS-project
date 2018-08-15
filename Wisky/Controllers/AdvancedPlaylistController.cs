@@ -64,6 +64,8 @@ namespace DSS.Controllers
                     {
                         Title = playlist.Title,
                         Description = playlist.Description,
+                        VisualTypeID = playlist.VisualTypeID ?? 1,
+                        VisualTypeName = playlist.VisualType.TypeName,
                         Id = playlist.PlaylistID,
                         isPublic = (bool)playlist.isPublic,
                     };
@@ -75,12 +77,70 @@ namespace DSS.Controllers
         }
 
         [HttpPost]
-        public JsonResult LoadMediaIds(int playlistId)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.PlaylistCRUDVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var playlist = this.playlistService.Get(model.Id);
+                if (playlist != null)
+                {
+                    playlist.Title = model.Title;
+                    playlist.Description = model.Description;
+                    playlist.isPublic = model.isPublic;
+                }
+                await this.playlistService.UpdateAsync(playlist);
+                IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+                /* Remove old items of playlist*/
+                List<DSS.Data.Models.Entities.PlaylistItem> items = playlistItemService.Get(a => a.PlaylistID == model.Id).ToList();
+                foreach (var item in items)
+                {
+                    await playlistItemService.DeleteAsync(item);
+                }
+                /* Add item to playlist*/
+                IMediaSrcService mediaSrcService = DependencyUtils.Resolve<IMediaSrcService>();
+                if (model.AddedElements.Length > 0)
+                {
+                    var i = 0;
+                    foreach (var item in model.AddedElements)
+                    {
+                        var playlistItem = new Data.Models.Entities.PlaylistItem
+                        {
+                            PlaylistID = playlist.PlaylistID,
+                            MediaSrcID = item.ItemId,
+                            DisplayOrder = i++,
+                        };
+                        var mediaSrcType = mediaSrcService.GetById(item.ItemId).MediaType.TypeID;
+                        if (mediaSrcType != 1)
+                        {
+                            //playlistItem.Duration = GetVideoDuration(mediaSrcService.GetById(item.ItemId).URL);
+                            playlistItem.Duration = 0;
+                        }
+                        else
+                        {
+                            var duration = TimeSpan.Parse(item.ItemDuration);
+                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
+                        }
+                        await playlistItemService.CreateAsync(playlistItem);
+                    }
+                }
+                return Json(new
+                {
+                    success = true,
+                    url = "/AdvancedPlaylist/Index",
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult LoadPlaylistItemIds(int playlistId)
         {
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistItems = playlistItemService.GetPlaylistItemByPlaylistId(playlistId);
-            var scenarioItemVMs = new List<Models.PlaylistItemVM>();
             var playlistItemIds = new List<int>();
             if (playlistItems != null)
             {
