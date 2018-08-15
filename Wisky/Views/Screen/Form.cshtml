@@ -1,16 +1,17 @@
-﻿@{
-    ViewBag.Title = "Form";
+﻿@model DSS.Models.ScreenVM
+@{
+    ViewBag.Title = "";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     bool isHorizontal = true;
     if (Model != null)
     {
         isHorizontal = Model?.isHorizontal ?? true;
+}
+<style>
+    body {
+        overflow-x: hidden;
     }
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-    </style>
+</style>
 }
 <div class="">
     <div class="clearfix"></div>
