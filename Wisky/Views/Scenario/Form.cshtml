@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.ScenarioDetailVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader;
     Layout = "~/Views/Shared/_Layout.cshtml";
     //Chỉnh nút status
     bool status = true;

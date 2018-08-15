@@ -1,16 +1,17 @@
-﻿@{
-    ViewBag.Title = "Form";
+﻿@model DSS.Models.ScreenVM
+@{
+    ViewBag.Title = "";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     bool isHorizontal = true;
     if (Model != null)
     {
         isHorizontal = Model?.isHorizontal ?? true;
+}
+<style>
+    body {
+        overflow-x: hidden;
     }
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-    </style>
+</style>
 }
 <div class="">
     <div class="clearfix"></div>
@@ -142,41 +143,9 @@
                         .appendTo(li);
                 });
             } else {
-                submitFunction();
+                $("#frm_screen").submit();
             }
         }
-        function submitFunction() {
-            var other_data = $('#frm_screen').serializeArray();
-            var data = {};
-            $.each(other_data, function (key, input) {
-                data[input.name] = input.value;
-            });
-            $.ajax({
-                url: '/Screen/Add',
-                method: 'POST',
-                data: data,
-                success: function (res) {
-                    if (res.success) {
-                        swal({
-                            position: 'Center',
-                            type: 'success',
-                            title: 'Add Screen Successful.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        },
-                            function () {
-                                location.href = res.url;
-                                parent.location.reload();
-                            });
-                    } else {
-                        alert("500: Server error!");
-                    }
-                },
-                error: function () {
-                    alert("Error");
-                }
-            });
-        };
     </script>
     <!-- End Validation-->
     <!--Sweet alert-->
