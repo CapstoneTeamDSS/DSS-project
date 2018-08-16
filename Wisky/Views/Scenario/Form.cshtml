@@ -100,7 +100,7 @@
                             <div class="stepContainer" style="height:auto">
                                 @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
-                                    <input type="hidden" id="txtScenarioId" value="@(Model?.ScenarioId)" />
+                                    <input type="hidden" id="txtScenarioId" name="ScenarioId" value="@(Model?.ScenarioId)" />
                                     <input type="hidden" id="txtLayoutId" value="@(Model?.LayoutId)" />
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
@@ -328,9 +328,11 @@
                 };
                 data["PlaylistAreaArr"].push(obj);
             });
+            var scenarioId = $("#txtScenarioId").val();
+            var url = scenarioId == '' ? "/Scenario/Add" : "/Scenario/Update";
             console.log(data);
             $.ajax({
-                url: '/Scenario/Add',
+                url: url,
                 method: 'POST',
                 data: data,
                 success: function (res) {
