@@ -86,21 +86,22 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
-                                            <span class="step_no">4</span>
-                                            <span class="step_descr">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep4<br>
-                                                <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtNavigateScenarioDetails</small>
-                                            </span>
-                                        </a>
-                                    </li>
                                 }
+                                <li>
+                                    <a href="https://colorlib.com/polygon/gentelella/form_wizards.html#step-4" class="disabled" isdone="0" rel="4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                            @DSS.ResourcesLanguage.ScenarioAddForm.TxtStep4<br>
+                                            <small>@DSS.ResourcesLanguage.ScenarioAddForm.TxtNavigateScenarioDetails</small>
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                             <div class="stepContainer" style="height:auto">
                                 @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
                                     <input type="hidden" id="txtScenarioId" value="@(Model?.ScenarioId)" />
+                                    <input type="hidden" id="txtLayoutId" value="@(Model?.LayoutId)" />
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
@@ -278,11 +279,6 @@
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script>
-        //function swapVideo() {
-        //    player.src = this.getAttribute("data-video-url");
-        //    player.load();
-        //    player.play();
-        //}
         var audioSettingBeingChosen = false;
         function audioCheck(el) {
             audioSettingBeingChosen = false;
@@ -307,7 +303,7 @@
                     $(this).prop("checked", false);
                 });
                 onVdPlay(el);
-            }            
+            }
             console.log($('#txtAudioAreaId').val());
         }
         var videoPlayButtons = document.querySelectorAll("button"),
@@ -436,14 +432,14 @@
                 }
             });
         }
-
         /* STEP 3*/
         var playlistList;
         var PlaylistAreaObj = {};
         var areaId;
         $(document).ready(function () {
             var layoutId = $("#txtLayoutId").val();
-            if (layoutId == null) {
+            console.log(layoutId);
+            if (layoutId == "") {
                 layoutId = 7;
             }
             loadLayoutList("true");

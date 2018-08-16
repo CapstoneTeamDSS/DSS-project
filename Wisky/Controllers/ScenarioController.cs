@@ -80,10 +80,27 @@ namespace DSS.Controllers
         }
 
         // GET: Scenario/Form/:id
-        public ActionResult Form()
+        public ActionResult Form(int? id)
         {
+            Models.ScenarioDetailVM model = null;
+            if (id != null)
+            {
+                var scenario = this.scenarioService.GetById(id??-1);
+                if (scenario != null)
+                {
+                    model = new Models.ScenarioDetailVM
+                    {
+                        ScenarioId = scenario.ScenarioID,
+                        LayoutId = scenario.LayoutID,
+                        IsPublic = scenario.isPublic??true,
+                        AudioArea = scenario.AudioArea,
+                        Title = scenario.Title,
+                        Description = scenario.Description,
+                    };
+                }
+            }
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
-            return View();
+            return View(model);
         }
         //TOANTXSE
         // POST: Scenario/CheckScenarioIdIsUsed  
@@ -206,7 +223,6 @@ namespace DSS.Controllers
                         LayoutId = scenario.LayoutID,
                         Title = scenario.Title,
                         IsPublic = (bool) scenario.isPublic
-
                     };
                 }
             }
