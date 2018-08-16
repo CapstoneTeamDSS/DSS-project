@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.LocationDetailVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.LocationId != null) ? @DSS.ResourcesLanguage.LocationUpdateForm.PageHeader : @DSS.ResourcesLanguage.LocationAddForm.PageHeader;
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
         body {

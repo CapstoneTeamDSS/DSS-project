@@ -271,6 +271,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountController_bk.cs" />
+    <Compile Include="Controllers\AdvancedPlaylistController.cs" />
     <Compile Include="Controllers\AdvancedSchedulingController.cs" />
     <Compile Include="Controllers\AndroidBoxController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
@@ -2935,6 +2936,8 @@
     <Content Include="Views\AdvancedScheduling\Index.cshtml" />
     <Content Include="Views\BrandUserMng\GetAccountInformation.cshtml" />
     <Content Include="Views\BrandUserMng\ChangePassword.cshtml" />
+    <Content Include="Views\AdvancedPlaylist\Index.cshtml" />
+    <Content Include="Views\AdvancedPlaylist\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.MediaSrcVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.MediaSrcId != null) ? DSS.ResourcesLanguage.MediaSrcUpdateForm.PageTitle : DSS.ResourcesLanguage.MediaSrcAddForm.PageTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
     <style>
         body {
@@ -128,6 +128,7 @@
                 $("#frm_mediaSrc").submit();
             }
         }
+
     </script>
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Upload" id="upload" />
@@ -227,6 +228,7 @@
         });
     </script>
     <!-- End Switchery Change Status Text-->
+
 }
 @section styles {
     <!--Set color is red when show error validation-->

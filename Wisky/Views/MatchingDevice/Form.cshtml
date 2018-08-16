@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.MatchingDeviceVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.DeviceId != null) ? @DSS.ResourcesLanguage.MatchingDeviceUpateForm.PageHeader : "Add New Matching Device";
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
         body {
