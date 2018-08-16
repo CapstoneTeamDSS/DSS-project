@@ -1,6 +1,6 @@
 ﻿@model DSS.Models.AdvancedScheduleAddVM
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = (Model?.ScheduleID != null) ? @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderUpdate : @DSS.ResourcesLanguage.AdScheduleForm.PageHeaderAdd;
     Layout = "~/Views/Shared/_Layout_Popup.cshtml";
     <style>
         body {

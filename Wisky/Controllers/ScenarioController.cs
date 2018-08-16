@@ -152,6 +152,7 @@ namespace DSS.Controllers
                     success = true,
                     url = "/Scenario/Index",
                 }, JsonRequestBehavior.AllowGet);
+
             }
             return Json(new
             {
@@ -225,6 +226,7 @@ namespace DSS.Controllers
                     scenario.Description = model.Description;
                     scenario.Title = model.Title;
                     scenario.isPublic = model.IsPublic;
+                    scenario.UpdateDateTime = DateTime.Now;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
                 return this.RedirectToAction("Index");
@@ -279,8 +281,6 @@ namespace DSS.Controllers
         [HttpPost]
         public JsonResult LoadPlaylistList()
         {
-            IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
-            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var PlaylistList = PlaylistController.GetPlaylistIdByBrandIdAndStatus() as List<Models.PlaylistDetailVM>;
             return Json(new
             {

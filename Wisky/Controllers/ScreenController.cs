@@ -101,14 +101,16 @@ namespace DSS.Controllers
 
                 };
                 await this.screenService.CreateAsync(screen);
-                //return this.RedirectToAction("Index");
-                return new ContentResult
+                return Json(new
                 {
-                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
-                    ContentType = "text/html"
-                };
+                    success = true,
+                    url = "/Screen/Index",
+                }, JsonRequestBehavior.AllowGet);
             }
-            return View("Form", model);
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
         // POST: Screen/CheckScreenIdIsMatching  
         [HttpPost]
