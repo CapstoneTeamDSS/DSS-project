@@ -27,6 +27,7 @@ namespace DSS.Data.Models.Entities
         public int BrandID { get; set; }
         public Nullable<bool> isPublic { get; set; }
         public Nullable<int> VisualTypeID { get; set; }
+        public Nullable<System.DateTime> UpdateDateTime { get; set; }
     
         public virtual VisualType VisualType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

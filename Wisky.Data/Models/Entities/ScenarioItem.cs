@@ -21,8 +21,8 @@ namespace DSS.Data.Models.Entities
         public int DisplayOrder { get; set; }
         public string Note { get; set; }
     
+        public virtual Area Area { get; set; }
         public virtual Playlist Playlist { get; set; }
         public virtual Scenario Scenario { get; set; }
-        public virtual Area Area { get; set; }
     }
 }
