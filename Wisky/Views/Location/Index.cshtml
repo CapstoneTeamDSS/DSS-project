@@ -110,80 +110,98 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
-        $(document).ready(function () {
-            //Examples of how to assign the Colorbox event to elements
-            $(".iframe").colorbox({
-                iframe: true, width: "65%", height: "70%",
-                //refresh page when summit
-                //onClosed: function () { location.reload(true); },
-            });
-            //Example of preserving a JavaScript event for inline calls.
-            $("#click").click(function () {
-                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                return false;
-            });
-        });
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "65%", height: "70%",
+                        //refresh page when summit
+                        //onClosed: function () { location.reload(true); },
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                });
     </script>
     <!-- end iframe button matching-->
+    <script>
+                $( document ).ready(function() {
+                $.ajax({
+                        type: "POST",
+                        url: "/Home/ReceiveLocationId",
+                        data: JSON.stringify(data),
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            location = data.locationIdDelete.Province;
+                            console.log(location);
+                        },
+                        error: function () {
+                            alert($("#err").val())
+                        }
+                    });
+                });
+    </script>
     <!--Sweet alert-->
     <script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
     <script>
-        $(".btnDelete").click(function () {
-            var data = {
-                id: $(this).attr('data-id'),
-            };
-            var btnDel = $(this);
-            var location;
-            $.ajax({
-                type: "POST",
-                url: "/Location/ReceiveLocationId",
-                data: JSON.stringify(data),
-                dataType: "json",
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    location = data.locationIdDelete.Province;
-                    console.log(location);
-                },
-                error: function () {
-                    alert($("#err").val())
-                }
-            });
-            swal({
-                title: $("#sure").val(),
-                text: $("#able").val(),
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: $("#yes").val(),
-                cancelButtonText: $("#no").val(),
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        var locationIdDelete = $(btnDel).attr("data-id");
-                        $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
-                        $.ajax({
-                            type: "GET",
-                            url: "/Location/Delete?Id=" + locationIdDelete,
-                            contentType: 'application/json; charset=utf-8',
-                            success: function (data) {
-                                if (data.success) {
-                                    swal($("#deleted").val(), $("#del").val(), "success");
-                                    location.reload();
-                                } else {
-                                    alert("Can not delete using location!");
-                                }
-                            },
-                            error: function () {
-                                alert($("#err").val())
+                $(".btnDelete").click(function () {
+                    var data = {
+                        id: $(this).attr('data-id'),
+                    };
+                    var btnDel = $(this);
+                    var location;
+                    $.ajax({
+                        type: "POST",
+                        url: "/Location/ReceiveLocationId",
+                        data: JSON.stringify(data),
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            location = data.locationIdDelete.Province;
+                            console.log(location);
+                        },
+                        error: function () {
+                            alert($("#err").val())
+                        }
+                    });
+                    swal({
+                        title: $("#sure").val(),
+                        text: $("#able").val(),
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: '#DD6B55',
+                        confirmButtonText: $("#yes").val(),
+                        cancelButtonText: $("#no").val(),
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                        function (isConfirm) {
+                            if (isConfirm) {
+                                var locationIdDelete = $(btnDel).attr("data-id");
+                                $(btnDel).attr("href", "/Location/Delete?Id=" + locationIdDelete);
+                                $.ajax({
+                                    type: "GET",
+                                    url: "/Location/Delete?Id=" + locationIdDelete,
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        if (data.success) {
+                                            swal($("#deleted").val(), $("#del").val(), "success");
+                                            location.reload();
+                                        } else {
+                                            alert("Can not delete using location!");
+                                        }
+                                    },
+                                    error: function () {
+                                        alert($("#err").val())
+                                    }
+                                });
+                            } else {
+                                swal($("#cancel").val(), $("#safe").val(), "error");
                             }
                         });
-                    } else {
-                        swal($("#cancel").val(), $("#safe").val(), "error");
-                    }
                 });
-        });
     </script>
     <!--End Sweet alert-->
 }
