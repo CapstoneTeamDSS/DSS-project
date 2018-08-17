@@ -139,6 +139,7 @@ namespace DSS.Controllers
                     BrandID = user.BrandID,
                     isPublic = model.IsPublic,
                     AudioArea = model.AudioArea,
+                    UpdateDateTime = DateTime.Now,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
