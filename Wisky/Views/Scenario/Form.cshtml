@@ -101,7 +101,7 @@
                                 @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
                                     <input type="hidden" id="txtScenarioId" name="ScenarioId" value="@(Model?.ScenarioId)" />
-                                    <input type="hidden" id="txtLayoutId" value="@(Model?.LayoutId)" />
+                                    <input type="hidden" id="txtLayoutId" name="LayoutId" value="@(Model?.LayoutId)" />
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
@@ -129,24 +129,27 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="step-2" class="content" style="display: none;">
-                                        <div style="float:left; padding-left:250px;padding-top:30px">
-                                            <img src="~/Content/images/Scenario/Landscape.png" /><br />
-                                            <div style="text-align:center">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtLandscape<br /><br /><br />
-                                                <div><input type="radio" checked value="true" name="Orientation"></div>
+                                    if (Model?.ScenarioId == null)
+                                    {
+                                        <div id="step-2" class="content" style="display: none;">
+                                            <div style="float:left; padding-left:250px;padding-top:30px">
+                                                <img src="~/Content/images/Scenario/Landscape.png" /><br />
+                                                <div style="text-align:center">
+                                                    @DSS.ResourcesLanguage.ScenarioAddForm.TxtLandscape<br /><br /><br />
+                                                    <div><input type="radio" checked value="true" name="Orientation"></div>
+                                                </div>
+                                            </div>
+                                            <div style="float:right;padding-right:250px;padding-bottom:20px">
+                                                <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
+                                                <div style="text-align:center">
+                                                    @DSS.ResourcesLanguage.ScenarioAddForm.TxtPortrait<br />
+                                                    <div><input type="radio" value="false" name="Orientation"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div style="float:right;padding-right:250px;padding-bottom:20px">
-                                            <img src="~/Content/images/Scenario/Portraintpng.png" /><br />
-                                            <div style="text-align:center">
-                                                @DSS.ResourcesLanguage.ScenarioAddForm.TxtPortrait<br />
-                                                <div><input type="radio" value="false" name="Orientation"></div>
-                                            </div>
+                                        <div id="step-3" class="content" style="display: none;">
                                         </div>
-                                    </div>
-                                    <div id="step-3" class="content" style="display: none;">
-                                    </div>
+                                    }
                                     <div id="step-4" class="content" style="display:none;">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <div class="x_panel">
