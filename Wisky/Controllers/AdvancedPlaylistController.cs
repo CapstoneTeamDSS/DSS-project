@@ -201,6 +201,7 @@ namespace DSS.Controllers
                     BrandID = user.BrandID,
                     isPublic = model.isPublic,
                     VisualTypeID = model.VisualTypeID,
+                    UpdateDateTime = DateTime.Now,
                 };
                 await this.playlistService.CreateAsync(playlist);
                 /* Add item to playlist*/

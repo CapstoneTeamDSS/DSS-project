@@ -27,7 +27,7 @@
         <EntityTypeShape EntityType="DSSModel.Screen" Width="1.5" PointX="5.25" PointY="34.125" />
         <EntityTypeShape EntityType="DSSModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DSSModel.TimeSlot" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="DSSModel.VisualType" Width="1.5" PointX="3.75" PointY="21.375" />
         <AssociationConnector Association="DSSModel.FK_Area_Layout" />
         <AssociationConnector Association="DSSModel.FK_Area_VisualType" />
         <AssociationConnector Association="DSSModel.FK_ScenarioItem_Area" />
