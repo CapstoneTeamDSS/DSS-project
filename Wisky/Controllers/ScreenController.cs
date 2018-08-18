@@ -15,9 +15,10 @@ namespace DSS.Controllers
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         // GET: Screen
-        public ActionResult Index()
+        public ActionResult Index(bool? success)
         {
             ViewBag.screensList = GetScreenIdByBrandId();
+            ViewBag.success = success??false;
             return View();
         }
         //ToanTXSE
@@ -101,11 +102,11 @@ namespace DSS.Controllers
 
                 };
                 await this.screenService.CreateAsync(screen);
-                return Json(new
+                return new ContentResult
                 {
-                    success = true,
-                    url = "/Screen/Index",
-                }, JsonRequestBehavior.AllowGet);
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen", new { success = true})),
+                    ContentType = "text/html"
+                };
             }
             return Json(new
             {

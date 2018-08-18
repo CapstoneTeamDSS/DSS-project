@@ -172,7 +172,11 @@
                                     swal($("#deleted").val(), $("#del").val(), "success");
                                     location.reload();
                                 } else {
-                                    alert("Can not delete using location!");
+                                    swal({
+                                        type: 'error',
+                                        title: 'Location is being using',
+                                        text: 'Can not delete using location!',
+                                    })
                                 }
                             },
                             error: function () {

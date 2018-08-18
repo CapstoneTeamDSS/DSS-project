@@ -205,13 +205,17 @@ namespace DSS.Controllers
                     SecurityHash = model.SecurityHash
                 };
                 await this.mediaSrcService.CreateAsync(media);
-                return new ContentResult
+                return Json(new
                 {
-                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
-                    ContentType = "text/html"
-                };
+                    success = true,
+                    url = "/MediaSrc/Index",
+            }, JsonRequestBehavior.AllowGet);
             }
-            return View("Form", model);
+            Session["Status"] = false;
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         /*Check mime type*/

@@ -84,7 +84,7 @@
                                                             <td><img src="@(item.URL)" style="max-width: 200px;"></td>
                                                             <td>@(item.Description)</td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" ><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnEdit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnEdit</i></a>
                                                                 <a class="btnDelete" data-id="@item.MediaSrcId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnDelete</i></a>
                                                             </td>
                                                         </tr>
@@ -175,7 +175,7 @@
                                                                 </audio>
                                                             </td>
                                                             <td style="width:180px; text-align:center">
-                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)" ><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnEdit</i></a>
+                                                                <a href="/MediaSrc/Form/@(item.MediaSrcId)"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnEdit</i></a>
                                                                 <a class="btnDelete" data-id="@item.MediaSrcId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MediaResourceIndex.BtnDelete</i></a>
                                                             </td>
                                                         </tr>
@@ -234,6 +234,16 @@
     </div>
 </div>
 @section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+
+
+        //function showNotification() {
+        //    $.notify("Add Media Successful.", "success");
+        //}
+    </script>
     <!--Change status enable disable-->
     <script>
         /*Change status enable disable*/
@@ -266,7 +276,13 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
-        $(document).ready(function () {
+        window.addEventListener('message', function (e) {
+            var eventName = e.data[0];
+            var data = JSON.parse(e.data[1]);
+            var addSuccess = data.addSuccess;
+            console.log(addSuccess);
+        });
+        $(document).ready(function () {            
             //Examples of how to assign the Colorbox event to elements
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "70%",
@@ -364,7 +380,7 @@
     </script>
     <!--End Sweet alert-->
 }
-    <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
+<input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.InUse" id="use" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.PlsDelete" id="text" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.IfDelete" id="text2" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Sure" id="text3" />
@@ -380,6 +396,16 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
 
 @section styles{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        .notifyjs-corner {
+            top: 70px !important;
+            left: 580px;
+            width: 60%;
+            height: 1000px;
+        }
+    </style>
     <!-- preview button css -->
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/css/effect.css">
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/src/flashy.min.css">
