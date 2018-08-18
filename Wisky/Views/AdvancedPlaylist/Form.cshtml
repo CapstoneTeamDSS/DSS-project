@@ -402,9 +402,10 @@
             CatchVisualType(selected);
         })
         function CatchVisualType(selected) {
-            //alert(selected);
-            console.log(selected);
-            resetChooseMedia();
+            var playlistId = $("#playlistId").val();
+            if (playlistId == "") {
+                resetChooseMedia();
+            }
             if (selected == 1) {
                 GetFileBaseOnFileType(['1', '2']);
             } else if (selected == 2) {

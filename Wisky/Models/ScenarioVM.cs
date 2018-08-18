@@ -28,6 +28,17 @@ namespace DSS.Models
         public int AudioArea { get; set; }
     }
 
+    public class ScenarioUpdateDetailVM
+    {
+        public int ScenarioId { get; set; }
+        public string Description { get; set; }
+        public string Title { get; set; }
+        public int LayoutId { get; set; }
+        public PlaylistArea[] PlaylistAreaArr { get; set; }
+        public bool IsPublic { get; set; }
+        public int AudioArea { get; set; }
+    }
+
     public class PlaylistArea
     {
         public int AreaId { get; set; }

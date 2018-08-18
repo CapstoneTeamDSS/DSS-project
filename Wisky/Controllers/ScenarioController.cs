@@ -35,7 +35,7 @@ namespace DSS.Controllers
                     Description = item.Description,
                     LayoutId = item.LayoutID,
                     Title = item.Title,
-                    IsPublic = (bool) item.isPublic
+                    IsPublic = (bool)item.isPublic
                 };
                 scenarioVMs.Add(s);
             }
@@ -80,10 +80,27 @@ namespace DSS.Controllers
         }
 
         // GET: Scenario/Form/:id
-        public ActionResult Form()
+        public ActionResult Form(int? id)
         {
+            Models.ScenarioDetailVM model = null;
+            if (id != null)
+            {
+                var scenario = this.scenarioService.GetById(id ?? -1);
+                if (scenario != null)
+                {
+                    model = new Models.ScenarioDetailVM
+                    {
+                        ScenarioId = scenario.ScenarioID,
+                        LayoutId = scenario.LayoutID,
+                        IsPublic = scenario.isPublic ?? true,
+                        AudioArea = scenario.AudioArea,
+                        Title = scenario.Title,
+                        Description = scenario.Description,
+                    };
+                }
+            }
             ViewBag.playlistList = PlaylistController.GetPlaylistIdByBrandId();
-            return View();
+            return View(model);
         }
         //TOANTXSE
         // POST: Scenario/CheckScenarioIdIsUsed  
@@ -122,6 +139,7 @@ namespace DSS.Controllers
                     BrandID = user.BrandID,
                     isPublic = model.IsPublic,
                     AudioArea = model.AudioArea,
+                    UpdateDateTime = DateTime.Now,
                 };
                 await this.scenarioService.CreateAsync(scenario);
                 /*Add scenario items*/
@@ -164,7 +182,7 @@ namespace DSS.Controllers
         public ActionResult LoadLayoutList(bool isHorizontal)
         {
             ILayoutService layoutService = DependencyUtils.Resolve<ILayoutService>();
-            var layoutList = layoutService.Get(a=>a.isHorizontal==isHorizontal).ToList();
+            var layoutList = layoutService.Get(a => a.isHorizontal == isHorizontal).ToList();
             var layoutVMs = new List<Models.LayoutVM>();
             if (layoutList != null)
             {
@@ -199,14 +217,13 @@ namespace DSS.Controllers
                 if (scenario != null)
                 {
                     model = new Models.ScenarioVM
-                    {   
-                        
+                    {
+
                         ScenarioId = scenario.ScenarioID,
                         Description = scenario.Description,
                         LayoutId = scenario.LayoutID,
                         Title = scenario.Title,
-                        IsPublic = (bool) scenario.isPublic
-
+                        IsPublic = (bool)scenario.isPublic
                     };
                 }
             }
@@ -215,7 +232,7 @@ namespace DSS.Controllers
 
         // POST: Scenario/Update/Model
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioVM model)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.ScenarioUpdateDetailVM model)
         {
             if (ModelState.IsValid)
             {
@@ -229,9 +246,49 @@ namespace DSS.Controllers
                     scenario.UpdateDateTime = DateTime.Now;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
-                return this.RedirectToAction("Index");
+                /*Delete items scenario*/
+                IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+                var ScenarioItems = scenarioItemService.GetItemListByScenarioId(model.ScenarioId);
+                if (ScenarioItems != null)
+                {
+                    foreach (var item in ScenarioItems)
+                    {
+                        await scenarioItemService.DeleteAsync(item);
+                    }
+                }
+                /*Add items to scenario*/
+                if (model.PlaylistAreaArr != null)
+                {
+                    foreach (var item in model.PlaylistAreaArr)
+                    {
+                        var i = 0;
+                        if (item.PlaylistIds != null)
+                        {
+                            foreach (var playlist in item.PlaylistIds)
+                            {
+                                var scenarioItem = new Data.Models.Entities.ScenarioItem
+                                {
+                                    AreaID = item.AreaId,
+                                    PlaylistID = playlist,
+                                    DisplayOrder = i++,
+                                    ScenarioID = model.ScenarioId,
+                                    LayoutID = model.LayoutId,
+                                };
+                                await scenarioItemService.CreateAsync(scenarioItem);
+                            }
+                        }
+                    }
+                }
+                return Json(new
+                {
+                    success = true,
+                    url = "/Scenario/Index",
+                }, JsonRequestBehavior.AllowGet);
             }
-            return View();
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -290,76 +347,76 @@ namespace DSS.Controllers
 
         //GET
         //Scenario/UpdateDetail/Id
-        public ActionResult UpdateDetails(int? id)
-        {
-            Models.ScenarioVM model = null;
-            if (id != null)
-            {
-                var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
-                if (scenario != null)
-                {
-                    model = new Models.ScenarioVM
-                    {
-                        ScenarioId = scenario.ScenarioID,
-                        Description = scenario.Description,
-                        LayoutId = scenario.LayoutID,
-                        Title = scenario.Title,
-                    };
-                }
-            }
-            return View("UpdateDetails", model);
-        }
+        //public ActionResult UpdateDetails(int? id)
+        //{
+        //    Models.ScenarioVM model = null;
+        //    if (id != null)
+        //    {
+        //        var scenario = this.scenarioService.FirstOrDefault(a => a.ScenarioID == id);
+        //        if (scenario != null)
+        //        {
+        //            model = new Models.ScenarioVM
+        //            {
+        //                ScenarioId = scenario.ScenarioID,
+        //                Description = scenario.Description,
+        //                LayoutId = scenario.LayoutID,
+        //                Title = scenario.Title,
+        //            };
+        //        }
+        //    }
+        //    return View("UpdateDetails", model);
+        //}
 
         //POST
         //Scenario/UpdateDetail/Id
-        [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> UpdateDetails(Models.PlaylistAreaObj model)
-        {
-            IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
-            //TrinhNNP
-            if (ModelState.IsValid)
-            {
-                /*Delete items scenario*/
-                var ScenarioItems = scenarioItemService.GetItemListByScenarioId(model.ScenarioId);
-                if (ScenarioItems != null)
-                {
-                    foreach (var item in ScenarioItems)
-                    {
-                        await scenarioItemService.DeleteAsync(item);
-                    }
-                }
-                if (model.PlaylistAreaArr != null)
-                {
-                    foreach (var item in model.PlaylistAreaArr)
-                    {
-                        var i = 0;
-                        if (item.PlaylistIds != null)
-                        {
-                            foreach (var playlist in item.PlaylistIds)
-                            {
-                                var scenarioItem = new Data.Models.Entities.ScenarioItem
-                                {
-                                    AreaID = item.AreaId,
-                                    PlaylistID = playlist,
-                                    DisplayOrder = i++,
-                                    ScenarioID = model.ScenarioId,
-                                };
-                                await scenarioItemService.CreateAsync(scenarioItem);
-                            }
-                        }
-                    }
-                }
-                return Json(new
-                {
-                    success = true,
-                    url = "/Scenario/Index",
-                }, JsonRequestBehavior.AllowGet);
-            }
-            return Json(new
-            {
-                success = false,
-            }, JsonRequestBehavior.AllowGet);
-        }
+        //[HttpPost]
+        //public async System.Threading.Tasks.Task<ActionResult> UpdateDetails(Models.PlaylistAreaObj model)
+        //{
+        //    IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+        //    //TrinhNNP
+        //    if (ModelState.IsValid)
+        //    {
+        //        /*Delete items scenario*/
+        //        var ScenarioItems = scenarioItemService.GetItemListByScenarioId(model.ScenarioId);
+        //        if (ScenarioItems != null)
+        //        {
+        //            foreach (var item in ScenarioItems)
+        //            {
+        //                await scenarioItemService.DeleteAsync(item);
+        //            }
+        //        }
+        //        if (model.PlaylistAreaArr != null)
+        //        {
+        //            foreach (var item in model.PlaylistAreaArr)
+        //            {
+        //                var i = 0;
+        //                if (item.PlaylistIds != null)
+        //                {
+        //                    foreach (var playlist in item.PlaylistIds)
+        //                    {
+        //                        var scenarioItem = new Data.Models.Entities.ScenarioItem
+        //                        {
+        //                            AreaID = item.AreaId,
+        //                            PlaylistID = playlist,
+        //                            DisplayOrder = i++,
+        //                            ScenarioID = model.ScenarioId,
+        //                        };
+        //                        await scenarioItemService.CreateAsync(scenarioItem);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        return Json(new
+        //        {
+        //            success = true,
+        //            url = "/Scenario/Index",
+        //        }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    return Json(new
+        //    {
+        //        success = false,
+        //    }, JsonRequestBehavior.AllowGet);
+        //}
         public ActionResult UpdateStatus(int dataId)
         {
             bool result = false;
