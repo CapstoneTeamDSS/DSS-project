@@ -42,22 +42,22 @@
                     </div>
                     <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-desktop"></i> Total Screen</span>
-                        <div class="count" >20</div>
+                        <div class="count">@(ViewBag.screenList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
                     </div>
                     <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-caret-square-o-right"></i> Total Android Box</span>
-                        <div class="count" >15</div>
+                        <div class="count">@(ViewBag.boxList)</div>
                         @*<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>*@
                     </div>
                     <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-hdd-o"></i> Total Devices</span>
-                        <div class="count">9</div>
+                        <div class="count">@(ViewBag.deviceList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
                     </div>
                     <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-map-marker"></i> Total Location</span>
-                        <div class="count" >7</div>
+                        <div class="count">@(ViewBag.locationList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                                         <div class="icon" style="color:white">
                                             <i class="fa fa-folder"></i>
                                         </div>
-                                        <div class="count">100</div>
+                                        <div class="count">@(ViewBag.mediarsList)</div>
 
                                         <h3 style="color:white">Media Resources</h3>
                                         <p>All current media resources on system.</p>
@@ -88,7 +88,7 @@
                                         <div class="icon" style="color:white">
                                             <i class="fa fa-caret-square-o-right"></i>
                                         </div>
-                                        <div class="count">100</div>
+                                        <div class="count">@(ViewBag.playlistList)</div>
 
                                         <h3 style="color:white">Playlists</h3>
                                         <p>All current playlist on system.</p>
@@ -101,7 +101,7 @@
                                     <div class="icon"style="color:white">
                                         <i class="fa fa-film"></i>
                                     </div>
-                                    <div class="count">30</div>
+                                    <div class="count">@(ViewBag.scenarioList)</div>
 
                                     <h3 style="color:white">Scenarios</h3>
                                     <p>ALl current scenarios on system.</p>
@@ -114,7 +114,7 @@
                                         <div class="icon" style="color:white">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <div class="count">12</div>
+                                        <div class="count">@(ViewBag.scheduleList)</div>
 
                                         <h3 style="color:white">Schedules</h3>
                                         <p>All current schedules on system.</p>
