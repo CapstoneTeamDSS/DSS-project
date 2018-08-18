@@ -144,11 +144,9 @@ namespace DSS.Controllers
                         boxVMs.Add(b);
                     }
                 }
-                //get Screen list By Location ID
                 IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
                 var screens = screenService.Get().ToList();
                 var screenVMs = new List<Models.ScreenVM>();
-
                 foreach (var item in screens)
                 {
                     if (item.LocationID == locationId)

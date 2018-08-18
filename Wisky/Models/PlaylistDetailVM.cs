@@ -20,6 +20,16 @@ namespace DSS.Models
         public string VisualTypeName { get; set; }
     }
 
+    public class PlaylistInfoVM
+    {
+        public int? Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public bool isPublic { get; set; }
+        public int VisualTypeID { get; set; }
+        public string VisualTypeName { get; set; }
+    }
+
     public class PlaylistCRUDVM
     {
         public int? Id { get; set; }
@@ -29,6 +39,7 @@ namespace DSS.Models
         public AddedElement[] AddedElements { get; set; }
         public bool isPublic { get; set; }
         public int VisualTypeID { get; set; }
+        public string VisualTypeName { get; set; }
     }
 
     public class AddedElement
