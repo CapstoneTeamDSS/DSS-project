@@ -102,6 +102,7 @@
                                 {
                                     <input type="hidden" id="txtScenarioId" name="ScenarioId" value="@(Model?.ScenarioId)" />
                                     <input type="hidden" id="txtLayoutId" name="LayoutId" value="@(Model?.LayoutId)" />
+                                    <input type="hidden" name="AudioArea" id="txtAudioAreaId" value="@(Model?.AudioArea)" />
                                     <div id="step-1" class="content" style="display: block;">
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
@@ -162,7 +163,6 @@
                                                         <div style="height:350px;width:570px;align-content:center" id="divLayout">
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="AudioArea" id="txtAudioAreaId" value="" />
                                                     <hr />
                                                 </div>
                                             </div>
@@ -546,6 +546,7 @@
                 if (playlistList[i] != '') {
                     var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
                     console.log(isMatchVisualType);
+                    //Show on "from list"
                     var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
                     var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
                     $('#fromList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
@@ -556,7 +557,9 @@
                         + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
                         + "</li>");
                     if (!isShow && isMatchVisualType) {
-                        PlaylistAreaObj[areaId].push(playlistList[i].Id);
+                        if (!isInArray(playlistList[i].Id, PlaylistAreaObj[areaId])){
+                            PlaylistAreaObj[areaId].push(playlistList[i].Id);
+                        }
                         $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
                             + ">"
                             + "<span id='title'>" + playlistList[i].Title + "</span>"
