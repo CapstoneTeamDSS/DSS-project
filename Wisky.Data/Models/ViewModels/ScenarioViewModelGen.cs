@@ -22,6 +22,7 @@ namespace DSS.Data.Models.ViewModels
     			public virtual int BrandID { get; set; }
     			public virtual Nullable<bool> isPublic { get; set; }
     			public virtual int AudioArea { get; set; }
+    			public virtual Nullable<System.DateTime> UpdateDateTime { get; set; }
     	
     	public ScenarioViewModel() : base() { }
     	public ScenarioViewModel(DSS.Data.Models.Entities.Scenario entity) : base(entity) { }
