@@ -74,12 +74,6 @@ namespace Wisky.Controllers
             var scenarioList = scenarioService.GetScenarioIdByBrandId(users.BrandID);
             var scenarioSize = scenarioList.Count;
             ViewBag.scenarioList = scenarioSize;
-
-            //ScheduleList
-            IScheduleService scheduleService = DependencyUtils.Resolve<IScheduleService>();
-            var scheduleList = scheduleService.GetScheduleIdByBrandId(users.BrandID);
-            var scheduleSize = scheduleList.Count;
-            ViewBag.scheduleList = scheduleSize;
             return View();
             
            
