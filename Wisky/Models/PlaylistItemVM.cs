@@ -23,4 +23,5 @@ namespace DSS.Models
 
         public int mediaType { get; set; }
     }
+
 }

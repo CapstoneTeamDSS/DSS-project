@@ -34,7 +34,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-plug"></i> <span>DSS</span></a>
+                        <a href="@Url.Action("Index", "Home")" class="site_title"><i class="fa fa-plug"></i> <span>DSS</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <br />
@@ -47,17 +47,20 @@
                                     <h3>@DSS.ResourcesLanguage.MenuText.MediaSection</h3>
                                     <ul class="nav side-menu">
                                         <li>
-                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>                                          
+                                            <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
+                                        </li>*@
+                                        <li>
+                                            <a href="@Url.Action("Index", "AdvancedPlaylist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
                                         </li>
                                         <li>
                                             <a href="@Url.Action("Index", "Scenario")"><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
                                         </li>
                                         @*<li>
-                                            <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
-                                        </li>*@
+            <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
+        </li>*@
                                         <li>
                                             <a href="@Url.Action("Index", "AdvancedScheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.AdvSchedule</a>
                                         </li>
