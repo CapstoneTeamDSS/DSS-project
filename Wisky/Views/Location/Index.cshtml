@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = DSS.ResourcesLanguage.LocationIndex.PageTitle;
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="">
@@ -172,11 +172,7 @@
                                     swal($("#deleted").val(), $("#del").val(), "success");
                                     location.reload();
                                 } else {
-                                    swal({
-                                        type: 'error',
-                                        title: 'Location is being using',
-                                        text: 'Can not delete using location!',
-                                    })
+                                    alert("Can not delete using location!");
                                 }
                             },
                             error: function () {
@@ -211,4 +207,3 @@
     <!--End Sweet alert-->
 
 }
-
