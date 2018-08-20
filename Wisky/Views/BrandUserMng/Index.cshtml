@@ -62,8 +62,8 @@
                                         <td>@(item.Email)</td>
                                         <td><a href="#" class="isActive" style="color:@( (bool) item.IsActive?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsActive)" data-id="@(item.UserName)">@( (bool)item.IsActive ? DSS.ResourcesLanguage.AccountError.TxtActive : DSS.ResourcesLanguage.AccountError.TxtDisable)</a></td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnEdit</i></a>
-                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.BrandUserMngIndex.BtnDelete</i></a>
+                                            <a href="/BrandUserMng/Form/@(item.Id) " class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.BrandUserMngIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.Id"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.BrandUserMngIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
