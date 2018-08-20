@@ -333,7 +333,7 @@
             });
             var scenarioId = $("#txtScenarioId").val();
             var url = scenarioId == '' ? "/Scenario/Add" : "/Scenario/Update";
-            console.log(data);
+            console.log(data.PlaylistAreaArr);
             $.ajax({
                 url: url,
                 method: 'POST',
