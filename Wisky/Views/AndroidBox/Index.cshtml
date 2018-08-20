@@ -123,14 +123,14 @@
                 $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                 return false;
             });
+            //Show notification when add / update success
             var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
             var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
             $('.ui-pnotify').remove();
             if (addrs) {
-                //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Add Media Success.',
+                    text: 'Add Android Box Success.',
                     type: 'success'
                 });
 
@@ -139,7 +139,7 @@
                 //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Update Media Success.',
+                    text: 'Update Android Box Success.',
                     type: 'success'
                 });
             }

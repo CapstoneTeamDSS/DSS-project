@@ -250,6 +250,26 @@
             $("#btnMatch").click(function () {
                 $(this).attr("href", "/MatchingDevice/Form?boxId=" + selectedBoxId + "&screenId=" + selectedScreenId);  //-----this will change href
             })
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
+            if (addrs) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Add Android Box Success.',
+                    type: 'success'
+                });
+
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Android Box Success.',
+                    type: 'success'
+                });
+            }
         });
     </script>
     <!--End Get screen id, box id send to controller-->

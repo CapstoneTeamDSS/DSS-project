@@ -35,6 +35,13 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+                @{
+                    // Get session add/update success
+                    var addSuccess = ViewBag.addSuccess;
+                    var updateSuccess = ViewBag.updateSuccess;
+                    <div style="display:none" id="addSuccess">@addSuccess</div>
+                    <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                }
                 <div class="" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active">
@@ -234,6 +241,9 @@
     </div>
 </div>
 @section scripts{
+    <!--Show notification when add/update success-->
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
     <!--Change status enable disable-->
     <script>
         /*Change status enable disable*/
@@ -266,7 +276,7 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
-        $(document).ready(function () {            
+        $(document).ready(function () {
             //Examples of how to assign the Colorbox event to elements
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "70%",
@@ -282,6 +292,26 @@
                 $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                 return false;
             });
+            //Show notification when add / update success
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
+            if (addrs) {
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Add Media Success.',
+                    type: 'success'
+                });
+
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Media Success.',
+                    type: 'success'
+                });
+            }
         });
     </script>
     <!-- end iframe button matching-->
@@ -380,16 +410,6 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.NoCancel" id="no" />
 
 @section styles{
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <style>
-        .notifyjs-corner {
-            top: 70px !important;
-            left: 580px;
-            width: 60%;
-            height: 1000px;
-        }
-    </style>
     <!-- preview button css -->
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/css/effect.css">
     <link rel="stylesheet" type="text/css" href="~/Content/index-media-preview-video/src/flashy.min.css">
@@ -403,4 +423,7 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <!--Show notification when add/update success-->
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }

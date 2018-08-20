@@ -129,37 +129,9 @@
                         .appendTo(li);
                 });
             } else {
-                submitFunction();
+                $("#frm_mediaSrc").submit();
             }
         }
-        function submitFunction() {
-            var other_data = $('#frm_mediaSrc').serializeArray();
-            var data = {};
-            $.each(other_data, function (key, input) {
-                data[input.name] = input.value;
-            });
-            console.log(data);
-            $.ajax({
-                url: '/MediaSrc/Add',
-                method: 'POST',
-                data: data,
-                success: function (res) {
-                    if (res.success) {
-                        location.href = res.url;
-                        var data = {
-                            'addSuccess': true,
-                        }
-                        //window.parent.postMessage(['data', JSON.stringify(data)], "*");
-                    } else {
-                        alert("500: Server error!");
-                    }
-                },
-                error: function () {
-                    alert("Error");
-                }
-            });
-        };
-
     </script>
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Upload" id="upload" />
