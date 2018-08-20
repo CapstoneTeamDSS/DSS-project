@@ -333,7 +333,7 @@
             });
             var scenarioId = $("#txtScenarioId").val();
             var url = scenarioId == '' ? "/Scenario/Add" : "/Scenario/Update";
-            console.log(data);
+            console.log(data.PlaylistAreaArr);
             $.ajax({
                 url: url,
                 method: 'POST',
@@ -450,6 +450,15 @@
             loadLayoutList("true");
             loadLayout(layoutId);
             loadPlaylistList();
+
+
+            /* Render Playlist List for all areas in Update*/
+            var scenarioId = $("#txtScenarioId").val();
+            if (scenarioId != "") {
+                $(".vdReview").each(function (el) {
+                    renderPlaylistListForAnArea(el);
+                });
+            }            
         });
 
         function loadLayout(id) {
@@ -510,9 +519,13 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
+            /* Render Playlist List for current selected area */
+            renderPlaylistListForAnArea(el);
+        }
+
+        function renderPlaylistListForAnArea(el) {
             var scenarioId = $("#txtScenarioId").val();
             console.log(scenarioId);
-            /* Render Playlist List for current selected area */
             var areaVisualTypeID = $(el).attr("visual-type");
             var data = {
                 areaId: areaId,
