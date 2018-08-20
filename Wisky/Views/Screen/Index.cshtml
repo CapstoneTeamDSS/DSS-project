@@ -28,6 +28,7 @@
                 </div>
                 <div class="x_content">
                     @{
+                        // Get session add/update success
                         var addSuccess = ViewBag.addSuccess;
                         var updateSuccess = ViewBag.updateSuccess;
                         <div style="display:none" id="addSuccess">@addSuccess</div>
@@ -106,8 +107,8 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
     <!--Show notification when add/update success-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
@@ -124,17 +125,25 @@
             });
             var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
             var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
             if (addrs) {
                 //Show notification when add / update success
-                $.notify("Add Media Successful.", "success");
-                
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Add Media Success.',
+                    type: 'success'
+                });
+
             }
             if (updaters) {
                 //Show notification when add / update success
-                $.notify("Update Media Successful.", "success");
-                ViewData.Clear();
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Media Success.',
+                    type: 'success'
+                });
             }
-            
+
             //Examples of how to assign the Colorbox event to elements
 
         });
@@ -218,17 +227,8 @@
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
     <!--Show notification when add/update success-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <style>
-        .notifyjs-corner {
-            top: 70px !important;
-            width:85%;
-            padding-left:850px;
-            padding-top:40px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }
 
 
