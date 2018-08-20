@@ -443,22 +443,20 @@
         var areaId;
         $(document).ready(function () {
             var layoutId = $("#txtLayoutId").val();
-            console.log(layoutId);
+            //var audioArea = $("#txtAudioAreaId").val();
+            //$(".cbAudio").each(function (el) {
+            //    var value = $(el).val();
+            //    console.log("val: " + value + "   au:" + audioArea);
+            //    if (value == audioArea) {
+            //        audioCheck(el);
+            //    }
+            //});
             if (layoutId == "") {
                 layoutId = 7;
             }
             loadLayoutList("true");
             loadLayout(layoutId);
             loadPlaylistList();
-
-
-            /* Render Playlist List for all areas in Update*/
-            var scenarioId = $("#txtScenarioId").val();
-            if (scenarioId != "") {
-                $(".vdReview").each(function (el) {
-                    renderPlaylistListForAnArea(el);
-                });
-            }            
         });
 
         function loadLayout(id) {
@@ -519,14 +517,15 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
-            /* Render Playlist List for current selected area */
+            /* Render Playlist List for current selected area */            
             renderPlaylistListForAnArea(el);
         }
 
         function renderPlaylistListForAnArea(el) {
+            var areaId = $(el).attr("area-id");
             var scenarioId = $("#txtScenarioId").val();
-            console.log(scenarioId);
             var areaVisualTypeID = $(el).attr("visual-type");
+            console.log(scenarioId);
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,
