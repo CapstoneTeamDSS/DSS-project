@@ -18,6 +18,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.locationList = GetLocationIdByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -183,6 +186,8 @@ namespace DSS.Controllers
                 };
                 await this.locationService.CreateAsync(location);
                 //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Location")),
@@ -211,6 +216,8 @@ namespace DSS.Controllers
 
                 }
                 await this.locationService.UpdateAsync(location);
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Location")),
