@@ -18,6 +18,13 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    @{
+                        // Get session add/update success
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                    }
                     <div width:50%;">
                         <label>@DSS.ResourcesLanguage.MatchingDeviceIndex.LblLocation</label>
                         <select style="width:300px; height:25px" id="locationSelect">
@@ -48,11 +55,11 @@
                         </div>
                         <div style="float:right">
                             @{
-                            <a class='btn btn-success'
-                               id="btnMatch"
-                               title="Please choose Location, Box And Screen">
-                                @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnMatch
-                            </a>
+                                <a class='btn btn-success'
+                                   id="btnMatch"
+                                   title="Please choose Location, Box And Screen">
+                                    @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnMatch
+                                </a>
                             }
                         </div>
                     </div>
@@ -86,8 +93,8 @@
                                         <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
-                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
+                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -212,6 +219,18 @@
                         $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                         return false;
                     });
+                    var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+                    var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+                    if (addrs) {
+                        //Show notification when add / update success
+                        $.notify("Add Media Successful.", "success");
+
+                    }
+                    if (updaters) {
+                        //Show notification when add / update success
+                        $.notify("Update Media Successful.", "success");
+                        ViewData.Clear();
+                    }
                 });
             }
         }
@@ -231,6 +250,26 @@
             $("#btnMatch").click(function () {
                 $(this).attr("href", "/MatchingDevice/Form?boxId=" + selectedBoxId + "&screenId=" + selectedScreenId);  //-----this will change href
             })
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
+            if (addrs) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Add Android Box Success.',
+                    type: 'success'
+                });
+
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Android Box Success.',
+                    type: 'success'
+                });
+            }
         });
     </script>
     <!--End Get screen id, box id send to controller-->
