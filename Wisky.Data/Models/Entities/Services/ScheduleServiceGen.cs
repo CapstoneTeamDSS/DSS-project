@@ -11,12 +11,12 @@ namespace DSS.Data.Models.Entities.Services
 {
     using System;
     using System.Collections.Generic;
-
-
+    
+    
     public partial interface IScheduleService : SkyWeb.DatVM.Data.IBaseService<Schedule>
     {
     }
-
+    
     public partial class ScheduleService : SkyWeb.DatVM.Data.BaseService<Schedule>, IScheduleService
     {
         public ScheduleService(SkyWeb.DatVM.Data.IUnitOfWork unitOfWork, Repositories.IScheduleRepository repository) : base(unitOfWork, repository)

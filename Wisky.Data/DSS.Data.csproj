@@ -395,7 +395,6 @@
     <Compile Include="Models\Entities\Services\ScenarioServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Services\ScheduleService.cs" />
     <Compile Include="Models\Entities\Services\ScheduleServiceGen.cs">
       <DependentUpon>Services.tt</DependentUpon>
     </Compile>

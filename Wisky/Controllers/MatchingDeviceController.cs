@@ -39,6 +39,9 @@ namespace DSS.Controllers
             }
             ViewBag.devicesList = deviceVMs;
             ViewBag.locationStringList = GetLocationIdByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -192,6 +195,8 @@ namespace DSS.Controllers
                 };
                 await this.deviceService.CreateAsync(device);
                 //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MatchingDevice")),
@@ -218,6 +223,8 @@ namespace DSS.Controllers
 
                 }
                 await this.deviceService.UpdateAsync(device);
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MatchingDevice")),

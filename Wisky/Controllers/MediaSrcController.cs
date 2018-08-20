@@ -21,6 +21,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.mediaSrcList = GetMediaSrcListByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -205,13 +208,19 @@ namespace DSS.Controllers
                     SecurityHash = model.SecurityHash
                 };
                 await this.mediaSrcService.CreateAsync(media);
-                return new ContentResult
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
+                return Json(new
                 {
-                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
-                    ContentType = "text/html"
-                };
+                    success = true,
+                    url = "/MediaSrc/Index",
+            }, JsonRequestBehavior.AllowGet);
             }
-            return View("Form", model);
+            Session["Status"] = false;
+            return Json(new
+            {
+                success = false,
+            }, JsonRequestBehavior.AllowGet);
         }
 
         /*Check mime type*/
@@ -344,7 +353,8 @@ namespace DSS.Controllers
                     mediaSrc.SecurityHash = mediaSrc.SecurityHash;
                 };
                 await this.mediaSrcService.UpdateAsync(mediaSrc);
-                //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),

@@ -17,22 +17,10 @@ namespace DSS.Controllers
         // GET: AndroidBox
         public ActionResult Index()
         {
-            //var boxs = this.boxService.Get().ToList();
-            //var boxVMs = new List<Models.AndroidBoxVM>();
-
-            //foreach (var item in boxs)
-            //{
-            //    var b = new Models.AndroidBoxVM
-            //    {
-            //        Name = item.BoxName,
-            //        Description = item.Description,
-            //        BoxId = item.BoxID,
-            //        LocationId = item.LocationID
-
-            //    };
-            //    boxVMs.Add(b);
-            //}
             ViewBag.boxsList = GetBoxIdByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
         //ToanTXSE
@@ -108,6 +96,8 @@ namespace DSS.Controllers
                 };
                 await this.boxService.CreateAsync(box);
                 //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
@@ -164,6 +154,8 @@ namespace DSS.Controllers
                     
                 }
                 await this.boxService.UpdateAsync(box);
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AndroidBox")),
