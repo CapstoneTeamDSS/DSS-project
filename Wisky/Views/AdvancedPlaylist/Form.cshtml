@@ -514,7 +514,7 @@
             for (var i = 0; i < ResourceList.length; i++) {
                 if (ResourceList[i] != '') {
                     var isShow = !isInArray(ResourceList[i].MediaSrcId, PlaylistItemIds);
-                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
+                    var style = isShow ? "data-marked='true'" : " style = 'display: none' data-marked='true' ";
                     $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
                         + "data-type='" + ResourceList[i].TypeId + "'"
                         + "data-url='" + ResourceList[i].URL + "'"
@@ -525,7 +525,7 @@
                         + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
                     if (!isShow) {
-                        $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].Id + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
                             + "data-type='" + ResourceList[i].TypeId + "'"
                             + "data-url='" + ResourceList[i].URL + "'"
                             + "data-duration='" + 0 + "'"
