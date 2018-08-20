@@ -138,7 +138,7 @@ namespace DSS.Controllers
                     LayoutID = model.LayoutId,
                     BrandID = user.BrandID,
                     isPublic = model.IsPublic,
-                    AudioArea = model.AudioArea,
+                    AudioArea = model.AudioArea ?? -1,
                     UpdateDateTime = DateTime.Now,
                 };
                 await this.scenarioService.CreateAsync(scenario);
@@ -244,21 +244,26 @@ namespace DSS.Controllers
                     scenario.Title = model.Title;
                     scenario.isPublic = model.IsPublic;
                     scenario.UpdateDateTime = DateTime.Now;
+                    scenario.AudioArea = model.AudioArea ?? -1;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
-                /*Delete items scenario*/
-                IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
-                var ScenarioItems = scenarioItemService.GetItemListByScenarioId(model.ScenarioId);
-                if (ScenarioItems != null)
-                {
-                    foreach (var item in ScenarioItems)
-                    {
-                        await scenarioItemService.DeleteAsync(item);
-                    }
-                }
-                /*Add items to scenario*/
+                /*Delete items of updated areas of scenario*/
                 if (model.PlaylistAreaArr != null)
                 {
+                    IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+                    for (int i = 0; i < model.PlaylistAreaArr.Length; i++)
+                    {
+                        /*Delete items of updated areas of scenario*/
+                        var ScenarioItems = scenarioItemService.GetItemListByAreaScenarioId(model.PlaylistAreaArr[i].AreaId, model.ScenarioId);
+                        if (ScenarioItems != null)
+                        {
+                            foreach (var item in ScenarioItems)
+                            {
+                                await scenarioItemService.DeleteAsync(item);
+                            }
+                        }
+                    }
+                    /*Add updated items to scenario*/
                     foreach (var item in model.PlaylistAreaArr)
                     {
                         var i = 0;
