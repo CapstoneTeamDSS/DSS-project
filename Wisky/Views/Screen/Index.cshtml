@@ -28,8 +28,10 @@
                 </div>
                 <div class="x_content">
                     @{
-                        var success = ViewBag.success;
-                        <div style="display:none" id="rsSuccess">@success</div>
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
                     }
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
@@ -103,18 +105,13 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!--Show notification when add/update success-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
         $(document).ready(function () {
-            var rs = $("#rsSuccess").html() == "true" || $("#rsSuccess").html() == "True";
-            console.log("result" + rs);
-            if (rs) {
-                $.notify("Add Media Successful.", "success");
-            }
-            //Examples of how to assign the Colorbox event to elements
             $(".iframe").colorbox({
                 iframe: true, width: "65%", height: "80%",
                 //refresh page when summit
@@ -125,6 +122,21 @@
                 $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                 return false;
             });
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            if (addrs) {
+                //Show notification when add / update success
+                $.notify("Add Media Successful.", "success");
+                
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                $.notify("Update Media Successful.", "success");
+                ViewData.Clear();
+            }
+            
+            //Examples of how to assign the Colorbox event to elements
+
         });
     </script>
     <!-- end iframe button matching-->
@@ -205,8 +217,18 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <!--Show notification when add/update success-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        .notifyjs-corner {
+            top: 70px !important;
+            width:85%;
+            padding-left:850px;
+            padding-top:40px;
+        }
+    </style>
+
 }
 
 

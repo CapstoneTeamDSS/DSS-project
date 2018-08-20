@@ -234,16 +234,6 @@
     </div>
 </div>
 @section scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <script type="text/javascript"></script>
-    <script>
-
-
-        //function showNotification() {
-        //    $.notify("Add Media Successful.", "success");
-        //}
-    </script>
     <!--Change status enable disable-->
     <script>
         /*Change status enable disable*/
@@ -276,12 +266,6 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <script>
-        window.addEventListener('message', function (e) {
-            var eventName = e.data[0];
-            var data = JSON.parse(e.data[1]);
-            var addSuccess = data.addSuccess;
-            console.log(addSuccess);
-        });
         $(document).ready(function () {            
             //Examples of how to assign the Colorbox event to elements
             $(".iframe").colorbox({
