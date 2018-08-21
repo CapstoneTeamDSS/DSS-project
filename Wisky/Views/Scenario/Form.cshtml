@@ -333,7 +333,7 @@
             });
             var scenarioId = $("#txtScenarioId").val();
             var url = scenarioId == '' ? "/Scenario/Add" : "/Scenario/Update";
-            console.log(data);
+            console.log(data.PlaylistAreaArr);
             $.ajax({
                 url: url,
                 method: 'POST',
@@ -443,7 +443,14 @@
         var areaId;
         $(document).ready(function () {
             var layoutId = $("#txtLayoutId").val();
-            console.log(layoutId);
+            //var audioArea = $("#txtAudioAreaId").val();
+            //$(".cbAudio").each(function (el) {
+            //    var value = $(el).val();
+            //    console.log("val: " + value + "   au:" + audioArea);
+            //    if (value == audioArea) {
+            //        audioCheck(el);
+            //    }
+            //});
             if (layoutId == "") {
                 layoutId = 7;
             }
@@ -510,10 +517,15 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
+            /* Render Playlist List for current selected area */            
+            renderPlaylistListForAnArea(el);
+        }
+
+        function renderPlaylistListForAnArea(el) {
+            var areaId = $(el).attr("area-id");
             var scenarioId = $("#txtScenarioId").val();
-            console.log(scenarioId);
-            /* Render Playlist List for current selected area */
             var areaVisualTypeID = $(el).attr("visual-type");
+            console.log(scenarioId);
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,

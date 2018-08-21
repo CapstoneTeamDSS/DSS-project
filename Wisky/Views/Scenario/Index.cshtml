@@ -61,9 +61,9 @@
                                         <td>@(item.Description)</td>
                                         <td><a href="#" class="isActive" style="color:@( (bool) item.IsPublic?"green":"red")" onclick="changeStatus(this)" data-stt="@(item.IsPublic)" data-id="@(item.ScenarioId)">@( (bool)item.IsPublic ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</a></td>
                                         <td style="width:300px; text-align:center">
-                                            <a href="/Scenario/Form/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditInfo</i></a>
+                                            <a href="/Scenario/Form/@(item.ScenarioId) "><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.ScenarioIndex.BtnEditInfo</i></a>
                                             @*<a href="/Scenario/UpdateDetails/@(item.ScenarioId)"><i class="fa fa-pencil btn btn-success">@DSS.ResourcesLanguage.ScenarioIndex.BtnEditDetails</i></a>*@
-                                            <a class="btnDelete" data-id="@item.ScenarioId"><i class="fa fa-trash btn btn-danger"> Delete</i></a>
+                                            <a class="btnDelete" data-id="@item.ScenarioId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.SchedulingIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
