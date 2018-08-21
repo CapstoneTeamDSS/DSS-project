@@ -132,12 +132,13 @@ namespace DSS.Controllers
                 IMapper mapper = DependencyUtils.Resolve<IMapper>();
                 var boxs = boxService.Get().ToList();
                 var boxVMs = new List<Models.AndroidBoxVM>();
-                var devices = deviceService.Get().ToList();
+
                 foreach (var item in boxs)
                 {
-                    foreach (var items in devices)
+                    //check boxID is being matched
+                    if (deviceService.Get(a => a.BoxID == item.BoxID).FirstOrDefault() == null)
                     {
-                        if (item.LocationID == locationId && item.BoxID != items.BoxID)
+                        if (item.LocationID == locationId)
                         {
                             var b = new Models.AndroidBoxVM
                             {
@@ -156,9 +157,10 @@ namespace DSS.Controllers
                 var screenVMs = new List<Models.ScreenVM>();
                 foreach (var item in screens)
                 {
-                    foreach (var items in devices)
+                    //check boxID is being matched
+                    if (deviceService.Get(a => a.ScreenID == item.ScreenID).FirstOrDefault() == null)
                     {
-                        if (item.LocationID == locationId && item.ScreenID != items.ScreenID)
+                        if (item.LocationID == locationId)
                         {
                             var b = new Models.ScreenVM
                             {
