@@ -27,12 +27,14 @@ namespace Wisky.Controllers
             ViewBag.FullName = user.Identity.Name;
             Session["username"] = user.Identity.Name;
             Session["userID"] = user.Identity.GetUserId(); //GetUserId() only can be used when using Microsoft.AspNet.Identity;
+
             //Get Size Account
             IAspNetUserService aspNetUserService = DependencyUtils.Resolve<IAspNetUserService>();
             var users = Helper.GetCurrentUser();
             var accountList = aspNetUserService.GetAccountsByBrandId(users.BrandID);
             var size = accountList.Count;
             ViewBag.accountList = size;
+
             //ScreenList
             IScreenService screenSevice = DependencyUtils.Resolve<IScreenService>();
             var screenList = screenSevice.GetScreenIdByBrandId(users.BrandID);
@@ -69,15 +71,26 @@ namespace Wisky.Controllers
             var playlistSize = playlistList.Count;
             ViewBag.playlistList = playlistSize;
 
+
             //ScenarioList
             IScenarioService  scenarioService= DependencyUtils.Resolve<IScenarioService>();
             var scenarioList = scenarioService.GetScenarioIdByBrandId(users.BrandID);
             var scenarioSize = scenarioList.Count;
             ViewBag.scenarioList = scenarioSize;
+
+            //ScheduleList
+            IScheduleService scheduleService = DependencyUtils.Resolve<IScheduleService>();
+            var scheduleList = scheduleService.GetScheduleIdByBrandId(users.BrandID);
+            var scheduleSize = scheduleList.Count;
+            ViewBag.scheduleList = scheduleSize;
             return View();
+          
+
+        
             
            
-          
+
+
         }
 
 
