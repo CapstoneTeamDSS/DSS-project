@@ -122,6 +122,61 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
 
 @section scripts{
+    <!-- check value box, screen is seleted-->
+    <script>
+        $(document).ready(function () {
+            setBtnStatus();
+        });
+        $("#boxListById").change(function () {
+            setBtnStatus();
+        });
+        $("#screenListById").change(function () {
+            setBtnStatus();
+        });
+        function setBtnStatus() {
+            var box = $('#boxListById');
+            var screen = $('#screenListById');
+            var btnMatch = $('#btnMatch');
+            if (box.val() == 0 || screen.val() == 0) {
+                //console.log(box);
+                btnMatch.attr("disabled", "disabled");
+                btnMatch.bind('click', false);
+                btnMatch.attr("class", "btn btn-success");
+                //btnMatch.click(true);
+            } else {
+                btnMatch.attr("disabled", false);
+                btnMatch.unbind('click', false);
+                btnMatch.attr("class", "iframe btn btn-success");
+                //show iframe
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "65%", height: "70%",
+                        //refresh page when summit
+                        //onClosed: function () { location.reload(true); },
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                    var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+                    var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+                    if (addrs) {
+                        //Show notification when add / update success
+                        $.notify("Add Media Successful.", "success");
+
+                    }
+                    if (updaters) {
+                        //Show notification when add / update success
+                        $.notify("Update Media Successful.", "success");
+                        ViewData.Clear();
+                    }
+                });
+            }
+        }
+    </script>
+    <!--End check value box, screen is seleted-->
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -184,61 +239,6 @@
         });
     </script>
     <!-- END get list box and screen by location Id-->
-    <!-- check value box, screen is seleted-->
-    <script>
-        $(document).ready(function () {
-            setBtnStatus();
-        });
-        $("#boxListById").change(function () {
-            setBtnStatus();
-        });
-        $("#screenListById").change(function () {
-            setBtnStatus();
-        });
-        function setBtnStatus() {
-            var box = $('#boxListById');
-            var screen = $('#screenListById');
-            var btnMatch = $('#btnMatch');
-            if (box.val() == 0 || screen.val() == 0) {
-                //console.log(box);
-                btnMatch.attr("disabled", "disabled");
-                btnMatch.bind('click', false);
-                btnMatch.attr("class", "btn btn-success");
-                //btnMatch.click(true);
-            } else {
-                btnMatch.attr("disabled", false);
-                btnMatch.unbind('click', false);
-                btnMatch.attr("class", "iframe btn btn-success");
-                //show iframe
-                $(document).ready(function () {
-                    //Examples of how to assign the Colorbox event to elements
-                    $(".iframe").colorbox({
-                        iframe: true, width: "65%", height: "70%",
-                        //refresh page when summit
-                        //onClosed: function () { location.reload(true); },
-                    });
-                    //Example of preserving a JavaScript event for inline calls.
-                    $("#click").click(function () {
-                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                        return false;
-                    });
-                    var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
-                    var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
-                    if (addrs) {
-                        //Show notification when add / update success
-                        $.notify("Add Media Successful.", "success");
-
-                    }
-                    if (updaters) {
-                        //Show notification when add / update success
-                        $.notify("Update Media Successful.", "success");
-                        ViewData.Clear();
-                    }
-                });
-            }
-        }
-    </script>
-    <!--End check value box, screen is seleted-->
     <!--Send screen id, box id to controller-->
     <script>
         $(document).ready(function () {
