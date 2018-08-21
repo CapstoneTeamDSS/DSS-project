@@ -33,6 +33,9 @@ namespace DSS.Controllers
                 ScheduleVMs.Add(s);
             }
             ViewBag.ScheduleList = ScheduleVMs;
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -147,6 +150,8 @@ namespace DSS.Controllers
                     isEnable = model.isEnable,
                 };
                 await scheduleService.CreateAsync(schedule);
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "AdvancedScheduling")),
@@ -194,6 +199,8 @@ namespace DSS.Controllers
                     schedule.Priority = model.Priority;
                     schedule.isEnable = model.isEnable;
                     await scheduleService.UpdateAsync(schedule);
+                    Session.Clear();
+                    Session["UPDATE_RESULT"] = true;
                 }
                 return new ContentResult
                 {
