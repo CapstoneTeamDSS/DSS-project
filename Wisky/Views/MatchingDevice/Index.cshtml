@@ -142,6 +142,9 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <!-- end iframe button matching-->
+    <!--Show notification when add/update success-->
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
     <!-- get list box and screen by location Id-->
     <script>
         $("#locationSelect").change(function (event) {
@@ -257,7 +260,7 @@
                 //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Add Android Box Success.',
+                    text: 'Matching Device Success.',
                     type: 'success'
                 });
 
@@ -266,7 +269,7 @@
                 //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Update Android Box Success.',
+                    text: 'Update Device Success.',
                     type: 'success'
                 });
             }
@@ -333,4 +336,7 @@
             font-size: 14px;
         }
     </style>
+    <!--Show notification when add/update success-->
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }
