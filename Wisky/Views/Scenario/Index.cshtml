@@ -27,8 +27,13 @@
                     </a>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                    </p>
+                    @{
+                        // Get session add/update success
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                    }
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -88,7 +93,36 @@
     <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
     <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!--Show notification when add/update success-->
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
+            if (addrs) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Add Scenario Successful.',
+                    type: 'success'
+                });
 
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Scenario Successful.',
+                    type: 'success'
+                });
+            }
+
+            //Examples of how to assign the Colorbox event to elements
+
+        });
+    </script>
     <script>
         /*Change status enable disable*/
         function changeStatus(el) {
@@ -130,7 +164,7 @@
                 success: function (data) {
                     //show sweerAlert warming
                     if (data.isUsing) {
-                        swal("Oops...",$("#use").val(), "error");
+                        swal("Oops...", $("#use").val(), "error");
                     } else {
                         swal({
                             title: $("#sure").val(),
@@ -200,5 +234,8 @@
     <!--Sweet alert-->
     <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
     <!--End Sweet alert-->
+    <!--Show notification when add/update success-->
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }
 
