@@ -122,65 +122,6 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
 
 @section scripts{
-    <!-- Datatables -->
-    <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- iframe button matching-->
-    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
-    <!-- end iframe button matching-->
-    <!-- get list box and screen by location Id-->
-    <script>
-        $("#locationSelect").change(function (event) {
-            event.preventDefault();
-            var data = {
-                id: $(this).val(),
-            };
-            $.ajax({
-                type: "POST",
-                url: "/MatchingDevice/ReceiveLocationId",
-                data: JSON.stringify(data),
-                dataType: "json",
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    //data = JSON.parse(data);
-                    //remove data when change location
-                    $("#boxListById").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- Choose Box ---" + '</option>');
-                    $("#screenListById").find('option').remove().end()
-                        .append('<option value="' + 0 + '">' + "--- Choose Screen ---" + '</option>');
-                    //load data box, screen by loaction id
-                    for (var i = 0; i < data.boxListByLocationId.length; i++) {
-                        if (data.boxListByLocationId[i] != '') {
-                            $('#boxListById').append('<option value="' + data.boxListByLocationId[i].BoxId + '">' + data.boxListByLocationId[i].Name + '</option>');
-                        }
-                    }
-                    for (var i = 0; i < data.screenListByLocationId.length; i++) {
-                        if (data.screenListByLocationId[i] != '') {
-                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + " " + "(" + (data.screenListByLocationId[i].isHorizontal ? $("#land").val() : $("#por").val()) + ")" + '</option>');
-                        }
-                    }
-                },
-                error: function () {
-                    alert($("#err").val())
-                }
-            });
-        });
-    </script>
-    <!-- END get list box and screen by location Id-->
     <!-- check value box, screen is seleted-->
     <script>
         $(document).ready(function () {
@@ -236,6 +177,68 @@
         }
     </script>
     <!--End check value box, screen is seleted-->
+    <!-- Datatables -->
+    <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/template-material/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/Content/template-material/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <!-- end iframe button matching-->
+    <!--Show notification when add/update success-->
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
+    <!-- get list box and screen by location Id-->
+    <script>
+        $("#locationSelect").change(function (event) {
+            event.preventDefault();
+            var data = {
+                id: $(this).val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: "/MatchingDevice/ReceiveLocationId",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //data = JSON.parse(data);
+                    //remove data when change location
+                    $("#boxListById").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Box ---" + '</option>');
+                    $("#screenListById").find('option').remove().end()
+                        .append('<option value="' + 0 + '">' + "--- Choose Screen ---" + '</option>');
+                    //load data box, screen by loaction id
+                    for (var i = 0; i < data.boxListByLocationId.length; i++) {
+                        if (data.boxListByLocationId[i] != '') {
+                            $('#boxListById').append('<option value="' + data.boxListByLocationId[i].BoxId + '">' + data.boxListByLocationId[i].Name + '</option>');
+                        }
+                    }
+                    for (var i = 0; i < data.screenListByLocationId.length; i++) {
+                        if (data.screenListByLocationId[i] != '') {
+                            $('#screenListById').append('<option value="' + data.screenListByLocationId[i].ScreenId + '">' + data.screenListByLocationId[i].Name + " " + "(" + (data.screenListByLocationId[i].isHorizontal ? $("#land").val() : $("#por").val()) + ")" + '</option>');
+                        }
+                    }
+                },
+                error: function () {
+                    alert($("#err").val())
+                }
+            });
+        });
+    </script>
+    <!-- END get list box and screen by location Id-->
     <!--Send screen id, box id to controller-->
     <script>
         $(document).ready(function () {
@@ -257,7 +260,7 @@
                 //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Add Android Box Success.',
+                    text: 'Matching Device Success.',
                     type: 'success'
                 });
 
@@ -266,7 +269,7 @@
                 //Show notification when add / update success
                 new PNotify({
                     title: 'Success!',
-                    text: 'Update Android Box Success.',
+                    text: 'Update Device Success.',
                     type: 'success'
                 });
             }
@@ -333,4 +336,7 @@
             font-size: 14px;
         }
     </style>
+    <!--Show notification when add/update success-->
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }
