@@ -27,7 +27,13 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    
+                    @{
+                        // Get session add/update success
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                    }
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -100,6 +106,9 @@
         <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
         <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
         <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+        <!--Show notification when add/update success-->
+        <script src="~/Content/pnotify/pnotify.js"></script>
+        <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
         <!-- iframe button matching-->
         <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
         <script>
@@ -115,6 +124,26 @@
                     $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                     return false;
                 });
+                var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+                var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+                $('.ui-pnotify').remove();
+                if (addrs) {
+                    //Show notification when add / update success
+                    new PNotify({
+                        title: 'Success!',
+                        text: 'Add Brand Successful.',
+                        type: 'success'
+                    });
+
+                }
+                if (updaters) {
+                    //Show notification when add / update success
+                    new PNotify({
+                        title: 'Success!',
+                        text: 'Update Brand Successful.',
+                        type: 'success'
+                    });
+                }
             });
         </script>
         <!-- end iframe button matching-->
@@ -202,4 +231,7 @@
         <!--Sweet alert-->
         <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
         <!--End Sweet alert-->
+        <!--Show notification when add/update success-->
+        <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+        <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
     }

@@ -84,13 +84,7 @@ namespace Wisky.Controllers
             var scheduleSize = scheduleList.Count;
             ViewBag.scheduleList = scheduleSize;
             return View();
-          
-
-        
             
-           
-
-
         }
 
 

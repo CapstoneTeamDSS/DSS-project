@@ -368,6 +368,8 @@ namespace DSS.Controllers
                             playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
+                        Session.Clear();
+                        Session["ADD_RESULT"] = true;
                     }
                 }
                 return Json(new

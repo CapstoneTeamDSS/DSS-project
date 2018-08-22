@@ -17,6 +17,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.scenariosList = GetScenariosByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -161,6 +164,8 @@ namespace DSS.Controllers
                                     LayoutID = scenario.LayoutID,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
+                                Session.Clear();
+                                Session["ADD_RESULT"] = true;
                             }
                         }
                     }
@@ -280,6 +285,8 @@ namespace DSS.Controllers
                                     LayoutID = model.LayoutId,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
+                                Session.Clear();
+                                Session["UPDATE_RESULT"] = true;
                             }
                         }
                     }
