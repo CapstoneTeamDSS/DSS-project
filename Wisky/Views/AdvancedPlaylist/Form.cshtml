@@ -48,6 +48,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        //show error - validation
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        //end show error - validation
                         <!-- Smart Wizard -->
                         <p>Playlist contents</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
@@ -220,6 +225,39 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
 @section scripts{
+    <!--Validation-->
+    <script>
+        function checkValidation() {
+            $(".mylist").empty();
+            var stringError = [];
+            var SelectedOptions = $("#multiselect1_to > option");
+            if ($('#txtTitle').val() == '') {
+                /**/
+
+                stringError.push("Please Enter Title.");
+                /**/
+            }
+            if ($("#VisualType").prop("selectedIndex") === 0) {
+                stringError.push("Please choose Visual Type.");
+            }
+            if (stringError.length > 0) {
+                var cList = $('ul.mylist')
+                $.each(stringError, function (i) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(cList);
+                    var aaa = $('<a/>')
+                        .addClass('ui-all')
+                        .text(stringError[i])
+                        .css('color', 'red')
+                        .appendTo(li);
+                });
+            } else {
+                submitFunction();
+            }
+        }
+    </script>
     <!-- Switchery Change Status Text-->
     <script>
         $("#cbStatus").change(function () {
@@ -505,7 +543,7 @@
                         alert($("#error").val())
                     }
                 });
-            }          
+            }
         }
         function renderMediaSrcList(PlaylistItemIds) {
             $("#fromList").find('li').remove().end();
