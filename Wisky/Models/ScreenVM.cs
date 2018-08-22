@@ -16,6 +16,7 @@ namespace DSS.Models
         public string Description { get; set; }
         public string BrandName { get; set; }
         public bool isHorizontal { get; set; }
+        public string Location { get; set; }
 
 
     }
