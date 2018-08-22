@@ -76,6 +76,7 @@
                                 <th>@DSS.ResourcesLanguage.ScreenIndex.ColType</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColBox</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColDescription</th>
+                                <th>Location</th>
                                 <th>@DSS.ResourcesLanguage.MatchingDeviceIndex.ColAction</th>
                             </tr>
                         </thead>
@@ -92,6 +93,7 @@
                                         <td>@(item.IsHorizontal ? DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape : DSS.ResourcesLanguage.ScreenAddForm.TxtPortrait)</td>
                                         <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
+                                        <td>@(item.Location)</td>
                                         <td style="width:180px; text-align:center">
                                             <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
                                             <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
