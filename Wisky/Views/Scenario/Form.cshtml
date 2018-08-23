@@ -117,7 +117,7 @@
                                                 @DSS.ResourcesLanguage.ScenarioAddForm.LblStatus <span class="required">*</span>
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</span>
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? "Public" : "Private")</span>
                                             </div>
                                         </div>
                                         <div class="form-group">

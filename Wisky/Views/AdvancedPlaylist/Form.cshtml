@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
 }
 
 <div class="" role="main" style="min-height: 1207px;width:inherit">
@@ -114,7 +120,7 @@
                                                 @DSS.ResourcesLanguage.ScenarioAddForm.LblStatus <span class="required">*</span>
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" /> <span id="spStatus">public</span>
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
