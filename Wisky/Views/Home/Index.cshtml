@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!-- Bootstrap -->
@@ -31,31 +30,31 @@
                 <!-- top tiles -->
                 <div class="row tile_count">
                     @*<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                        <span class="count_top"><i class="fa fa-user"></i> Total Admin</span>
-                        <div class="count">5</div>
-                        <span class="count_bottom"><i class="green">4% </i> From last Week</span>
-                    </div>*@
-                    <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                            <span class="count_top"><i class="fa fa-user"></i> Total Admin</span>
+                            <div class="count">5</div>
+                            <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+                        </div>*@
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-users"></i> Total Users</span>
-                        <div class="count"  >@(ViewBag.accountList)</div>
+                        <div class="count">@(ViewBag.accountList)</div>
                         <span class="count_bottom"><i class="black"><i class="fa fa-sort-asc"></i>5 </i> Admins</span>
                     </div>
-                    <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-desktop"></i> Total Screen</span>
                         <div class="count">@(ViewBag.screenList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
                     </div>
-                    <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-caret-square-o-right"></i> Total Android Box</span>
                         <div class="count">@(ViewBag.boxList)</div>
                         @*<span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>*@
                     </div>
-                    <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-hdd-o"></i> Total Devices</span>
                         <div class="count">@(ViewBag.deviceList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
                     </div>
-                    <div  class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                         <span class="count_top"><i class="fa fa-map-marker"></i> Total Location</span>
                         <div class="count">@(ViewBag.locationList)</div>
                         @*<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>*@
@@ -78,10 +77,10 @@
                                         <h3 style="color:white">Media Resources</h3>
                                         <p>All current media resources on system.</p>
                                     </div>
-                                    </a>
+                                </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="/AdvancedPlaylist/Index"> 
+                                <a href="/AdvancedPlaylist/Index">
 
 
                                     <div class="tile-stats" style="background-color:cornflowerblue; color:white">
@@ -97,16 +96,16 @@
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a href="/Scenario/Index">
-                                <div class="tile-stats"style="background-color:greenyellow;color:white">
-                                    <div class="icon"style="color:white">
-                                        <i class="fa fa-film"></i>
-                                    </div>
-                                    <div class="count">@(ViewBag.scenarioList)</div>
+                                    <div class="tile-stats" style="background-color:greenyellow;color:white">
+                                        <div class="icon" style="color:white">
+                                            <i class="fa fa-film"></i>
+                                        </div>
+                                        <div class="count">@(ViewBag.scenarioList)</div>
 
-                                    <h3 style="color:white">Scenarios</h3>
-                                    <p>ALl current scenarios on system.</p>
-                                </div>
-                                    </a>
+                                        <h3 style="color:white">Scenarios</h3>
+                                        <p>ALl current scenarios on system.</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a href="/AdvancedScheduling/Index">
@@ -122,103 +121,103 @@
                                 </a>
                             </div>
                             @*<div class="col-md-4 col-sm-4 col-xs-12">
-                                    <div class="x_panel tile fixed_height_320 overflow_hidden">
-                                        <div class="x_title">
-                                            <h2>Playlist Usage</h2>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>*@
+            <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                    <h2>Playlist Usage</h2>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>*@
                             @*<div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Daily active users <small>Sessions</small></h2>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="temperature">
-                                                        <b>Monday</b>, 07:30 AM
-                                                        <span>F</span>
-                                                        <span><b>C</b></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="weather-icon">
-                                                        <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <div class="weather-text">
-                                                        <h2>Texas <br><i>Partly Cloudy Day</i></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="weather-text pull-right">
-                                                    <h3 class="degrees">23</h3>
-                                                </div>
-                                            </div>
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Daily active users <small>Sessions</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="temperature">
+                                <b>Monday</b>, 07:30 AM
+                                <span>F</span>
+                                <span><b>C</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="weather-icon">
+                                <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="weather-text">
+                                <h2>Texas <br><i>Partly Cloudy Day</i></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="weather-text pull-right">
+                            <h3 class="degrees">23</h3>
+                        </div>
+                    </div>
 
-                                            <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-                                            <div class="row weather-days">
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Mon</h2>
-                                                        <h3 class="degrees">25</h3>
-                                                        <canvas id="clear-day" width="32" height="32"></canvas>
-                                                        <h5>15 <i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Tue</h2>
-                                                        <h3 class="degrees">25</h3>
-                                                        <canvas height="32" width="32" id="rain"></canvas>
-                                                        <h5>12<i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Wed</h2>
-                                                        <h3 class="degrees">27</h3>
-                                                        <canvas height="32" width="32" id="snow"></canvas>
-                                                        <h5>14 <i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Thu</h2>
-                                                        <h3 class="degrees">28</h3>
-                                                        <canvas height="32" width="32" id="sleet"></canvas>
-                                                        <h5>15 <i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Fri</h2>
-                                                        <h3 class="degrees">28</h3>
-                                                        <canvas height="32" width="32" id="wind"></canvas>
-                                                        <h5>11 <i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="daily-weather">
-                                                        <h2 class="day">Sat</h2>
-                                                        <h3 class="degrees">26</h3>
-                                                        <canvas height="32" width="32" id="cloudy"></canvas>
-                                                        <h5>10 <i>km/h</i></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>*@
+                    <div class="row weather-days">
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Mon</h2>
+                                <h3 class="degrees">25</h3>
+                                <canvas id="clear-day" width="32" height="32"></canvas>
+                                <h5>15 <i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Tue</h2>
+                                <h3 class="degrees">25</h3>
+                                <canvas height="32" width="32" id="rain"></canvas>
+                                <h5>12<i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Wed</h2>
+                                <h3 class="degrees">27</h3>
+                                <canvas height="32" width="32" id="snow"></canvas>
+                                <h5>14 <i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Thu</h2>
+                                <h3 class="degrees">28</h3>
+                                <canvas height="32" width="32" id="sleet"></canvas>
+                                <h5>15 <i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Fri</h2>
+                                <h3 class="degrees">28</h3>
+                                <canvas height="32" width="32" id="wind"></canvas>
+                                <h5>11 <i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="daily-weather">
+                                <h2 class="day">Sat</h2>
+                                <h3 class="degrees">26</h3>
+                                <canvas height="32" width="32" id="cloudy"></canvas>
+                                <h5>10 <i>km/h</i></h5>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
                         </div>
                     </div>
                 </div>
@@ -230,85 +229,83 @@
 <!-- jQuery -->
 @section scripts{
     @*<script>
-                                                        $(document).ready(function() {
-                                                        $.ajax(
-                                                                type: "POST",
-                                                                url: "/Home/GetAccountByBrandId",
-                                                                dataType: "json",
-                                                                contentType: 'application/json; charset=utf-8',
-                                                                success: function (data) {
-                                                                    console.log(data.sizeAccount);
-                                                                    $('#totalActiveUser').text(data.sizeAccount);
-                                                                },
-                                                                error: function () {
-                                                                    alert($("#err").val())
-                                                                }
-                                                            });*@
-                                                       });
-    </script>
-    <script async="" src="./Gentelella Alela! __files/analytics.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.min.js.download"></script>
-    <!-- Bootstrap -->
-    <script src="./Gentelella Alela! __files/bootstrap.min.js.download"></script>
-    <!-- FastClick -->
-    <script src="./Gentelella Alela! __files/fastclick.js.download"></script>
-    <!-- NProgress -->
-    <script src="./Gentelella Alela! __files/nprogress.js.download"></script>
-    <!-- Chart.js -->
-    <script src="./Gentelella Alela! __files/Chart.min.js.download"></script>
-    <!-- gauge.js -->
-    <script src="./Gentelella Alela! __files/gauge.min.js.download"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="./Gentelella Alela! __files/bootstrap-progressbar.min.js.download"></script>
-    <!-- iCheck -->
-    <script src="./Gentelella Alela! __files/icheck.min.js.download"></script>
-    <!-- Skycons -->
-    <script src="./Gentelella Alela! __files/skycons.js.download"></script>
-    <!-- Flot -->
-    <script src="./Gentelella Alela! __files/jquery.flot.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.flot.pie.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.flot.time.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.flot.stack.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.flot.resize.js.download"></script>
-    <!-- Flot plugins -->
-    <script src="./Gentelella Alela! __files/jquery.flot.orderBars.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.flot.spline.min.js.download"></script>
-    <script src="./Gentelella Alela! __files/curvedLines.js.download"></script>
-    <!-- DateJS -->
-    <script src="./Gentelella Alela! __files/date.js.download"></script>
-    <!-- JQVMap -->
-    <script src="./Gentelella Alela! __files/jquery.vmap.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.vmap.world.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.vmap.sampledata.js.download"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="./Gentelella Alela! __files/moment.min.js.download"></script>
-    <script src="./Gentelella Alela! __files/daterangepicker.js.download"></script>
+        $(document).ready(function() {
+        $.ajax(
+                type: "POST",
+                url: "/Home/GetAccountByBrandId",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    console.log(data.sizeAccount);
+                    $('#totalActiveUser').text(data.sizeAccount);
+                },
+                error: function () {
+                    alert($("#err").val())
+                }
+            });*@
+});
 
-    <!-- Custom Theme Scripts -->
-    <script src="./Gentelella Alela! __files/custom.min.js.download"></script>
-    <!-- Google Analytics -->
-    <script>
-                                                        <script async="" src="./Gentelella Alela! __files/analytics.js.download"></script>
-    <script src="./Gentelella Alela! __files/jquery.min.js.download"></script>
-    <!-- Bootstrap -->
-    <script src="./Gentelella Alela! __files/bootstrap.min.js.download"></script>
-    <!-- FastClick -->
-    <script src="./Gentelella Alela! __files/fastclick.js.download"></script>
-    <!-- NProgress -->
-    <script src="./Gentelella Alela! __files/nprogress.js.download"></script>
-    <!-- Chart.js -->
-    <script src="./Gentelella Alela! __files/Chart.min.js.download"></script>
-    <!-- jQuery Sparklines -->
-    <script src="./Gentelella Alela! __files/jquery.sparkline.min.js.download"></script>
-    <!-- easy-pie-chart -->
-    <script src="./Gentelella Alela! __files/jquery.easypiechart.min.js.download"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="./Gentelella Alela! __files/bootstrap-progressbar.min.js.download"></script>
+<script async="" src="./Gentelella Alela! __files/analytics.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.min.js.download"></script>
+<!-- Bootstrap -->
+<script src="./Gentelella Alela! __files/bootstrap.min.js.download"></script>
+<!-- FastClick -->
+<script src="./Gentelella Alela! __files/fastclick.js.download"></script>
+<!-- NProgress -->
+<script src="./Gentelella Alela! __files/nprogress.js.download"></script>
+<!-- Chart.js -->
+<script src="./Gentelella Alela! __files/Chart.min.js.download"></script>
+<!-- gauge.js -->
+<script src="./Gentelella Alela! __files/gauge.min.js.download"></script>
+<!-- bootstrap-progressbar -->
+<script src="./Gentelella Alela! __files/bootstrap-progressbar.min.js.download"></script>
+<!-- iCheck -->
+<script src="./Gentelella Alela! __files/icheck.min.js.download"></script>
+<!-- Skycons -->
+<script src="./Gentelella Alela! __files/skycons.js.download"></script>
+<!-- Flot -->
+<script src="./Gentelella Alela! __files/jquery.flot.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.flot.pie.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.flot.time.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.flot.stack.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.flot.resize.js.download"></script>
+<!-- Flot plugins -->
+<script src="./Gentelella Alela! __files/jquery.flot.orderBars.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.flot.spline.min.js.download"></script>
+<script src="./Gentelella Alela! __files/curvedLines.js.download"></script>
+<!-- DateJS -->
+<script src="./Gentelella Alela! __files/date.js.download"></script>
+<!-- JQVMap -->
+<script src="./Gentelella Alela! __files/jquery.vmap.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.vmap.world.js.download"></script>
+<script src="./Gentelella Alela! __files/jquery.vmap.sampledata.js.download"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="./Gentelella Alela! __files/moment.min.js.download"></script>
+<script src="./Gentelella Alela! __files/daterangepicker.js.download"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="./Gentelella Alela! __files/custom.min.js.download"></script>
+<!-- Custom Theme Scripts -->
+<script src="./Gentelella Alela! __files/custom.min.js.download"></script>
+<!-- Google Analytics -->
+<script src="./Gentelella Alela! __files/jquery.min.js.download"></script>
+<!-- Bootstrap -->
+<script src="./Gentelella Alela! __files/bootstrap.min.js.download"></script>
+<!-- FastClick -->
+<script src="./Gentelella Alela! __files/fastclick.js.download"></script>
+<!-- NProgress -->
+<script src="./Gentelella Alela! __files/nprogress.js.download"></script>
+<!-- Chart.js -->
+<script src="./Gentelella Alela! __files/Chart.min.js.download"></script>
+<!-- jQuery Sparklines -->
+<script src="./Gentelella Alela! __files/jquery.sparkline.min.js.download"></script>
+<!-- easy-pie-chart -->
+<script src="./Gentelella Alela! __files/jquery.easypiechart.min.js.download"></script>
+<!-- bootstrap-progressbar -->
+<script src="./Gentelella Alela! __files/bootstrap-progressbar.min.js.download"></script>
 
-    <script>
+<!-- Custom Theme Scripts -->
+<script src="./Gentelella Alela! __files/custom.min.js.download"></script>
+
+<script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -317,5 +314,5 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-23581568-13', 'auto');
 ga('send', 'pageview');
 
-    </script>
+</script>
 }

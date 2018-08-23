@@ -29,6 +29,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.userList = GetBrandAccounts();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
         [Authorize(Roles = "Admin")]
@@ -123,6 +126,8 @@ namespace DSS.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Session.Clear();
+                    Session["ADD_RESULT"] = true;
                     if (model.Role.CompareTo("System Admin") == 0)
                     {
                         model.Role = "Active User";
@@ -144,7 +149,7 @@ namespace DSS.Controllers
 
         // POST: BrandUserMng/Update
         [Authorize(Roles = "Admin")]
-        public async System.Threading.Tasks.Task<ActionResult> Update(Models.BrandUserDetailVM model)
+        public async System.Threading.Tasks.Task<ActionResult> Update(Models.BrandUserUpdateVM model)
         {
             if (ModelState.IsValid)
             {
@@ -173,6 +178,8 @@ namespace DSS.Controllers
                         model.Role = "Active User";
                     }
                     UserManager.AddToRoles(user.Id, new string[] { model.Role });
+                    Session.Clear();
+                    Session["UPDATE_RESULT"] = true;
                     return new ContentResult
                     {
                         Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "BrandUserMng")),

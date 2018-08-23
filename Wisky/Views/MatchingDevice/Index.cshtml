@@ -18,6 +18,13 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    @{
+                        // Get session add/update success
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                    }
                     <div width:50%;">
                         <label>@DSS.ResourcesLanguage.MatchingDeviceIndex.LblLocation</label>
                         <select style="width:300px; height:25px" id="locationSelect">
@@ -48,11 +55,11 @@
                         </div>
                         <div style="float:right">
                             @{
-                            <a class='btn btn-success'
-                               id="btnMatch"
-                               title="Please choose Location, Box And Screen">
-                                @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnMatch
-                            </a>
+                                <a class='btn btn-success'
+                                   id="btnMatch"
+                                   title="Please choose Location, Box And Screen">
+                                    @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnMatch
+                                </a>
                             }
                         </div>
                     </div>
@@ -86,8 +93,8 @@
                                         <td>@(item.BoxName)</td>
                                         <td>@(item.Description)</td>
                                         <td style="width:180px; text-align:center">
-                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
-                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger">@DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
+                                            <a href="/MatchingDevice/Form/@(item.DeviceId)" class="iframe"><i class="fa fa-pencil btn btn-info"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnEdit</i></a>
+                                            <a class="btnDelete" data-id="@item.DeviceId"><i class="fa fa-trash btn btn-danger"> @DSS.ResourcesLanguage.MatchingDeviceIndex.BtnDelete</i></a>
                                         </td>
                                     </tr>
                                 }
@@ -115,6 +122,61 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.ScreenAddForm.TxtLandscape" id="land" />
 
 @section scripts{
+    <!-- check value box, screen is seleted-->
+    <script>
+        $(document).ready(function () {
+            setBtnStatus();
+        });
+        $("#boxListById").change(function () {
+            setBtnStatus();
+        });
+        $("#screenListById").change(function () {
+            setBtnStatus();
+        });
+        function setBtnStatus() {
+            var box = $('#boxListById');
+            var screen = $('#screenListById');
+            var btnMatch = $('#btnMatch');
+            if (box.val() == 0 || screen.val() == 0) {
+                //console.log(box);
+                btnMatch.attr("disabled", "disabled");
+                btnMatch.bind('click', false);
+                btnMatch.attr("class", "btn btn-success");
+                //btnMatch.click(true);
+            } else {
+                btnMatch.attr("disabled", false);
+                btnMatch.unbind('click', false);
+                btnMatch.attr("class", "iframe btn btn-success");
+                //show iframe
+                $(document).ready(function () {
+                    //Examples of how to assign the Colorbox event to elements
+                    $(".iframe").colorbox({
+                        iframe: true, width: "65%", height: "70%",
+                        //refresh page when summit
+                        //onClosed: function () { location.reload(true); },
+                    });
+                    //Example of preserving a JavaScript event for inline calls.
+                    $("#click").click(function () {
+                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                        return false;
+                    });
+                    var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+                    var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+                    if (addrs) {
+                        //Show notification when add / update success
+                        $.notify("Add Media Successful.", "success");
+
+                    }
+                    if (updaters) {
+                        //Show notification when add / update success
+                        $.notify("Update Media Successful.", "success");
+                        ViewData.Clear();
+                    }
+                });
+            }
+        }
+    </script>
+    <!--End check value box, screen is seleted-->
     <!-- Datatables -->
     <script src="~/Content/template-material/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/template-material/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -135,6 +197,9 @@
     <!-- iframe button matching-->
     <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
     <!-- end iframe button matching-->
+    <!--Show notification when add/update success-->
+    <script src="~/Content/pnotify/pnotify.js"></script>
+    <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
     <!-- get list box and screen by location Id-->
     <script>
         $("#locationSelect").change(function (event) {
@@ -174,49 +239,6 @@
         });
     </script>
     <!-- END get list box and screen by location Id-->
-    <!-- check value box, screen is seleted-->
-    <script>
-        $(document).ready(function () {
-            setBtnStatus();
-        });
-        $("#boxListById").change(function () {
-            setBtnStatus();
-        });
-        $("#screenListById").change(function () {
-            setBtnStatus();
-        });
-        function setBtnStatus() {
-            var box = $('#boxListById');
-            var screen = $('#screenListById');
-            var btnMatch = $('#btnMatch');
-            if (box.val() == 0 || screen.val() == 0) {
-                //console.log(box);
-                btnMatch.attr("disabled", "disabled");
-                btnMatch.bind('click', false);
-                btnMatch.attr("class", "btn btn-success");
-                //btnMatch.click(true);
-            } else {
-                btnMatch.attr("disabled", false);
-                btnMatch.unbind('click', false);
-                btnMatch.attr("class", "iframe btn btn-success");
-                //show iframe
-                $(document).ready(function () {
-                    //Examples of how to assign the Colorbox event to elements
-                    $(".iframe").colorbox({
-                        iframe: true, width: "65%", height: "70%",
-                        //refresh page when summit
-                        //onClosed: function () { location.reload(true); },
-                    });
-                    //Example of preserving a JavaScript event for inline calls.
-                    $("#click").click(function () {
-                        $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
-                        return false;
-                    });
-                });
-            }
-        }
-    </script>
-    <!--End check value box, screen is seleted-->
     <!--Send screen id, box id to controller-->
     <script>
         $(document).ready(function () {
@@ -231,6 +253,26 @@
             $("#btnMatch").click(function () {
                 $(this).attr("href", "/MatchingDevice/Form?boxId=" + selectedBoxId + "&screenId=" + selectedScreenId);  //-----this will change href
             })
+            var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+            var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+            $('.ui-pnotify').remove();
+            if (addrs) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Matching Device Success.',
+                    type: 'success'
+                });
+
+            }
+            if (updaters) {
+                //Show notification when add / update success
+                new PNotify({
+                    title: 'Success!',
+                    text: 'Update Device Success.',
+                    type: 'success'
+                });
+            }
         });
     </script>
     <!--End Get screen id, box id send to controller-->
@@ -294,4 +336,7 @@
             font-size: 14px;
         }
     </style>
+    <!--Show notification when add/update success-->
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+    <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
 }

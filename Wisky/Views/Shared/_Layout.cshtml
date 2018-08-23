@@ -124,9 +124,6 @@
                                             <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
 
                                         </li>
-                                        <li>
-                                            <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
-                                        </li>
                                     }
                                     @if (User.IsInRole("Admin"))
                                     {
@@ -208,6 +205,9 @@
     </div>
 </body>
 <footer>
+    <!--Show notification when add/update success-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <!-- jQuery -->
     <script src="~/Content/template-material/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
