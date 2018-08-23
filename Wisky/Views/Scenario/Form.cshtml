@@ -642,7 +642,7 @@
         };
 
         $('#wizard').smartWizard({
-            //onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
+            onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
             onFinish: onFinishCallback
         });
 
@@ -666,7 +666,7 @@
             if (stepnumber == 1) {
                 if (validateStep1() == false) {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', $("#corr").val() + step + $("#next").val());
+                    $('#wizard').smartWizard('showMessage', $("#corr").val() + stepnumber + $("#next").val());
                     $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
                 } else {
                     $('#wizard').smartWizard('hideMessage');
@@ -679,6 +679,7 @@
         function validateStep1() {
             var isValid = true;
             /* Validate Title */
+            
             var title = $("#txtTitle").val();
             if (!title.trim()) {
                 isValid = false;
