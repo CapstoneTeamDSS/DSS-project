@@ -24,6 +24,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.playlistList = GetPlaylistIdByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View("Index");
         }
         public static List<Models.PlaylistDetailVM> GetPlaylistIdByBrandId()
@@ -122,6 +125,8 @@ namespace DSS.Controllers
                             playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
+                        Session.Clear();
+                        Session["UPDATE_RESULT"] = true;
                     }
                 }
                 return Json(new
@@ -230,6 +235,8 @@ namespace DSS.Controllers
                             playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
                         }
                         await playlistItemService.CreateAsync(playlistItem);
+                        Session.Clear();
+                        Session["ADD_RESULT"] = true;
                     }
                 }
                 return Json(new

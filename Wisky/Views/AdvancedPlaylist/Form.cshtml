@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    //Chỉnh nút status
+    bool status = true;
+    if (Model != null)
+    {
+        status = Model.isPublic;
+    }
 }
 
 <div class="" role="main" style="min-height: 1207px;width:inherit">
@@ -9,7 +15,7 @@
         <div class="page-title">
             <div class="title_left">
                 <h3>Playlist</h3>
-                
+
             </div>
 
             <div class="title_right">
@@ -49,6 +55,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        <!--show error - validation-->
+                        <div>
+                            <ul class="mylist"></ul>
+                        </div>
+                        <!--end show error - validation-->
                         <!-- Smart Wizard -->
                         <p>Playlist contents</p>
                         <div id="wizard" class="form_wizard wizard_horizontal">
@@ -89,6 +100,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                                 @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                                                <span id="msg_visualType" style="color:red"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
@@ -108,7 +120,7 @@
                                                 @DSS.ResourcesLanguage.ScenarioAddForm.LblStatus <span class="required">*</span>
                                             </label>
                                             <div class="col-md-9 col-sm-9 col-xs-9">
-                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" /> <span id="spStatus">public</span>
+                                                <input type="checkbox" id="cbStatus" name="isPublic" value="true" class="js-switch" @(status ? "checked" : "") /> <span id="spStatus">@(status ? DSS.ResourcesLanguage.ScenarioAddForm.TxtPublic : DSS.ResourcesLanguage.ScenarioAddForm.TxtPrivate)</span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -221,16 +233,10 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
 @section scripts{
-    <!-- Switchery Change Status Text-->
-    <script>
-        $("#cbStatus").change(function () {
-            var text = $("#private").val();
-            if (this.checked) {
-                text = $("#public").val();
-            }
-            $('#spStatus').text(text);
-        });
-    </script>
+    <!--Validation-->
+    <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <script src="/Content/vendors/iCheck/icheck.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <!-- End Switchery Change Status Text-->
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
@@ -506,7 +512,7 @@
                         alert($("#error").val())
                     }
                 });
-            }          
+            }
         }
         function renderMediaSrcList(PlaylistItemIds) {
             $("#fromList").find('li').remove().end();
@@ -515,24 +521,26 @@
             for (var i = 0; i < ResourceList.length; i++) {
                 if (ResourceList[i] != '') {
                     var isShow = !isInArray(ResourceList[i].MediaSrcId, PlaylistItemIds);
-                    var style = isShow ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
-                    $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                    var style = isShow ? "" : " style='display: none' ";
+                    console.log(ResourceList[i].Title + "  " + style);
+                    $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "'"
+                        + "data-marked='true'"
+                        + style
                         + "data-type='" + ResourceList[i].TypeId + "'"
                         + "data-url='" + ResourceList[i].URL + "'"
                         + "data-duration='" + 0 + "'"
-                        + style
                         + ">"
                         + "<span id='title'>" + ResourceList[i].Title + "</span>"
                         + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
                     if (!isShow) {
-                        $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].Id + "' data-id='" + ResourceList[i].MediaSrcId + "' "
+                        $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
                             + "data-type='" + ResourceList[i].TypeId + "'"
                             + "data-url='" + ResourceList[i].URL + "'"
-                            + "data-duration='" + 0 + "'"
+                            + "data-duration='" + 0.5 + "'"
                             + ">"
                             + "<span id='title'>" + ResourceList[i].Title + "</span>"
-                            + "<span id='duration'>" + ResourceList[i].Duration + "</span>"
+                            //+ "<span id='duration'>" + ResourceList[i].Duration + "</span>"
                             + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist'> - </a>"
                             + "</li>");
                     }
@@ -667,9 +675,8 @@
                 }
             });
         }
-
         $('#wizard').smartWizard({
-            //onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
+            onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
             onFinish: onFinishCallback
         });
 
@@ -693,7 +700,7 @@
             if (stepnumber == 1) {
                 if (validateStep1() == false) {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', $("#corr").val() + step + $("#next").val());
+                    $('#wizard').smartWizard('showMessage', $("#corr").val() + stepnumber + " " + $("#next").val());
                     $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
                 } else {
                     $('#wizard').smartWizard('hideMessage');
@@ -706,12 +713,19 @@
         function validateStep1() {
             var isValid = true;
             /* Validate Title */
+
             var title = $("#txtTitle").val();
             if (!title.trim()) {
                 isValid = false;
-                $('#msg_title').html($("#title").val()).show();
+                $('#msg_title').html("Please Enter Title").show();
             } else {
                 $('#msg_title').html('').hide();
+            }
+            if ($("#VisualType").prop("selectedIndex") === 0) {
+                isValid = false;
+                $('#msg_visualType').html("Please choose Visual Type.");
+            } else {
+                $('#msg_visualType').html('').hide();
             }
             return isValid;
         }

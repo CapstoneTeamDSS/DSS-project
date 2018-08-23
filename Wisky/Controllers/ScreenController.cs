@@ -28,12 +28,15 @@ namespace DSS.Controllers
         public static List<Models.ScreenVM> GetScreenIdByBrandId()
         {
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var ScreenVM = new List<Models.ScreenVM>();
             var user = Helper.GetCurrentUser();
             var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
            
             foreach (var item in screenList)
             {
+                var location = locationService.Get(item.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var m = new Models.ScreenVM
                 {
                     Name = item.ScreenName,
@@ -41,6 +44,7 @@ namespace DSS.Controllers
                     ScreenId = item.ScreenID,
                     isHorizontal = item.isHorizontal,
                     LocationId = item.LocationID,
+                    Location = locationString,
                 };
                 ScreenVM.Add(m);
             }

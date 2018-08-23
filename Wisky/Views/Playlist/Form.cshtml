@@ -38,6 +38,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 @DSS.ResourcesLanguage.PlaylistAddForm.LblTitle <span class="required">*</span>
+                                <span id="msg_title" style="color:red"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <input id="first-name" name="Title" class="form-control col-md-7 col-xs-12" data-parsley-id="5" type="text" value="@(Model?.Title)">
@@ -54,6 +55,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                 @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                                <span id="msg_visualType" style="color:red"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
@@ -155,9 +157,7 @@
             var stringError = [];
             var SelectedOptions = $("#multiselect1_to > option");
             if ($('#first-name').val() == '') {
-                /**/
-
-                stringError.push($("p").text());
+                $('#msg_title').html("Please Enter Title").show();
                 /**/
             }
             if ($("#VisualType").prop("selectedIndex") === 0) {
