@@ -15,7 +15,6 @@
             <div class="title_left">
                 <h3>@((Model?.ScenarioId != null) ? DSS.ResourcesLanguage.ScenarioAddForm.PageHeader : DSS.ResourcesLanguage.ScenarioAddForm.PageHeader)</h3>
             </div>
-
             <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                     <div class="input-group">
@@ -253,7 +252,23 @@
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Next" id="next" />
 <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
 @section scripts{
-    <!-- Switchery Change Status Text-->
+    <!-- iframe button matching-->
+    <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".iframe").colorbox({
+                iframe: true, width: "65%", height: "80%",
+                //refresh page when summit
+                //onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- end iframe button matching-->
     <script>
         $("#cbStatus").change(function () {
             var text = $("#private").val();
@@ -293,7 +308,6 @@
             } else {
                 $("#txtAudioAreaId").attr("value", $(el).attr("value"));
             }
-            console.log($('#txtAudioAreaId').val());
         }
         function audioSetting(el) {
             audioSettingBeingChosen = !audioSettingBeingChosen;
@@ -307,7 +321,6 @@
                 });
                 onVdPlay(el);
             }
-            console.log($('#txtAudioAreaId').val());
         }
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
@@ -333,7 +346,6 @@
             });
             var scenarioId = $("#txtScenarioId").val();
             var url = scenarioId == '' ? "/Scenario/Add" : "/Scenario/Update";
-            console.log(data.PlaylistAreaArr);
             $.ajax({
                 url: url,
                 method: 'POST',
@@ -381,6 +393,94 @@
         var videoPlayButtons = document.querySelectorAll("button"),
             player = document.getElementById("player");
     </script>
+    <!--Play all preview-->
+    <script>
+        var previewWrapper;
+        var time = 0;
+        function playPlaylist(el) {            
+            time = 0;
+            var playlistId = $(el).attr("data-id");
+            var mediaList = [];
+            var data = {
+                playlistId: playlistId,
+            };
+            /* Get resource list of playlist */
+            $.ajax({
+                type: "POST",
+                url: "/Scenario/LoadPlaylistItemList",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    mediaList = data.PlaylistItemList;
+                },
+                error: function () {
+                    alert($("#error").val());
+                }
+            }).done(function () {
+                previewWrapper = $("div[area-id='" + areaId + "']");
+                time = 0;
+                $(mediaList).each(function () {
+                    playlistMediaOnceByOnce(this);
+                });
+            });
+
+        }
+        function playlistMediaOnceByOnce(el) {
+            /* Play resource once by once */
+            var type = parseInt(el.mediaType);
+            var url = el.URL;
+            var currItemDuration = parseInt(el.duration);
+            var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+            setTimeout(show, time, url, type, duration);
+            time += duration;
+            console.log(time);
+        }
+        function show(url, type, duration) {
+            console.log(url);
+            $(previewWrapper).empty();
+            var pHeigth = $(previewWrapper).css('height');
+            var pWidth = $(previewWrapper).css('width');
+            switch (type) {
+                case 1:
+                    $(previewWrapper).prepend($('<img>', { id: 'theImg', src: url }));
+                    $("#theImg").css('height', pHeigth);
+                    $("#theImg").css('width', pWidth);
+                    //$(previewWrapper).css('margin-left', '100px');
+                    break;
+                case 2:
+                    //$(previewWrapper).css('margin-left', '100px');
+                    var video = $('<video />', {
+                        id: 'video',
+                        src: url,
+                        height: pHeigth,
+                        width: pWidth,
+                        type: 'video/mp4',
+                        controls: true
+                    });
+                    video.appendTo($(previewWrapper));
+                    video[0].play();
+                    break;
+                case 3:
+                    //$(previewWrapper).css('margin-left', '100px');
+                    var video = $('<video />', {
+                        id: 'video',
+                        src: url,
+                        height: pHeigth,
+                        width: pWidth,
+                        type: 'video/mp4',
+                        controls: true
+                    });
+                    video.appendTo($(previewWrapper));
+                    video[0].play();
+                    //video.bind("ended", function () {
+                    //    alert("done video");
+                    //});
+                    break;
+            }
+        }
+    </script>
+    <!--End Show all preview-->
     <script>
         /* STEP 2*/
         $("input:radio[name='Orientation']").change(function () {
@@ -517,7 +617,7 @@
             }
             $(".vdReview").css("border", "none");
             $(el).css("border", "thick solid");
-            /* Render Playlist List for current selected area */            
+            /* Render Playlist List for current selected area */
             renderPlaylistListForAnArea(el);
         }
 
@@ -525,7 +625,6 @@
             var areaId = $(el).attr("area-id");
             var scenarioId = $("#txtScenarioId").val();
             var areaVisualTypeID = $(el).attr("visual-type");
-            console.log(scenarioId);
             var data = {
                 areaId: areaId,
                 scenarioId: scenarioId,
@@ -540,6 +639,7 @@
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
+                        console.log(data.ScenarioItemIds);
                         renderPlaylistList(data.ScenarioItemIds, areaVisualTypeID);
                     },
                     error: function () {
@@ -557,7 +657,6 @@
             for (var i = 0; i < playlistList.length; i++) {
                 if (playlistList[i] != '') {
                     var isMatchVisualType = playlistList[i].VisualTypeID == AreaVisualTypeId;
-                    console.log(isMatchVisualType);
                     //Show on "from list"
                     var isShow = !isInArray(playlistList[i].Id, ScenarioItemIds) && !isInArray(playlistList[i].Id, PlaylistAreaObj[areaId]);
                     var style = isShow && isMatchVisualType ? "data-marked='true'" : "style = 'display: none' data-marked='true'";
@@ -567,9 +666,10 @@
                         + "<span id='title'>" + playlistList[i].Title + "</span>"
                         + "<span id='duration'>" + playlistList[i].Duration + "</span>"
                         + "<a onclick='addToArea(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> + </a>"
+                        + "<a onclick='playPlaylist(this)' data-id='" + playlistList[i].Id + "' style='position:relative; top:-55px; left:0; margin-left:75%' class='btn btn-success fa fa-caret-square-o-right'></a>"
                         + "</li>");
                     if (!isShow && isMatchVisualType) {
-                        if (!isInArray(playlistList[i].Id, PlaylistAreaObj[areaId])){
+                        if (!isInArray(playlistList[i].Id, PlaylistAreaObj[areaId])) {
                             PlaylistAreaObj[areaId].push(playlistList[i].Id);
                         }
                         $('#toList').append("<li class='playlistList' onclick='playlistClick(this)' id='fromList_" + playlistList[i].Id + "' data-id='" + playlistList[i].Id + "' "
@@ -577,6 +677,7 @@
                             + "<span id='title'>" + playlistList[i].Title + "</span>"
                             + "<span id='duration'>" + playlistList[i].Duration + "</span>"
                             + "<a onclick='removeItem(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-danger btnRemovePlaylist' data-video-url='https://cdn.filestackcontent.com/soZhUAhGSQ6tlZRYe3TE'> - </a>"
+                            + "<a onclick='playPlaylist(this)' data-id='" + playlistList[i].Id + "' style='position:relative; top:-55px; left:0; margin-left:75%' class='iframe btn btn-success fa fa-caret-square-o-right'></a>"
                             + "</li>");
                     }
                 }
@@ -596,9 +697,9 @@
                 var liObj = $(liObjOrigin).clone().appendTo("#toList");
                 var playlistId = parseInt($(liObj).attr("data-id"));
                 PlaylistAreaObj[areaId].push(playlistId);
-                $(liObj).children('a').attr('class', "btn btn-danger btnRemovePlaylist");
-                $(liObj).children('a').attr('onclick', "removeItem(this);");
-                $(liObj).children('a').text(" - ");
+                $(liObj).children('a').first().attr('class', "btn btn-danger btnRemovePlaylist");
+                $(liObj).children('a').first().attr('onclick', "removeItem(this);");
+                $(liObj).children('a').first().text(" - ");
                 $(el).parent().hide();
             }
         };
@@ -709,6 +810,9 @@
     <!-- Switchery -->
     <link href="~/Content/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <!-- End Switchery -->
+    <!-- iframe button matching-->
+    <link rel="stylesheet" href="~/Content/form-matching-device/colorbox.css" />
+    <!-- end iframe button matching-->
     <style>
         .select-layout {
             border-style: dashed;

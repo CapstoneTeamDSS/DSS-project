@@ -210,13 +210,12 @@ namespace DSS.Controllers
                 await this.mediaSrcService.CreateAsync(media);
                 Session.Clear();
                 Session["ADD_RESULT"] = true;
-                return Json(new
+                return new ContentResult
                 {
-                    success = true,
-                    url = "/MediaSrc/Index",
-            }, JsonRequestBehavior.AllowGet);
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "MediaSrc")),
+                    ContentType = "text/html"
+                };
             }
-            Session["Status"] = false;
             return Json(new
             {
                 success = false,
