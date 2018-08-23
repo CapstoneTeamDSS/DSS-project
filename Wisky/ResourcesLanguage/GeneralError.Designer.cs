@@ -295,7 +295,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to và nhấp tiếp theo.
+        ///   Looks up a localized string similar to and click next.
         /// </summary>
         public static string Next {
             get {

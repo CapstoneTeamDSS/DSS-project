@@ -47,6 +47,7 @@ namespace DSS.Models
     {
         public String Id { get; set; }
         [Required(ErrorMessageResourceType = typeof(ResourcesLanguage.AccountError), ErrorMessageResourceName = "Username")]
+        [UniqueUserName(ErrorMessage = "UserName already exists. Please enter a different username")]
         public string UserName { get; set; }
         //[Required(ErrorMessage = "Please input password.")]
         public string Password { get; set; }
