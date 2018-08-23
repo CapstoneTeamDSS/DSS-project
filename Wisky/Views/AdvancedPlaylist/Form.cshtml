@@ -9,7 +9,7 @@
         <div class="page-title">
             <div class="title_left">
                 <h3>Playlist</h3>
-                
+
             </div>
 
             <div class="title_right">
@@ -94,6 +94,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-3" for="first-name">
                                                 @DSS.ResourcesLanguage.PlaylistAddForm.LblVisualType <span class="required">*</span>
+                                                <span id="msg_visualType" style="color:red"></span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <select name="VisualTypeID" class="select2_multiple form-control" id="VisualType">
@@ -230,86 +231,6 @@
     <script src="/Content/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="/Content/vendors/iCheck/icheck.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script>
-        $('#wizard').smartWizard({
-            onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
-            onFinish: onFinishCallback
-        });
-
-        function leaveAStepCallback(obj, context) {
-            return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation
-        }
-
-        /* Submit Form Data on Finish*/
-        function onFinishCallback(objs, context) {
-            if (validateAllSteps()) {
-                $('#frm_scenario').submit(function (event) {
-                    alert("fdfd submit");
-                });
-            }
-        }
-
-        // Your Step validation logic
-        function validateSteps(stepnumber) {
-            var isStepValid = true;
-            // validate step 1
-            if (stepnumber == 1) {
-                if (validateStep1() == false) {
-                    alert("stepNumber");
-                    isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', $("#corr").val() + stepnumber + $("#next").val());
-                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
-                } else {
-                    $('#wizard').smartWizard('hideMessage');
-                    $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: false });
-                }
-            }
-            return isStepValid;
-        }
-
-        function validateStep1() {
-            var isValid = true;
-            /* Validate Title */
-            alert("step 1");
-            var title = $("#txtTitle").val();
-            if (!title.trim()) {
-                isValid = false;
-                $('#msg_title').html("Please Enter Title").show();
-            } else {
-                $('#msg_visualType').html('').hide();
-            }
-            if ($("#VisualType").prop("selectedIndex") === 0) {
-                stringError.push("Please choose Visual Type.");
-            } else {
-                $('#msg_visualType').html('').hide();
-            }
-            return isValid;
-        }
-
-        function validateAllSteps() {
-            var isStepValid = true;
-            if (validateStep1() == false) {
-                isStepValid = false;
-                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: true });
-            } else {
-                $('#wizard').smartWizard('setError', { stepnum: 1, iserror: false });
-            }
-            if (!isStepValid) {
-                $('#wizard').smartWizard('showMessage', $("#corr").val());
-            }
-            return isStepValid;
-        }
-    </script>
-    <!-- Switchery Change Status Text-->
-    <script>
-        $("#cbStatus").change(function () {
-            var text = $("#private").val();
-            if (this.checked) {
-                text = $("#public").val();
-            }
-            $('#spStatus').text(text);
-        });
-    </script>
     <!-- End Switchery Change Status Text-->
     <!-- Switchery -->
     <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
@@ -595,7 +516,7 @@
                 if (ResourceList[i] != '') {
                     var isShow = !isInArray(ResourceList[i].MediaSrcId, PlaylistItemIds);
                     var style = isShow ? "" : " style='display: none' ";
-                    console.log(ResourceList[i].Title+"  "+style);
+                    console.log(ResourceList[i].Title + "  " + style);
                     $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "'"
                         + "data-marked='true'"
                         + style
@@ -748,9 +669,8 @@
                 }
             });
         }
-
         $('#wizard').smartWizard({
-            //onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
+            onLeaveStep: leaveAStepCallback, //Tắt check validation chuyển step
             onFinish: onFinishCallback
         });
 
@@ -774,7 +694,7 @@
             if (stepnumber == 1) {
                 if (validateStep1() == false) {
                     isStepValid = false;
-                    $('#wizard').smartWizard('showMessage', $("#corr").val() + step + $("#next").val());
+                    $('#wizard').smartWizard('showMessage', $("#corr").val() + stepnumber + " " + $("#next").val());
                     $('#wizard').smartWizard('setError', { stepnum: stepnumber, iserror: true });
                 } else {
                     $('#wizard').smartWizard('hideMessage');
@@ -787,12 +707,19 @@
         function validateStep1() {
             var isValid = true;
             /* Validate Title */
+
             var title = $("#txtTitle").val();
             if (!title.trim()) {
                 isValid = false;
-                $('#msg_title').html($("#title").val()).show();
+                $('#msg_title').html("Please Enter Title").show();
             } else {
                 $('#msg_title').html('').hide();
+            }
+            if ($("#VisualType").prop("selectedIndex") === 0) {
+                isValid = false;
+                $('#msg_visualType').html("Please choose Visual Type.");
+            } else {
+                $('#msg_visualType').html('').hide();
             }
             return isValid;
         }
