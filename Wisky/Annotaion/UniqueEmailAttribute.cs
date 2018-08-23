@@ -40,7 +40,7 @@ namespace DSS.Annotaion
             var userManager = HttpContext
                 .Current.GetOwinContext()
                 .GetUserManager<Wisky.ApplicationUserManager>();
-            var user = userManager.FindByIdAsync(value as string);
+            var user = userManager.FindByNameAsync(value as string);
             Task.WaitAll(new[] { user });
             if (user.Result == null)
             {
