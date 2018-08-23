@@ -348,6 +348,35 @@ namespace DSS.Controllers
         }
 
         [HttpPost]
+        public JsonResult LoadPlaylistItemList(int playlistId)
+        {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var playlistItems = playlistItemService.GetPlaylistItemByPlaylistId(playlistId).OrderBy(a=>a.DisplayOrder);
+            var playlistItemList= new List<DSS.Models.PlaylistItemScenarioVM>();
+            if (playlistItems != null)
+            {
+                foreach (var item in playlistItems)
+                {
+                    var p = new DSS.Models.PlaylistItemScenarioVM
+                    {
+                        mediaSrcId =item.MediaSrcID,
+                        mediaType = item.MediaSrc.TypeID,
+                        URL = item.MediaSrc.URL,
+                        duration = item.Duration,
+                        displayOrder = item.DisplayOrder,
+                    };
+                    playlistItemList.Add(p);
+                }
+            }
+            return Json(new
+            {
+                PlaylistItemList = playlistItemList,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
         public JsonResult LoadPlaylistList()
         {
             var PlaylistList = PlaylistController.GetPlaylistIdByBrandIdAndStatus() as List<Models.PlaylistDetailVM>;
