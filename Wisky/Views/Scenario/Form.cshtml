@@ -96,7 +96,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="stepContainer" style="height:auto">
+                            <div class="stepContainer" style="height:auto; overflow:hidden">
                                 @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
                                     <input type="hidden" id="txtScenarioId" name="ScenarioId" value="@(Model?.ScenarioId)" />
@@ -397,7 +397,11 @@
     <script>
         var previewWrapper;
         var time = 0;
-        function playPlaylist(el) {            
+        var setTimes = {};
+        function playPlaylist(el) {
+            if (setTimes["area_" + areaId] != null) {
+                clearTimeout(setTimes["area_" + areaId]);
+            }
             time = 0;
             var playlistId = $(el).attr("data-id");
             var mediaList = [];
@@ -413,6 +417,7 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
                     mediaList = data.PlaylistItemList;
+                    console.log(mediaList);
                 },
                 error: function () {
                     alert($("#error").val());
@@ -428,30 +433,29 @@
         }
         function playlistMediaOnceByOnce(el) {
             /* Play resource once by once */
+            console.log(el);
             var type = parseInt(el.mediaType);
             var url = el.URL;
             var currItemDuration = parseInt(el.duration);
             var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
-            setTimeout(show, time, url, type, duration);
-            time += duration;
             console.log(time);
+            setTimes["area_" + areaId] = setTimeout(show, time, url, type, duration);
+            time += duration;
         }
         function show(url, type, duration) {
-            console.log(url);
             $(previewWrapper).empty();
+            console.log(time);
             var pHeigth = $(previewWrapper).css('height');
             var pWidth = $(previewWrapper).css('width');
             switch (type) {
                 case 1:
-                    $(previewWrapper).prepend($('<img>', { id: 'theImg', src: url }));
-                    $("#theImg").css('height', pHeigth);
-                    $("#theImg").css('width', pWidth);
-                    //$(previewWrapper).css('margin-left', '100px');
+                    $(previewWrapper).prepend($('<img>', { id: 'theImg_' + areaId, src: url }));
+                    $("#theImg_" + areaId).css('height', pHeigth);
+                    $("#theImg_" + areaId).css('width', pWidth);
                     break;
                 case 2:
-                    //$(previewWrapper).css('margin-left', '100px');
                     var video = $('<video />', {
-                        id: 'video',
+                        id: 'video_' + areaId,
                         src: url,
                         height: pHeigth,
                         width: pWidth,
@@ -462,9 +466,8 @@
                     video[0].play();
                     break;
                 case 3:
-                    //$(previewWrapper).css('margin-left', '100px');
                     var video = $('<video />', {
-                        id: 'video',
+                        id: 'video_' + areaId,
                         src: url,
                         height: pHeigth,
                         width: pWidth,
