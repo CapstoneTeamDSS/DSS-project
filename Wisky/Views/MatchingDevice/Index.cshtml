@@ -126,6 +126,16 @@
     <script>
         $(document).ready(function () {
             setBtnStatus();
+            $(".iframe").colorbox({
+                iframe: true, width: "65%", height: "70%",
+                //refresh page when summit
+                //onClosed: function () { location.reload(true); },
+            });
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
         });
         $("#boxListById").change(function () {
             setBtnStatus();
