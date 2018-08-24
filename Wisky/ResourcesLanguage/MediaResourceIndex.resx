@@ -150,8 +150,8 @@
   <data name="PageTitleImg" xml:space="preserve">
     <value>Image Manager</value>
   </data>
-  <data name="PageTitleOther" xml:space="preserve">
-    <value>Other File</value>
+  <data name="PageTitleText" xml:space="preserve">
+    <value>Text Manager</value>
   </data>
   <data name="PageTitleVid" xml:space="preserve">
     <value>Video Manager</value>
@@ -162,8 +162,8 @@
   <data name="TabImg" xml:space="preserve">
     <value>Image</value>
   </data>
-  <data name="TabOther" xml:space="preserve">
-    <value>Other</value>
+  <data name="TabText" xml:space="preserve">
+    <value>Text</value>
   </data>
   <data name="TabVid" xml:space="preserve">
     <value>Video</value>

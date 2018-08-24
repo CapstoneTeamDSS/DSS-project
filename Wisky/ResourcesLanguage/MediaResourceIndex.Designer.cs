@@ -160,11 +160,11 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Other File.
+        ///   Looks up a localized string similar to Text Manager.
         /// </summary>
-        public static string PageTitleOther {
+        public static string PageTitleText {
             get {
-                return ResourceManager.GetString("PageTitleOther", resourceCulture);
+                return ResourceManager.GetString("PageTitleText", resourceCulture);
             }
         }
         
@@ -196,11 +196,11 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Other.
+        ///   Looks up a localized string similar to Text.
         /// </summary>
-        public static string TabOther {
+        public static string TabText {
             get {
-                return ResourceManager.GetString("TabOther", resourceCulture);
+                return ResourceManager.GetString("TabText", resourceCulture);
             }
         }
         
