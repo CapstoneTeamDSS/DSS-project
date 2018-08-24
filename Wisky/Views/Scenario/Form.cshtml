@@ -96,7 +96,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="stepContainer" style="height:auto">
+                            <div class="stepContainer" style="height:auto; overflow:hidden">
                                 @using (Html.BeginForm((Model?.ScenarioId != null) ? "Update" : "Add", "Scenario", new { ScenarioId = (Model?.ScenarioId) }, FormMethod.Post, new { @id = "frm_scenario", @class = "form-horizontal form-label-left", role = "form" }))
                                 {
                                     <input type="hidden" id="txtScenarioId" name="ScenarioId" value="@(Model?.ScenarioId)" />
