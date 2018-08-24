@@ -18,6 +18,7 @@ namespace DSS.Controllers
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
         IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+        ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
 
 
         // GET: MatchingDevice/index
@@ -27,8 +28,11 @@ namespace DSS.Controllers
             var deviceVMs = new List<Models.MatchingDeviceVM>();
             foreach (var item in devices)
             {
+                var location = locationService.Get(item.Screen.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var b = new Models.MatchingDeviceVM
                 {
+                    Location = locationString,
                     DeviceId = item.DeviceID,
                     Description = item.Description,
                     BoxName = boxService.GetBoxNameByID(item.BoxID),
