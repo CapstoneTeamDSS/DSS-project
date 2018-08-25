@@ -39,7 +39,7 @@ namespace DSS.Controllers
                     ScreenName = screenService.GetScreenNameByID(item.ScreenID),
                     Title = item.Title,
                     MatchingCode = item.MatchingCode,
-                   
+                    IsHorizontal = item.Screen.isHorizontal
                 };
                 deviceVMs.Add(b);
             }
