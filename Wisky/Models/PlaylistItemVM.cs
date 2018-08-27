@@ -24,4 +24,25 @@ namespace DSS.Models
         public int mediaType { get; set; }
     }
 
+    public class PlaylistItemScenarioVM
+    {
+        public int mediaSrcId { get; set; }
+
+        public int displayOrder { get; set; }
+
+        public int duration { get; set; }
+
+        public string URL { get; set; }
+
+        public int mediaType { get; set; }
+    }
+
+    public class PlaylistItemUpdateVM
+    {
+        public int mediaSrcId { get; set; }
+
+        public string duration { get; set; }
+
+    }
+
 }

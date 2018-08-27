@@ -18,6 +18,7 @@ namespace DSS.Controllers
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
         IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+        ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
 
 
         // GET: MatchingDevice/index
@@ -27,13 +28,18 @@ namespace DSS.Controllers
             var deviceVMs = new List<Models.MatchingDeviceVM>();
             foreach (var item in devices)
             {
+                var location = locationService.Get(item.Screen.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var b = new Models.MatchingDeviceVM
                 {
+                    Location = locationString,
                     DeviceId = item.DeviceID,
                     Description = item.Description,
                     BoxName = boxService.GetBoxNameByID(item.BoxID),
                     ScreenName = screenService.GetScreenNameByID(item.ScreenID),
-                    Title = item.Title
+                    Title = item.Title,
+                    MatchingCode = item.MatchingCode,
+                    IsHorizontal = item.Screen.isHorizontal
                 };
                 deviceVMs.Add(b);
             }
@@ -128,23 +134,28 @@ namespace DSS.Controllers
             {
                 //get box list by location ID
                 IBoxService boxService = DependencyUtils.Resolve<IBoxService>();
+                IDeviceService deviceService = DependencyUtils.Resolve<IDeviceService>();
                 IMapper mapper = DependencyUtils.Resolve<IMapper>();
                 var boxs = boxService.Get().ToList();
                 var boxVMs = new List<Models.AndroidBoxVM>();
 
                 foreach (var item in boxs)
                 {
-                    if (item.LocationID == locationId)
+                    //check boxID is being matched
+                    if (deviceService.Get(a => a.BoxID == item.BoxID).FirstOrDefault() == null)
                     {
-                        var b = new Models.AndroidBoxVM
+                        if (item.LocationID == locationId)
                         {
-                            Name = item.BoxName,
-                            Description = item.Description,
-                            BoxId = item.BoxID,
-                            LocationId = item.LocationID,
+                            var b = new Models.AndroidBoxVM
+                            {
+                                Name = item.BoxName,
+                                Description = item.Description,
+                                BoxId = item.BoxID,
+                                LocationId = item.LocationID,
 
-                        };
-                        boxVMs.Add(b);
+                            };
+                            boxVMs.Add(b);
+                        }
                     }
                 }
                 IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
@@ -152,18 +163,22 @@ namespace DSS.Controllers
                 var screenVMs = new List<Models.ScreenVM>();
                 foreach (var item in screens)
                 {
-                    if (item.LocationID == locationId)
+                    //check boxID is being matched
+                    if (deviceService.Get(a => a.ScreenID == item.ScreenID).FirstOrDefault() == null)
                     {
-                        var b = new Models.ScreenVM
+                        if (item.LocationID == locationId)
                         {
-                            Name = item.ScreenName,
-                            Description = item.Description,
-                            ScreenId = item.ScreenID,
-                            LocationId = item.LocationID,
-                            isHorizontal = item.isHorizontal,
-                            
-                        };
-                        screenVMs.Add(b);
+                            var b = new Models.ScreenVM
+                            {
+                                Name = item.ScreenName,
+                                Description = item.Description,
+                                ScreenId = item.ScreenID,
+                                LocationId = item.LocationID,
+                                isHorizontal = item.isHorizontal,
+
+                            };
+                            screenVMs.Add(b);
+                        }
                     }
                 }
                 return Json(new
@@ -177,6 +192,15 @@ namespace DSS.Controllers
                 throw ex;
             }
         }
+
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         // POST: MatchingDevice/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.MatchingDeviceVM model)
@@ -184,6 +208,7 @@ namespace DSS.Controllers
             DateTime aDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
+                var randomString = RandomString(8);
                 var device = new Data.Models.Entities.Device
                 {
                     CreateDatetime = aDateTime,
@@ -192,6 +217,7 @@ namespace DSS.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     BrandID = Helper.GetCurrentUser().BrandID,
+                    MatchingCode = randomString,
                 };
                 await this.deviceService.CreateAsync(device);
                 //return this.RedirectToAction("Index");

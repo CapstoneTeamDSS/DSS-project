@@ -18,6 +18,8 @@ namespace DSS.Models
         public string ScreenName { get; set; }
         public DateTime CreateTime { get; set; }
         public bool IsHorizontal { get; set; }
+        public string Location { get; set; }
+        public string MatchingCode { get; set; }
     }
 
     public class DeviceRefVM

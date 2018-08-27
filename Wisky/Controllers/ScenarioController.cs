@@ -17,6 +17,9 @@ namespace DSS.Controllers
         public ActionResult Index()
         {
             ViewBag.scenariosList = GetScenariosByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -138,7 +141,7 @@ namespace DSS.Controllers
                     LayoutID = model.LayoutId,
                     BrandID = user.BrandID,
                     isPublic = model.IsPublic,
-                    AudioArea = model.AudioArea,
+                    AudioArea = model.AudioArea ?? -1,
                     UpdateDateTime = DateTime.Now,
                 };
                 await this.scenarioService.CreateAsync(scenario);
@@ -161,6 +164,8 @@ namespace DSS.Controllers
                                     LayoutID = scenario.LayoutID,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
+                                Session.Clear();
+                                Session["ADD_RESULT"] = true;
                             }
                         }
                     }
@@ -244,21 +249,26 @@ namespace DSS.Controllers
                     scenario.Title = model.Title;
                     scenario.isPublic = model.IsPublic;
                     scenario.UpdateDateTime = DateTime.Now;
+                    scenario.AudioArea = model.AudioArea ?? -1;
                 }
                 await this.scenarioService.UpdateAsync(scenario);
-                /*Delete items scenario*/
-                IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
-                var ScenarioItems = scenarioItemService.GetItemListByScenarioId(model.ScenarioId);
-                if (ScenarioItems != null)
-                {
-                    foreach (var item in ScenarioItems)
-                    {
-                        await scenarioItemService.DeleteAsync(item);
-                    }
-                }
-                /*Add items to scenario*/
+                /*Delete items of updated areas of scenario*/
                 if (model.PlaylistAreaArr != null)
                 {
+                    IScenarioItemService scenarioItemService = DependencyUtils.Resolve<IScenarioItemService>();
+                    for (int i = 0; i < model.PlaylistAreaArr.Length; i++)
+                    {
+                        /*Delete items of updated areas of scenario*/
+                        var ScenarioItems = scenarioItemService.GetItemListByAreaScenarioId(model.PlaylistAreaArr[i].AreaId, model.ScenarioId);
+                        if (ScenarioItems != null)
+                        {
+                            foreach (var item in ScenarioItems)
+                            {
+                                await scenarioItemService.DeleteAsync(item);
+                            }
+                        }
+                    }
+                    /*Add updated items to scenario*/
                     foreach (var item in model.PlaylistAreaArr)
                     {
                         var i = 0;
@@ -275,6 +285,8 @@ namespace DSS.Controllers
                                     LayoutID = model.LayoutId,
                                 };
                                 await scenarioItemService.CreateAsync(scenarioItem);
+                                Session.Clear();
+                                Session["UPDATE_RESULT"] = true;
                             }
                         }
                     }
@@ -334,6 +346,35 @@ namespace DSS.Controllers
                 ScenarioItemIds = ScenarioItemIds,
             }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult LoadPlaylistItemList(int playlistId)
+        {
+            IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
+            IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
+            var playlistItems = playlistItemService.GetPlaylistItemByPlaylistId(playlistId).OrderBy(a=>a.DisplayOrder);
+            var playlistItemList= new List<DSS.Models.PlaylistItemScenarioVM>();
+            if (playlistItems != null)
+            {
+                foreach (var item in playlistItems)
+                {
+                    var p = new DSS.Models.PlaylistItemScenarioVM
+                    {
+                        mediaSrcId =item.MediaSrcID,
+                        mediaType = item.MediaSrc.TypeID,
+                        URL = item.MediaSrc.URL,
+                        duration = item.Duration,
+                        displayOrder = item.DisplayOrder,
+                    };
+                    playlistItemList.Add(p);
+                }
+            }
+            return Json(new
+            {
+                PlaylistItemList = playlistItemList,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
         public JsonResult LoadPlaylistList()

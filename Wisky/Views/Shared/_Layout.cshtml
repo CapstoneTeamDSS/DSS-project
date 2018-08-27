@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <link rel="shortcut icon" href="~/Content/images/logo-dss-blue.png">
     <title>@ViewBag.Title | </title>
     <!-- Bootstrap -->
     <link href="~/Content/template-material/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,8 +50,8 @@
                                             <a href="@Url.Action("Index", "MediaSrc")"><i class="fa fa-picture-o"></i> @DSS.ResourcesLanguage.MenuText.MediaResourceMng</a>
                                         </li>
                                         @*<li>
-                                            <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
-                                        </li>*@
+                                                <a href="@Url.Action("Index", "Playlist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
+                                            </li>*@
                                         <li>
                                             <a href="@Url.Action("Index", "AdvancedPlaylist")"><i class="fa fa-play"></i> @DSS.ResourcesLanguage.MenuText.PlaylistMng</a>
                                         </li>
@@ -59,8 +59,8 @@
                                             <a href="@Url.Action("Index", "Scenario")"><i class="fa fa-film"></i> @DSS.ResourcesLanguage.MenuText.ScenarioMng</a>
                                         </li>
                                         @*<li>
-            <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
-        </li>*@
+                                                <a href="@Url.Action("Index", "Scheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.Scheduling</a>
+                                            </li>*@
                                         <li>
                                             <a href="@Url.Action("Index", "AdvancedScheduling")"><i class="fa fa-calendar"></i>@DSS.ResourcesLanguage.MenuText.AdvSchedule</a>
                                         </li>
@@ -124,9 +124,6 @@
                                             <a href="@Url.Action("Index", "Layout")"><i class="fa fa-columns"></i>@DSS.ResourcesLanguage.MenuText.LayoutMng</a>
 
                                         </li>
-                                        <li>
-                                            <a href="@Url.Action("Index", "Resolution")"><i class="fa fa-television"></i>@DSS.ResourcesLanguage.MenuText.ResolutionMng</a>
-                                        </li>
                                     }
                                     @if (User.IsInRole("Admin"))
                                     {
@@ -141,14 +138,14 @@
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="My Profile">
+                        <a data-toggle="tooltip" data-placement="top" title="My Profile" href="@Url.Action("GetAccountInformation", "BrandUserMng")">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="English" href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "en" })">
+                            <span aria-hidden="true">EN</span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="Tiếng Việt" href="@Url.Action("Change", "Language", new { LanguageAbbrevation = "vi" })">
+                            <span aria-hidden="true">VI</span>
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="Logout" href="@Url.Action("Logout", "Account")">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -167,25 +164,25 @@
                         </div>
                         <ul class="nav navbar-nav navbar-right">
                             @*<li class="">
-            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
-                <span class=" fa fa-angle-down"></span>
-            </a>
-            <ul class="dropdown-menu dropdown-usermenu pull-right">
-                <li><a href="javascript:;"> Profile</a></li>
-                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-            </ul>
-        </li>*@
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <b></b><i class="fa fa-user fa-4x"></i> @ViewBag.Fullname</b>
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="javascript:;"> Profile</a></li>
+                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    </ul>
+                                </li>*@
                             <li>@Html.ActionLink("Tiếng Việt", "Change", "Language", new { LanguageAbbrevation = "vi" }, null)</li>
-                            
-                            <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbrevation = "en" }, null)</li>                           
+
+                            <li>@Html.ActionLink("English", "Change", "Language", new { LanguageAbbrevation = "en" }, null)</li>
                             <li>
                                 <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-5x"></i> @DSS.ResourcesLanguage.MenuText.Logout </a>
                             </li>
                             <li><a href="@Url.Action("GetAccountInformation", "BrandUserMng")"><i class="fa fa-5x fa-user"></i> @DSS.ResourcesLanguage.MenuText.MyAcc</a></li>
                             <li><a>@DSS.ResourcesLanguage.MenuText.Welcome, <b>@User.Identity.Name</b>!</a></li>
-                            
-                            
+
+
                         </ul>
                     </nav>
                 </div>

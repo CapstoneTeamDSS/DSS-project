@@ -169,7 +169,7 @@ namespace DSS.ResourcesLanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Other File.
+        ///   Looks up a localized string similar to Text File.
         /// </summary>
         public static string TabOtherFile {
             get {
