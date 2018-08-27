@@ -175,41 +175,57 @@
         <script>
             $(".btnDelete").click(function () {
                 var btnDel = $(this);
-                var boxNum = 0;
+                var Id = $(btnDel).attr("data-id");
+                var data = {
+                    id: Id,
+                };
                 $.ajax({
-
-                });
-                swal({
-                    title: $("#sure").val(),
-                    text: $("#recover").val(),
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: '#DD6B55',
-                    confirmButtonText: $("#yes").val(),
-                    cancelButtonText: $("#no").val(),
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            var IdDelete = $(btnDel).attr("data-id");
-                            $(btnDel).attr("href", "/Brand/Delete?Id=" + IdDelete);
-                            $.ajax({
-                                type: "GET",
-                                url: "/Brand/Delete?Id=" + IdDelete,
-                                contentType: 'application/json; charset=utf-8',
-                                success: function (data) {
-                                    swal($("#deleted").val(), $("#del").val(), "success");
-                                    location.reload();
-                                },
-                                error: function () {
-                                    alert($("#err").val())
-                                }
-                            });
+                    type: "POST",
+                    url: "/Brand/CheckBrandIdIsUsed",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.isUsing) {
+                            swal("This brand is being used", "Please delete Brand's data if you want to delete it.", "error");
                         } else {
-                            swal($("#cancel").val(), $("#safe").val(), "error");
+                            swal({
+                                title: "Are you sure ?",
+                                text: "You will not be able to recover this brand",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: '#DD6B55',
+                                confirmButtonText: "Yes, delete it !",
+                                cancelButtonText: "Canceled !",
+                                closeOnConfirm: false,
+                                closeOnCancel: false
+                            },
+                                function (isConfirm) {
+                                    if (isConfirm) {
+                                        var IdDelete = $(btnDel).attr("data-id");
+                                        $(btnDel).attr("href", "/Brand/Delete?Id=" + IdDelete);
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "/Brand/Delete?Id=" + IdDelete,
+                                            contentType: 'application/json; charset=utf-8',
+                                            success: function (data) {
+                                                swal("Deleted !", "Your brand has been deleted", "success");
+                                                location.reload();
+                                            },
+                                            error: function () {
+                                                alert($("#error").val())
+                                            }
+                                        });
+                                    } else {
+                                        swal("Canceled !", "Your brand is safe :)", "error");
+                                    }
+                                });
                         }
-                    });
+                    },
+                    error: function () {
+                        alert($("#error").val());
+                    }
+                });
             });
         </script>
         <!--End Sweet alert-->
