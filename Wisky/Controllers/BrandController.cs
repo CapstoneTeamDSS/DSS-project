@@ -64,7 +64,32 @@ namespace DSS.Controllers
             }
             return brandVMs;
         }
-
+        //TOANTXSE
+        // POST: Brand/CheckBrandIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckBrandIdIsUsed(int id)
+        {
+            bool check = false;
+            try
+            {
+                IAspNetUserService userService = DependencyUtils.Resolve<IAspNetUserService>();
+                var user = userService
+                .Get(a => a.BrandID == id)
+                .FirstOrDefault();
+                if(user != null)
+                {
+                    check = true;
+                }
+                return Json(new
+                {
+                    isUsing = check
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         // GET: Brand/Form/:id
         public ActionResult Form(int? id)
         {
