@@ -37,4 +37,12 @@ namespace DSS.Models
         public int mediaType { get; set; }
     }
 
+    public class PlaylistItemUpdateVM
+    {
+        public int mediaSrcId { get; set; }
+
+        public string duration { get; set; }
+
+    }
+
 }

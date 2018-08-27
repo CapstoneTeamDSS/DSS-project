@@ -142,22 +142,27 @@ namespace DSS.Controllers
         }
 
         [HttpPost]
-        public JsonResult LoadPlaylistItemIds(int playlistId)
+        public JsonResult LoadPlaylistItemVMs(int playlistId)
         {
             IPlaylistItemService playlistItemService = DependencyUtils.Resolve<IPlaylistItemService>();
             IPlaylistService playlistService = DependencyUtils.Resolve<IPlaylistService>();
             var playlistItems = playlistItemService.GetPlaylistItemByPlaylistId(playlistId);
-            var playlistItemIds = new List<int>();
+            var playlistItemVMs = new List<DSS.Models.PlaylistItemUpdateVM>();
             if (playlistItems != null)
             {
                 foreach (var item in playlistItems)
                 {
-                    playlistItemIds.Add(item.MediaSrcID);
+                    var playlistItem = new Models.PlaylistItemUpdateVM
+                    {
+                        mediaSrcId = item.MediaSrcID,
+                        duration = TimeSpan.FromSeconds(item.Duration).ToString(),
+                    };
+                    playlistItemVMs.Add(playlistItem);
                 }
             }
             return Json(new
             {
-                PlaylistItemIds = playlistItemIds,
+                PlaylistItemVMs = playlistItemVMs,
             }, JsonRequestBehavior.AllowGet);
         }
 
@@ -232,7 +237,15 @@ namespace DSS.Controllers
                         else
                         {
                             var duration = TimeSpan.Parse(item.ItemDuration);
-                            playlistItem.Duration = Convert.ToInt32(duration.TotalSeconds);
+                            int timeDuration = Convert.ToInt32(duration.TotalSeconds);
+                            if (timeDuration > 0)
+                            {
+                                playlistItem.Duration = timeDuration;
+                            }
+                            else
+                            {
+                                playlistItem.Duration = 10;
+                            }
                         }
                         await playlistItemService.CreateAsync(playlistItem);
                         Session.Clear();

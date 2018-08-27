@@ -245,7 +245,7 @@
         $(function () {
             $('#imgDuration').timepicker({
                 'timeFormat': 'H:i:s',
-                'step': 1
+                'step': (0.5/3)
             });
         });
     </script>
@@ -283,7 +283,7 @@
                 var type = parseInt($(this).attr('data-type'));
                 var url = $(this).attr('data-url');
                 var currItemDuration = parseInt($(this).attr('data-duration'));
-                var duration = (currItemDuration == 0) ? 5000 : currItemDuration * 1000;
+                var duration = (currItemDuration == 0) ? 10000 : currItemDuration * 1000;
                 setTimeout(show, time, url, type, title, duration);
                 time += duration;
                 function show(url, type, title, duration) {
@@ -501,12 +501,12 @@
             } else {
                 $.ajax({
                     type: "POST",
-                    url: "/AdvancedPlaylist/LoadPlaylistItemIds",
+                    url: "/AdvancedPlaylist/LoadPlaylistItemVMs",
                     data: JSON.stringify(data),
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
-                        renderMediaSrcList(data.PlaylistItemIds);
+                        renderMediaSrcList(data.PlaylistItemVMs);
                     },
                     error: function () {
                         alert($("#error").val())
@@ -514,30 +514,30 @@
                 });
             }
         }
-        function renderMediaSrcList(PlaylistItemIds) {
+        function renderMediaSrcList(PlaylistItemVMs) {
             $("#fromList").find('li').remove().end();
             $("#toList").find('li').remove().end();
             /*Load playlist list*/
             for (var i = 0; i < ResourceList.length; i++) {
                 if (ResourceList[i] != '') {
-                    var isShow = !isInArray(ResourceList[i].MediaSrcId, PlaylistItemIds);
-                    var style = isShow ? "" : " style='display: none' ";
+                    var isShow = isInArray(ResourceList[i].MediaSrcId, PlaylistItemVMs);
+                    var style = isShow>-1 ? "" : " style='display: none' ";
                     console.log(ResourceList[i].Title + "  " + style);
                     $('#fromList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "'"
                         + "data-marked='true'"
                         + style
                         + "data-type='" + ResourceList[i].TypeId + "'"
                         + "data-url='" + ResourceList[i].URL + "'"
-                        + "data-duration='" + 0 + "'"
+                        + "data-duration='00:00:10'"
                         + ">"
                         + "<span id='title'>" + ResourceList[i].Title + "</span>"
                         + "<a onclick='addToPlaylist(this)' style='position:relative; top:-15px; left:0; margin-left:60%' class='btn btn-success btnAddPlaylist' data-video-url='/Content/videos/Relax.mp4'> + </a>"
                         + "</li>");
-                    if (!isShow) {
+                    if (isShow>-1) {
                         $('#toList').append("<li class='ResourceList' onclick='resourceClick(this)' id='fromList_" + ResourceList[i].MediaSrcId + "' data-id='" + ResourceList[i].MediaSrcId + "' "
                             + "data-type='" + ResourceList[i].TypeId + "'"
                             + "data-url='" + ResourceList[i].URL + "'"
-                            + "data-duration='" + 0.5 + "'"
+                            + "data-duration='" + PlaylistItemVMs[isShow].duration+ "'"
                             + ">"
                             + "<span id='title'>" + ResourceList[i].Title + "</span>"
                             //+ "<span id='duration'>" + ResourceList[i].Duration + "</span>"
@@ -550,7 +550,12 @@
             setTimeout(CatchVisualType, 0, selected);
         }
         function isInArray(value, array) {
-            return array.indexOf(value) > -1;
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].mediaSrcId == value) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         /*Add Resource to Playlist*/
@@ -846,4 +851,3 @@
         }
     </style>
 }
-
