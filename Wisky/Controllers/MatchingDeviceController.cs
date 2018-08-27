@@ -38,6 +38,7 @@ namespace DSS.Controllers
                     BoxName = boxService.GetBoxNameByID(item.BoxID),
                     ScreenName = screenService.GetScreenNameByID(item.ScreenID),
                     Title = item.Title,
+                    MatchingCode = item.MatchingCode,
                     IsHorizontal = item.Screen.isHorizontal
                 };
                 deviceVMs.Add(b);
@@ -191,6 +192,15 @@ namespace DSS.Controllers
                 throw ex;
             }
         }
+
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         // POST: MatchingDevice/Add
         [HttpPost]
         public async System.Threading.Tasks.Task<ActionResult> Add(Models.MatchingDeviceVM model)
@@ -198,6 +208,7 @@ namespace DSS.Controllers
             DateTime aDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
+                var randomString = RandomString(8);
                 var device = new Data.Models.Entities.Device
                 {
                     CreateDatetime = aDateTime,
@@ -206,6 +217,7 @@ namespace DSS.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     BrandID = Helper.GetCurrentUser().BrandID,
+                    MatchingCode = randomString,
                 };
                 await this.deviceService.CreateAsync(device);
                 //return this.RedirectToAction("Index");
