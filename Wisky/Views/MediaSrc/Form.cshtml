@@ -15,6 +15,10 @@
     }
 }
 <div class="">
+
+
+    <a href="#" onclick="notify()">Notify</a>
+
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -88,7 +92,7 @@
                         {
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                    <button type="button" class="btn btn-warning" onclick="parent.jQuery.fn.colorbox.close();">@DSS.ResourcesLanguage.MediaSrcAddForm.BtnCancel</button>
+                                    <button type="button" class="btn btn-warning" onclick="history.back();">@DSS.ResourcesLanguage.MediaSrcAddForm.BtnCancel</button>
                                     <button type="button" onclick="checkValidation()" class="btn btn-success">@DSS.ResourcesLanguage.MediaSrcAddForm.BtnSubmit</button>
                                 </div>
                             </div>
@@ -120,7 +124,7 @@
                         .appendTo(cList);
                     var aaa = $('<a/>')
                         .addClass('ui-all')
-                        .text(stringError[i])
+                        .text(stringError[i]) 
                         .css('color', 'red')
                         .appendTo(li);
                 });
@@ -128,7 +132,6 @@
                 $("#frm_mediaSrc").submit();
             }
         }
-
     </script>
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Title" id="title" />
     <input type="hidden" value="@DSS.ResourcesLanguage.GeneralError.Upload" id="upload" />
@@ -163,7 +166,7 @@
     </script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            const apikey = 'Adh8ST4IaTp2r5UGckE72z';
+            const apikey = 'ARkowdrXLROaC84UFQjfoz';
             const client = filestack.init(apikey);
             const options = {
                 //displayMode: 'inline',
@@ -176,7 +179,7 @@
             };
             var picker = client.picker(options);
             var fileHandle = "";
-            //picker.open();            
+            //picker.open();
             function uploadDoneCallBack(res) {
                 var oldUrl = $("#txtMediaURL").val();
                 var oldHandle = oldUrl.replace("https://cdn.filestackcontent.com/", "");
@@ -212,8 +215,8 @@
                     /*Delete previous uploaded file*/
                     //var policy = "eyJjYWxsIjpbInJlbW92ZSJdLCJleHBpcnkiOjE1MzU2NTAyMDB9";
                     //var signature = "3fee6bb7be4e7088b3e7d1b665f589cb5332eecedd19803f9b0fe4ba353de952";
-                    var policy = "eyJjYWxsIjpbInJlYWQiLCJyZW1vdmUiXSwiZXhwaXJ5IjoxNTM1NjUyMDAwfQ==";
-                    var signature = "7084de1113fc2aad1e6736d3c3b2da841a963f123ac28b6395559307df7c38d9";
+                    var policy = "eyJjYWxsIjpbInJlYWQiLCJ3cml0ZSIsInJlbW92ZSJdLCJleHBpcnkiOjE1MzU0NzkyMDB9";
+                    var signature = "f672fb0b330a5ce26abbaec8c4386b84fa6189403f4f25467cec3d206f1fd3f0";
                     var delUrl = "https://www.filestackapi.com/api/file/" + oldHandle + "?key=" + apikey + "&policy=" + policy + "&signature=" + signature;
                     $.ajax({
                         type: "DELETE",

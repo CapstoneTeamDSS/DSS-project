@@ -20,6 +20,9 @@ namespace DSS.Controllers
             var brandVMs = new List<Models.BrandDetailVM>();
             brandVMs = BrandController.GetBrandList();
             ViewBag.brandList = brandVMs;
+            ViewBag.addSuccess = Session["ADD_RESULT"] ?? false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"] ?? false;
+            Session.Clear();
             return View();
         }
 
@@ -61,7 +64,32 @@ namespace DSS.Controllers
             }
             return brandVMs;
         }
-
+        //TOANTXSE
+        // POST: Brand/CheckBrandIdIsUsed  
+        [HttpPost]
+        public JsonResult CheckBrandIdIsUsed(int id)
+        {
+            bool check = false;
+            try
+            {
+                IAspNetUserService userService = DependencyUtils.Resolve<IAspNetUserService>();
+                var user = userService
+                .Get(a => a.BrandID == id)
+                .FirstOrDefault();
+                if(user != null)
+                {
+                    check = true;
+                }
+                return Json(new
+                {
+                    isUsing = check
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         // GET: Brand/Form/:id
         public ActionResult Form(int? id)
         {
@@ -97,6 +125,8 @@ namespace DSS.Controllers
                 };
                 await this.brandService.CreateAsync(brand);
                 //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Brand")),
@@ -120,6 +150,8 @@ namespace DSS.Controllers
                     brand.isActive = model.isActive;
                 }
                 await this.brandService.UpdateAsync(brand);
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Brand")),

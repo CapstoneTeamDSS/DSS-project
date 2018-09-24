@@ -150,8 +150,8 @@
   <data name="PageTitleImg" xml:space="preserve">
     <value>Quản lý Hình ảnh</value>
   </data>
-  <data name="PageTitleOther" xml:space="preserve">
-    <value>Quản lý Tệp khác</value>
+  <data name="PageTitleText" xml:space="preserve">
+    <value>Quản lý Văn bản</value>
   </data>
   <data name="PageTitleVid" xml:space="preserve">
     <value>Quản lý Video</value>
@@ -162,8 +162,8 @@
   <data name="TabImg" xml:space="preserve">
     <value>Hình ảnh</value>
   </data>
-  <data name="TabOther" xml:space="preserve">
-    <value>Tệp khác</value>
+  <data name="TabText" xml:space="preserve">
+    <value>Văn bản</value>
   </data>
   <data name="TabVid" xml:space="preserve">
     <value>Video</value>

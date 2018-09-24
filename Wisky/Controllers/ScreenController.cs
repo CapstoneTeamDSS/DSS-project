@@ -16,8 +16,11 @@ namespace DSS.Controllers
         IMapper mapper = DependencyUtils.Resolve<IMapper>();
         // GET: Screen
         public ActionResult Index()
-        {
+        {          
             ViewBag.screensList = GetScreenIdByBrandId();
+            ViewBag.addSuccess = Session["ADD_RESULT"]??false;
+            ViewBag.updateSuccess = Session["UPDATE_RESULT"]??false;
+            Session.Clear();
             return View();
         }
         //ToanTXSE
@@ -25,11 +28,15 @@ namespace DSS.Controllers
         public static List<Models.ScreenVM> GetScreenIdByBrandId()
         {
             IScreenService screenService = DependencyUtils.Resolve<IScreenService>();
+            ILocationService locationService = DependencyUtils.Resolve<ILocationService>();
             var ScreenVM = new List<Models.ScreenVM>();
             var user = Helper.GetCurrentUser();
             var screenList = screenService.GetScreenIdByBrandId(user.BrandID);
+           
             foreach (var item in screenList)
             {
+                var location = locationService.Get(item.LocationID);
+                var locationString = location.Address + ", Quận " + location.District + ", TP." + location.Province;
                 var m = new Models.ScreenVM
                 {
                     Name = item.ScreenName,
@@ -37,6 +44,7 @@ namespace DSS.Controllers
                     ScreenId = item.ScreenID,
                     isHorizontal = item.isHorizontal,
                     LocationId = item.LocationID,
+                    Location = locationString,
                 };
                 ScreenVM.Add(m);
             }
@@ -66,7 +74,6 @@ namespace DSS.Controllers
         public ActionResult Form(int? id)
         {
             Models.ScreenVM model = null;
-
             if (id != null)
             {
                 var screen = this.screenService.Get(id);
@@ -101,11 +108,13 @@ namespace DSS.Controllers
 
                 };
                 await this.screenService.CreateAsync(screen);
-                return Json(new
+                Session.Clear();
+                Session["ADD_RESULT"] = true;
+                return new ContentResult
                 {
-                    success = true,
-                    url = "/Screen/Index",
-                }, JsonRequestBehavior.AllowGet);
+                    Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),
+                    ContentType = "text/html"
+                };
             }
             return Json(new
             {
@@ -159,7 +168,8 @@ namespace DSS.Controllers
                     screen.LocationID = model.LocationId;
                 }
                 await this.screenService.UpdateAsync(screen);
-                //return this.RedirectToAction("Index");
+                Session.Clear();
+                Session["UPDATE_RESULT"] = true;
                 return new ContentResult
                 {
                     Content = string.Format("<script type='text/javascript'>window.parent.location.href = '{0}';</script>", Url.Action("Index", "Screen")),

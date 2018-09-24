@@ -27,9 +27,13 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                    </p>
+                    @{
+                        // Get session add/update success
+                        var addSuccess = ViewBag.addSuccess;
+                        var updateSuccess = ViewBag.updateSuccess;
+                        <div style="display:none" id="addSuccess">@addSuccess</div>
+                        <div style="display:none" id="updateSuccess">@updateSuccess</div>
+                    }
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -102,6 +106,9 @@
         <script src="~/Content/template-material/vendors/pdfmake/build/pdfmake.min.js"></script>
         <script src="~/Content/template-material/vendors/pdfmake/build/vfs_fonts.js"></script>
         <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+        <!--Show notification when add/update success-->
+        <script src="~/Content/pnotify/pnotify.js"></script>
+        <script src="~/Content/pnotify/pnotify.custom.min.js"></script>
         <!-- iframe button matching-->
         <script src="~/Content/form-matching-device/jquery.colorbox.js"></script>
         <script>
@@ -117,6 +124,26 @@
                     $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
                     return false;
                 });
+                var addrs = $("#addSuccess").html() == "true" || $("#addSuccess").html() == "True";
+                var updaters = $("#updateSuccess").html() == "true" || $("#updateSuccess").html() == "True";
+                $('.ui-pnotify').remove();
+                if (addrs) {
+                    //Show notification when add / update success
+                    new PNotify({
+                        title: 'Success!',
+                        text: 'Add Brand Successful.',
+                        type: 'success'
+                    });
+
+                }
+                if (updaters) {
+                    //Show notification when add / update success
+                    new PNotify({
+                        title: 'Success!',
+                        text: 'Update Brand Successful.',
+                        type: 'success'
+                    });
+                }
             });
         </script>
         <!-- end iframe button matching-->
@@ -148,41 +175,57 @@
         <script>
             $(".btnDelete").click(function () {
                 var btnDel = $(this);
-                var boxNum = 0;
+                var Id = $(btnDel).attr("data-id");
+                var data = {
+                    id: Id,
+                };
                 $.ajax({
-
-                });
-                swal({
-                    title: $("#sure").val(),
-                    text: $("#recover").val(),
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: '#DD6B55',
-                    confirmButtonText: $("#yes").val(),
-                    cancelButtonText: $("#no").val(),
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            var IdDelete = $(btnDel).attr("data-id");
-                            $(btnDel).attr("href", "/Brand/Delete?Id=" + IdDelete);
-                            $.ajax({
-                                type: "GET",
-                                url: "/Brand/Delete?Id=" + IdDelete,
-                                contentType: 'application/json; charset=utf-8',
-                                success: function (data) {
-                                    swal($("#deleted").val(), $("#del").val(), "success");
-                                    location.reload();
-                                },
-                                error: function () {
-                                    alert($("#err").val())
-                                }
-                            });
+                    type: "POST",
+                    url: "/Brand/CheckBrandIdIsUsed",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.isUsing) {
+                            swal("This brand is being used", "Please delete Brand's data if you want to delete it.", "error");
                         } else {
-                            swal($("#cancel").val(), $("#safe").val(), "error");
+                            swal({
+                                title: "Are you sure ?",
+                                text: "You will not be able to recover this brand",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: '#DD6B55',
+                                confirmButtonText: "Yes, delete it !",
+                                cancelButtonText: "Canceled !",
+                                closeOnConfirm: false,
+                                closeOnCancel: false
+                            },
+                                function (isConfirm) {
+                                    if (isConfirm) {
+                                        var IdDelete = $(btnDel).attr("data-id");
+                                        $(btnDel).attr("href", "/Brand/Delete?Id=" + IdDelete);
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "/Brand/Delete?Id=" + IdDelete,
+                                            contentType: 'application/json; charset=utf-8',
+                                            success: function (data) {
+                                                swal("Deleted !", "Your brand has been deleted", "success");
+                                                location.reload();
+                                            },
+                                            error: function () {
+                                                alert($("#error").val())
+                                            }
+                                        });
+                                    } else {
+                                        swal("Canceled !", "Your brand is safe :)", "error");
+                                    }
+                                });
                         }
-                    });
+                    },
+                    error: function () {
+                        alert($("#error").val());
+                    }
+                });
             });
         </script>
         <!--End Sweet alert-->
@@ -204,4 +247,7 @@
         <!--Sweet alert-->
         <link rel='stylesheet' href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
         <!--End Sweet alert-->
+        <!--Show notification when add/update success-->
+        <link rel="stylesheet" href="~/Content/pnotify/pnotify.css" />
+        <link rel="stylesheet" href="~/Content/pnotify/pnotify.custom.min.css" />
     }

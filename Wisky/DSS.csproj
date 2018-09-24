@@ -1733,6 +1733,8 @@
     <Content Include="Content\plugins\swal\sweetalert-dev.js" />
     <Content Include="Content\plugins\swal\sweetalert.css" />
     <Content Include="Content\plugins\swal\sweetalert.min.js" />
+    <Content Include="Content\pnotify\pnotify.custom.min.css" />
+    <Content Include="Content\pnotify\pnotify.custom.min.js" />
     <Content Include="Content\vendors\pnotify.custom.min.css" />
     <Content Include="Content\vendors\pnotify.custom.min.js" />
     <Content Include="Content\pnotify\pnotify.css" />

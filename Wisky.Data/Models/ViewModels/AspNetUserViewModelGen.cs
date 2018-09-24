@@ -16,6 +16,8 @@ namespace DSS.Data.Models.ViewModels
     {
     	
     			public virtual string Id { get; set; }
+    			public virtual int BrandID { get; set; }
+    			public virtual string UserName { get; set; }
     			public virtual string FullName { get; set; }
     			public virtual string Email { get; set; }
     			public virtual bool EmailConfirmed { get; set; }
@@ -27,8 +29,6 @@ namespace DSS.Data.Models.ViewModels
     			public virtual Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
     			public virtual bool LockoutEnabled { get; set; }
     			public virtual int AccessFailedCount { get; set; }
-    			public virtual string UserName { get; set; }
-    			public virtual int BrandID { get; set; }
     			public virtual bool isActive { get; set; }
     	
     	public AspNetUserViewModel() : base() { }
